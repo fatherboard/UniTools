@@ -1,6 +1,6 @@
 # UniTools
 
-<img src="https://github.com/fatherboard/UniTools/blob/master/Logo/UniTools%20Logo.png"/>
+<img height="42" width="42" src="https://github.com/fatherboard/UniTools/blob/master/Logo/UniTools%20Logo.png"/>
 
 Logo color codes: 
 
