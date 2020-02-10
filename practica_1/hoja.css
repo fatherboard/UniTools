@@ -1,4 +1,11 @@
-* {
-    background-color: #407f88; 
+body {
+    background-color: #005567; 
     font-family: sans-serif;
+}
+
+button {
+    background-color: darkslategray;
+    color:aqua;
+    font-family: sans-serif;
+    border-color: darkslategray;
 }
