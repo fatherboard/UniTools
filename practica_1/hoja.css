@@ -1,5 +1,32 @@
+.header {
+    background-image: url(PaperCrumpled0004_1_350.jpg);
+    padding: 5px;
+    border-style: double;
+    border-radius: 5px 20px 5px;
+    margin: 10px;
+    text-align: center;
+}
+
+.navbar {
+    background-color: rgb(32, 32, 32);
+    overflow: hidden;
+}
+
+.navbar a{
+    float: left;
+    display: block;
+    color: gray;
+    text-align: center;
+    padding: 10px 15px;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    background-color: rgb(224, 224, 224);
+}
+
 body {
-    background-color: #005567; 
+    background-color: #ffffff; 
     font-family: sans-serif;
 }
 
