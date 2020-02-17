@@ -6,22 +6,53 @@
     <title>CONTACTO</title>
  </head>
  <body>
-    <a href="index.html"><img src="../Logos/UniTools Logo/UniTools Logo.png" alt="UniTools" width="80" height="80"></a>
-    <h1>Contactos</h1>
-    <h3>tba</h3>
+	
+	<div class="header">
+		<a href="index.html"><img src="../Logos/UniTools Logo/UniTools Logo.png" alt="UniTools" width="120"></a>
+	 </div>
+  
+	 <div class="navbar">
+		<a href="index.html">Inicio</a>
+		<a href="detalles.html">Detalles</a>
+		<a href="miembros.html">Equipo</a>
+		<a href="bocetos.html">Bocetos</a>
+		<a href="contacto.html">Contacto</a>
+  
+	 </div>
 
-    <form action="http://www.miweb.com/procesaform.php" method="post">
-	<p>Escribe tu nombre:
-	<input type="text" name="nombre" value="" /></p>
-	<input type="submit" value="Enviar" />
-	</form>
 
-
-	Motivo de la consulta  <br/>
-	<input type="radio" name="motivo" value="Evaluación" checked/> Evaluación
+    <h1>Contacto</h1>
+   
+	<br>
+	<fieldset>
+	<legend>Información del formulario:</legend>
+	<br>
+	Nombre y Apellidos: <br> <input type="text" size="50"><br><br>
+	E‐mail:<br> <input type="text" size="50"><br>	
+	<br>
+	Motivo de la consulta:  <br/>
+	<input type="radio" name="motivo" value="Evaluación" /> Evaluación
 	<input type="radio" name="motivo" value="Sugerencias" /> Sugerencias
 	<input type="radio" name="motivo" value="Críticas" /> Críticas
+	<br>
+	<br>
 
+	<input name="verificar" type="checkbox" value="aceptado" />	
+	Marque esta casilla para verificar que ha leído nuestros términos y condiciones de servicio <br/>
+	
+
+	<br>
+	<input name="verificar spam" type="checkbox" value="aceptar" checked />
+	Deseo recibir información sobre nuevas actualizaciones
+	
+		
+	<br>	
+	<br>
+	Consulta <br/>
+	<textarea name="Consulta" rows="4" cols="50">
+	Escriba aquí la información...
+	</textarea>
+	</fieldset>
 
  </body>
 </html>
