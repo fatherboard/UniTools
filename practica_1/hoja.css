@@ -25,6 +25,16 @@
     background-color: rgb(224, 224, 224);
 }
 
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    background-color: black;
+    color: wheat;
+    text-align: center;
+    width: 100%;
+}
+
 body {
     background-color: #ffffff; 
     font-family: sans-serif;
