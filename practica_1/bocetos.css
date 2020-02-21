@@ -1,7 +1,7 @@
 .bocetos {
     width: 70%;
-    border-style: double;
     border-radius: 10%;
+    border: 0;
 }
 
 .cBocetos {
@@ -9,8 +9,8 @@
 }
 
 .container {
-    box-shadow: grey;
-    background-color: pink; 
+    margin: 10px 50px;
     
-<!-- You will not be able to see this text. -->
+    box-shadow: grey;
+    border-style: groove;
 }
