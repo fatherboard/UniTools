@@ -1,0 +1,9 @@
+.bocetos {
+    width: 70%;
+    border-style: double;
+    border-radius: 10%;
+}
+
+.cBocetos {
+    text-align: center;
+}

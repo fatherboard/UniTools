@@ -1,34 +1,9 @@
 <!DOCTYPE html>
 <html>
  <head>
-    <style>
-       html,body {
-          height:100%
-         }
-         img.pg_inicio {
-         height: 70%;
-         width: 50%;
-         }
-         img.pg_proyecto {
-         height: 70%;
-         width: 50%;
-         }
-         img.pg_foro {
-         height: 70%;
-         width: 50%;
-         }
-         img.pg_mensajes {
-         height: 70%;
-         width: 50%;
-         }
-         img.pg_tools {
-         height: 70%;
-         width: 50%;
-         }
-         
 
-    </style>
-    <link rel="stylesheet" type="text/css" href="hoja.css">
+    <link rel="stylesheet"  href="hoja.css">
+    <link rel="stylesheet"  href="bocetos.css">
     <meta charset="UTF-8">
     <title>BOCETOS</title>
  </head>
@@ -47,23 +22,58 @@
 
    </div>
 
-    <h1>Bocetos</h1>
-    <p>Página de inicio</p>
-    <br>
-    <img class="pg_inicio" src="..\Bocetos\1_main.jpg" height="300" width="300" alt="Página_inicio">
-    <p> descrición de la primera foto</p>
-    <br>
-    <img class="pg_proyecto" src="..\Bocetos\2_proyectos.jpg" height="300" width="300" alt="Página_proyecto">
-    <p> descrición de la segunda foto</p>
-    <br>
-    <img class="pg_foro" src="..\Bocetos\3_foro.jpg" height="300" width="300" alt="Página_foro">
-    <p> descrición de la tercera foto</p>
-    <br>
-    <img class="pg_mensajes" src="..\Bocetos\4_mensajes.jpg" height="300" width="300" alt="Página_mensajes">
-    <p> descrición de la cuarta foto</p>
-    
-    <img class="pg_tools" src="..\Bocetos\5_herramientas.jpg" height="300" width="300" alt="Página_tools">
-    <p> descrición de la quinta foto</p>
-    <br>
+   <div class="cBocetos">
+   <h1>Bocetos</h1>
+      <div class="container">
+         <h3>Página de inicio</h3>
+         <br>
+            <figure>
+               <img class="bocetos" src="..\Bocetos\1_main.jpg" alt="Página_inicio">
+               <figcaption> descrición de la primera foto</figcaption>
+            </figure>
+         
+      </div>
+   <br>
+      <div class="container">
+         <h3>Página de Proyectos</h3>
+         <br>
+            <figure>
+               <img class="bocetos" src="..\Bocetos\2_proyectos.jpg"  alt="Página_proyecto">
+               <figcaption> descrición de la segunda foto</figcaption>
+            </figure>
+         
+      </div>
+   <br>
+      <div class="container">
+         <h3>Página del Foro</h3>
+         <br>
+            <figure>
+               <img class="bocetos" src="..\Bocetos\3_foro.jpg" alt="Página_foro">
+               <figcaption> descrición de la tercera foto</figcaption>
+            </figure>
+        
+      </div>
+   <br>
+      <div class="container">
+         <h3>Página de Mensajes</h3>
+         <br>
+            <figure>
+               <img class="bocetos" src="..\Bocetos\4_mensajes.jpg" alt="Página_mensajes">
+               <figcaption> descrición de la cuarta foto</figcaption>
+            </figure>
+         
+      </div>
+   <br>
+      <div class="container">
+         <h3>Página de Herramientas</h3>
+         <br>
+            <figure>
+               <img class="bocetos" src="..\Bocetos\5_herramientas.jpg"  alt="Página_tools">
+               <figcaption> descrición de la quinta foto</figcaption>
+            </figure>
+         
+      </div>
+
+   </div>
  </body>
 </html>
