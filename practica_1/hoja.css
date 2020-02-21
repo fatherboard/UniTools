@@ -1,7 +1,7 @@
 .header {
-    background-image: url(PaperCrumpled0004_1_350.jpg);
+    background-image: url(multimedia/PaperCrumpled0004_1_350.jpg);
     padding: 5px;
-    border-style: double;
+    border-style: outset;
     border-radius: 5px 20px 5px;
     margin: 10px;
     text-align: center;
@@ -11,12 +11,13 @@
 .navbar {
     background-color: rgb(32, 32, 32);
     overflow: hidden;
+    border-style: outset;
 }
 
 .navbar a{
     float: left;
     display: block;
-    color: gray;
+    color: rgb(185, 182, 182);
     text-align: center;
     padding: 10px 15px;
     text-decoration: none;
@@ -37,8 +38,29 @@
     width: 100%;
 }
 
+.container {
+    margin: 10px 50px;
+    padding: 5px;
+    text-align: center;
+    box-shadow: grey;
+    border-style: groove;
+    background-color: blanchedalmond;
+}
+
+.imagen_circular {
+    
+    width: 60%;
+    border-radius: 100%;
+    border-style: groove;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+
 body {
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
     font-family: sans-serif;
 }
 
@@ -50,5 +72,9 @@ button {
 }
 
 h1 {
+    text-align: center;
+}
+
+h3 {
     text-align: center;
 }
