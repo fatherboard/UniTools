@@ -7,3 +7,10 @@
 .cBocetos {
     text-align: center;
 }
+
+.container {
+    box-shadow: grey;
+    background-color: pink; 
+    
+<!-- You will not be able to see this text. -->
+}
