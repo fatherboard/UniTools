@@ -43,11 +43,11 @@
 				<br>
 				</div>
 
-				<input name="verificar" type="checkbox" value="aceptado" required/>	
+				<input name="verificar" type="checkbox" value="aceptado" id="terminosLeídos" required/>	
 				Marque esta casilla para verificar que ha leído nuestros términos y condiciones de servicio <br/>
 				
 				<br>
-				<input name="verificar spam" type="checkbox" value="aceptar" checked />
+				<input name="verificar spam" type="checkbox" value="aceptar" id="spam" checked/>
 
 				Deseo recibir información sobre nuevas actualizaciones
 									
@@ -60,15 +60,16 @@
 
 				<script>
                 		function myFunction(){
+							var esVálido = true;
 							var NombreApellido = document.getElementById("NombreApellido").value;
 							var email = document.getElementById("email").value.indexOf("@");
+
 							var firmado = "\n\nFirmado:\n";
 							var yourMessage = document.getElementById("consulta").value;
 							yourMessage = yourMessage.concat(firmado.concat(NombreApellido)); 
 	
 							var motivo = document.getElementById("motivos").value;
 							var motivo_seleccionado;
-
 							if(document.getElementById('motivoEvaluación').checked)
 							{
 								motivo_seleccionado = document.getElementById('motivoEvaluación').value;
@@ -81,10 +82,18 @@
 							{
 								motivo_seleccionado = document.getElementById('motivoCríticas').value;
 							}
+							
+							if (!document.getElementById('terminosLeídos').checked)
+							{
+								esVálido = false;
+							}
 
+							if (Boolean(esVálido))
+							{
 							document.location.href = "mailto:unitools2020@hotmail.com?subject="
 							+ encodeURIComponent(motivo_seleccionado)
 							+ "&body=" + encodeURIComponent(yourMessage);
+							}	
                 		}
 
         			</script>
