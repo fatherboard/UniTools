@@ -35,11 +35,13 @@
 
 				Motivo de la consulta:  
 				<br/>
-				<input type="radio" name="motivo" value="Evaluación" /> Evaluación
-				<input type="radio" name="motivo" value="Sugerencias" /> Sugerencias
-				<input type="radio" name="motivo" value="Críticas" /> Críticas
+				<div id="motivos">
+				<input type="radio" id="motivoEvaluación"	name="motivo"	value="Evaluación" 	/> Evaluación
+				<input type="radio" id="motivoSugerencias"	name="motivo"   value="Sugerencias"	/> Sugerencias
+				<input type="radio" id="motivoCríticasname"	name="motivo" 	value="Críticas" 	/> Críticas
 				<br>
 				<br>
+				</div>
 
 				<input name="verificar" type="checkbox" value="aceptado" required/>	
 				Marque esta casilla para verificar que ha leído nuestros términos y condiciones de servicio <br/>
@@ -54,24 +56,36 @@
 				Consulta <br/>
 				<textarea placeholder="Escriba aquí su mensaje..." name="Consulta" id="consulta" rows="4" cols="50"></textarea>
 				<br><br>
-				<button type="submit" onclick="myFunction()" > Enviar </button>
+				<button type="submit" onclick="myFunction()"> Enviar </button>
+
 				<script>
                 		function myFunction(){
-                        		var NombreApellido = document.getElementById("NombreApellido").value;
-                        		var email = document.getElementById("email").value.indexOf("@");
-					var firmado = "\n\n Firmado: \n\n";
-					var yourMessage = document.getElementById("consulta").value;
-					yourMessage = yourMessage.concat(firmado.concat(NombreApellido)); 
-					var motivo = "MOTIVO"
-
-    					document.location.href = "mailto:unitools2020@hotmail.com?subject="
-        				+ encodeURIComponent(motivo))
-        				+ "&body=" + encodeURIComponent(yourMessage);
+							var NombreApellido = document.getElementById("NombreApellido").value;
+							var email = document.getElementById("email").value.indexOf("@");
+							var firmado = "\n\n Firmado: \n\n";
+							var yourMessage = document.getElementById("consulta").value;
+							yourMessage = yourMessage.concat(firmado.concat(NombreApellido)); 
+	
+							var motivo = document.getElementById('motivos').value;
+							var motivo_seleccionado;
+							if(motivo == 'Evaluación')
+							{
+								motivo_seleccionado = document.getElementById('motivoEvaluación').value;
+							}
+							else if(motivo == 'Sugerencias')
+							{
+								motivo_seleccionado = document.getElementById('motivoSugerencias').value;
+							}
+							else if(motivo == 'Críticas')
+							{
+								motivo_seleccionado = document.getElementById('motivoCríticas').value;
+							}
+							document.location.href = "mailto:unitools2020@hotmail.com?subject="
+							+ encodeURIComponent(motivo_seleccionado)
+							+ "&body=" + encodeURIComponent(yourMessage);
                 		}
 
         			</script>
-				
-			
 			</form>
 	</fieldset>
 
