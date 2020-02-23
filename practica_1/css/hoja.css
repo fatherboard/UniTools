@@ -49,6 +49,16 @@
     background-color: rgb(201, 162, 162);
 }
 
+.text-container {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 5px;
+    text-align: center;
+    box-shadow: grey;
+    border-style: groove;
+    background-color: rgb(201, 162, 162);
+}
+
 .spacing {
     margin: 4em;
 }
@@ -61,7 +71,7 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
-
+    margin-bottom: 4em;
     
 }
 
@@ -106,3 +116,16 @@ p{
     text-align: center;
 }
 
+.bocetos {
+    width: 70%;
+    border-radius: 10%;
+    border: 0;
+}
+
+.cBocetos {
+    text-align: center;
+}
+
+figcaption {
+    margin-top: 1em;
+}
