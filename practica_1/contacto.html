@@ -18,10 +18,8 @@
 		<a href="bocetos.html">Bocetos</a>
 		<a href="planificacion.html">Planificación</a>
 		<a href="contacto.html">Contacto</a>
-		
-  
+		  
 	 </div>
-
 
     <h1>Contacto</h1>
    
@@ -29,8 +27,7 @@
 	<fieldset>
 		<legend>Información del formulario:</legend>
 		<br>
-			<form action = "/contacto.html"
-			onsubmit = "return myFunction()">
+			<form>
 
 				Nombre y Apellidos: <br> <input placeholder="Nombre y apellidos" type="text" id="NombreApellido" size="50"><br><br>
 				E‐mail:<br> <input placeholder="E-mail" type="text" id="email" size="50"><br>	
@@ -44,7 +41,7 @@
 				<br>
 				<br>
 
-				<input name="verificar" type="checkbox" value="aceptado" />	
+				<input name="verificar" type="checkbox" value="aceptado" required/>	
 				Marque esta casilla para verificar que ha leído nuestros términos y condiciones de servicio <br/>
 				
 				<br>
@@ -57,32 +54,26 @@
 				Consulta <br/>
 				<textarea placeholder="Escriba aquí su mensaje..." name="Consulta" id="consulta" rows="4" cols="50"></textarea>
 				<br><br>
-				<button type="submit"> Enviar </button>
+				<button type="submit" onclick="myFunction()" > Enviar </button>
+				<script>
+                		function myFunction(){
+                        		var NombreApellido = document.getElementById("NombreApellido").value;
+                        		var email = document.getElementById("email").value.indexOf("@");
+					var firmado = "\n\n Firmado: \n\n";
+					var yourMessage = document.getElementById("consulta").value;
+					yourMessage = yourMessage.concat(firmado.concat(NombreApellido)); 
+					var motivo = "MOTIVO"
+
+    					document.location.href = "mailto:unitools2020@hotmail.com?subject="
+        				+ encodeURIComponent(motivo))
+        				+ "&body=" + encodeURIComponent(yourMessage);
+                		}
+
+        			</script>
 				
 			
 			</form>
 	</fieldset>
-
-	<script>
-		function myFunction(){
-			var NombreApellido = document.getElementById("NombreApellido").value;
-			var email = document.getElementById("email").value.indexOf("@");
-			var consulta = document.getElementById("consulta").value;
-			submitOK = "true";
-			<a href="mailto: unitools2020@hotmail.com?subject=Formulario?body=+ $('consulta').val()">Send email</a>
-		
-			window.print(consulta);
-			
-
-			
-		}
-
-
-
-	</script>
-
-	
-
 
 	<div class="footer">
         <p>UniTools 2020 - Aplicaciones Web - Grupo B</p>
