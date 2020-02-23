@@ -29,7 +29,7 @@
 }
 
 .footer {
-    position: relative;
+    position: fixed;
     left: 0;
     bottom: 0;
     background-color: black;
@@ -56,6 +56,7 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 4em;
     
 }
 
