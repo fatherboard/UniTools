@@ -32,7 +32,7 @@
     position: fixed;
     left: 0;
     bottom: 0;
-    padding: 0.5rem;
+    
     background-color: black;
     color: wheat;
     text-align: center;
@@ -46,7 +46,11 @@
     text-align: center;
     box-shadow: grey;
     border-style: groove;
-    background-color: blanchedalmond;
+    background-color: rgb(201, 162, 162);
+}
+
+.spacing {
+    margin: 4em;
 }
 
 .imagen_circular {
@@ -57,9 +61,22 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 4em;
+
     
 }
+
+.photo {
+    text-align: center;
+    display: block;
+    border-radius: 50%;
+    width: 250px;
+    height: 250px;
+    padding-top: 1em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
 
 table, th, td {
   border: 1px solid black;
@@ -81,10 +98,11 @@ h1 {
     text-align: center;
 }
 
-h3 {
+h2, h3, h4 {
     text-align: center;
 }
 
 p{
     text-align: center;
 }
+
