@@ -1,0 +1,122 @@
+.header {
+    background-image: url(../img/PaperCrumpled0004_1_350.jpg);
+    padding: 5px;
+    border-style: outset;
+    border-radius: 5px 20px 5px;
+    margin: 10px;
+    text-align: center;
+    
+}
+
+.navbar {
+    background-color: rgb(32, 32, 32);
+    overflow: hidden;
+    border-style: outset;
+}
+
+.navbar a{
+    float: left;
+    display: block;
+    color: rgb(185, 182, 182);
+    text-align: center;
+    padding: 10px 15px;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    background-color: rgb(224, 224, 224);
+    color: black;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    
+    background-color: black;
+    color: wheat;
+    text-align: center;
+    width: 100%;
+   
+}
+
+.container {
+    margin: 10px;
+    padding: 5px;
+    text-align: center;
+    box-shadow: grey;
+    border-style: groove;
+    background-color: rgb(201, 162, 162);
+}
+
+.spacing {
+    margin: 4em;
+}
+
+.imagen_circular {
+    
+    width: 60%;
+    border-radius: 100%;
+    border-style: groove;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 4em;
+    
+}
+
+.photo {
+    text-align: center;
+    display: block;
+    border-radius: 50%;
+    width: 250px;
+    height: 250px;
+    padding-top: 1em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+table, th, td {
+  border: 1px solid black;
+}
+
+body {
+    background-color: rgb(255, 255, 255);
+    font-family: sans-serif;
+}
+
+button {
+    background-color: darkslategray;
+    color:aqua;
+    font-family: sans-serif;
+    border-color: darkslategray;
+}
+
+h1 {
+    text-align: center;
+}
+
+h2, h3, h4 {
+    text-align: center;
+}
+
+p{
+    text-align: center;
+    
+}
+
+.bocetos {
+    width: 70%;
+    border-radius: 10%;
+    border: 0;
+}
+
+.cBocetos {
+    text-align: center;
+}
+
+figcaption {
+    margin-top: 1em;
+}
