@@ -11,12 +11,17 @@
 
 	function convertir_hex($str) {
     		$return = '';
-    		for($i = 0; $i < strlen($str); $i++) {
+    		if (!is_numeric($str)){
+	  		echo 'alert("Sólo puedes usar números.")'; 
+	  	}
+	  	for($i = 0; $i < strlen($str); $i++) {
     		    	$return .= '&#x'.bin2hex(substr($str, $i, 1)).';';
     		}
     	   return $return;
 	}
 	?>
+	
+
 </head>
     
     <body>
