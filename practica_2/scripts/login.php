@@ -8,6 +8,7 @@
 
 <body>
 
+<!-- Principio de la estructura de la página (contenedor) -->
 <div id="contenedor">
 
 	<?php 
@@ -15,6 +16,7 @@
 	require("../estructura/menu.php") ;
 	?>
 
+    <!-- Principio del contenido  de esta página en particular -->
 	<div id="contenido">
    <form name="login" method="post" action = "procesarLogin.php">
     <table><tr><td>

@@ -11,7 +11,7 @@
 
 <body>
 
-<!-- Principio del contenedor -->
+<!-- Principio de la estructura de la página (contenedor) -->
 <div id="contenedor">
 
 	<?php 
@@ -19,7 +19,7 @@
 	require("../estructura/menu.php");
 	?>
 
-	<!-- Principio del contenido -->
+	<!-- Principio del contenido  de esta página en particular -->
 	<div id="contenido">
         <div>
         <h1>Herramientas</h1>
@@ -70,7 +70,7 @@
         }      
         */ 
         ?>
-    </div>
+    </div> <!-- Fin del contenido -->
 
     <?php 
 	include("../estructura/pie.php");

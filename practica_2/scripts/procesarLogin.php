@@ -34,6 +34,7 @@
 
 <body>
 
+<!-- Principio de la estructura de la página (contenedor) -->
 <div id="contenedor">
 
 	<?php 
@@ -41,6 +42,7 @@
 	require("../menu.php") ;
 	?>
 
+    <!-- Principio del contenido  de esta página en particular -->
 	<div id="contenido">
         <?php
             if(!isset($_SESSION["login"])) //wrong user
