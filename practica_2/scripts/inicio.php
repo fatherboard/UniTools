@@ -8,13 +8,15 @@
 
 <body>
 
+<!-- Principio del contenedor -->
 <div id="contenedor">
 
 	<?php 
-	require("../cabecera.php") ;
-	require("../menu.php") ;
+	require("../estructura/cabecera.php");
+	require("../estructura/menu.php");
 	?>
 
+	<!-- Principio del contenido -->
 	<div id="contenido">
 	<?php 
 	//introducir aquí el texto de la página principal
@@ -22,9 +24,10 @@
 	echo "<p> Aquí podrás encontrar... </p>";
 	?>
 	</div>
+	<!-- Fin del contenido -->
 
 	<?php 
-	include("pie.php");
+	include("../estructura/pie.php");
 	?>
 
 </div> <!-- Fin del contenedor -->

@@ -7,5 +7,5 @@
 </head>
 
 <div class="header">
-    <a href="index.html"><img src="../practica_2/img/UniTools.png" alt="UniTools" width="120"></a>
+    <a href="../estructura/inicio.php"><img src="../img/UniTools.png" alt="UniTools" width="120"></a>
 </div>
