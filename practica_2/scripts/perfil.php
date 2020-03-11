@@ -16,11 +16,11 @@
 	require("../estructura/menu.php");
 	?>
 
-    <!-- Principio del contenido/funcionalidad de registro -->
+    <!-- Principio del contenido/funcionalidad del perfil -->
 	<div id="contenido">
 	<?php 
-    //introducir aquí el contenido de registro
-    
+    //introducir aquí el contenido del perfil
+    echo"<h1>Testo de prueba</h1>";
 	?>
 	</div>
 	<!-- Fin del contenido -->

@@ -16,11 +16,11 @@
 	require("../estructura/menu.php");
 	?>
 
-    <!-- Principio del contenido/funcionalidad de registro -->
+    <!-- Principio del contenido/ funcionalidad del foro -->
 	<div id="contenido">
 	<?php 
-    //introducir aquí el contenido de registro
-    
+    //introducir aquí el contenido del foro
+    echo"<h1>Texto de prueba</h1>";
 	?>
 	</div>
 	<!-- Fin del contenido -->
