@@ -37,8 +37,9 @@
 
     </div>
 
+    
     <?php
-
+    /*  //Arreglar, da errorers en los comandos a partir de la linea 47
         // Aquí van algunas herramientas -->
 
         function convertir_hex() {
@@ -63,7 +64,8 @@
                            echo $words[$x];
                            echo "<br>";
                 }
-        }       
+        }      
+        */ 
         ?>
 
 
