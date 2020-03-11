@@ -19,7 +19,7 @@
 	require("../estructura/menu.php");
 	?>
 
-	<!-- Principio del contenido  de esta página en particular -->
+	<!-- Principio del contenido/ funcionalidad de herramientas -->
 	<div id="contenido">
         <div>
         <h1>Herramientas</h1>
@@ -42,7 +42,7 @@
 
         <?php
         /*
-        //Arreglar, da errorers en los comandos a partir de la linea 47
+        //Arreglar, da errorers en los comandos a partir de la linea 50
         // Aquí van algunas herramientas -->
 
         function convertir_hex() {

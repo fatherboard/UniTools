@@ -42,7 +42,7 @@
 	require("../menu.php") ;
 	?>
 
-    <!-- Principio del contenido  de esta página en particular -->
+   <!-- Principio del contenido/funcionalidad de procesar login -->
 	<div id="contenido">
         <?php
             if(!isset($_SESSION["login"])) //wrong user
@@ -55,7 +55,8 @@
             }
             ?>
     </div>
-    
+    <!-- Fin del contenido -->
+
     <?php 
 	include("../estructura/pie.php");
 	?>

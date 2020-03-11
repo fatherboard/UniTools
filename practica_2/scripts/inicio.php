@@ -16,7 +16,7 @@
 	require("../estructura/menu.php");
 	?>
 
-	<!-- Principio del contenido  de esta página en particular -->
+	<!-- Principio del contenido de inicio -->
 	<div id="contenido">
 	<?php 
 	//introducir aquí el texto de la página principal

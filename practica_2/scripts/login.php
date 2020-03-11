@@ -16,7 +16,7 @@
 	require("../estructura/menu.php") ;
 	?>
 
-    <!-- Principio del contenido  de esta página en particular -->
+   <!-- Principio del contenido/funcionalidad de login -->
 	<div id="contenido">
    <form name="login" method="post" action = "procesarLogin.php">
     <table><tr><td>
