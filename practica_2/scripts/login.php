@@ -27,12 +27,15 @@
     <input type="submit" value = "Enviar">
     
     </form>
-	</div>
+    </div>
+    <!-- Fin del contenido -->
+
     <?php 
 	include("../estructura/pie.php");
 	?>
 
-</div> <!-- Fin del contenedor -->
+</div> 
+<!-- Fin del contenedor -->
 
 </body>
 </html>
