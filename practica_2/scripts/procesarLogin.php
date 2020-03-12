@@ -26,42 +26,42 @@
 ?>
 <!DOCTYPE html>
 <html>
-<head>
-	<link rel="stylesheet" type="text/css" href="../css/hoja.css" />
-	<meta charset="utf-8">
-	<title>Inicio</title>
-</head>
+    <head>
+        <link rel="stylesheet" type="text/css" href="../css/hoja.css" />
+        <meta charset="utf-8">
+        <title>Inicio</title>
+    </head>
 
-<body>
+    <body>
 
-<!-- Principio de la estructura de la página (contenedor) -->
-<div id="contenedor">
+        <!-- Principio de la estructura de la página (contenedor) -->
+        <div id="contenedor">
 
-	<?php 
-	require("../cabecera.php") ;
-	require("../menu.php") ;
-	?>
-
-   <!-- Principio del contenido/funcionalidad de procesar login -->
-	<div id="contenido">
-        <?php
-            if(!isset($_SESSION["login"])) //wrong user
-            {
-                echo"<h1>¡Se ha producido un error!</h1>";
-                echo"<p> Por favor, revisa los datos introducidos e intentelo de nuevo. </p>";
-            }
-            else{
-                header("Location:inicio.php");
-            }
+            <?php 
+                require("../cabecera.php") ;
+                require("../menu.php") ;
             ?>
-    </div>
-    <!-- Fin del contenido -->
 
-    <?php 
-	include("../estructura/pie.php");
-	?>
+           <!-- Principio del contenido/funcionalidad de procesar login -->
+            <div id="contenido">
+                <?php
+                    if(!isset($_SESSION["login"])) //wrong user
+                    {
+                        echo"<h1>¡Se ha producido un error!</h1>";
+                        echo"<p> Por favor, revisa los datos introducidos e intentelo de nuevo. </p>";
+                    }
+                    else{
+                        header("Location:inicio.php");
+                    }
+                ?>
+            </div>
+            <!-- Fin del contenido -->
 
-</div> <!-- Fin del contenedor -->
+            <?php 
+                include("../estructura/pie.php");
+            ?>
 
-</body>
+        </div> <!-- Fin del contenedor -->
+
+    </body>
 </html>
