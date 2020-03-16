@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -25,6 +28,9 @@
                 Password: </td> <td><input type="password" name = "password"></td></tr>
                 </table>
                 <input type="submit" value = "Enviar">
+                <?php
+                //header("Location:procesarLogin.php");
+                ?>
             </form>
         </div>
         <!-- Fin del contenido -->

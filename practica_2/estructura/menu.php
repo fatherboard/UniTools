@@ -2,7 +2,7 @@
 
 <div class="navbar">
     <?php
-            session_start();
+            
             if(!isset($_SESSION["login"]) || !($_SESSION["login"])) 
             {
                 echo"<div align='left|justify'>";

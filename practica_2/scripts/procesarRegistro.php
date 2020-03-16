@@ -7,29 +7,31 @@
     trim -> elimina espacios en blanco de la izquierda o derecha 
     strip_tags -> elimina tags de HTML, XML y PHP
     */
+    $servername = 'localhost';
     $username = htmlspecialchars(trim(strip_tags($_REQUEST["username"])));
+    $email = htmlspecialchars(trim(strip_tags($_REQUEST["email"])));
     $password = htmlspecialchars(trim(strip_tags($_REQUEST["password"])));
+    $nick = htmlspecialchars(trim(strip_tags($_REQUEST["nick"])));
+    $rol = htmlspecialchars(trim(strip_tags($_REQUEST["rol"])));
+    $Premium = ($_REQUEST["premium"]);
+    
+    $db = 'unitoolsdb';
 
-        if($username == "user" && $password == "u") 
-        {
-            $_SESSION["login"] = true;
-            $_SESSION["nombre"] = "Usuario";
-            $_SESSION["isAdmin"] = false;
-            echo "bien";
-        }
 
-        else if($username == "admin" && $password == "a") 
-        {
-            $_SESSION["login"] = true;
-            $_SESSION["nombre"] = "Admin";
-            $_SESSION["isAdmin"] = true;
-            echo "bien";
-        }
+    
 
-        else{
-            echo "mal";
-        }
+    $conn = mysqli_connect ( $username , $email, $password, $nick, $rol, $Premium);
+
+    //$conn = new mysqli ($servername, $username , $email, $password, $nick, $rol, $Premium);
+    if( mysqli_connect_error ()){
+        die ("Conexión con la base de datos fallida : " . mysqli_connect_error());
+        
+    }
+   
+    echo "Connected successfully";
+        
 ?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -44,8 +46,8 @@
         <div id="contenedor">
 
             <?php 
-                require("../estructura/cabecera.php") ;
-                require("../estructura/menu.php") ;
+                 require("../estructura/cabecera.php") ;
+                 require("../estructura/menu.php") ;
             ?>
 
            <!-- Principio del contenido/funcionalidad de procesar login -->
@@ -54,10 +56,10 @@
                     if(!isset($_SESSION["login"])) //wrong user
                     {
                         echo"<h1>¡Se ha producido un error!</h1>";
-                        echo"<p> Por favor, revisa los datos introducidos e intentelo de nuevo. </p>";
+                        echo"<p> Datos introducidos inválidos. </p>";
                     }
                     else{
-                        header("Location:inicio.php");
+                       // header("Location:inicio.php");
                     }
                 ?>
             </div>
