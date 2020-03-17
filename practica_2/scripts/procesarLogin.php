@@ -15,7 +15,7 @@
             $_SESSION["login"] = true;
             $_SESSION["nombre"] = "Usuario";
             $_SESSION["isAdmin"] = false;
-            echo "bien";
+            
         }
 
         else if($username == "admin" && $password == "a") 
@@ -23,12 +23,10 @@
             $_SESSION["login"] = true;
             $_SESSION["nombre"] = "Admin";
             $_SESSION["isAdmin"] = true;
-            echo "bien";
+           
         }
 
-        else{
-            echo "mal";
-        }
+       
 ?>
 <!DOCTYPE html>
 <html>
