@@ -10,7 +10,7 @@
 if(isset($_GET["page"])) {
 
     if($_GET["page"] == "login") {
-        require("login.php");
+        require("../scripts/login.php");
     }
 
     else if($_GET["page"] == "procesarlogin") {
@@ -32,7 +32,7 @@ if(isset($_GET["page"])) {
         }
         
         if (isset($_SESSION["esAdmin"]) && $_SESSION["esAdmin"] == true) {
-            require("admin.php");
+            require("../scripts/admin.php");
         }
     }
 
@@ -42,7 +42,7 @@ if(isset($_GET["page"])) {
         }
         
         if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
-            require("perfil.php");
+            require("../scripts/perfil.php");
         }
     }
 
@@ -52,12 +52,12 @@ if(isset($_GET["page"])) {
         }
         
         if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
-            require("proyectos.php");
+            require("../scripts/proyectos.php");
         }
     }
 
     else if ($_GET["page"] == "Foro") {
-        require("foro.php");
+        require("../scripts/foro.php");
     }
     
 
@@ -67,12 +67,12 @@ if(isset($_GET["page"])) {
         }
         
         if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
-            require("mensajes.php");
+            require("../scripts/mensajes.php");
         }
     }
 
     else if ($_GET["page"] == "herramientas"){
-        require("herramientas.php");
+        require("../scripts/herramientas.php");
     }
 
 }
