@@ -8,22 +8,15 @@
     strip_tags -> elimina tags de HTML, XML y PHP
     */
     $servername = "localhost";
-    $username = htmlspecialchars(trim(strip_tags($_REQUEST["username"])));
+    $username =  htmlspecialchars(trim(strip_tags($_REQUEST["username"])));
     $email = htmlspecialchars(trim(strip_tags($_REQUEST["email"])));
     $password = htmlspecialchars(trim(strip_tags($_REQUEST["password"])));
     $nick = htmlspecialchars(trim(strip_tags($_REQUEST["nick"])));
     $rol = ($_REQUEST["rol"]);
     $Premium = ($_REQUEST["premium"]);
+
     
-   
-
-
-    //$connect = mysql_connect(“server_name”, “admin_name”, “password”); if (!connect) { die('Connection Failed: ' . mysql_error()); { mysql_select_db(“database_name”, $connect);
-    //$conn = mysqli_connect($servername, $username, $dbpass, $db);
-    $conn = mysqli_connect("localhost", "root", "", "");
-    //$conn = mysqli_connect ($username , $email, $password, $nick, $rol, $Premium);
-
-    //$conn = new mysqli ($servername, $username , $email, $password, $nick, $rol, $Premium);
+    $conn = mysqli_connect("localhost", "root", "root", "unitoolsdb");
     if( mysqli_connect_error ()){
         die ("Conexión con la base de datos fallida : " . mysqli_connect_error());
         
@@ -31,36 +24,16 @@
          echo "Connected successfully";
     }
     
-
-    if($username == "user" && $password == "u") 
-        {
-            $_SESSION["login"] = true;
-            $_SESSION["nombre"] = "Usuario";
-            $_SESSION["isAdmin"] = false;
-            echo "bien";
-        }
-
-        else if($username == "admin" && $password == "a") 
-        {
-            $_SESSION["login"] = true;
-            $_SESSION["nombre"] = "Admin";
-            $_SESSION["isAdmin"] = true;
-            echo "bien";
-        }
-
-        else{
-            echo "mal";
-        }
-
         
 
-        $sql = "INSERT INTO user(id_user, email, password, Nick, Rol, Premium) VALUES ('$username', '$email', '$password', '$nick', '$rol', '$Premium')";
-
-
-        
-
+    $sql = "INSERT INTO user(id_User, email, password, Nick, Rol, Premium) VALUES ('$username', '$email', '$password', '$nick', '$rol', '$Premium')";
+    if ($conn->query($sql) === TRUE) {
+           echo "New record created successfully";
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }  
    
-   
+    $conn->close();
         
 ?>
 
