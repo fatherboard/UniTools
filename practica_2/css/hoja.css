@@ -12,6 +12,11 @@
     background-color: rgb(32, 32, 32);
     overflow: hidden;
     border-style: outset;
+
+    /* añadido por L para ver si puedes 
+    tener elementos a la izq y derecha*/
+    display:flex;
+    margin-right: auto;
 }
 
 .navbar a{
