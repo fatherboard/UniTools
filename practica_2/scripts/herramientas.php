@@ -1,27 +1,6 @@
 
-<!DOCTYPE html>
-<html lang="es">
-    
-    <head>
-        <link rel="stylesheet" type="text/css" href="../css/hoja.css" />
-        <meta charset="utf-8">
-        <title>Herramientas</title>
-    </head>
-
-    <body>
-
-        <!-- Principio de la estructura de la página (contenedor) -->
-        <div id="contenedor">
-            
-            <?php 
-                require("../estructura/cabecera.php");
-                require("../estructura/menu.php");
-            ?>
-
-            <!-- Principio del contenido/ funcionalidad de herramientas -->
-            <div id="contenido">
                 <div>
-                    <h1>Herramientas</h1>
+                 <h1>Herramientas</h1>
                     <p>UniTools pretende ayudar a los estudiantes de la Facultad en las asignaturas de programación.
                     Por ello, incluimos aquí herramientas de uso público y gratuito que pensamos pueden seros de 
                     utilidad en el desarrollo de vuestras prácticas.<br><br>
@@ -34,11 +13,9 @@
                     <button type="submit" onclick="convertir_hex()">Convertir</button>
                 </form>
 
-                <div class="footer">
-                    <p>UniTools 2020 - Aplicaciones Web - Grupo B</p>
-                </div>
+               
 
-                <?php
+            
                 /*
                 //Arreglar, da errorers en los comandos a partir de la linea 50
                 // Aquí van algunas herramientas -->
@@ -67,13 +44,3 @@
                         }
                 }      
                 */ 
-                ?>
-            </div> <!-- Fin del contenido -->
-
-            <?php 
-                include("../estructura/pie.php");
-            ?>
-        </div> <!-- Fin del contenedor -->
-
-    </body> 
-</html>
