@@ -18,10 +18,8 @@
 	?>
 
 	<div id="contenido">
-	<?php require("contenido.php");?>
+	   <?php require("contenido.php");?>
 	</div>
-
-
 
 	<?php 
 	 	require("pie.php") ;

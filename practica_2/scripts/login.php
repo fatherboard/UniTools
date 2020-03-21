@@ -33,7 +33,7 @@
  
        <!-- Principio del contenido/funcionalidad de login -->
         <div id="contenido">
-           <form name="login" method="post" action = "procesarLogin.php">
+           <form name="login" method="post" action = "../scripts/procesarLogin.php">
                 <table><tr><td>
                 Username: </td> <td><input type ="text" name="username" > </td></tr>
                 <tr><td>
