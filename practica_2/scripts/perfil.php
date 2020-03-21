@@ -11,11 +11,6 @@
         <!-- Principio de la estructura de la página (contenedor) -->
         <div id="contenedor">
 
-            <?php 
-                require("../estructura/cabecera.php");
-                require("../estructura/menu.php");
-            ?>
-
             <!-- Principio del contenido/funcionalidad del perfil -->
             <div id="contenido">
                 <?php 
@@ -24,10 +19,6 @@
                 ?>
             </div>
             <!-- Fin del contenido -->
-
-            <?php 
-                include("../estructura/pie.php");
-            ?>
 
         </div> <!-- Fin del contenedor -->
 
