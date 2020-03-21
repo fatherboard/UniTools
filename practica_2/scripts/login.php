@@ -23,7 +23,7 @@
         <div id="contenido">
            <form name="login" method="post" action = "../scripts/procesarLogin.php">
                 <?php
-                    session_start();
+                  //  session_start();
                     if(isset($_SESSION['access_error'])){
                         $try =  $_SESSION['access_error'];
                         if($try == '1'){

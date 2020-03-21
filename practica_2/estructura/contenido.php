@@ -18,7 +18,7 @@ if(isset($_GET["page"])) {
     }
 
     else if($_GET["page"] == "logout") {
-        require("logout.php");
+        require("../scripts/logout.php");
     }
 
     else if($_GET["page"] == "admin") {

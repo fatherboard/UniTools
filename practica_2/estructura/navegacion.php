@@ -25,7 +25,7 @@
             else if ($_SESSION["login"])
             {
                 echo"<p>Bienvenido</p>";
-              
+                echo"<a href=\"index.php?page=logout\" >logout</a>";
             }
 
     ?>
