@@ -8,6 +8,7 @@
     strip_tags -> elimina tags de HTML, XML y PHP
     */
     $_SESSION['access_error'] = '0';
+    $_SESSION['access_success'];
     $username = htmlspecialchars(trim(strip_tags($_REQUEST["username"])));
     $password = htmlspecialchars(trim(strip_tags($_REQUEST["password"])));
     echo "$username " . " " . "$password";
@@ -26,6 +27,7 @@
     //validamos los datos introducidos en el login
     if($user = mysqli_fetch_assoc($query)) {
         $conn->close();
+        $_SESSION['access_success'] = $username;
         header("Location:inicio.php");
     } else {
         $_SESSION['access_error'] = '1';

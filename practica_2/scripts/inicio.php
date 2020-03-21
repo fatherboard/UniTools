@@ -19,8 +19,12 @@
             <!-- Principio del contenido de inicio -->
             <div id="contenido">
                 <?php 
+                    session_start();
+                    if(isset($_SESSION['access_success'])){
+                        $try =  $_SESSION['access_success'];
+                    }
                     //introducir aquí el texto de la página principal
-                    echo "<h1> Bienvenido a UniTools </h1>";
+                    echo "<h1> Bienvenido a UniTools $try</h1>";
                     echo "<p> Aquí podrás encontrar... </p>";
                 ?>
             </div>
