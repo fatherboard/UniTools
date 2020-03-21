@@ -22,10 +22,19 @@
                     session_start();
                     if(isset($_SESSION['access_success'])){
                         $try =  $_SESSION['access_success'];
+                        echo "<h1> Bienvenido a UniTools $try</h1>";
+                        echo "<p> Aquí podrás encontrar... </p>";
+                        $_SESSION['access_success'] = NULL;
                     }
                     //introducir aquí el texto de la página principal
-                    echo "<h1> Bienvenido a UniTools $try</h1>";
-                    echo "<p> Aquí podrás encontrar... </p>";
+                   
+                        
+                    
+                    else{
+                        echo "<h1> Bienvenido a UniTools </h1>";
+                        echo "<p> Aquí podrás encontrar... </p>";
+                    }
+                    
                 ?>
             </div>
             <!-- Fin del contenido -->

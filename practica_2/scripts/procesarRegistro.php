@@ -14,26 +14,17 @@
     $nick = htmlspecialchars(trim(strip_tags($_REQUEST["nick"])));
     $rol = ($_REQUEST["rol"]);
     $Premium = ($_REQUEST["premium"]);
-
     
-    $conn = mysqli_connect("localhost", "root", "root", "unitoolsdb");
-    if( mysqli_connect_error ()){
-        die ("Conexión con la base de datos fallida : " . mysqli_connect_error());
-        
-    }else{
-         echo "Connected successfully";
-    }
-    
-        
+   require_once 'connectdb.php';
 
     $sql = "INSERT INTO user(id_User, email, password, Nick, Rol, Premium) VALUES ('$username', '$email', '$password', '$nick', '$rol', '$Premium')";
-    if ($conn->query($sql) === TRUE) {
+   if ($conn->query($sql) === TRUE) {
            echo "New record created successfully";
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }  
-   
-    $conn->close();
+    header("Location:inicio.php");
+    
         
 ?>
 

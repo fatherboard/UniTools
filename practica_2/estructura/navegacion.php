@@ -19,7 +19,7 @@
             if(!isset($_SESSION["login"]) || !($_SESSION["login"])) 
             {
                 echo"<a href=\"index.php?page=login\">Login</a>";
-                echo"<a href=\"index.php?page=registrar\">Registrar</a>";
+                echo"<a href=\"index.php?page=registrar\" >Registrar</a>";
                 
             }
             else if ($_SESSION["login"])
