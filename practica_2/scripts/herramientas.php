@@ -1,21 +1,27 @@
+
                 <div>
                  <h1>Herramientas</h1>
                     <p>UniTools pretende ayudar a los estudiantes de la Facultad en las asignaturas de programación.
-                    Por ello, incluimos aquí herramientas de uso público y gratuito que pensamos pueden seros de 
-                    utilidad en el desarrollo de vuestras prácticas.<br><br>
-                        <em>!Muchas más herramientas se añadirán en el futuro!</em></p>
+                    Por ello, incluimos aquí herramientas de uso público y gratuito que pensamos pueden seros de
+                    utilidad en el desarrollo de vuestras prácticas.<br><br>       
+                        <em>!Muchas más herramientas se añadirán en el futuro!</em></p>                                                                                     
                 </div>
 
                 <form style="text-align: center">
                     <label for="phone" style="color:green"> (1) Introduzca el decimal a convertir a hexadecimal:</label><br><br>
                     <input type="integer" id="valor_d" name="valor_d" placeholder="123"><br><br>
-                    <button type="submit" onclick="convertir(1);" onsubmit="return false">Convertir</button>
+                    <button type="submit" onclick="convertir(1);" onsubmit="return false">Convertir a hexadecimal</button>
                 </form>
                 <p></p>
                 <form style="text-align: center">
                     <label for="phone" style="color:green"> (2) Introduzca el decimal a convertir a binario:</label><br><br>
                     <input type="integer" id="valor_d2" name="valor_d2" placeholder="610"><br><br>
-                    <button type="submit" onclick="convertir(2);" onsubmit="return false">Convertir</button>
+                    <button type="submit" onclick="convertir(2);" onsubmit="return false">Convertir a binario</button>
+                </form>
+                <form style="text-align: center">
+                    <label for="phone" style="color:green"> (3) Introduzca su texto para contar las palabras:</label><br><br>
+                    <input type="string" id="valor_d3" name="valor_d3" placeholder="fhritp"><br><br>
+                    <button type="submit" onclick="count();" onsubmit="return false">Contar palabras</button>
                 </form>
 
 
@@ -47,4 +53,9 @@
                         }
                 }
 
+                function count() {
+                        $str = document.getElementById('valor_d3').value;
+                        $str = $str.split(' ').length;
+                        alert('Numero de palabras = ' + $str);
+                }
                 </script>
