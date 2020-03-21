@@ -1,18 +1,10 @@
 <?php
-function OpenCon()
- {
- $dbhost = "localhost";
- $dbuser = "root";
- $dbpass = "1234";
- $db = "example";
- $conn = new mysqli($dbhost, $dbuser, $dbpass,$db) or die("Connect failed: %s\n". $conn -> error);
- 
- return $conn;
- }
- 
-function CloseCon($conn)
- {
- $conn -> close();
+ $conn = mysqli_connect("localhost", "root", "", "unitoolsdb");
+ if( mysqli_connect_error ()){
+     die ("Conexión con la base de datos fallida : " . mysqli_connect_error());
+     
+ }else{
+      echo "Connected successfully";
  }
    
 ?>

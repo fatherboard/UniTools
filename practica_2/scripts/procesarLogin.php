@@ -7,24 +7,32 @@
     trim -> elimina espacios en blanco de la izquierda o derecha 
     strip_tags -> elimina tags de HTML, XML y PHP
     */
+    $_SESSION['access_error'] = '0';
     $username = htmlspecialchars(trim(strip_tags($_REQUEST["username"])));
     $password = htmlspecialchars(trim(strip_tags($_REQUEST["password"])));
+    echo "$username " . " " . "$password";
 
-        if($username == "user" && $password == "u") 
-        {
-            $_SESSION["login"] = true;
-            $_SESSION["nombre"] = "Usuario";
-            $_SESSION["isAdmin"] = false;
-            
-        }
+    require_once 'connectdb.php';
 
-        else if($username == "admin" && $password == "a") 
-        {
-            $_SESSION["login"] = true;
-            $_SESSION["nombre"] = "Admin";
-            $_SESSION["isAdmin"] = true;
-           
-        }
+    $query = mysqli_query($conn, "SELECT * FROM user WHERE Nick = '$username' AND password = '$password'");
+
+    if(!$query){ 
+        // echo "Usuario no existe " . $nombre . " " . $password. " o hubo un error " . 
+        echo mysqli_error($conn);
+        // si la consulta falla es bueno evitar que el código se siga ejecutando
+        exit;
+    } 
+
+    //validamos los datos introducidos en el login
+    if($user = mysqli_fetch_assoc($query)) {
+        $conn->close();
+        header("Location:inicio.php");
+    } else {
+        $_SESSION['access_error'] = '1';
+        header("location: login.php");
+    }
+    
+   
 
        
 ?>
