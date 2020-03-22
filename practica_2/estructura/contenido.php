@@ -60,7 +60,7 @@ if(isset($_GET["page"])) {
         }
     }
 
-    else if ($_GET["page"] == "Foro") {
+    else if ($_GET["page"] == "foro") {
         require("../scripts/foro.php");
     }
     
