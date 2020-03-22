@@ -13,6 +13,10 @@ if(isset($_GET["page"])) {
         require("../scripts/login.php");
     }
 
+    if($_GET["page"] == "registrar") {
+        require("../scripts/registro.php");
+    }
+
     else if($_GET["page"] == "procesarlogin") {
         require("procesarLogin.php");
     }
