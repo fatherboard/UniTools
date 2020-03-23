@@ -1,5 +1,10 @@
 <?php
-    session_start();
+   
+    if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    } 
+    
     /*
     Para evitar que se introduzca código en las entradas de username y password:
 
@@ -28,23 +33,12 @@
         
 ?>
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <link rel="stylesheet" type="text/css" href="../css/hoja.css" />
-        <meta charset="utf-8">
-        <title>Inicio</title>
-    </head>
 
-    <body>
 
         <!-- Principio de la estructura de la página (contenedor) -->
         <div id="contenedor">
 
-            <?php 
-                 require("../estructura/cabecera.php") ;
-                 require("../estructura/menu.php") ;
-            ?>
+            
 
            <!-- Principio del contenido/funcionalidad de procesar login -->
             <div id="contenido">
@@ -61,11 +55,6 @@
             </div>
             <!-- Fin del contenido -->
 
-            <?php 
-                include("../estructura/pie.php");
-            ?>
+           
 
         </div> <!-- Fin del contenedor -->
-
-    </body>
-</html>

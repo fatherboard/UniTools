@@ -1,11 +1,17 @@
-<?php session_start(); ?>
+<?php
+    if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    } 
+?>
+
 <!DOCTYPE html>
 <html>
 
 <head>
     <link rel="stylesheet" type="text/css" href="../css/hoja.css">
     <title>INDEX</title>
-    <meta charset="UTF-8">   
+    <meta charset="UTF-8">
 </head>
 
 <body>

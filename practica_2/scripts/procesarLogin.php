@@ -1,5 +1,10 @@
 <?php
-    session_start();
+    
+    if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    } 
+    
     /*
     Para evitar que se introduzca código en las entradas de username y password:
 
