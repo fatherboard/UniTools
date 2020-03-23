@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-03-2020 a las 10:26:03
+-- Tiempo de generación: 23-03-2020 a las 13:30:23
 -- Versión del servidor: 10.4.11-MariaDB
--- Versión de PHP: 7.4.1
+-- Versión de PHP: 7.4.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -32,6 +32,19 @@ CREATE TABLE `forumposts` (
   `id_post` int(11) NOT NULL,
   `user` int(11) NOT NULL,
   `content` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `logs`
+--
+
+CREATE TABLE `logs` (
+  `id_log` int(11) NOT NULL,
+  `user` int(11) NOT NULL,
+  `date` date NOT NULL,
+  `error` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -75,6 +88,13 @@ ALTER TABLE `forumposts`
   ADD KEY `user` (`user`);
 
 --
+-- Indices de la tabla `logs`
+--
+ALTER TABLE `logs`
+  ADD PRIMARY KEY (`id_log`),
+  ADD KEY `user` (`user`);
+
+--
 -- Indices de la tabla `repository`
 --
 ALTER TABLE `repository`
@@ -98,6 +118,12 @@ ALTER TABLE `forumposts`
   MODIFY `id_post` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de la tabla `logs`
+--
+ALTER TABLE `logs`
+  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `repository`
 --
 ALTER TABLE `repository`
@@ -118,6 +144,12 @@ ALTER TABLE `user`
 --
 ALTER TABLE `forumposts`
   ADD CONSTRAINT `forumposts_ibfk_1` FOREIGN KEY (`user`) REFERENCES `user` (`id_User`) ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `logs`
+--
+ALTER TABLE `logs`
+  ADD CONSTRAINT `logs_ibfk_1` FOREIGN KEY (`user`) REFERENCES `user` (`id_User`) ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `repository`
