@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-03-2020 a las 13:30:23
+-- Tiempo de generación: 24-03-2020 a las 10:21:29
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.2
 
@@ -43,8 +43,7 @@ CREATE TABLE `forumposts` (
 CREATE TABLE `logs` (
   `id_log` int(11) NOT NULL,
   `user` int(11) NOT NULL,
-  `date` date NOT NULL,
-  `error` tinyint(1) NOT NULL
+  `date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
