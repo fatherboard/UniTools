@@ -1,0 +1,277 @@
+\documentclass[12pt]{report}
+\usepackage[spanish]{babel}
+\usepackage{listings}
+%\usepackage{natbib}
+\usepackage{url}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\graphicspath{{images/}}
+\usepackage{parskip}
+\usepackage{fancyhdr}
+\usepackage{vmargin}
+\setmarginsrb{3 cm}{2.5 cm}{3 cm}{2.5 cm}{1 cm}{1.5 cm}{1 cm}{1.5 cm}
+
+\title{Práctica 2 - Arquitectura y prototipo del proyecto del grupo UniTools}					
+\usepackage{xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+
+% Title
+\author{- A.W.}						
+% Author
+\date{today's date}
+% Date
+
+\makeatletter
+\let\thetitle\@title
+\let\theauthor\@author
+\let\thedate\@date
+\makeatother
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\theauthor}
+\lhead{\thetitle}
+\cfoot{\thepage}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{titlepage}
+	\centering
+    \vspace*{0.5 cm}
+   % \includegraphics[scale = 0.075]{bsulogo.png}\\[1.0 cm]	% University Logo
+\begin{center}    \textsc{\Large  APLICACIONES WEB}\\[2.0 cm]	\end{center}% University Name
+	\textsc{\Large Memoria del Proyecto }\\[0.5 cm]				% Course Code
+	\rule{\linewidth}{0.2 mm} \\[0.4 cm]
+	{ \huge \bfseries \thetitle}\\
+	\rule{\linewidth}{0.2 mm} \\[1.5 cm]
+	
+	\begin{minipage}{0.4\textwidth}
+		\begin{flushleft} \large
+		%	\emph{Submitted To:}\\
+		%	Name\\
+          % Affiliation\\
+           %contact info\\
+			\end{flushleft}
+			\end{minipage}~
+			\begin{minipage}{0.4\textwidth}
+            
+			\begin{flushright} \large
+			\emph{Miembros del grupo :} \\
+			Luis Cepeda, Carlos Bilbao,
+			Hugo Ribeiro, Daniel Canseco,
+			Fernando Ruiz, Bruno Mayo
+			
+		\end{flushright}
+           
+	\end{minipage}\\[2 cm]
+	
+	\includegraphics[scale = 0.15]{UniTools.png}
+
+\end{titlepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\tableofcontents
+\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\thesection}{\arabic{section}}
+\section{Descripción general de la práctica}
+
+En esta memoria, describiremos cómo hemos decidido estructurar nuestra página web llegado este punto de su desarollo.  Se trata de una práctica importante para nosotros, ya que su desarollo y las decisiones que tomáramos iban a condiciar el resto de las prácticas. Es decir, la estructura general, así como la Base de Datos y las abstraciones que empleamos van a servirnos como base en sucesivas versiones.
+
+Durante esta práctica hemos centrado nuestros esfuerzos en dos aspectos:
+
+\begin{enumerate}  
+\item Organizar nuestra página web haciendo uso de \textbf{un esquema que divide en cuatro partes (cabecera, navegación ó menú, contenido y pie)}, siendo el contenido el único actualizado dinámicamente, en función de las peticiones recbidas. 
+
+A continuación, hemos dividido entre scripts de vista, de apoyo y de lógica. Esta distribución ha resultado ser muy provechosa y nos ha permitido avanzar más agilmente. Además, hemos ahorrado muchas líneas de código gracias a ella.
+
+\item Desarrollar tres funcionalidades principales. Para comenzar a darle forma a nuestra web, hemos elegido por un lado funcionalidades esenciales: Es decir, sin ellas lo demás no sería posible, este es el caso de \textbf{Login y Registro}. 
+
+Al mismo tiempo, hemos desarrollado otras dos funcionalidades que, sin depender otras de ellas, no planteaban un gran reto técnico. Estas han sido \textbf{Herramientas y Foro}.
+
+\end{enumerate}
+
+Además, y para facilitar nuestro trabajo en sucesivas versiones del proyecto, hemos añadido utilidades que nos servirán para administrar la página web. Para ello, hemos creado un usuario extra para la Base de Datos (aparte del propio root, con total acceso) con diferentes permisos y privilegios, así como una tabla extra en la Base de Datos \textbf{como log de los accesos fallidos} en el Login, lo que pensamos que puede ser un feature interesante para mejorar la seguridad de la web resultante. Discutiremos esto en más detalle en la sección 4 "\textit{Estructura de la Base de Datos}".
+
+A la hora de dividir el trabajo, decidimos dejar a cada miembro del equipo encargado de dirigir cada una de las partes. Dicho lo cual, hemos hecho un esfuerzo por realizar videollamadas semanalmente para coordinar el trabajo y asegurarnos de que todos estábamos al corriente del funcionamiento de lo demás. En realidad, todos hemos acabado ayudándonos los unos a los otros con el código en algún momento, con lo que estamos satisfechos en ese sentido. Hemos utilizado GitHub para gestionar las versiones y commits del proyecto.
+
+\newpage
+\section{Scripts para las vistas}
+Las vistas posibles de esta versión son entre las que permite navegar el Menú de la página web, aunque algunas de ellas no mostrarán ningún contenido si el usuario no ha sido previamente registrado.
+\begin{itemize}
+    \item (scripts/perfil.php) Perfil incluirá en sucesivas versiones toda la información del usuario, inlcuido si se trata de un usuario Premium.
+    \item (scripts/proyectos.php) Proyectos permitirá a los estudiantes subir código de sus proyectos.
+    \item (scripts/foro.php) \textbf{Foro permite a los usuarios postear mensajes}.
+    \item (scripts/mensajes.php) Mensajes requerirá estar loggeado.
+    \item (scripts/herramientas.php) \textbf{Herramientas incluye algunas utilidades para los estudiantes} a modo de funcionalidades. En esta versión hemos añadido varias, que serán explicadas luego.
+    \item (scripts/login.php) Login permite iniciar sesión al usuario, tal y como se explicará más tarde. 
+    \item (scripts/registro.php) Registrar permite crear un nuevo usuario, mediante una conexión a la Base de Datos, como se explicará a continuación.
+\end{itemize}
+
+En realidad, en nuestro portal sólo se accede a una página, que es index.php, cuyo código se muestra a continuación. Se ha incluido un caso condicional para hacer \textit{session\_start()}, para que en el caso que el usuario se acabe de conectar ó su sesión haya caducado, se puedan restaurar las variables globales.
+
+Después, utilizando \textit{require()} se incluyen las partes que toda vista debe tener: cabecera (estructura/cabecera.php), navegación (estructura/menu.php), un contenido (del que ahora se hablará) y  un pie de página (estructura/pie.php).
+\newline
+\begin{lstlisting}[language=HTML]
+<?php
+    if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    } 
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../css/hoja.css">
+    <title>INDEX</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+<div id="contenedor">
+    <?php 
+        require("cabecera.php") ;
+	 	require("navegacion.php") ;
+	?>
+	<div id="contenido">
+	   <?php require("contenido.php");?>
+	</div>
+	<?php 
+	 	require("pie.php") ;
+	?>
+</div> <!-- Fin del contenedor -->
+</body>
+\end{lstlisting}
+
+Por tanto, lo único que cambiará según cual sea la vista es el contenido, administrado en estructura/contenido.php, el cual no solo se encarga de cambiar el contenido en función de la petición que le llegue, sino que además realiza el control de seguridad para comprobar que el usuario ha sido correctamente loggeado, y en caso contrario no mostrarle dicho contenido.
+
+Para ilustrar esto, asumamos que alguien que no está ni siquiera loggeado intenta acceder a un contenido sólo disponible para administradores, manipulando la petición en la url para acceder a admin.php (Es decir, escribe \textit{index.php?page=admin}). En ese caso, tal y como se muestra en el siguiente código, contenido.php no le dejará acceder tras comprobar con los parámetros de la variable global SESSION que, efectivamente, ni era administrador ni había iniciado sesión.
+\newline
+\begin{lstlisting}[language=HTML]
+<?php 
+
+if(isset($_GET["page"])) {
+    (...)
+    
+  else if($_GET["page"] == "admin") {
+    
+    if ((!isset($_SESSION["login"]))&&(!isset($_SESSION["esAdmin"]))) {
+            echo "<p>No puedes ver este contenido, tienes que estar loggeado y ser Administrador para visualizarlo.</p>";
+    }
+\end{lstlisting}
+//TODO Herramientas
+ \newpage
+\section{Scripts adicionales}
+Dos scripts que es importante mencionar son el de Login y el de Registro, ambos estrechamente ligados con la Base de Datos que será después descrita. 
+
+El contenido de scripts/registrar.php es simplemente un form sencillo, cuya action es procesarRegistro.php, en la misma carpeta. A continuación se describirán algunas de las partes más importantes de este script.
+
+Primero, se crean variables que serán utilizadas para la conexión con la Base de Datos. Estas son los campos de la tabla usuario, que fueron previamente rellenados en registro.php. Además, se utilizan las funciones \textit{trim} y \textit{strip\_tags} para hacer "sanitize" del input. Esto incluye eliminar espacios, e \textbf{impedir que el usuario introduzca código malicioso en las entradas}.
+\newline
+\begin{lstlisting}[language=PHP]
+$servername = "localhost";
+$username =  htmlspecialchars(trim(strip_tags($_REQUEST["username"])));
+$email = htmlspecialchars(trim(strip_tags($_REQUEST["email"])));
+$password = htmlspecialchars(trim(strip_tags($_REQUEST["password"])));
+$nick = htmlspecialchars(trim(strip_tags($_REQUEST["nick"])));
+$rol = ($_REQUEST["rol"]);
+$Premium = ($_REQUEST["premium"]);
+require_once 'connectdb.php';
+\end{lstlisting}
+
+Acabado esto, toca conectarse a la Base de Datos, utilizando la última línea del código anterior, que llama a connectdb.php. En este script se intentará conectar a la Base de Datos,
+especificando el nombre del servidor, el usuario y la Base de Datos. Para evitar que un estudiante cualesquiera pueda modificar las tablas de la Base de Datos, \textbf{este acceso se lleva a cabo con el nombre de un usuario con pocos privilegios}.
+\newline
+\begin{lstlisting}[language=PHP]
+<?php
+ $conn = mysqli_connect("localhost", "usuario1", "", "unitoolsdb");
+ if( mysqli_connect_error ()){
+     die ("Acceso a BBDD fallido : " . mysqli_connect_error());
+ }else{ echo "Connected successfully";   }
+?>
+\end{lstlisting}
+Una vez se haya establecido la conexión, el script procesarRegistro.php podrá realizar una query e incluir al usuario en las tablas de la Base de Datos. No obstante, esto lo hará tras primero comprobar que se ha podido conectar a la Base de Datos satisfactoriamente. Como se puede comprobar a continuación, la petición SQL se trata de una sencilla inserción en la tabla user, utilizando todas las variables que fueron previamente revisadas.
+
+\begin{lstlisting}[language=PHP]
+$sql = "INSERT INTO 
+ user(id_User, email, password, Nick, Rol, Premium) 
+ VALUES('$username','$email','$password','$nick','$rol','$Premium')";
+if ($conn->query($sql) === TRUE) {
+           echo "New record created successfully";
+} else { echo "Error: " . $sql . "<br>" . $conn->error;  }  
+\end{lstlisting}
+
+El script de procesarLogin.php es muy similar. Se reciben los valores que han sido introducidos en el form de login.php y estos se utilzan para realizar la query. Eso si, como era de esperar en esta ocasión la petición SQL no es una inserción, sino un SELECT que comprueba que los valores son idénticos.
+\newline
+\begin{lstlisting}[language=PHP]
+$query = mysqli_query($conn, 
+    "SELECT * FROM user 
+    WHERE Nick='$username' 
+    AND password='$password'");
+
+if(!$query){ 
+    echo mysqli_error($conn);
+        // Si falla la consulta, mejor no seguir ejecutando.
+        exit;
+} 
+
+// Validamos los datos introducidos en el login
+if($user = mysqli_fetch_assoc($query)) {
+        $conn->close();
+        $_SESSION['access_success'] = $username;
+        header("Location:index.php");
+} else {
+        $_SESSION['access_error'] = '1';
+        header("location: login.php");
+}
+\end{lstlisting}
+
+Como se puede apreciar en la línea 19, se emplea una variable global para marcar que el acceso ha fracasado en caso de que los datos sean erroneos, y otra para la situación opuesta. Estas variables son luego revisadas por login.php, que llamó a procesarLogin.php, para saber si ha devuelto un valor la petición.
+\newline
+\begin{lstlisting} [language=PHP]
+<?php
+ if(isset($_SESSION['access_error'])){
+    $try =  $_SESSION['access_error'];
+    if($try == '1'){
+        echo "\n";
+        echo " <h3> <font color = 'red'> Datos incorrectos.</font> </h3>";
+        $_SESSION['access_error'] = '0';
+        }
+    }
+\end{lstlisting}
+
+
+\section{Estructura de la Base de Datos}
+\newpage
+
+\end{document}

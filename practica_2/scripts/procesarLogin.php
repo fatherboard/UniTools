@@ -33,7 +33,7 @@
     if($user = mysqli_fetch_assoc($query)) {
         $conn->close();
         $_SESSION['access_success'] = $username;
-        header("Location:inicio.php");
+        header("Location:index.php");
     } else {
         $_SESSION['access_error'] = '1';
         header("location: login.php");
