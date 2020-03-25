@@ -33,6 +33,32 @@
     color: black;
 }
 
+.foro {
+    margin-top: 20px;
+    background-color: rgb(136, 90, 90);
+    overflow: hidden;
+    border-style: outset;
+
+    /* añadido por L para ver si puedes 
+    tener elementos a la izq y derecha*/
+    display:flex;
+    margin-right: auto;
+}
+
+.foro a{
+    float: left;
+    display: block;
+    color: rgb(185, 182, 182);
+    text-align: center;
+    padding: 10px 15px;
+    text-decoration: none;
+}
+
+.foro a:hover {
+    background-color: rgb(224, 224, 224);
+    color: black;
+}
+
 .footer {
     position: fixed;
     left: 0;
