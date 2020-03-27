@@ -34,23 +34,23 @@
         $conn->close();
         $_SESSION['access_success'] = $username;
         header("Location:index.php");
-    } else {
+    } 
+    else {
         $_SESSION['access_error'] = '1';
         header("location: ../estructura/index.php?page=login");
-    }
-    
-   
-
-       
+    }      
 ?>
 <!DOCTYPE html>
 <html>
+
+<?php
+/*
     <head>
         <link rel="stylesheet" type="text/css" href="../css/hoja.css" />
         <meta charset="utf-8">
         <title>Inicio</title>
     </head>
-
+    
     <body>
 
         <!-- Principio de la estructura de la página (contenedor) -->
@@ -84,3 +84,5 @@
 
     </body>
 </html>
+*/
+?>
