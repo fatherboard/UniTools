@@ -13,16 +13,17 @@
             
             if(!isset($_SESSION["login"]) || !($_SESSION["login"])) 
             {
+                //echo"<div align='right|justify'>";
                 echo"<a href=\"index.php?page=login\">Login</a>";
                 echo"<a href=\"index.php?page=registrar\" >Registrar</a>";
-                
+                //echo"</div>";
             }
             else if ($_SESSION["login"])
             {
+                //echo"<div align='right|justify'>";
                 echo"<p>Bienvenido </p>";
-                echo"<div align='right|justify'>";
                 echo"<a href=\"index.php?page=logout\" >logout</a>";
-                echo"</div>";
+                //echo"</div>";
                 
             }
 
