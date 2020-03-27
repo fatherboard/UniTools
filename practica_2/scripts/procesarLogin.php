@@ -13,7 +13,7 @@
     strip_tags -> elimina tags de HTML, XML y PHP
     */
     $_SESSION['access_error'] = '0';
-    $_SESSION['access_success'];
+    $_SESSION['access_success'] = '0';
     $username = htmlspecialchars(trim(strip_tags($_REQUEST["username"])));
     $password = htmlspecialchars(trim(strip_tags($_REQUEST["password"])));
     echo "$username " . " " . "$password";
@@ -36,7 +36,7 @@
         header("Location:index.php");
     } else {
         $_SESSION['access_error'] = '1';
-        header("location: login.php");
+        header("location: ../estructura/index.php?page=login");
     }
     
    
