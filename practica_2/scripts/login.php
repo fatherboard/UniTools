@@ -11,9 +11,7 @@
                 <?php
                   //  session_start();
                     if(isset($_SESSION['access_error'])){
-                        //$try =  $_SESSION['access_error'];
-                        //if($try == '1'){
-                            if($_SESSION['access_error'] == '1'){
+                        if($_SESSION['access_error'] == '1'){
                             echo "\n";
                             echo " <h3> <font color = 'red'> Nombre/contraseña incorrectos, 
                             por favor inténtelo de nuevo.</font> </h3>";
