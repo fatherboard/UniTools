@@ -2,7 +2,7 @@
 
 <div class="navbar">
     <?php
-            
+            /*
             if(!isset($_SESSION["login"]) || !($_SESSION["login"])) 
             {
                 echo"<div align='left|justify'>";
@@ -18,6 +18,6 @@
                 echo"<a href='logout.php'>Logout</a>";
                 echo"</div>";
             }
-
+*/
     ?>
 </div>

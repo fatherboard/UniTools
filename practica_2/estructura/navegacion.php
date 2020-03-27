@@ -1,11 +1,13 @@
+
 <div class="navbar">
 
-
+    <div align='left|justify'>
     <a href="index.php?page=perfil">Perfil</a>
     <a href="index.php?page=proyectos">Proyectos</a>
     <a href="index.php?page=foro">Foro</a>
     <a href="index.php?page=mensajes">Mensajes</a>
     <a href="index.php?page=herramientas">Herramientas</a>
+    </div>
 
     <?php
             
@@ -17,10 +19,13 @@
             }
             else if ($_SESSION["login"])
             {
-                echo"<p>Bienvenido</p>";
+                echo"<p>Bienvenido </p>";
+                echo"<div align='right|justify'>";
                 echo"<a href=\"index.php?page=logout\" >logout</a>";
+                echo"</div>";
+                
             }
 
     ?>
 
-</div>   
+</div>

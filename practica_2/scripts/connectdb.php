@@ -4,7 +4,7 @@
      die ("Conexión con la base de datos fallida : " . mysqli_connect_error());
      
  }else{
-      echo "Connected successfully";
+      echo "Conexión con la base de datos establecida.";
  }
    
 ?>
