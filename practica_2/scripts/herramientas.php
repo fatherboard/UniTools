@@ -7,7 +7,7 @@
 
 	<div class="split left">
         <form style="text-align:center">
-               <label for="phone" style="color:green"> (1) Introduzca su texto para darle formato:</label><br><br>
+               <label for="phone" style="color:green"> (1) Introduzca su palabra para darle formato:</label><br><br>
                <input type="integer" id="valor_d4" name="valor_d4" placeholder="Ejemplo"><br><br>
                <button type="button" onclick="texto();">Convertir texto</button>
                 <p></p>
@@ -43,9 +43,11 @@
         ctx.strokeText("Ejemplo",30,70);
 
         function texto(){
-                $str = parseInt(document.getElementById('valor_d').value);
-                ctx.strokeText($str,30,70);
-                alert('Hecho!');
+                $str = document.getElementById('valor_d4').value;
+		ctx.clearRect(0,0,c.width,c.height);
+		ctx.fillText($str, 30, 70);
+
+		alert("Palabra cambiada!");
 	}
 
         function convertir(option) {
