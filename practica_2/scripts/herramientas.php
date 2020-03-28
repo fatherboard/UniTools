@@ -2,10 +2,10 @@
              <h1>Herramientas</h1>
                 <p>UniTools pretende ayudar a los estudiantes de la Facultad en las asignaturas de programación.
                 Por ello, incluimos aquí herramientas de uso público y gratuito que pensamos pueden seros de
-                utilidad en el desarrollo de vuestras prácticas.<br><br>
-                    <em>!Muchas más herramientas se añadirán en el futuro!</em></p>
+                utilidad en el desarrollo de vuestras prácticas.<em> !Muchas más herramientas se añadirán en el futuro!</em></p>
         </div>
 
+	<div class="split left">
         <form style="text-align:center">
                <label for="phone" style="color:green"> (1) Introduzca su texto para darle formato:</label><br><br>
                <input type="integer" id="valor_d4" name="valor_d4" placeholder="Ejemplo"><br><br>
@@ -21,8 +21,8 @@
             <input type="string" id="valor_d3" name="valor_d3" placeholder="fhritp"><br><br>
             <button type="submit" onclick="count();" onsubmit="return false">Contar palabras</button>
         </form>
-        <p></p>
-
+	</div>
+	<div class = "split right">
         <form style="text-align: center">
             <label for="phone" style="color:green"> (3) Introduzca el decimal a convertir a hexadecimal:</label><br><br>
             <input type="integer" id="valor_d" name="valor_d" placeholder="123"><br><br>
@@ -32,9 +32,9 @@
             <input type="integer" id="valor_d2" name="valor_d2" placeholder="610"><br><br>
             <button type="submit" onclick="convertir(2);" onsubmit="return false">Convertir a binario</button>
         </form>
-        <p></p>
+	</div>
 
-        <!-- Aquí van algunas herramientas -->
+	<!-- Aquí van algunas herramientas -->
         <script>
 
         var c = document.getElementById("myCanvas");
