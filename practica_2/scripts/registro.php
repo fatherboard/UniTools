@@ -1,5 +1,5 @@
 
-<form name="register" method="post" action = "procesarRegistro.php">
+<form name="register" method="post" action = "../scripts/procesarRegistro.php">
     <table><tr><td>
     Username: </td> <td><input type ="text" name="username" required> </td></tr>
     <tr><td>
@@ -15,3 +15,4 @@
     </table>
     <input type="submit" value = "Enviar">
 </form>
+

@@ -28,7 +28,7 @@
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }  
-    header("Location:inicio.php");
+    header("Location:../estructura/index.php");
     
         
 ?>
