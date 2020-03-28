@@ -31,6 +31,10 @@
             <label for="phone" style="color:green"> (4) Introduzca el decimal a convertir a binario:</label><br><br>
             <input type="integer" id="valor_d2" name="valor_d2" placeholder="610"><br><br>
             <button type="button" onclick="convertir(2);" onsubmit="return false">Convertir a binario</button>
+		<p></p>
+            <label for="phone" style="color:green"> (5) Introduzca el binario a convertir a decimal:</label><br><br>
+            <input type="integer" id="valor_d12" name="valor_d12" placeholder="10110"><br><br>
+            <button type="button" onclick="convertir(3);" onsubmit="return false">Convertir a decimal</button>
         </form>
 	</div>
 
@@ -57,6 +61,9 @@
                 else if (option == 2) {
                          $str = parseInt(document.getElementById('valor_d2').value);
                 }
+		else if (option == 3){
+			$str = parseInt(document.getElementById('valor_d12').value, 2);
+		}
 
                 if (!Number.isInteger($str)){
                         alert("Sólo puedes usar números.");
@@ -69,6 +76,9 @@
                                 $str = $str.toString(2);
                                 $str = $str.padStart(5, "0");
                         }
+			else {
+				$str = $str.toString(10);
+			}
                         //document.getElementById("valor_d").innerHTML = $str;
                         // TODO: PQ LO DE ARRIBA NO FUNCIONA? COMO EVITAR QUE LA PAGINA REFRESQUE?
                         alert('Resultado de la conversión = ' + $str);
