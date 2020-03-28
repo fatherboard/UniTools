@@ -20,11 +20,10 @@
             }
             else if ($_SESSION["login"])
             {
-                //echo"<div align='right|justify'>";
-                echo"<p>Bienvenido </p>";
-                echo"<a href=\"index.php?page=logout\" >logout</a>";
-                //echo"</div>";
-                
+                echo"<div align='right|justify'>";
+                echo"<a href=\"index.php?page=logout\" >Logout</a>";
+                echo"<p> Bienvenido " . $_SESSION['username'] . "</p>";
+                echo"</div>";
             }
 
     ?>

@@ -28,6 +28,15 @@
     text-decoration: none;
 }
 
+.navbar p{
+    float: left;
+    display: block;
+    color: rgb(185, 182, 182);
+    text-align: center;
+    padding: 10px 15px;
+    text-decoration: none;
+}
+
 .navbar a:hover {
     background-color: rgb(224, 224, 224);
     color: black;
