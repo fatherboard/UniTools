@@ -43,7 +43,7 @@
 
         var c = document.getElementById("myCanvas");
         var ctx = c.getContext("2d");
-        ctx.font = "30px Arial";
+        ctx.font = "italic small-caps 30px Verdana";
         ctx.strokeText("Ejemplo",30,70);
 
         function texto(){
