@@ -14,7 +14,7 @@
             }
             else if ($_SESSION["login"])
             {
-                echo"<a href=\"index.php?page=perfil\" >". $_SESSION["username"] . " </a>";
+                echo "<a href=\"index.php?page=perfil\" >". $_SESSION["username"] . " </a>";
                 echo "<a href=\"index.php?page=proyectos\">Proyectos</a>";
                 echo "<a href=\"index.php?page=foro\">Foro</a>";
                 echo "<a href=\"index.php?page=mensajes\">Mensajes</a>";
