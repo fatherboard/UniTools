@@ -34,9 +34,9 @@
     if($user = mysqli_fetch_assoc($query)) {
         $conn->close();
         $_SESSION['access_success'] = TRUE;
-        header("Location:index.php");
+        header("Location:../estructura/index.php");
     } else {
         $_SESSION['access_error'] = '1';
-        header("location: login.php");
+        header("Location:../estructura/index.php");
     }  
 ?>
