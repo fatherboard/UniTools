@@ -114,10 +114,14 @@ form {
     text-align: right;
 }
 
+table {
+    margin-top: 10px;
+    border-collapse: collapse;
 
+}
 
 table, th, td {
-  border: 1px solid black;
+    border: 1px solid black;
 }
 
 body {

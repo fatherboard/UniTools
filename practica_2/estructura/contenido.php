@@ -72,6 +72,10 @@ if(isset($_GET["page"])) {
         require("../scripts/herramientas.php");
     }
 
+    else if ($_GET["page"] == "post"){
+        require("../scripts/post.php");
+    }
+
 }
 
 

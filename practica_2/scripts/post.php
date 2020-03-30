@@ -1,15 +1,16 @@
 
+<div class="foro">
 
-<a href="index.php?page=perfil">$res['title']</a> 
+    <a href="index.php?page=perfil">$res['title']</a> 
 
-<?php
+    <?php
     if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
         echo "<a href=\"index.php?page=perfil\">Nuevo Post</a> ";
     }
-?>
+    ?>
 
 
-
+</div>
 
 <div class = "cotenido">
     <?php
@@ -28,7 +29,7 @@
 		    echo "<tr>";
 			echo "<td>ID del post: " . $res['id_post'] . "</td>";
 			echo "<td>Usuario: " . $resultUser['username'] . "</td>";
-			echo "<td>Título: " . "<a href=\"index.php?page=post\">" . $res['title'] . "</a></td>";
+			echo "<td>Título: " . "<a href=\"index.php?page=perfil\">" . $res['title'] . "</a></td>";
 		    echo "</tr>";
 	        echo "</tbody>";
             echo "</table>";
