@@ -15,16 +15,14 @@
         $query = mysqli_query($conn, "SELECT * FROM forumposts");
 
         while($res = mysqli_fetch_array($query)){
-
+            
+            echo "<tr>";
+            echo "<td>" . $res['id_post'] . "</td>";  
+            echo "<td>" . $res['user'] . "</td>";
+            echo "<td>" . $res['content'] . "</td>";
+            echo "</tr>";
+        }
     ?>
 
-    <tr>
-        <td><?php echo $res['id_post'] ?></td>        
-        <td><?php echo $res['user'] ?></td> 
-        <td><?php echo $res['content'] ?></td>    
-    </tr>
-<?php
-    }
-?>
 
 </div>
