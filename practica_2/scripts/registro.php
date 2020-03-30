@@ -16,3 +16,12 @@
     <input type="submit" value = "Enviar">
 </form>
 
+<?php
+    //  session_start();
+    if(isset($_SESSION['register_error'])){
+        if($_SESSION['register_error'] == '1'){
+            header("location: ../estructura/index.php?page=registro");
+        }
+    }
+
+?>   

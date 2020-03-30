@@ -12,6 +12,7 @@
     trim -> elimina espacios en blanco de la izquierda o derecha 
     strip_tags -> elimina tags de HTML, XML y PHP
     */
+    $_SESSION['register_error'] = '0';
     $servername = "localhost";
     $username =  htmlspecialchars(trim(strip_tags($_REQUEST["username"])));
     $email = htmlspecialchars(trim(strip_tags($_REQUEST["email"])));
@@ -24,37 +25,16 @@
 
     $sql = "INSERT INTO user(id_User, email, password, Nick, Rol, Premium) VALUES ('$username', '$email', '$password', '$nick', '$rol', '$Premium')";
    if ($conn->query($sql) === TRUE) {
-           echo "New record created successfully";
+            $conn->close();
+            $_SESSION['login'] = '1';
+            $_SESSION['username'] = $username;
+            header("location:../estructura/index.php");
+        } 
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        $_SESSION['register_error'] = '1';
+        header("Location:../estructura/index.php");
     }  
-    header("Location:../estructura/index.php");
+    
     
         
 ?>
-
-
-
-        <!-- Principio de la estructura de la página (contenedor) -->
-        <div id="contenedor">
-
-            
-
-           <!-- Principio del contenido/funcionalidad de procesar login -->
-            <div id="contenido">
-                <?php
-                    if(!isset($_SESSION["login"])) //wrong user
-                    {
-                        echo"<h1>¡Se ha producido un error!</h1>";
-                        echo"<p> Datos introducidos inválidos. </p>";
-                    }
-                    else{
-                       // header("Location:inicio.php");
-                    }
-                ?>
-            </div>
-            <!-- Fin del contenido -->
-
-           
-
-        </div> <!-- Fin del contenedor -->
