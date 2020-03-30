@@ -13,10 +13,11 @@
     strip_tags -> elimina tags de HTML, XML y PHP
     */
     $_SESSION['access_error'] = '0';
-    $_SESSION['username'];
+    $_SESSION['access_success'] = FALSE;
     $username = htmlspecialchars(trim(strip_tags($_REQUEST["username"])));
     $password = htmlspecialchars(trim(strip_tags($_REQUEST["password"])));
-    echo "$username " . " " . "$password";
+    $_SESSION['username'] = $username;
+    $_SESSION['password'] = $password;
 
     require_once 'connectdb.php';
 
@@ -32,14 +33,55 @@
     //validamos los datos introducidos en el login
     if($user = mysqli_fetch_assoc($query)) {
         $conn->close();
-        $_SESSION['login'] = '1';
-        $_SESSION['username'] = $username;
-        header("Location:../estructura/index.php");
-    } 
-    else {
+        $_SESSION['access_success'] = TRUE;
+        header("Location:index.php");
+    } else {
         $_SESSION['access_error'] = '1';
-        header("location: ../estructura/index.php?page=login");
-    }      
+        header("location: login.php");
+    }
+    
+   
+
+       
 ?>
 <!DOCTYPE html>
 <html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="../css/hoja.css" />
+        <meta charset="utf-8">
+        <title>Inicio</title>
+    </head>
+
+    <body>
+
+        <!-- Principio de la estructura de la página (contenedor) -->
+        <div id="contenedor">
+
+            <?php 
+                require("../estructura/cabecera.php") ;
+                require("../estructura/menu.php") ;
+            ?>
+
+           <!-- Principio del contenido/funcionalidad de procesar login -->
+            <div id="contenido">
+                <?php
+                    if(!isset($_SESSION["login"])) //wrong user
+                    {
+                        echo"<h1>¡Se ha producido un error!</h1>";
+                        echo"<p> Por favor, revisa los datos introducidos e intentelo de nuevo. </p>";
+                    }
+                    else{
+                        header("Location:inicio.php");
+                    }
+                ?>
+            </div>
+            <!-- Fin del contenido -->
+
+            <?php 
+                include("../estructura/pie.php");
+            ?>
+
+        </div> <!-- Fin del contenedor -->
+
+    </body>
+</html>
