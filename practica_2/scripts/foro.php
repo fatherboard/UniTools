@@ -38,7 +38,14 @@
             <div class = "cotenido">
                 <?php
                     require_once 'connectdb.php';
-                    $sql = "INSERT INTO forumposts(id_post, user, content) VALUES ('yo', 'fer', 'con mi burrito sabanero voy camino de Belen')";
+                    //la $sql no está funcionando ----> "Cannot add or update a child row: a foreign key constraint fails"  #putoForo.
+                    $sql = "INSERT INTO forumposts (id_post, usuario, content) VALUES ('123', '456', 'ayer me pasé el pokemon mundo misterioso')";
+                    if(mysqli_query($conn, $sql)){
+                        echo "todo de loks";
+                    }
+                    else{
+                        echo mysqli_error($conn);//te dice cual es el error
+                    }
                     $query = mysqli_query($conn, "SELECT * FROM forumposts");
 
                     while($res = mysqli_fetch_array($query)){
@@ -47,7 +54,7 @@
 
                     <tr>
                         <td><?php echo $res['id_post'] ?></td>        
-                        <td><?php echo $res['user'] ?></td> 
+                        <td><?php echo $res['usuario'] ?></td> 
                         <td><?php echo $res['content'] ?></td>    
                     </tr>
                 <?php
