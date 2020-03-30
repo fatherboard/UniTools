@@ -71,6 +71,9 @@
    
 }
 
+form {
+    margin-top: 20px;
+}
 .container {
     margin: 10px;
     padding: 5px;
@@ -175,6 +178,10 @@ figcaption {
 /* Control the right side */
 .right {
   right: 0;
+}
+
+.send-buttons {
+    margin-top: 10px;
 }
 
 

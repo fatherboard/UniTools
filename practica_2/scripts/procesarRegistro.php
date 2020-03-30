@@ -17,20 +17,18 @@
     $username =  htmlspecialchars(trim(strip_tags($_REQUEST["username"])));
     $email = htmlspecialchars(trim(strip_tags($_REQUEST["email"])));
     $password = htmlspecialchars(trim(strip_tags($_REQUEST["password"])));
-    $nick = htmlspecialchars(trim(strip_tags($_REQUEST["nick"])));
-    $rol = ($_REQUEST["rol"]);
-    $Premium = ($_REQUEST["premium"]);
     
    require_once 'connectdb.php';
 
-    $sql = "INSERT INTO user(id_User, email, password, Nick, Rol, Premium) VALUES ('$username', '$email', '$password', '$nick', '$rol', '$Premium')";
+    $sql = "INSERT INTO user(email, password, usuario) VALUES ('$email', '$password', '$username')";
    if ($conn->query($sql) === TRUE) {
-            $conn->close();
-            $_SESSION['login'] = '1';
-            $_SESSION['username'] = $username;
-            header("location:../estructura/index.php");
-        } 
-    } else {
+        $conn->close();
+        $_SESSION['login'] = '1';
+        $_SESSION['username'] = $username;
+        header("location:../estructura/index.php");
+         
+    } 
+    else {
         $_SESSION['register_error'] = '1';
         header("Location:../estructura/index.php");
     }  
