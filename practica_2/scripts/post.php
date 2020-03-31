@@ -22,6 +22,7 @@
     <p>Pulse en Publicar para incluir su mensaje en el Foro!</p>
 
     <?php
+	// Esta vez tiene que hacerse como root para poder insertar
         require_once 'connectdb.php';
 	
 	$username  =  $_SESSION["username"];
