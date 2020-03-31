@@ -9,15 +9,12 @@ if(isset($_GET["page"])) {
     if($_GET["page"] == "registrar") {
         require("../scripts/registro.php");
     }
-
     else if($_GET["page"] == "procesarlogin") {
         require("procesarLogin.php");
     }
-
     else if($_GET["page"] == "logout") {
         require("../scripts/logout.php");
     }
-
     else if($_GET["page"] == "admin") {
 
         if ((!isset($_SESSION["login"])) && (!isset($_SESSION["esAdmin"]))) {
@@ -32,7 +29,6 @@ if(isset($_GET["page"])) {
             require("../scripts/admin.php");
         }
     }
-
     else if ($_GET["page"] == "perfil"){
         if (!isset($_SESSION["login"])) {
             echo "<p>No tienes una sesión activa, loggeate para poder visualizar tu perfil.</p>";
@@ -42,7 +38,6 @@ if(isset($_GET["page"])) {
             require("../scripts/perfil.php");
         }
     }
-
     else if ($_GET["page"] == "proyectos"){
         if (!isset($_SESSION["login"])) {
             echo "<p>No puedes ver este contenido, loggeate para poder visualizarlo.</p>";
@@ -52,12 +47,9 @@ if(isset($_GET["page"])) {
             require("../scripts/proyectos.php");
         }
     }
-
     else if ($_GET["page"] == "foro") {
         require("../scripts/foro.php");
     }
-    
-
     else if ($_GET["page"] == "mensajes"){
         if (!isset($_SESSION["login"])) {
             echo "<p>No puedes ver este contenido, loggeate para poder visualizarlo.</p>";
@@ -67,13 +59,16 @@ if(isset($_GET["page"])) {
             require("../scripts/mensajes.php");
         }
     }
-
     else if ($_GET["page"] == "herramientas"){
         require("../scripts/herramientas.php");
     }
 
     else if ($_GET["page"] == "post"){
         require("../scripts/post.php");
+    }
+    else {
+        http_response_code(404);
+        echo "<p>Página no valida.</p>";
     }
 
 }
