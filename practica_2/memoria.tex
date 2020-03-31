@@ -1,3 +1,5 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% DOCUMENT PREAMBLE %%%
 \documentclass[12pt]{report}
 \usepackage[spanish]{babel}
 \usepackage{float}
@@ -16,7 +18,8 @@
 \definecolor{mygreen}{rgb}{0,0.6,0}
 \definecolor{mygray}{rgb}{0.5,0.5,0.5}
 \definecolor{mymauve}{rgb}{0.58,0,0.82}
- %Customize a bit the look
+ 
+%Customize a bit the look
 \lstset{ %
 backgroundcolor=\color{white}, % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
 basicstyle=\footnotesize, % the size of the fonts that are used for the code
@@ -178,8 +181,7 @@ Al mismo tiempo, hemos desarrollado otras dos funcionalidades que, sin depender 
 
 Además, y para facilitar nuestro trabajo en sucesivas versiones del proyecto, hemos añadido utilidades que nos servirán para administrar la página web. Para ello, hemos creado un usuario extra para la Base de Datos (aparte del propio root, con total acceso) con diferentes permisos y privilegios, así como una tabla extra en la Base de Datos \textbf{como log de los accesos fallidos} en el Login, lo que pensamos que puede ser un feature interesante para mejorar la seguridad de la web resultante. Discutiremos esto en más detalle en la sección 4 "\textit{Estructura de la Base de Datos}".
 
-A la hora de dividir el trabajo, decidimos dejar a cada miembro del equipo encargado de dirigir cada una de las partes. Dicho lo cual, hemos hecho un esfuerzo por realizar videollamadas semanalmente para coordinar el trabajo y asegurarnos de que todos estábamos al corriente del funcionamiento de lo demás. En realidad, todos hemos acabado ayudándonos los unos a los otros con el código en algún momento, con lo que estamos satisfechos en ese sentido. Hemos utilizado GitHub para gestionar las versiones y commits del proyecto.
-
+A la hora de dividir el trabajo, decidimos dejar a cada miembro del equipo encargado de dirigir cada una de las partes. Dicho lo cual, hemos hecho un esfuerzo por realizar videollamadas semanalmente para coordinar el trabajo y asegurarnos de que todos estábamos al corriente del funcionamiento de lo demás. Hemos utilizado GitHub para gestionar las versiones y commits del proyecto. \textbf{El código mostrado en esta memoria, podría no estar completamente actualizado debido a pequeños cambios para pulir detalles, no obstante la idea general explicada será la misma en cualquier caso}.
 \newpage
 \section{Scripts para las vistas}
 Las vistas posibles de esta versión son entre las que permite navegar el Menú de la página web, aunque algunas de ellas no mostrarán ningún contenido si el usuario no ha sido previamente registrado.
@@ -277,7 +279,36 @@ function texto(){
 }
 \end{lstlisting}
 
-//TODO Foro (la otra funcionalidad)
+La otra funcionalidad que hemos implementado durante esta práctica, al menos en su versión más básica, es el Foro. Una vez un usuario se ha registrado e iniciado sesión, puede \textbf{tanto revisar la lista de Posts publicados como escribir un nuevo Posts}, con scripts/post.php.
+
+Para mostrar los posts del foro, basta con realizar una query a la Base de Datos que ordene las entradas por antigüedad, cosa que se puede hacer sin problema gracias a los id, que ascienden automáticamente. Una vez se tienen las entradas, estas pueden asociarse a su usuario, para luego crear una tabla con su información (id y Nombre de Usuario).
+\newline
+
+\begin{lstlisting}[language=PHP]
+require_once 'connectdb.php';
+
+$query = mysqli_query($conn, "SELECT * FROM forumposts ORDER BY id_post DESC");
+
+while($res = mysqli_fetch_array($query)){
+    
+    $userQuery=$res['user'];
+    $userById = mysqli_query($conn, "SELECT * FROM user WHERE id_user=$userQuery");  
+    $resultUser = mysqli_fetch_array($userById);
+    echo "<table class=\"posts\">";
+    echo "<tbody>";
+    echo "<tr>";
+	  echo "<td>ID del post: " . $res['id_post'] . "</td>";
+    (...)
+\end{lstlisting}
+
+Publicar entradas en el foro es un poco más intrincado, ya que requiere coger el texto escrito por el usuario y realizar una inserción en la Base de Datos.
+\newline
+
+\begin{lstlisting}[language=SQL]
+$sql = "INSERT INTO forumposts(usuario, content) VALUES ('$username', '$contenido')";
+\end{lstlisting}
+La conexión a la Base de Datos tendrá que hacerse con los permisos necesarios para insertar, por lo que hemos decidido dar al usuario no root permisos de inserción. De todo ello se hablará más detenidamente en el Capítulo dedicado a la BBDD.
+
  \newpage
 \section{Scripts adicionales}
 Dos scripts que es importante mencionar son el de Login y el de Registro, ambos estrechamente ligados con la Base de Datos que será después descrita. 
