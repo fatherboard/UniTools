@@ -68,7 +68,7 @@ if(isset($_GET["page"])) {
     }
     else {
         http_response_code(404);
-        echo "<p>Página no valida.</p>";
+        require("404.php")
     }
 
 }
