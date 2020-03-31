@@ -17,22 +17,24 @@
     $username =  htmlspecialchars(trim(strip_tags($_REQUEST["username"])));
     $email = htmlspecialchars(trim(strip_tags($_REQUEST["email"])));
     $password = htmlspecialchars(trim(strip_tags($_REQUEST["password"])));
+
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+         $_SESSION['register_error'] = '1';
+         header("Location:../estructura/index.php");
+    }
     
-   require_once 'connectdb.php';
+    require_once 'connectdb.php';
 
     $sql = "INSERT INTO user(email, password, usuario) VALUES ('$email', '$password', '$username')";
-   if ($conn->query($sql) === TRUE) {
+    if ($conn->query($sql) === TRUE) {
         $conn->close();
         $_SESSION['login'] = '1';
         $_SESSION['username'] = $username;
         header("location:../estructura/index.php");
          
-    } 
-    else {
+     } 
+     else {
         $_SESSION['register_error'] = '1';
         header("Location:../estructura/index.php");
-    }  
-    
-    
-        
+     }         
 ?>
