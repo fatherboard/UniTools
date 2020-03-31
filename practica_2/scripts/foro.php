@@ -1,5 +1,4 @@
 
-
 <a href="index.php?page=perfil">$res['title']</a> 
 
 <?php
@@ -9,12 +8,10 @@
 ?>
 
 
-
-
 <div class = "cotenido">
     <?php
         require_once 'connectdb.php';
-        $query = mysqli_query($conn, "SELECT * FROM forumposts");
+        $query = mysqli_query($conn, "SELECT * FROM forumposts ORDER BY id_post DESC");
 
         while($res = mysqli_fetch_array($query)){
             
