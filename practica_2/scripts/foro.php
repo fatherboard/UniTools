@@ -24,7 +24,7 @@
 	        echo "<tbody>";
 		    echo "<tr>";
 			echo "<td>ID del post: " . $res['id_post'] . "</td>";
-			echo "<td>Usuario: " . $resultUser['username'] . "</td>";
+			echo "<td>Usuario: " . $resultUser['Nick'] . "</td>";
 			echo "<td>Título: " . "<a href=\"index.php?page=post\">" . $res['title'] . "</a></td>";
 		    echo "</tr>";
 	        echo "</tbody>";
@@ -35,6 +35,5 @@
         
         $conn->close();
     ?>
-
 
 </div>
