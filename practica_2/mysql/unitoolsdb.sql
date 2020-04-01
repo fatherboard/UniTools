@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-03-2020 a las 10:21:29
+-- Tiempo de generación: 01-04-2020 a las 16:24:14
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.2
 
@@ -25,14 +25,36 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `categories`
+--
+
+CREATE TABLE `categories` (
+  `id_cat` int(11) NOT NULL,
+  `cat_name` varchar(25) NOT NULL,
+  `desc` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `forumposts`
 --
 
 CREATE TABLE `forumposts` (
   `id_post` int(11) NOT NULL,
   `user` int(11) NOT NULL,
-  `content` text NOT NULL
+  `title` text CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `content` text CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `category` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `forumposts`
+--
+
+INSERT INTO `forumposts` (`id_post`, `user`, `title`, `content`, `category`) VALUES
+(2, 4, 'No sé hacer esto, ayuda', 'toi to perdio chavales, no sé sumar 1 a una variable xd', 0),
+(3, 5, 'Holaaaaaaaaaa', 'Esto es un contenido to wapo nen', 0);
 
 -- --------------------------------------------------------
 
@@ -70,21 +92,35 @@ CREATE TABLE `user` (
   `id_User` int(11) NOT NULL,
   `email` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `Nick` varchar(30) NOT NULL,
-  `Rol` int(11) NOT NULL,
-  `Premium` tinyint(1) NOT NULL
+  `username` varchar(30) NOT NULL,
+  `premium` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `user`
+--
+
+INSERT INTO `user` (`id_User`, `email`, `password`, `username`, `premium`) VALUES
+(4, 'caca@caca.com', '1', 'hugo', 1),
+(5, 'l@l.l', '1', 'l', 1);
 
 --
 -- Índices para tablas volcadas
 --
 
 --
+-- Indices de la tabla `categories`
+--
+ALTER TABLE `categories`
+  ADD PRIMARY KEY (`id_cat`);
+
+--
 -- Indices de la tabla `forumposts`
 --
 ALTER TABLE `forumposts`
   ADD PRIMARY KEY (`id_post`),
-  ADD KEY `user` (`user`);
+  ADD KEY `user` (`user`),
+  ADD KEY `category` (`category`);
 
 --
 -- Indices de la tabla `logs`
@@ -111,10 +147,16 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `categories`
+--
+ALTER TABLE `categories`
+  MODIFY `id_cat` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `forumposts`
 --
 ALTER TABLE `forumposts`
-  MODIFY `id_post` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_post` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `logs`
@@ -132,11 +174,17 @@ ALTER TABLE `repository`
 -- AUTO_INCREMENT de la tabla `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_User` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_User` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Restricciones para tablas volcadas
 --
+
+--
+-- Filtros para la tabla `categories`
+--
+ALTER TABLE `categories`
+  ADD CONSTRAINT `categories_ibfk_1` FOREIGN KEY (`id_cat`) REFERENCES `forumposts` (`category`) ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `forumposts`
