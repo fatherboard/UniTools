@@ -1,18 +1,6 @@
 -- phpMyAdmin SQL Dump
 -- version 5.0.1
 -- https://www.phpmyadmin.net/
---
-<<<<<<< HEAD
--- Servidor: 127.0.0.1
--- Tiempo de generación: 01-04-2020 a las 16:24:14
--- Versión del servidor: 10.4.11-MariaDB
--- Versión de PHP: 7.4.2
-=======
--- Host: 127.0.0.1 
--- Generation Time: Apr 01, 2020 at 01:38 PM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.2.28
->>>>>>> 28591d938c16fd340ccb833f5c67f5679b867a0c
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -32,7 +20,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
-<<<<<<< HEAD
+
 -- Estructura de tabla para la tabla `categories`
 --
 
@@ -46,16 +34,15 @@ CREATE TABLE `categories` (
 
 --
 -- Estructura de tabla para la tabla `forumposts`
-=======
+
 -- Table structure for table `forumposts`
->>>>>>> 28591d938c16fd340ccb833f5c67f5679b867a0c
+
 --
 
 CREATE TABLE `forumposts` (
   `id_post` int(11) NOT NULL,
   `user` int(11) NOT NULL,
   `title` text CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
-<<<<<<< HEAD
   `content` text CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
   `category` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -67,7 +54,7 @@ CREATE TABLE `forumposts` (
 INSERT INTO `forumposts` (`id_post`, `user`, `title`, `content`, `category`) VALUES
 (2, 4, 'No sé hacer esto, ayuda', 'toi to perdio chavales, no sé sumar 1 a una variable xd', 0),
 (3, 5, 'Holaaaaaaaaaa', 'Esto es un contenido to wapo nen', 0);
-=======
+
   `content` text CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -78,7 +65,7 @@ INSERT INTO `forumposts` (`id_post`, `user`, `title`, `content`, `category`) VAL
 INSERT INTO `forumposts` (`id_post`, `user`, `title`, `content`) VALUES
 (2, 4, 'No sé hacer esto, ayuda', 'toi to perdio chavales, no sé sumar 1 a una variable xd'),
 (3, 5, 'Holaaaaaaaaaa', 'Esto es un contenido to wapo nen');
->>>>>>> 28591d938c16fd340ccb833f5c67f5679b867a0c
+
 
 -- --------------------------------------------------------
 
@@ -121,37 +108,30 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
-<<<<<<< HEAD
+
 -- Volcado de datos para la tabla `user`
-=======
 -- Dumping data for table `user`
->>>>>>> 28591d938c16fd340ccb833f5c67f5679b867a0c
+
 --
 
 INSERT INTO `user` (`id_User`, `email`, `password`, `username`, `premium`) VALUES
 (4, 'caca@caca.com', '1', 'hugo', 1),
 (5, 'l@l.l', '1', 'l', 1);
 
---
-<<<<<<< HEAD
--- Índices para tablas volcadas
---
 
---
+-- Índices para tablas volcadas
 -- Indices de la tabla `categories`
---
+
 ALTER TABLE `categories`
   ADD PRIMARY KEY (`id_cat`);
 
 --
 -- Indices de la tabla `forumposts`
-=======
 -- Indexes for dumped tables
 --
 
 --
 -- Indexes for table `forumposts`
->>>>>>> 28591d938c16fd340ccb833f5c67f5679b867a0c
 --
 ALTER TABLE `forumposts`
   ADD PRIMARY KEY (`id_post`),
@@ -183,7 +163,6 @@ ALTER TABLE `user`
 --
 
 --
-<<<<<<< HEAD
 -- AUTO_INCREMENT de la tabla `categories`
 --
 ALTER TABLE `categories`
@@ -193,7 +172,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT de la tabla `forumposts`
 =======
 -- AUTO_INCREMENT for table `forumposts`
->>>>>>> 28591d938c16fd340ccb833f5c67f5679b867a0c
+
 --
 ALTER TABLE `forumposts`
   MODIFY `id_post` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
@@ -221,7 +200,7 @@ ALTER TABLE `user`
 --
 
 --
-<<<<<<< HEAD
+
 -- Filtros para la tabla `categories`
 --
 ALTER TABLE `categories`
@@ -231,7 +210,7 @@ ALTER TABLE `categories`
 -- Filtros para la tabla `forumposts`
 =======
 -- Constraints for table `forumposts`
->>>>>>> 28591d938c16fd340ccb833f5c67f5679b867a0c
+
 --
 ALTER TABLE `forumposts`
   ADD CONSTRAINT `forumposts_ibfk_1` FOREIGN KEY (`user`) REFERENCES `user` (`id_User`) ON UPDATE CASCADE;
