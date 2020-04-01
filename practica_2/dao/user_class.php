@@ -1,22 +1,24 @@
 <?php
 
-class User {
+/* Transfer Object */
+class TOUser {
 
-	public $id_User;
-	public $email;
-	public $password;
-	public $user_name;
-	public $premium;
+	private $id_User;
+	private $email;
+	private $password;
+	private $user_name;
+	private $premium;
 
-	function __construct($email="",$password="",$user_name="",$premium=0){
+	function __construct($id='',$email='',$password='',$user_name='',$premium=''){
 
+		$this->id_User = $id;
 		$this->email = $email;
 		$this->password = $password;
 		$this->user_name = $user_name;
 		$this->premium = $premium;
 	}
 
-	/* Set functions  ################################################################# */
+	/* Set functions (DAO uses)  ################################################################# */
 	
 	public function create_User($columna){
 
@@ -26,62 +28,47 @@ class User {
 		$this->premium = $columna['premium'];
 	}
 
-	public function insert_User(){
-		$sql = sprintf("INSERT INTO user(email, password, username, premium ) 
-		                VALUES ('$this->email', '$this->password', '$this->user_name', '$this->premium')");
-		return $sql;
-	}
-
 	public function set_email($correo){
 		$this->email = $correo;
-		$sql = sprintf("UPDATE user SET email = $correo WHERE id_User = $this->id_User");
-		return $sql;
+	}
+
+	public function set_id($id){
+		$this->id_User = $id;
 	}
 
 	public function set_password($pass){
 		$this->password = $pass;
-		$sql = sprintf("UPDATE user SET password = $pass WHERE id_User = $this->id_User");
-		return $sql;
 	}
 
 	public function set_user_name($user_name){
 		$this->user_name = $user_name;
-		$sql = sprintf("UPDATE user SET username = $user_name WHERE id_User = $this->id_User");
-		return $sql;
 	}
 
 	/* Get functions ################################################################# */
 
-	public function get_all_users(){
-		$sql = sprintf("SELECT * FROM user");
-		return $sql;
-	}
-
-	public function get_User($id){
-		$sql = sprintf("SELECT * FROM user WHERE id_User = $id");
-		return $sql;
-	}
-
 	public function get_User(){
-		$sql = sprintf("SELECT * FROM user WHERE id_User = $this->id_User");
-		return $sql;
+		
+		$columna = [
+		    "email" => $this->email,
+		    "password" => $this->password,
+		    "user_name" => $this->user_name,
+		    "premium" => $this->premium
+		];
+
+		return $columna;
 	}
 
 	public function get_email(){
-		$sql = sprintf("SELECT email FROM user WHERE id_User = $this->id_User");
-		return $sql;
+		return $this->email;
 	}
 
 	public function get_password(){
-		$sql = sprintf("SELECT password FROM user WHERE id_User = $this->id_User");
-		return $sql;
+		return $this->password;
 	}
 
 	public function get_user_name(){
-		$sql = sprintf("SELECT user_name FROM user WHERE id_User = $this->id_User");
-		return $sql;
+		return $this->user_name;
 	}
-
 }
 
 ?>
