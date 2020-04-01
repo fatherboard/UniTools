@@ -5,7 +5,7 @@
 
     <?php
     if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
-        echo "<a href=\"index.php?page=perfil\">Nuevo Post</a> ";
+        echo "<a href=\"../index.php?page=perfil\">Nuevo Post</a> ";
     }
     ?>
 </div>

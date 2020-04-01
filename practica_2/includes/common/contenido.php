@@ -3,16 +3,16 @@
 if(isset($_GET["page"])) {
 
     if($_GET["page"] == "login") {
-        require("../scripts/login.php");
+        require("scripts/login.php");
     }
     else if($_GET["page"] == "registrar") {
-        require("../scripts/registro.php");
+        require("scripts/registro.php");
     }
     else if($_GET["page"] == "procesarlogin") {
-        require("procesarLogin.php");
+        require("scripts/procesarLogin.php");
     }
     else if($_GET["page"] == "logout") {
-        require("../scripts/logout.php");
+        require("scripts/logout.php");
     }
     else if($_GET["page"] == "admin") {
 
@@ -25,7 +25,7 @@ if(isset($_GET["page"])) {
         }
         
         if (isset($_SESSION["esAdmin"]) && $_SESSION["esAdmin"] == true) {
-            require("../scripts/admin.php");
+            require("scripts/admin.php");
         }
     }
     else if ($_GET["page"] == "perfil"){
@@ -34,7 +34,7 @@ if(isset($_GET["page"])) {
         }
         
         if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
-            require("../scripts/perfil.php");
+            require("scripts/perfil.php");
         }
     }
     else if ($_GET["page"] == "proyectos"){
@@ -43,11 +43,11 @@ if(isset($_GET["page"])) {
         }
         
         if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
-            require("../scripts/proyectos.php");
+            require("scripts/proyectos.php");
         }
     }
     else if ($_GET["page"] == "foro") {
-        require("../scripts/foro.php");
+        require("scripts/foro.php");
     }
     else if ($_GET["page"] == "mensajes"){
         if (!isset($_SESSION["login"])) {
@@ -55,19 +55,19 @@ if(isset($_GET["page"])) {
         }
         
         if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
-            require("../scripts/mensajes.php");
+            require("scripts/mensajes.php");
         }
     }
     else if ($_GET["page"] == "herramientas"){
-        require("../scripts/herramientas.php");
+        require("scripts/herramientas.php");
     }
 
     else if ($_GET["page"] == "post"){
-        require("../scripts/post.php");
+        require("scripts/post.php");
     }
     else {
         http_response_code(404);
-        require("404.php");
+        require("scripts/404.php");
     }
 }
 

@@ -20,7 +20,7 @@
                 echo "<a href=\"index.php?page=mensajes\">Mensajes</a>";
                 echo "<a href=\"index.php?page=herramientas\">Herramientas</a>";
 
-                //TODO Derecha (css)
+                //derecha
                 echo"<a href=\"index.php?page=logout\" >Logout</a>";
             }
     ?>
