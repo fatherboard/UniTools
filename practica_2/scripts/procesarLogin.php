@@ -17,7 +17,7 @@
     $password = htmlspecialchars(trim(strip_tags($_REQUEST["password"])));
     echo "$username " . " " . "$password";
     require_once 'connectdb.php';
-    $query = mysqli_query($conn, "SELECT * FROM user WHERE username = '$username' AND password = '$password'");
+    $query = mysqli_query($conn, "SELECT * FROM user WHERE Nick = '$username' AND password = '$password'");
     if(!$query){ 
         // echo "Usuario no existe " . $nombre . " " . $password. " o hubo un error " . 
         echo mysqli_error($conn);

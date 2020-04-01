@@ -26,7 +26,7 @@
     require_once 'connectdb.php';
 
     // TODO PREMIUM
-    $sql = "INSERT INTO user(email, password, usuario) VALUES ('$email', '$password', '$username')";
+    $sql = "INSERT INTO user(email, password, Nick) VALUES ('$email', '$password', '$username')";
     if ($conn->query($sql) === TRUE) {
         $conn->close();
         $_SESSION['login'] = '1';

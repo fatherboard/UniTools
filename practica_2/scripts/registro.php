@@ -14,8 +14,9 @@
     //  session_start();
     if(isset($_SESSION['register_error'])){
         if($_SESSION['register_error'] == '1'){
-            header("location: ../estructura/index.php?page=registro");
+            header("location: ../estructura/index.php?page=registrar");
         }
     }
 
 ?>   
+    

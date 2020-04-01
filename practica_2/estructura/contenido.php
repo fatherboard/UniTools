@@ -5,8 +5,7 @@ if(isset($_GET["page"])) {
     if($_GET["page"] == "login") {
         require("../scripts/login.php");
     }
-
-    if($_GET["page"] == "registrar") {
+    else if($_GET["page"] == "registrar") {
         require("../scripts/registro.php");
     }
     else if($_GET["page"] == "procesarlogin") {
@@ -68,9 +67,8 @@ if(isset($_GET["page"])) {
     }
     else {
         http_response_code(404);
-        require("404.php")
+        require("404.php");
     }
-
 }
 
 
