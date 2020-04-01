@@ -1,6 +1,11 @@
 -- phpMyAdmin SQL Dump
 -- version 5.0.1
 -- https://www.phpmyadmin.net/
+--
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 01-04-2020 a las 21:16:30
+-- Versión del servidor: 10.4.11-MariaDB
+-- Versión de PHP: 7.4.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -14,13 +19,12 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `unitoolsdb`
+-- Base de datos: `unitoolsdb`
 --
 
 -- --------------------------------------------------------
 
 --
-
 -- Estructura de tabla para la tabla `categories`
 --
 
@@ -34,9 +38,6 @@ CREATE TABLE `categories` (
 
 --
 -- Estructura de tabla para la tabla `forumposts`
-
--- Table structure for table `forumposts`
-
 --
 
 CREATE TABLE `forumposts` (
@@ -55,22 +56,10 @@ INSERT INTO `forumposts` (`id_post`, `user`, `title`, `content`, `category`) VAL
 (2, 4, 'No sé hacer esto, ayuda', 'toi to perdio chavales, no sé sumar 1 a una variable xd', 0),
 (3, 5, 'Holaaaaaaaaaa', 'Esto es un contenido to wapo nen', 0);
 
-  `content` text CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `forumposts`
---
-
-INSERT INTO `forumposts` (`id_post`, `user`, `title`, `content`) VALUES
-(2, 4, 'No sé hacer esto, ayuda', 'toi to perdio chavales, no sé sumar 1 a una variable xd'),
-(3, 5, 'Holaaaaaaaaaa', 'Esto es un contenido to wapo nen');
-
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `logs`
+-- Estructura de tabla para la tabla `logs`
 --
 
 CREATE TABLE `logs` (
@@ -82,7 +71,7 @@ CREATE TABLE `logs` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `repository`
+-- Estructura de tabla para la tabla `repository`
 --
 
 CREATE TABLE `repository` (
@@ -96,7 +85,7 @@ CREATE TABLE `repository` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Estructura de tabla para la tabla `user`
 --
 
 CREATE TABLE `user` (
@@ -108,30 +97,25 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
-
 -- Volcado de datos para la tabla `user`
--- Dumping data for table `user`
-
 --
 
 INSERT INTO `user` (`id_User`, `email`, `password`, `username`, `premium`) VALUES
 (4, 'caca@caca.com', '1', 'hugo', 1),
 (5, 'l@l.l', '1', 'l', 1);
 
-
+--
 -- Índices para tablas volcadas
--- Indices de la tabla `categories`
+--
 
+--
+-- Indices de la tabla `categories`
+--
 ALTER TABLE `categories`
   ADD PRIMARY KEY (`id_cat`);
 
 --
 -- Indices de la tabla `forumposts`
--- Indexes for dumped tables
---
-
---
--- Indexes for table `forumposts`
 --
 ALTER TABLE `forumposts`
   ADD PRIMARY KEY (`id_post`),
@@ -139,27 +123,27 @@ ALTER TABLE `forumposts`
   ADD KEY `category` (`category`);
 
 --
--- Indexes for table `logs`
+-- Indices de la tabla `logs`
 --
 ALTER TABLE `logs`
   ADD PRIMARY KEY (`id_log`),
   ADD KEY `user` (`user`);
 
 --
--- Indexes for table `repository`
+-- Indices de la tabla `repository`
 --
 ALTER TABLE `repository`
   ADD PRIMARY KEY (`id_rep`),
   ADD KEY `creator` (`creator`);
 
 --
--- Indexes for table `user`
+-- Indices de la tabla `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id_User`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
@@ -170,37 +154,33 @@ ALTER TABLE `categories`
 
 --
 -- AUTO_INCREMENT de la tabla `forumposts`
-=======
--- AUTO_INCREMENT for table `forumposts`
-
 --
 ALTER TABLE `forumposts`
   MODIFY `id_post` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `logs`
+-- AUTO_INCREMENT de la tabla `logs`
 --
 ALTER TABLE `logs`
   MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `repository`
+-- AUTO_INCREMENT de la tabla `repository`
 --
 ALTER TABLE `repository`
   MODIFY `id_rep` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT de la tabla `user`
 --
 ALTER TABLE `user`
   MODIFY `id_User` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- Constraints for dumped tables
+-- Restricciones para tablas volcadas
 --
 
 --
-
 -- Filtros para la tabla `categories`
 --
 ALTER TABLE `categories`
@@ -208,21 +188,18 @@ ALTER TABLE `categories`
 
 --
 -- Filtros para la tabla `forumposts`
-=======
--- Constraints for table `forumposts`
-
 --
 ALTER TABLE `forumposts`
   ADD CONSTRAINT `forumposts_ibfk_1` FOREIGN KEY (`user`) REFERENCES `user` (`id_User`) ON UPDATE CASCADE;
 
 --
--- Constraints for table `logs`
+-- Filtros para la tabla `logs`
 --
 ALTER TABLE `logs`
   ADD CONSTRAINT `logs_ibfk_1` FOREIGN KEY (`user`) REFERENCES `user` (`id_User`) ON UPDATE CASCADE;
 
 --
--- Constraints for table `repository`
+-- Filtros para la tabla `repository`
 --
 ALTER TABLE `repository`
   ADD CONSTRAINT `repository_ibfk_1` FOREIGN KEY (`creator`) REFERENCES `user` (`id_User`) ON UPDATE CASCADE;
