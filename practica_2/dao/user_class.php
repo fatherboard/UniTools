@@ -9,7 +9,7 @@ class TOUser {
 	private $user_name;
 	private $premium;
 
-	function __construct($id='',$email='',$password='',$user_name='',$premium=''){
+	/*function __construct($id='',$email='',$password='',$user_name='',$premium=''){
 
 		$this->id_User = $id;
 		$this->email = $email;
@@ -17,6 +17,7 @@ class TOUser {
 		$this->user_name = $user_name;
 		$this->premium = $premium;
 	}
+	*/
 
 	function __construct($columna){
 

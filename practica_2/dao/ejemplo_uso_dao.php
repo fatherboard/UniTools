@@ -1,3 +1,5 @@
+<h1>ya está</h1>
+
 <?php
 
 include_once('dao_user.php');
@@ -11,6 +13,6 @@ $columna = [
 
 $user = new TOUser($columna);
 $dao_usuario = new DAOUsuario();
-$dao_usuario.insert_User($user);
+$dao_usuario->insert_User($user);
 
 ?>
