@@ -24,35 +24,46 @@
          header("Location:index.php?page=registrar");
     }
 
-    else if ($password != $password2) {
+    if ($password != $password2) {
         $_SESSION['register_error'] = '1';
         $_SESSION['reg_mess'] = "Las contraseñas introducidas no coinciden";
         header("Location:index.php?page=registrar");
     }
 
-    else if (!preg_match('/^(?=[a-z])(?=[A-Z])[a-zA-Z]{8,}$/', $password))
+    if (!preg_match('/^(?=[a-z])(?=[A-Z])[a-zA-Z]{8,}$/', $password))
     {
         $_SESSION['register_error'] = '1';
         $_SESSION['reg_mess'] = "La contraseñas no es válida";
         header("Location:index.php?page=registrar");
     }
+
+    if (empty($username) ) {
+        $_SESSION['register_error'] = '1';
+        $_SESSION['reg_mess'] = "El usuario no puede estar vacío";
+        header("Location:index.php?page=registrar");
+    }
+
+    if ( empty($password) || empty($password2)) {
+        $_SESSION['register_error'] = '1';
+        $_SESSION['reg_mess'] = "La contraseñas no puede estar vacía";
+        header("Location:index.php?page=registrar");
+    }
     
     //VERIFICAR SI USUARIO ESTÁ YA EN LA BBDD
 
-    
-    require_once 'connectdb.php';
+    $columna = [
+        "email" => $email,
+        "password" => $password,
+        "user_name" => $username,
+        "premium" => 0
+    ];
 
-    // TODO PREMIUM
-    $sql = "INSERT INTO user(email, password, Nick) VALUES ('$email', '$password', '$username')";
-    if ($conn->query($sql) === TRUE) {
-        $conn->close();
-        $_SESSION['login'] = '1';
-        $_SESSION['username'] = $username;
-        header("location:../index.php");
-         
-     } 
-     else {
-        $_SESSION['register_error'] = '1';
-        header("Location:../index.php");
-     }         
+    $user = new TOUser($columna);
+    $dao_usuario = new DAOUsuario();
+    $dao_usuario->insert_User($user);
+    
+    $_SESSION['login'] = '1';
+    $_SESSION['username'] = $username;
+    header("location:../index.php");
+
 ?>
