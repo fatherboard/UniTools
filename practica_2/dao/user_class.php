@@ -3,14 +3,14 @@
 /* Transfer Object */
 class TOUser {
 
-	private $id_User;
+	private $userId;
 	private $email;
 	private $password;
 	private $user_name;
 	private $premium;
 
-	function __construct($email='',$password='',$user_name='',$premium=''){
-
+	function __construct($userId='',$email='',$password='',$user_name='',$premium=''){
+		$this->userId = $userId;
 		$this->email = $email;
 		$this->password = $password;
 		$this->user_name = $user_name;
@@ -28,7 +28,7 @@ class TOUser {
 	/* Set functions (DAO uses)  ################################################################# */
 	
 	public function create_User($columna){
-
+		$this->userId = $columna['userId'];
 		$this->email = $columna['email'];
 		$this->password = $columna['password'];
 		$this->user_name = $columna['user_name'];
@@ -39,7 +39,7 @@ class TOUser {
 		$this->email = $correo;
 	}
 
-	public function set_id($id){
+	public function set_userId($id){
 		$this->id_User = $id;
 	}
 
@@ -53,9 +53,10 @@ class TOUser {
 
 	/* Get functions ################################################################# */
 
-	public function get_User(){
+	public function get_user(){
 		// devuelve un array con todos los datos de usuario
 		$columna = [
+			"userId" => $this->userId,
 		    "email" => $this->email,
 		    "password" => $this->password,
 		    "user_name" => $this->user_name,
@@ -63,6 +64,10 @@ class TOUser {
 		];
 
 		return $columna;
+	}
+	
+	public function get_userId(){
+		return $this->userId;
 	}
 
 	public function get_email(){
@@ -73,7 +78,7 @@ class TOUser {
 		return $this->password;
 	}
 
-	public function get_user_name(){
+	public function get_username(){
 		return $this->user_name;
 	}
 
@@ -81,5 +86,4 @@ class TOUser {
 		return $this->premium;
 	}
 }
-
 ?>
