@@ -1,7 +1,7 @@
 <?php
 
 /* Transfer Object */
-class TOPost {
+class TOUPost {
 
 	private $id_Post;
 	private $user;

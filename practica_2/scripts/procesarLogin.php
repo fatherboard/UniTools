@@ -1,5 +1,6 @@
 <?php
-    
+    include_once('../dao/dao_user.php');
+
     if(!isset($_SESSION)) 
     { 
         session_start(); 
@@ -12,34 +13,32 @@
     strip_tags -> elimina tags de HTML, XML y PHP
     */
     $_SESSION['access_error'] = '0';
-    $_SESSION['username'];
-    $username = htmlspecialchars(trim(strip_tags($_REQUEST["username"])));
-    $password = $_REQUEST["password"];
-    echo "$username " . " " . "$password";
-    require_once 'connectdb.php';
-    /*$query = mysqli_query($conn, "SELECT * FROM user WHERE username = '$username'");
-    Sacar de la bbdd usuario
-    */
-    if(!$query){ 
-        // echo "Usuario no existe " . $nombre . " " . $password. " o hubo un error " . 
-        echo mysqli_error($conn);
-        // si la consulta falla es bueno evitar que el código se siga ejecutando
-        exit;
-    } 
-    //validamos los datos introducidos en el login
-    /*if($user = mysqli_fetch_assoc($query) && password_verify($password, PASSWORD_BCRYPT)) {
+    $username = isset($_POST['username']) ? $_POST['username'] : null;
+    $password = isset($_POST['password']) ? $_POST['password'] : null;
+    $user = new TOUser();
+    $dao_usuario = new DAOUsuario();
 
-        si hay un match con el usuario sacar de la bbdd la contraseña hasheada y verificarla con
-        password_verify()
+    
 
-        $conn->close();
-        $_SESSION['login'] = '1';
-        $_SESSION['username'] = $username;
-        header("location:../index.php");
-    } 
-    */
+    if ( empty($username) ) {
+        //$erroresFormulario[] = "El nombre de usuario no puede estar vacío";
+    }
+
+    if ( empty($password) ) {
+        //$erroresFormulario[] = "El password no puede estar vacío.";
+    }
+    $result = $dao_usuario->search_username($username);
+    if ($result == null) {
+        //$erroresFormulario[] = "Usuario y/o contraseña no son correctos.";
+    }
     else {
-        $_SESSION['access_error'] = '1';
-        header("location: ../index.php?page=login");
-    }      
+        if (password_verify($password, $result->get_password())) {
+            $_SESSION['login'] = '1';
+            $_SESSION['username'] = $username;
+            header("location:../index.php");
+        }
+        else {
+            //$erroresFormulario[] = "Usuario y/o contraseña no son correctos";
+        }
+    } 
 ?>

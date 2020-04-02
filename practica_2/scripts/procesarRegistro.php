@@ -21,25 +21,25 @@
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
          $_SESSION['register_error'] = '1';
          $_SESSION['reg_mess'] = "El email introducido no es válido";
-         header("Location:../estructura/index.php?page=registrar");
+         header("Location:index.php?page=registrar");
     }
 
     else if ($password != $password2) {
         $_SESSION['register_error'] = '1';
         $_SESSION['reg_mess'] = "Las contraseñas introducidas no coinciden";
-        header("Location:../estructura/index.php?page=registrar");
+        header("Location:index.php?page=registrar");
     }
 
     else if (!preg_match('/^(?=[a-z])(?=[A-Z])[a-zA-Z]{8,}$/', $password))
     {
         $_SESSION['register_error'] = '1';
         $_SESSION['reg_mess'] = "La contraseñas no es válida";
-        header("Location:../estructura/index.php?page=registrar");
+        header("Location:index.php?page=registrar");
     }
     
     //VERIFICAR SI USUARIO ESTÁ YA EN LA BBDD
 
-
+    
     require_once 'connectdb.php';
 
     // TODO PREMIUM
