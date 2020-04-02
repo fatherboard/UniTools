@@ -28,6 +28,9 @@
 
         include o cuadro de texto in-situ para realizar un comentario directamente desde la pantalla del post
 
+        echo "<textarea class=\"respuesta\" placeholder=\"comentario\"></textarea>;
+
+        
 
         */
 
