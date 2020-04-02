@@ -9,7 +9,7 @@ $columna = [
 		    "password" => "con1",
 		    "user_name" => "Carlos",
 		    "premium" => 0
-		];
+			];
 
 $user = new TOUser($columna["email"], $columna["password"],$columna["user_name"], $columna["premium"]);
 $dao_usuario = new DAOUsuario();
