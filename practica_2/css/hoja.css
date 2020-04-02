@@ -17,6 +17,7 @@
     tener elementos a la izq y derecha*/
     display:flex;
     margin-right: auto;
+    margin-bottom: 10px;
 }
 
 .navbar a{
@@ -45,31 +46,15 @@
     margin-right: auto;
 }
 
-.foro a{
-    float: left;
-    display: block;
-    color: rgb(185, 182, 182);
-    text-align: center;
-    padding: 10px 15px;
-    text-decoration: none;
-}
+.botonForo {
+    border-style: outset;
 
-.foro a:hover {
-    background-color: rgb(224, 224, 224);
+    padding: 2px;
+    background-color: rgb(141, 111, 170);
     color: black;
 }
 
-.footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    
-    background-color: black;
-    color: wheat;
-    text-align: center;
-    width: 100%;
-   
-}
+
 
 form {
     margin-top: 20px;

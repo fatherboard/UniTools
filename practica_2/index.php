@@ -9,7 +9,7 @@
 <html>
 
 <head>
-    <link rel="stylesheet" type="text/css" href="../css/hoja.css">
+    <link rel="stylesheet" type="text/css" href="css/hoja.css">
     <title>INDEX</title>
     <meta charset="UTF-8">
 </head>
@@ -19,16 +19,16 @@
 <div id="contenedor">
 
     <?php 
-        require("cabecera.php") ;
-	 	require("navegacion.php") ;
+        require("includes/common/cabecera.php") ;
+	 	require("includes/common/navegacion.php") ;
 	?>
 
 	<div id="contenido">
-	   <?php require("contenido.php");?>
+	   <?php require("includes/common/contenido.php");?>
 	</div>
 
 	<?php 
-	 	require("pie.php") ;
+	 	require("includes/common/pie.php") ;
 	?>
 	
 

@@ -31,11 +31,11 @@
         $conn->close();
         $_SESSION['login'] = '1';
         $_SESSION['username'] = $username;
-        header("location:../estructura/index.php");
+        header("location:../index.php");
          
      } 
      else {
         $_SESSION['register_error'] = '1';
-        header("Location:../estructura/index.php");
+        header("Location:../index.php");
      }         
 ?>

@@ -29,10 +29,10 @@
         $conn->close();
         $_SESSION['login'] = '1';
         $_SESSION['username'] = $username;
-        header("location:../estructura/index.php");
+        header("location:../index.php");
     } 
     else {
         $_SESSION['access_error'] = '1';
-        header("location: ../estructura/index.php?page=login");
+        header("location: ../index.php?page=login");
     }      
 ?>

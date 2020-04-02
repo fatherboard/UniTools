@@ -1,5 +1,5 @@
 
-<form name="register" method="post" action = "../scripts/procesarRegistro.php">
+<form name="register" method="post" action = "procesarRegistro.php">
     <table><tr><td>
     Username: </td> <td><input type ="text" name="username" placeholder='Username' required> </td></tr>
     <tr><td>
@@ -14,7 +14,7 @@
     //  session_start();
     if(isset($_SESSION['register_error'])){
         if($_SESSION['register_error'] == '1'){
-            header("location: ../estructura/index.php?page=registrar");
+            header("location: ../index.php?page=registrar");
         }
     }
 

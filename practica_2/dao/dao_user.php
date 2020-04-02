@@ -18,23 +18,23 @@ class DAOUsuario extends DAO {
 	public function insert_User($email,$password,$user_name,$premium){
 		$sql = sprintf("INSERT INTO user(email, password, username, premium ) 
 		                VALUES ('$email', '$password', '$user_name', '$premium')");
-		$result = $this->ejecutarConsulta($sql);
-		$user = new TOUser($result[0]['idUser'],$result[0]['email'],$result[0]['password'],$result[0]['username'],$result[0]['premium']);
-		return $user;
+		/*$result =*/ $this->ejecutarConsulta($sql);
+		//$user = new TOUser($result[0]['idUser'],$result[0]['email'],$result[0]['password'],$result[0]['username'],$result[0]['premium']);
+		//return $user;
 	}
 
 	public function search_user($id){
 		$sql = sprintf("SELECT * FROM user WHERE id_User = $id");
 		$result = $this->ejecutarConsulta($sql);
-		$user = new TOUser($result[0]['idUser'],$result[0]['email'],$result[0]['password'],$result[0]['username'],$result[0]['premium']);
+		$user = new TOUser($result['id_User'],$result['email'],$result['password'],$result['username'],$result['premium']);
 		return $user;
 	}
 
 	public function update_email($id,$mail){
 		$sql = sprintf("UPDATE user SET email = $mail WHERE id_User = $id");
 		$result = $this->ejecutarConsulta($sql);
-		$user = new TOUser($result[0]['idUser'],$result[0]['email'],$result[0]['password'],$result[0]['username'],$result[0]['premium']);
-		return $user;
+		//$user = new TOUser($result[0]['idUser'],$result[0]['email'],$result[0]['password'],$result[0]['username'],$result[0]['premium']);
+		//return $user;
 	}
 
 	public function update_password($id,$pass){	
