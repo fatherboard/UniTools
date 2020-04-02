@@ -18,8 +18,6 @@
     $user = new TOUser();
     $dao_usuario = new DAOUsuario();
 
-    
-
     if (empty($username) ) {
         //$erroresFormulario[] = "El nombre de usuario no puede estar vacío";
         echo "1";
