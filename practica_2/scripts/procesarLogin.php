@@ -27,7 +27,7 @@
         //$erroresFormulario[] = "El password no puede estar vacío.";
         echo "2";
     }
-    $result = $dao_usuario->search_mail($username);
+    $result = $dao_usuario->search_user($username);
     if ($result == null) {
         //$erroresFormulario[] = "Usuario y/o contraseña no son correctos.";
         echo "ha llegao";
