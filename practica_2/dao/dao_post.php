@@ -54,7 +54,7 @@ class DAOpost extends DAO {
 	}
 
 	public function update_content($id,$content){	
-		$sql = sprintf("UPDATE post SET content = $content WHERE id_post = $id");
+		$sql = sprintf("UPDATE post SET content = '" .$content. "' WHERE id_post = $id");
 		$result = $this->ejecutarConsulta($sql);
 		
 		if (count($result) > 0) {
