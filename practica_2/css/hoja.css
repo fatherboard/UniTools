@@ -54,8 +54,6 @@
     color: black;
 }
 
-
-
 form {
     margin-top: 20px;
 }
@@ -185,3 +183,26 @@ figcaption {
 
 }
 
+/* Perfil (p)*/
+
+/*sombras*/
+.card{
+    box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2);
+    transition:0.2s;
+    width: 20%;
+}
+
+/*sombras al poner el ratón encima*/
+.card:hover{
+    box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2);
+}
+
+/*tipo de texto para el perfil*/
+.p_text{
+    text-align:center;
+    padding: 2px 16px;
+}
+.p_data{
+    text-align:right;
+    padding: 2px 16px;
+}

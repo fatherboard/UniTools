@@ -1,26 +1,26 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <link rel="stylesheet" type="text/css" href="../css/hoja.css" />
-        <meta charset="utf-8">
-        <title>Inicio</title>
-    </head>
+<?php
+include_once('dao/dao_user.php');
+$user_data = new TOUser;
+$dao_usuario = new DAOUsuario();
 
-    <body>
+echo "<p> user id:" . $_SESSION['user_id'] . "</p>";
 
-        <!-- Principio de la estructura de la página (contenedor) -->
-        <div id="contenedor">
+$user_data = $dao_usuario->search_user($_SESSION['user_id']);
 
-            <!-- Principio del contenido/funcionalidad del perfil -->
-            <div id="contenido">
-                <?php 
-                    //introducir aquí el contenido del perfil
-                    echo"<h1>Texto de prueba</h1>";
-                ?>
-            </div>
-            <!-- Fin del contenido -->
+echo $_SESSION['user_id'];
+echo "user mail" . $user_data->get_email();
+?>
 
-        </div> <!-- Fin del contenedor -->
+<div class="row">
+    <div class="card">
+        <img src="../UniTools/practica_2/img/Default_user_icon.jpg" alt="foto_perfil" style="width:100%" align="left">
+        <div class="p_text">
+            <h5><b> <?php $user_data->get_email() ?> </b></h5>
+        </div>
+    </div> 
 
-    </body>
-</html>
+    <div class="p_data">
+        <p> sadflkjasdf </p>
+        <p> dfadsaf </p>
+    </div>
+</div>
