@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-04-2020 a las 21:16:30
+-- Tiempo de generación: 02-04-2020 a las 17:41:30
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.2
 
@@ -37,28 +37,6 @@ CREATE TABLE `categories` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `forumposts`
---
-
-CREATE TABLE `forumposts` (
-  `id_post` int(11) NOT NULL,
-  `user` int(11) NOT NULL,
-  `title` text CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
-  `content` text CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
-  `category` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Volcado de datos para la tabla `forumposts`
---
-
-INSERT INTO `forumposts` (`id_post`, `user`, `title`, `content`, `category`) VALUES
-(2, 4, 'No sé hacer esto, ayuda', 'toi to perdio chavales, no sé sumar 1 a una variable xd', 0),
-(3, 5, 'Holaaaaaaaaaa', 'Esto es un contenido to wapo nen', 0);
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `logs`
 --
 
@@ -67,6 +45,28 @@ CREATE TABLE `logs` (
   `user` int(11) NOT NULL,
   `date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `posts`
+--
+
+CREATE TABLE `posts` (
+  `id_post` int(11) NOT NULL,
+  `user` int(11) NOT NULL,
+  `title` text CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `content` text CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `categoria` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `posts`
+--
+
+INSERT INTO `posts` (`id_post`, `user`, `title`, `content`, `categoria`) VALUES
+(2, 4, 'No sé hacer esto, ayuda', 'toi to perdio chavales, no sé sumar 1 a una variable xd', 0),
+(3, 5, 'Holaaaaaaaaaa', 'Esto es un contenido to wapo nen', 0);
 
 -- --------------------------------------------------------
 
@@ -115,19 +115,19 @@ ALTER TABLE `categories`
   ADD PRIMARY KEY (`id_cat`);
 
 --
--- Indices de la tabla `forumposts`
---
-ALTER TABLE `forumposts`
-  ADD PRIMARY KEY (`id_post`),
-  ADD KEY `user` (`user`),
-  ADD KEY `category` (`category`);
-
---
 -- Indices de la tabla `logs`
 --
 ALTER TABLE `logs`
   ADD PRIMARY KEY (`id_log`),
   ADD KEY `user` (`user`);
+
+--
+-- Indices de la tabla `posts`
+--
+ALTER TABLE `posts`
+  ADD PRIMARY KEY (`id_post`),
+  ADD KEY `user` (`user`),
+  ADD KEY `category` (`categoria`);
 
 --
 -- Indices de la tabla `repository`
@@ -153,16 +153,16 @@ ALTER TABLE `categories`
   MODIFY `id_cat` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `forumposts`
---
-ALTER TABLE `forumposts`
-  MODIFY `id_post` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
 -- AUTO_INCREMENT de la tabla `logs`
 --
 ALTER TABLE `logs`
   MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `posts`
+--
+ALTER TABLE `posts`
+  MODIFY `id_post` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `repository`
@@ -184,19 +184,19 @@ ALTER TABLE `user`
 -- Filtros para la tabla `categories`
 --
 ALTER TABLE `categories`
-  ADD CONSTRAINT `categories_ibfk_1` FOREIGN KEY (`id_cat`) REFERENCES `forumposts` (`category`) ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `forumposts`
---
-ALTER TABLE `forumposts`
-  ADD CONSTRAINT `forumposts_ibfk_1` FOREIGN KEY (`user`) REFERENCES `user` (`id_User`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `categories_ibfk_1` FOREIGN KEY (`id_cat`) REFERENCES `posts` (`categoria`) ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `logs`
 --
 ALTER TABLE `logs`
   ADD CONSTRAINT `logs_ibfk_1` FOREIGN KEY (`user`) REFERENCES `user` (`id_User`) ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `posts`
+--
+ALTER TABLE `posts`
+  ADD CONSTRAINT `posts_ibfk_1` FOREIGN KEY (`user`) REFERENCES `user` (`id_User`) ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `repository`
