@@ -1,7 +1,5 @@
 <?php
 
-include_once('user_class.php');
-
 class DAO {
 
 	public $conn;
