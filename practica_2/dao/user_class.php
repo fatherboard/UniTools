@@ -9,16 +9,15 @@ class TOUser {
 	private $user_name;
 	private $premium;
 
-	/*function __construct($id='',$email='',$password='',$user_name='',$premium=''){
+	function __construct($email='',$password='',$user_name='',$premium=''){
 
-		$this->id_User = $id;
 		$this->email = $email;
 		$this->password = $password;
 		$this->user_name = $user_name;
 		$this->premium = $premium;
 	}
-	*/
-
+	
+	/*
 	function __construct($columna){
 
 		$this->email = $columna['email'];
@@ -26,7 +25,7 @@ class TOUser {
 		$this->user_name = $columna['user_name'];
 		$this->premium = $columna['premium'];
 	}
-
+	*/
 	/* Set functions (DAO uses)  ################################################################# */
 	
 	public function create_User($columna){

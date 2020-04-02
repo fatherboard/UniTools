@@ -22,7 +22,7 @@ class DAO {
 	public function ejecutarConsulta($query){
 
 		$result = mysqli_query($this->conn, $query);
-		return mysqli_fetch_assoc($result);
+		return $result->fetch_assoc();
 	}
 }
 
