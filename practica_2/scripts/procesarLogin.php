@@ -14,10 +14,12 @@
     $_SESSION['access_error'] = '0';
     $_SESSION['username'];
     $username = htmlspecialchars(trim(strip_tags($_REQUEST["username"])));
-    $password = htmlspecialchars(trim(strip_tags($_REQUEST["password"])));
+    $password = $_REQUEST["password"];
     echo "$username " . " " . "$password";
     require_once 'connectdb.php';
-    $query = mysqli_query($conn, "SELECT * FROM user WHERE username = '$username' AND password = '$password'");
+    /*$query = mysqli_query($conn, "SELECT * FROM user WHERE username = '$username'");
+    Sacar de la bbdd usuario
+    */
     if(!$query){ 
         // echo "Usuario no existe " . $nombre . " " . $password. " o hubo un error " . 
         echo mysqli_error($conn);
@@ -25,12 +27,17 @@
         exit;
     } 
     //validamos los datos introducidos en el login
-    if($user = mysqli_fetch_assoc($query)) {
+    /*if($user = mysqli_fetch_assoc($query) && password_verify($password, PASSWORD_BCRYPT)) {
+
+        si hay un match con el usuario sacar de la bbdd la contraseña hasheada y verificarla con
+        password_verify()
+
         $conn->close();
         $_SESSION['login'] = '1';
         $_SESSION['username'] = $username;
         header("location:../index.php");
     } 
+    */
     else {
         $_SESSION['access_error'] = '1';
         header("location: ../index.php?page=login");

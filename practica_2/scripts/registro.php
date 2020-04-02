@@ -1,11 +1,13 @@
 
 <form name="register" method="post" action = "procesarRegistro.php">
     <table><tr><td>
-    Username: </td> <td><input type ="text" name="username" placeholder='Username' required> </td></tr>
+    Usuario: </td> <td><input type ="text" name="username" placeholder='Username' required> </td></tr>
     <tr><td>
     Email: </td> <td><input type ="text" name="email" placeholder='correo' required> </td></tr>
     <tr><td>
-    Password: </td> <td><input type="password" name = "password" placeholder='contraseña' required></td></tr>
+    Contraseña: </td> <td><input type="password" name = "password" placeholder='contraseña' required></td></tr>
+    </td></tr>
+    Confirmar Contraseña: </td> <td><input type="password" name = "password2" placeholder='contraseña' required></td></tr>
     </table>
     <input class="send-buttons" type="submit" value = "Enviar">
 </form>
@@ -14,7 +16,8 @@
     //  session_start();
     if(isset($_SESSION['register_error'])){
         if($_SESSION['register_error'] == '1'){
-            header("location: ../index.php?page=registrar");
+            echo $_SESSION['reg_mess'];
+            $_SESSION['register_error'] = '0'
         }
     }
 
