@@ -48,7 +48,7 @@ class DAOUpost extends DAO {
 		return $post;
 	}
 
-	public function update_user_name($id,$category){
+	public function update_category($id,$category){
 		$sql = sprintf("UPDATE post SET category = $category WHERE id_post = $id");
 		$result = $this->ejecutarConsulta($sql);
 		$post = new TOUpost($result['user'],$result['title'],$result['content'],$result['category']);
