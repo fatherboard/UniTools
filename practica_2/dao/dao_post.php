@@ -74,6 +74,16 @@ class DAOpost extends DAO {
 		}
 		return null;
 	}
+
+	public function show_all_data(){
+		$sql = sprintf("SELECT * FROM post");
+		$result = $this->ejecutarConsulta($sql);
+		if (count($result) > 0) {
+			$post = new TOUpost($result['user'],$result['title'],$result['content'],$result['category']);
+			return $post;
+		}
+		return result;
+	}
 }
 
 ?>
