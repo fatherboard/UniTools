@@ -4,7 +4,7 @@ include_once('DAO.php');
 include_once('post_class.php');
 
 /* Data Access Object */
-class DAOUpost extends DAO {
+class DAOpost extends DAO {
 
 	/*  El DAO utiliza el Trasfer Object (TO) para pasarnos la info
 	 *  del post. Y nosotros podemos usar el TO para modificarlo, o crear uno,
@@ -23,36 +23,56 @@ class DAOUpost extends DAO {
 		$sql = sprintf("INSERT INTO post(user,title,content,category) 
 		    VALUES ('$user', '$title', '$content', '$category')");
 		$result = $this->ejecutarConsulta($sql);
-		$post = new TOUpost($result['user'],$result['title'],$result['content'],$result['category']);
-		return $post;
+		
+		if (count($result) > 0) {
+			$post = new TOUpost($result['user'],$result['title'],$result['content'],$result['category']);
+			return $post;
+		}
+		return null;
 	}
 
 	public function search_post($id){
 		$sql = sprintf("SELECT * FROM post WHERE id_post = $id");
 		$result = $this->ejecutarConsulta($sql);
-		$post = new TOUpost($result['user'],$result['title'],$result['content'],$result['category']);
-		return $post;
+		
+		if (count($result) > 0) {
+			$post = new TOUpost($result['user'],$result['title'],$result['content'],$result['category']);
+			return $post;
+		}
+		return null;
 	}
 
 	public function update_title($id,$title){
 		$sql = sprintf("UPDATE post SET title = $title WHERE id_post = $id");
 		$result = $this->ejecutarConsulta($sql);
-		$post = new TOUpost($result['user'],$result['title'],$result['content'],$result['category']);
-		return $post;
+		
+		if (count($result) > 0) {
+			$post = new TOUpost($result['user'],$result['title'],$result['content'],$result['category']);
+			return $post;
+		}
+		return null;
 	}
 
 	public function update_content($id,$content){	
 		$sql = sprintf("UPDATE post SET content = $content WHERE id_post = $id");
 		$result = $this->ejecutarConsulta($sql);
-		$post = new TOUpost($result['user'],$result['title'],$result['content'],$result['category']);
-		return $post;
+		
+		if (count($result) > 0) {
+			$post = new TOUpost($result['user'],$result['title'],$result['content'],$result['category']);
+			return $post;
+		}
+		return null;
 	}
 
 	public function update_user_name($id,$category){
 		$sql = sprintf("UPDATE post SET category = $category WHERE id_post = $id");
 		$result = $this->ejecutarConsulta($sql);
-		$post = new TOUpost($result['user'],$result['title'],$result['content'],$result['category']);
-		return $post;
+		
+		if (count($result) > 0) {
+			$post = new TOUpost($result['user'],$result['title'],$result['content'],$result['category']);
+			return $post;
+		}
+		return null;
 	}
 }
 
