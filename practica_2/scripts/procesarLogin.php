@@ -20,25 +20,30 @@
 
     
 
-    if ( empty($username) ) {
+    if (empty($username) ) {
         //$erroresFormulario[] = "El nombre de usuario no puede estar vacío";
+        echo "1";
     }
 
     if ( empty($password) ) {
         //$erroresFormulario[] = "El password no puede estar vacío.";
+        echo "2";
     }
-    $result = $dao_usuario->search_username($username);
+    $result = $dao_usuario->search_mail($username);
     if ($result == null) {
         //$erroresFormulario[] = "Usuario y/o contraseña no son correctos.";
+        echo "ha llegao";
     }
     else {
-        if (password_verify($password, $result->get_password())) {
+        if ($password == $result->get_password()) {
             $_SESSION['login'] = '1';
             $_SESSION['username'] = $username;
+            echo "siuuu";
             header("location:../index.php");
         }
         else {
             //$erroresFormulario[] = "Usuario y/o contraseña no son correctos";
+            echo "aqui";
         }
     } 
 ?>
