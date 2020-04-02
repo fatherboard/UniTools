@@ -19,7 +19,6 @@ class TOUser {
 	
 	/*
 	function __construct($columna){
-
 		$this->email = $columna['email'];
 		$this->password = $columna['password'];
 		$this->user_name = $columna['user_name'];
