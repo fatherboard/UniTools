@@ -12,7 +12,6 @@
     trim -> elimina espacios en blanco de la izquierda o derecha 
     strip_tags -> elimina tags de HTML, XML y PHP
     */
-    $_SESSION['register_error'] = '0';
     $servername = "localhost";
     $username =  htmlspecialchars(trim(strip_tags($_REQUEST["username"])));
     $email = htmlspecialchars(trim(strip_tags($_REQUEST["email"])));
