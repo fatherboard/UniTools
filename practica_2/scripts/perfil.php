@@ -1,15 +1,9 @@
-<?php
-if(!isset($_SESSION)) 
-{ 
-    session_start(); 
-} 
-?>
 
-<p> user id: <?php $_SESSION['userId'] ?> welcome  </p> <br>;
-<p> user name: <?php $_SESSION['username'] ?> welcome  </p>;
+<p> user id: <?php echo $_SESSION['userId'] ?></p> <br>;
+<p> user name: <?php $_SESSION["username"] ?></p>;
 
 <?php
-/*
+/* ?>
 
  include_once('/xampp/htdocs/UniTools/practica_2/dao/dao_user.php');
     $user = new TOUser();
