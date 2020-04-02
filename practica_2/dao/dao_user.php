@@ -42,7 +42,7 @@ class DAOUsuario extends DAO {
 		return null;
 	}
 	public function search_username($name){
-		$sql = sprintf("SELECT * FROM user WHERE username = $name");
+		$sql = sprintf("SELECT * FROM user WHERE username = '" .$name. "'");
 		$result = $this->ejecutarConsulta($sql);
 		if (count($result) > 0) {
 			$user = new TOUser($result['email'],$result['password'],$result['username'],$result['premium']);
@@ -53,7 +53,7 @@ class DAOUsuario extends DAO {
 	}
 
 	public function update_email($id,$mail){
-		$sql = sprintf("UPDATE user SET email = $mail WHERE id_User = $id");
+		$sql = sprintf("UPDATE user SET email ='" .$mail. "' WHERE id_User = $id");
 		$result = $this->ejecutarConsulta($sql);
 		if (count($result) > 0) {
 			$user = new TOUser($result['email'],$result['password'],$result['username'],$result['premium']);
@@ -64,7 +64,7 @@ class DAOUsuario extends DAO {
 	}
 
 	public function update_password($id,$pass){	
-		$sql = sprintf("UPDATE user SET password = $pass WHERE id_User = $id");
+		$sql = sprintf("UPDATE user SET password = '" .$pass. "' WHERE id_User = $id");
 		$result = $this->ejecutarConsulta($sql);
 		if (count($result) > 0) {
 			$user = new TOUser($result['email'],$result['password'],$result['username'],$result['premium']);
@@ -75,7 +75,7 @@ class DAOUsuario extends DAO {
 	}
 
 	public function update_user_name($id,$name){
-		$sql = sprintf("UPDATE user SET username = $name WHERE id_User = $id");
+		$sql = sprintf("UPDATE user SET username = '" .$name. "' WHERE id_User = $id");
 		$result = $this->ejecutarConsulta($sql);
 		if (count($result) > 0) {
 			$user = new TOUser($result['email'],$result['password'],$result['username'],$result['premium']);
