@@ -18,6 +18,14 @@ class TOUser {
 		$this->premium = $premium;
 	}
 
+	function __construct($columna){
+
+		$this->email = $columna['email'];
+		$this->password = $columna['password'];
+		$this->user_name = $columna['user_name'];
+		$this->premium = $columna['premium'];
+	}
+
 	/* Set functions (DAO uses)  ################################################################# */
 	
 	public function create_User($columna){

@@ -8,19 +8,19 @@ class DAOUsuario extends DAO {
 
 	/*  El DAO utiliza el Trasfer Object (TO) para pasarnos la info
 	 *  del user. Y nosotros podemos usar el TO para modificarlo, o crear uno,
-	 *  yd darselo al DAO para que lo use.
+	 *  y darselo al DAO para que lo use.
 	 */
 	
 	public function __construct(){
 		parent::__construct();
 	}
 
-	public function insert_User($email,$password,$user_name,$premium){
+	public function insert_User($TOUser){
 		$sql = sprintf("INSERT INTO user(email, password, username, premium ) 
-		                VALUES ('$email', '$password', '$user_name', '$premium')");
-		/*$result =*/ $this->ejecutarConsulta($sql);
-		//$user = new TOUser($result[0]['idUser'],$result[0]['email'],$result[0]['password'],$result[0]['username'],$result[0]['premium']);
-		//return $user;
+		                VALUES ('$TOUser->email', '$TOUser->password', '$TOUser->user_name', '$TOUser->premium')");
+		$result =*/ $this->ejecutarConsulta($sql);
+		$user = new TOUser($result[0]['idUser'],$result[0]['email'],$result[0]['password'],$result[0]['username'],$result[0]['premium']);
+		return $user;
 	}
 
 	public function search_user($id){
@@ -33,8 +33,8 @@ class DAOUsuario extends DAO {
 	public function update_email($id,$mail){
 		$sql = sprintf("UPDATE user SET email = $mail WHERE id_User = $id");
 		$result = $this->ejecutarConsulta($sql);
-		//$user = new TOUser($result[0]['idUser'],$result[0]['email'],$result[0]['password'],$result[0]['username'],$result[0]['premium']);
-		//return $user;
+		$user = new TOUser($result[0]['idUser'],$result[0]['email'],$result[0]['password'],$result[0]['username'],$result[0]['premium']);
+		return $user;
 	}
 
 	public function update_password($id,$pass){	
@@ -62,7 +62,6 @@ class DAOUsuario extends DAO {
 		}
 		return $row;
 	} */
-	
 }
 
 ?>
