@@ -55,7 +55,7 @@ class TOUser {
 	/* Get functions ################################################################# */
 
 	public function get_User(){
-		// devuelde un array con todos los datos de usuario
+		// devuelve un array con todos los datos de usuario
 		$columna = [
 		    "email" => $this->email,
 		    "password" => $this->password,
