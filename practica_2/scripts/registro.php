@@ -17,7 +17,7 @@
     if(isset($_SESSION['register_error'])){
         if($_SESSION['register_error'] == '1'){
             echo $_SESSION['reg_mess'];
-            $_SESSION['register_error'] = '0'
+            $_SESSION['register_error'] = '0';
         }
     }
 
