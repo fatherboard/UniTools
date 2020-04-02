@@ -175,11 +175,14 @@ A continuación, hemos dividido entre scripts de vista, de apoyo y de lógica. E
 
 \item Desarrollar tres funcionalidades principales. Para comenzar a darle forma a nuestra web, hemos elegido por un lado funcionalidades esenciales: Es decir, sin ellas lo demás no sería posible, este es el caso de \textbf{Login y Registro}. 
 
-Al mismo tiempo, hemos desarrollado otras dos funcionalidades que, sin depender otras de ellas, no planteaban un gran reto técnico. Estas han sido \textbf{Herramientas y Foro}.
+Al mismo tiempo, hemos desarrollado otras dos funcionalidades que, sin depender otras de ellas, no planteaban un gran reto técnico. Estas han sido \textbf{Herramientas y, más importante, Foro}.
 
 \end{enumerate}
 
-Además, y para facilitar nuestro trabajo en sucesivas versiones del proyecto, hemos añadido utilidades que nos servirán para administrar la página web. Para ello, hemos creado un usuario extra para la Base de Datos (aparte del propio root, con total acceso) con diferentes permisos y privilegios, así como una tabla extra en la Base de Datos \textbf{como log de los accesos fallidos} en el Login, lo que pensamos que puede ser un feature interesante para mejorar la seguridad de la web resultante. Discutiremos esto en más detalle en la sección 4 "\textit{Estructura de la Base de Datos}".
+\textbf{Todo esto se ha hecho utilizando el patrón DAO (dao/), mediate clases.}
+
+Hemos seguido la estructura de carpetas explicada en la teoría de la asignatura. Hemos creado un usuario extra para la Base de Datos (aparte del propio root, con total acceso) con diferentes permisos y privilegios, así como una tabla extra en la Base de Datos, como log de los accesos fallidos en el Login. La contraseña se ha encriptado con Bcrypt y un hash para mayor seguridad. 
+\newline
 
 A la hora de dividir el trabajo, decidimos dejar a cada miembro del equipo encargado de dirigir cada una de las partes. Dicho lo cual, hemos hecho un esfuerzo por realizar videollamadas semanalmente para coordinar el trabajo y asegurarnos de que todos estábamos al corriente del funcionamiento de lo demás. Hemos utilizado GitHub para gestionar las versiones y commits del proyecto. \textbf{El código mostrado en esta memoria, podría no estar completamente actualizado debido a pequeños cambios para pulir detalles, no obstante la idea general explicada será la misma en cualquier caso}.
 \newpage
