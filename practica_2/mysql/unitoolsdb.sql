@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-04-2020 a las 17:41:30
+-- Tiempo de generación: 02-04-2020 a las 18:20:46
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.2
 
@@ -85,6 +85,20 @@ CREATE TABLE `repository` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `respuesta`
+--
+
+CREATE TABLE `respuesta` (
+  `id_respuesta` int(11) NOT NULL,
+  `user` int(11) NOT NULL,
+  `date` date NOT NULL,
+  `cat_resp` int(11) NOT NULL,
+  `content` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `user`
 --
 
@@ -137,6 +151,14 @@ ALTER TABLE `repository`
   ADD KEY `creator` (`creator`);
 
 --
+-- Indices de la tabla `respuesta`
+--
+ALTER TABLE `respuesta`
+  ADD PRIMARY KEY (`id_respuesta`),
+  ADD KEY `user` (`user`),
+  ADD KEY `cat_resp` (`cat_resp`);
+
+--
 -- Indices de la tabla `user`
 --
 ALTER TABLE `user`
@@ -171,6 +193,12 @@ ALTER TABLE `repository`
   MODIFY `id_rep` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de la tabla `respuesta`
+--
+ALTER TABLE `respuesta`
+  MODIFY `id_respuesta` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `user`
 --
 ALTER TABLE `user`
@@ -203,6 +231,13 @@ ALTER TABLE `posts`
 --
 ALTER TABLE `repository`
   ADD CONSTRAINT `repository_ibfk_1` FOREIGN KEY (`creator`) REFERENCES `user` (`id_User`) ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `respuesta`
+--
+ALTER TABLE `respuesta`
+  ADD CONSTRAINT `respuesta_ibfk_1` FOREIGN KEY (`user`) REFERENCES `user` (`id_User`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `respuesta_ibfk_2` FOREIGN KEY (`cat_resp`) REFERENCES `categories` (`id_cat`) ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
