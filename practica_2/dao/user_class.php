@@ -78,6 +78,10 @@ class TOUser {
 	public function get_user_name(){
 		return $this->user_name;
 	}
+
+	public function get_premium(){
+		return $this->premium;
+	}
 }
 
 ?>

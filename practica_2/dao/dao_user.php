@@ -37,7 +37,7 @@ class DAOUsuario extends DAO {
 	public function update_email($id,$mail){
 		$sql = sprintf("UPDATE user SET email = $mail WHERE id_User = $id");
 		$result = $this->ejecutarConsulta($sql);
-		$user = new TOUser($result[0]['idUser'],$result[0]['email'],$result[0]['password'],$result[0]['username'],$result[0]['premium']);
+		$user = new TOUser($result[0]['id_user'],$result[0]['email'],$result[0]['password'],$result[0]['username'],$result[0]['premium']);
 		return $user;
 	}
 
