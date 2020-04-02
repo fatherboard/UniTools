@@ -173,5 +173,15 @@ figcaption {
     margin-top: 10px;
 }
 
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
 
+    background-color: black;
+    color: wheat;
+    text-align: center;
+    width: 100%;
+
+}
 
