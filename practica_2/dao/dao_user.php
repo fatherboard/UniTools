@@ -16,8 +16,12 @@ class DAOUsuario extends DAO {
 	}
 
 	public function insert_User($TOUser){
+		$mail = $TOUser->get_email();
+        $pass = $TOUser->get_password();
+        $name = $TOUser->get_user_name();
+        $premium =  $TOUser->get_premium();
 		$sql = sprintf("INSERT INTO user(email, password, username, premium ) 
-		    VALUES ('$TOUser->email', '$TOUser->password', '$TOUser->user_name', '$TOUser->premium')");
+		    VALUES ('$mail', '$pass', '$name', '$premium')");
 		$result = $this->ejecutarConsulta($sql);
 		$user = new TOUser($result[0]['idUser'],$result[0]['email'],$result[0]['password'],$result[0]['username'],$result[0]['premium']);
 		return $user;
