@@ -14,7 +14,7 @@ class DAO {
 			     die ("Conexión con la base de datos fallida : " . mysqli_connect_error());
 			}	 
 			else{
-			      echo "Conexión con la base de datos establecida.";
+			      //echo "Conexión con la base de datos establecida.";
 			}
 		}
 	}
