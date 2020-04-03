@@ -21,12 +21,24 @@ class DAO {
 
 	public function ejecutarConsulta($query){
 		$result = mysqli_query($this->conn, $query) or die($this->conn->error);
+        if(!$result){
+            return null;    
+        }
         $array = mysqli_fetch_assoc($result);
-		return $array;
+		return $array; 
 	}
     
+	public function devolverConsulta($query){
+		$result = mysqli_query($this->conn, $query) or die($this->conn->error);
+        if(!$result){
+            return null;    
+        }
+		return $result; 
+	}
+    
+    
     public function disconnect(){
-        $conn->close();
+        $this->conn->close();
     }
 }
 

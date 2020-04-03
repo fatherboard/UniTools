@@ -25,7 +25,7 @@ class DAOpost extends DAO {
 		$result = $this->ejecutarConsulta($sql);
 		
 		if (count($result) > 0) {
-			$post = new TOUpost($result['user'],$result['title'],$result['content'],$result['category']);
+			$post = new TOUpost($result['id_post'], $result['user'], $result['title'], $result['content'], $result['categoria']);			
 			return $post;
 		}
 		return null;
@@ -34,22 +34,22 @@ class DAOpost extends DAO {
 	public function search_post($id){
 		$sql = sprintf("SELECT * FROM posts WHERE id_post = $id");
 		$result = $this->ejecutarConsulta($sql);
-		// he modificado esta funcion para que devuelva el array solo para ver si lo crea bien (hay que cambiar a return $post)
+        
 		if (count($result) > 0) {
-			$post = new TOUpost($result['user'],$result['title'],$result['content'],$result['categoria']);
-			return $post;
+			$post = new TOUpost($result['id_post'], $result['user'], $result['title'], $result['content'], $result['categoria']);			
+            return $post;
 		}else{
             return null;
         }
 	}
 
 	public function update_title($id,$title){
-		$sql = sprintf("UPDATE posts SET title = $title WHERE id_post = $id");
+		$sql = sprintf("UPDATE posts SET title = '" .$title. "' WHERE id_post = $id");
 		$result = $this->ejecutarConsulta($sql);
 		
 		if (count($result) > 0) {
-			$post = new TOUpost($result['user'],$result['title'],$result['content'],$result['categoria']);
-			return $post;
+			$post = new TOUpost($result['id_post'], $result['user'], $result['title'], $result['content'], $result['categoria']);			
+            return $post;
 		}
 		return null;
 	}
@@ -59,7 +59,7 @@ class DAOpost extends DAO {
 		$result = $this->ejecutarConsulta($sql);
 		
 		if (count($result) > 0) {
-			$post = new TOUpost($result['user'],$result['title'],$result['content'],$result['categoria']);
+			$post = new TOUpost( $result['id_post'],$result['user'],$result['title'],$result['content'],$result['categoria']);
 			return $post;
 		}
 		return null;
@@ -70,22 +70,24 @@ class DAOpost extends DAO {
 		$result = $this->ejecutarConsulta($sql);
 		
 		if (count($result) > 0) {
-			$post = new TOUpost($result['user'],$result['title'],$result['content'],$result['categoria']);
+			$post = new TOUpost( $result['id_post'],$result['user'],$result['title'],$result['content'],$result['categoria']);
 			return $post;
 		}
 		return null;
 	}
 
 	public function show_all_data(){
-		$sql = sprintf("SELECT * FROM posts");
-		$result = $this->ejecutarConsulta($sql);
-		if (count($result) > 0) {
-			$post = new TOUpost($result['user'],$result['title'],$result['content'],$result['categoria']);
-			return $post;
-		}
-		return null; //antes ponía "return result"
-	}
+		$sql = sprintf("SELECT * FROM posts ORDER BY id_post DESC");
+		$query = $this->devolverConsulta($sql);
+        $array = [];
+        while($result = mysqli_fetch_assoc($query)){
+            $post = new TOUpost( $result['id_post'],$result['user'],$result['title'],$result['content'],$result['categoria']);
+            array_push($array, $post);
+        }
 
+		return $array; 
+	}
+    
 }
 
 ?>
