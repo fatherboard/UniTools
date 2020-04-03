@@ -21,68 +21,80 @@ class DAOUsuario extends DAO {
         $username = $TOUser->get_user_name();
         $premium =  $TOUser->get_premium();
 		$sql = sprintf("INSERT INTO user(email, password, username, premium) 
-		    VALUES ('$mail', '$pass', '$username', '$premium')");
+		VALUES ('$mail', '$pass', '$username', '$premium')");
+
+		if (!$this->ejecutarConsulta($sql))
+			return null;
+		else 
+		{
 		$result = $this->ejecutarConsulta($sql);
-		if (count($result) > 0) {
-			$user = new TOUser($result['userId'],$result['email'],$result['password'],$result['username'],$result['premium']);
+			$user = new TOUser($result['email'],$result['password'],$result['username'],$result['premium']);
 			return $user;
 		}
-		
-		return null;
 	}
 
+	//TODO Delete if we transition form userId -> username as primary key
+	/*
 	public function search_userId($userId){
 		$sql = sprintf("SELECT * FROM user WHERE id_User = $userId");
+		if (!$this->ejecutarConsulta($sql))
+			return null;
+		else 
+		{
 		$result = $this->ejecutarConsulta($sql);
-		if (count($result) > 0) {
 			$user = new TOUser($result['userId'],$result['email'],$result['password'],$result['username'],$result['premium']);
 			return $user;
 		}
-		
-		return null;
-	}
+	}*/
+
 	public function search_username($username){
 		$sql = sprintf("SELECT * FROM user WHERE username = '" .$username. "'");
-		$result = $this->ejecutarConsulta($sql);
-		if (count($result) > 0) {
-			$user = new TOUser($result['userId'],$result['email'],$result['password'],$result['username'],$result['premium']);
+		if (!$this->ejecutarConsulta($sql))
+			return null;
+		else 
+		{
+			$result = $this->ejecutarConsulta($sql);
+			$user = new TOUser($result['email'],$result['password'],$result['username'],$result['premium']);
 			return $user;
-		}
-		
-		return null;
+		}	
 	}
 
-	public function update_email($userId,$mail){
-		$sql = sprintf("UPDATE user SET email ='" .$mail. "' WHERE id_User = $userId");
+	//TODO change userId -> username
+	public function update_email($username,$mail){
+		$sql = sprintf("UPDATE user SET email ='" .$mail. "' WHERE username = '" .$username. "' ");
+		if (!$this->ejecutarConsulta($sql))
+			return null;
+		else 
+		{
 		$result = $this->ejecutarConsulta($sql);
-		if (count($result) > 0) {
-			$user = new TOUser($result['userId'],$result['email'],$result['password'],$result['username'],$result['premium']);
+			$user = new TOUser($result['email'],$result['password'],$result['username'],$result['premium']);
 			return $user;
 		}
-		
-		return null;
 	}
 
-	public function update_password($userId,$pass){	
-		$sql = sprintf("UPDATE user SET password = '" .$pass. "' WHERE id_User = $userId");
+	public function update_password($username,$pass){	
+		$sql = sprintf("UPDATE user SET password = '" .$pass. "' WHERE username = '" .$username. "' ");
+		if (!$this->ejecutarConsulta($sql))
+			return null;
+		else 
+		{
 		$result = $this->ejecutarConsulta($sql);
-		if (count($result) > 0) {
-			$user = new TOUser($result['userId'],$result['email'],$result['password'],$result['username'],$result['premium']);
+			$user = new TOUser($result['email'],$result['password'],$result['username'],$result['premium']);
 			return $user;
 		}
-		
-		return null;
 	}
 
-	public function update_user_name($userId,$username){
-		$sql = sprintf("UPDATE user SET username = '" .$username. "' WHERE id_User = $userId");
+	//TODO Check for errors
+	public function update_user_name($old_username, $new_username){
+		$sql = sprintf("UPDATE user SET username = '" .$new_username. "' WHERE username = $old_username");
+		if (!$this->ejecutarConsulta($sql))
+			return null;
+		else 
+		{
 		$result = $this->ejecutarConsulta($sql);
-		if (count($result) > 0) {
-			$user = new TOUser($result['userId'],$result['email'],$result['password'],$result['username'],$result['premium']);
+			$user = new TOUser($result['email'],$result['password'],$result['username'],$result['premium']);
 			return $user;
 		}
-		
-		return null;
 	}
 
 	/*

@@ -27,20 +27,18 @@
         //$erroresFormulario[] = "El password no puede estar vacío.";
         echo "2";
     }
-    $result = $dao_usuario->search_username($username);
-    $userId = $result->get_password();
+    $userData = $dao_usuario->search_username($username);
 
-    if ($result == null) {
+    if ($userData == null) {
         //$erroresFormulario[] = "Usuario y/o contraseña no son correctos.";
         echo "ha llegao";
     }
     else {
-        if ($password == $result->get_password()) {
+        if ($password == $userData->get_password()) {
             $_SESSION['login'] = '1';
             $_SESSION['username'] = $username;
-            $_SESSION['userId'] = $dao_usuario->search_username($username)->get_email();
             echo "siuuu";
-            header("location:../index.php");
+            header("location:../index.php?page=perfil");
         }
         else {
             //$erroresFormulario[] = "Usuario y/o contraseña no son correctos";
