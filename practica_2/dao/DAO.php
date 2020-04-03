@@ -21,7 +21,7 @@ class DAO {
 
 	public function ejecutarConsulta($query){
 		$result = mysqli_query($this->conn, $query) or die($this->conn->error);
-        if(!$result){
+        if($result == null){
             return null;    
         }
         $array = mysqli_fetch_assoc($result);

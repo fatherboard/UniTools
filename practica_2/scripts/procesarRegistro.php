@@ -12,6 +12,7 @@
     trim -> elimina espacios en blanco de la izquierda o derecha 
     strip_tags -> elimina tags de HTML, XML y PHP
     */
+    include_once("../dao/dao_user.php");
     $servername = "localhost";
     $username =  htmlspecialchars(trim(strip_tags($_REQUEST["username"])));
     $email = htmlspecialchars(trim(strip_tags($_REQUEST["email"])));
@@ -29,13 +30,14 @@
         $_SESSION['reg_mess'] = "Las contraseñas introducidas no coinciden";
         header("Location:index.php?page=registrar");
     }
-
+    /*
     if (!preg_match('/^(?=[a-z])(?=[A-Z])[a-zA-Z]{8,}$/', $password))
     {
         $_SESSION['register_error'] = '1';
         $_SESSION['reg_mess'] = "La contraseñas no es válida";
         header("Location:index.php?page=registrar");
     }
+    */
 
     if (empty($username) ) {
         $_SESSION['register_error'] = '1';
@@ -64,6 +66,11 @@
     
     $_SESSION['login'] = '1';
     $_SESSION['username'] = $username;
-    header("location:../index.php");
+    //header("location:../index.php");
+
+    echo $email;
+    echo $password;
+    echo $username;
+
 
 ?>
