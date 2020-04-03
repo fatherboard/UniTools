@@ -65,8 +65,8 @@ class TOUPost {
 		return $this->title;
 	}
 
-	public function get_set_content(){
-		return $this->set_content;
+	public function get_content(){
+		return $this->content;
 	}
 
 	public function get_category(){

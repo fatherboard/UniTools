@@ -10,7 +10,7 @@
         $foro_data = new TOUpost();
         $dao_post = new DAOpost();
 
-        echo $dao_post->search_post('2');
+        echo $dao_post->search_post(2)->get_content();
 
         /*
         Analizar GET y hacer output de los posts de la categoría seleccionada

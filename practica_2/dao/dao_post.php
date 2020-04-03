@@ -33,11 +33,11 @@ class DAOpost extends DAO {
 
 	public function search_post($id){
 		$sql = sprintf("SELECT * FROM posts WHERE id_post = $id");
-		$result = $this->ejecutarConsulta($sql) or die ($this->conn->error);
+		$result = $this->ejecutarConsulta($sql);
 		// he modificado esta funcion para que devuelva el array solo para ver si lo crea bien (hay que cambiar a return $post)
 		if (count($result) > 0) {
-			$post = new TOUpost($result['user'],$result['title'],$result['content'],$result['category']);
-			return $result;
+			$post = new TOUpost($result['user'],$result['title'],$result['content'],$result['categoria']);
+			return $post;
 		}else{
             return null;
         }
@@ -48,7 +48,7 @@ class DAOpost extends DAO {
 		$result = $this->ejecutarConsulta($sql);
 		
 		if (count($result) > 0) {
-			$post = new TOUpost($result['user'],$result['title'],$result['content'],$result['category']);
+			$post = new TOUpost($result['user'],$result['title'],$result['content'],$result['categoria']);
 			return $post;
 		}
 		return null;
@@ -59,7 +59,7 @@ class DAOpost extends DAO {
 		$result = $this->ejecutarConsulta($sql);
 		
 		if (count($result) > 0) {
-			$post = new TOUpost($result['user'],$result['title'],$result['content'],$result['category']);
+			$post = new TOUpost($result['user'],$result['title'],$result['content'],$result['categoria']);
 			return $post;
 		}
 		return null;
@@ -70,7 +70,7 @@ class DAOpost extends DAO {
 		$result = $this->ejecutarConsulta($sql);
 		
 		if (count($result) > 0) {
-			$post = new TOUpost($result['user'],$result['title'],$result['content'],$result['category']);
+			$post = new TOUpost($result['user'],$result['title'],$result['content'],$result['categoria']);
 			return $post;
 		}
 		return null;
@@ -80,7 +80,7 @@ class DAOpost extends DAO {
 		$sql = sprintf("SELECT * FROM posts");
 		$result = $this->ejecutarConsulta($sql);
 		if (count($result) > 0) {
-			$post = new TOUpost($result['user'],$result['title'],$result['content'],$result['category']);
+			$post = new TOUpost($result['user'],$result['title'],$result['content'],$result['categoria']);
 			return $post;
 		}
 		return null; //antes ponía "return result"
