@@ -8,7 +8,6 @@ include_once('/xampp/htdocs/UniTools/practica_2/dao/dao_user.php');
 $user = new TOUser();
 $dao_usuario = new DAOUsuario();
 $userData = $dao_usuario->search_username($_SESSION['username']);
-$dao_usuario->disconnect();
 ?>
 <body id="per">
 
@@ -43,9 +42,12 @@ $dao_usuario->disconnect();
 
     <!-- new email -->
     <div class="per_card">
+        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+
         <label for='email'> Actualizar correo: </label>
         <input type='text' name='email' />
-        <input type="submit" value = "Actualizar" name="ac_email"  onclick= location.href = scripts/procesarLogin.php>
+        <input type="submit" value = "Actualizar" name="ac_email">
+        </form>
     </div><br>
 
     <!-- current password -->
