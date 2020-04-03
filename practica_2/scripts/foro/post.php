@@ -25,6 +25,6 @@
 	$data_post->insertPost($foro_data);
 
 	$dao_usuario->disconnect();
-	$dato_post->disconnect();
+	$dao_post->disconnect();
 	$dao_post->disconnect();       
 ?>
