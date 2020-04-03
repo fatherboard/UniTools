@@ -175,12 +175,14 @@ figcaption {
     position: fixed;
     left: 0;
     bottom: 0;
-
+    width: 100%;
+    padding: 20px;
     background-color: black;
     color: wheat;
     text-align: center;
-    width: 100%;
-
+    clear:both;
+    position: relative;
+    height: 60px;
 }
 
 /* Perfil (abreviado a "per")*/
@@ -188,7 +190,7 @@ figcaption {
 
 body#per{
     font-family: Arial;
-    padding:20px;
+    padding:5px;
     background: #e4e4e4
 }
 
@@ -205,18 +207,30 @@ body#per{
 
 .per_columnaDer{
     float: left;
-    width: 70%;
+    width: auto;
     padding-left: 20px;
 }
 
 .per_card{
     background-color: white;
+    padding: 12px; 
+}
+
+.per_fotocard{
+    background-color: white;
     padding: 20px; 
-    margin-top: 20px;
+    text-align: center;
+    float:center;
+    display: flex; 
+    justify-content: center;
 }
 
 img#per_foto{
+    display: block;
     background-color: #aaa;
-    width: auto;
+
     padding: 20px;
+    object-fit: scale-down;
+    text-align: center;
+    float:center;
 }
