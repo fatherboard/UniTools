@@ -21,7 +21,10 @@ class DAOUsuario extends DAO {
         $username = $TOUser->get_username();
         $premium =  $TOUser->get_premium();
 		$sql = "INSERT INTO user SET email='" . $mail . "' , password='" . $pass . "', username='" . $username . "', premium='" . $premium . "'";
-
+		
+		echo $pass;
+		echo $username;
+		echo $premium;
 		if (!$this->insertarConsulta($sql))
 			return false;
 		else 

@@ -64,13 +64,13 @@
     if ($dao_usuario->insert_User($user)) {
         $_SESSION['login'] = '1';
         $_SESSION['username'] = $username;
-        header("location:../index.php");
+        //header("location:../index.php");
     }
 
     else {
         $_SESSION['register_error'] = '1';
         $_SESSION['reg_mess'] = "El registro no ha tenido éxito";
-        header("Location:index.php?page=registrar");
+        //header("Location:index.php?page=registrar");
     }
     
 
