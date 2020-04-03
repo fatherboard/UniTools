@@ -15,7 +15,7 @@
             <div id="contenido">
                 <?php 
                     //introducir aquí el contenido de Proyectos
-                    echo"<h1>Testo de prueba</h1>";
+                    echo"<h1>Texto de prueba</h1>";
                 ?>
             </div>
             <!-- Fin del contenido -->
