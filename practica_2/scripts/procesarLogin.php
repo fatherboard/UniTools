@@ -34,7 +34,9 @@
         echo "ha llegao";
     }
     else {
-        if ($password == $userData->get_password()) {
+        $encrypted = $userData->get_password();
+
+        if (password_verify($password, $encrypted)) {
             $_SESSION['login'] = '1';
             $_SESSION['username'] = $username;
             echo "siuuu";

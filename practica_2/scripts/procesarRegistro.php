@@ -52,8 +52,8 @@
     }
     
     //VERIFICAR SI USUARIO ESTÁ YA EN LA BBDD
-
-    $user = new TOUser($email, $password, $username, $premium);
+    $encrypted = password_hash($password,PASSWORD_BCRYPT);
+    $user = new TOUser($email, $encrypted, $username, $premium);
     $dao_usuario = new DAOUsuario();
     if ($dao_usuario->insert_User($user)) {
         $_SESSION['login'] = '1';

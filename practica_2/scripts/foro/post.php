@@ -16,7 +16,7 @@
 	$userData = $dao_usuario->search_username($_SESSION['username']);
 
 	$columna = [
-		"user" => $userData.get_name(),
+		"user" => $userData->get_username(),
 		"title" => $_SESSION['title'],
 		"content" => $_SESSION['contenido'],
 		"categoria" => $_SESSION['category']
