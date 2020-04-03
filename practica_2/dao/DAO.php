@@ -19,11 +19,22 @@ class DAO {
 		}
 	}
 
+	
+	public function insertarConsulta($query){
+		$result = mysqli_query($this->conn, $query) or die($this->conn->error);
+        if(!$result){
+            return false;    
+        }
+		return true; 
+	}
+
 	public function ejecutarConsulta($query){
 		$result = mysqli_query($this->conn, $query) or die($this->conn->error);
-        if($result == null){
+        if(!$result){
+			
             return null;    
-        }
+		}
+		
         $array = mysqli_fetch_assoc($result);
 		return $array; 
 	}
