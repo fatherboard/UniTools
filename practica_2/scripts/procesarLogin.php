@@ -23,7 +23,7 @@
         echo "1";
     }
 
-    if ( empty($password) ) {
+    if (empty($password) ) {
         //$erroresFormulario[] = "El password no puede estar vacío.";
         echo "2";
     }
@@ -45,5 +45,4 @@
             echo "aqui";
         }
     } 
-    $dao_usuario->disconnect();
 ?>
