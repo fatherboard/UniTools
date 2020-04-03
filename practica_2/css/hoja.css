@@ -108,8 +108,9 @@ table, th, td {
 }
 
 body {
-    background-color: rgb(255, 255, 255);
-    font-family: sans-serif;
+    font-family: Arial;
+    padding:5px;
+    background: #e4e4e4
 }
 
 button {
@@ -171,19 +172,18 @@ figcaption {
     margin-top: 10px;
 }
 
+/*Muerte temporal del footer
 .footer {
-    position: fixed;
+    position: relative;
     left: 0;
     bottom: 0;
     width: 100%;
-    padding: 20px;
+
     background-color: black;
     color: wheat;
     text-align: center;
-    clear:both;
-    position: relative;
     height: 60px;
-}
+}*/
 
 /* Perfil (abreviado a "per")*/
 /* Amago para practicar con el css antes de la siguiente entrega :D */
@@ -234,3 +234,4 @@ img#per_foto{
     text-align: center;
     float:center;
 }
+

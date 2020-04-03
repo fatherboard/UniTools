@@ -27,8 +27,9 @@
 	   <?php require("includes/common/contenido.php");?>
 	</div>
 
-	<?php 
-	 	require("includes/common/pie.php") ;
+    <?php 
+        //muerte temporal del footer
+	 	//require("includes/common/pie.php") ;
 	?>
 	
 

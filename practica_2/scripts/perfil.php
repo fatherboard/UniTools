@@ -20,17 +20,37 @@ $userData = $dao_usuario->search_username($_SESSION['username']);
     </div>
 </div>
 <div class="per_columnaDer">
+<div class="per_card">
+            Usuario premium: 
+            <?php 
+            if($userData->get_premium())
+                echo " Sí, días restantes: 29.";
+            else{
+                echo " No... ¡Hazte premium hoy mismo! ";
+                echo "<input type='submit' value = 'Premium' name='premium'";
+            }
+            ?> <br>
+
+    </div> <br>
     <div class="per_card">
             E-mail: <?php echo $userData->get_email()?> <br>
     </div> <br>
     <div class="per_card">
+        <label for='email'> Actualizar correo: </label>
+        <input type='text' name='email' />
+        <input type="submit" value = "Actualizar" name="ac_email">
+    </div><br>
+    <div class="per_card">
         Contraseña actual: <?php echo $userData->get_password()?> 
     </div><br>
     <div class="per_card">
-        Nueva contraseña: <?php echo $userData->get_password()?> 
+        <label for='firstpw'> Nueva contraseña: </label>
+        <input type='password' name='email' />
     </div><br>
     <div class="per_card">
-        Vuelva a introcudir la nueva contraseña: <?php echo $userData->get_password()?> 
+        <label for='secondpw'> Volver a introducir: </label>
+        <input type='password' name='email' />
+        <input type="submit" value = "Actualizar" name="ac_password">
     </div>
 </div>
 
