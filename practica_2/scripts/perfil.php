@@ -117,6 +117,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <script>
 function acEmail() {
     <?php echo $userData->set_email($email)?>
+    //hacer que user data se actualize en la bbdd;
 }
 
 function acPassword() {
