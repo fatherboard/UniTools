@@ -2,6 +2,10 @@
 <a class= "botonForo" href="index.php?page=temas">Elegir Tema</a>
 
 <?php
+
+	include_once("../practica_2/dao/dao_post.php");       
+        include_once("../practica_2/dao/dao_user.php");
+
 	echo "<h1> titulo del post </h1>";
 	echo "<h3> contenido del post </h3>";
 
