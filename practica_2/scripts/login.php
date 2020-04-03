@@ -9,15 +9,27 @@
         <input type="submit" value = "Enviar">
 
     <?php
-        //  session_start();
-        if(isset($_SESSION['access_error'])){
-            if($_SESSION['access_error'] == '1'){
-                echo "\n";
-                echo " <h3> <font color = 'red'> Nombre/contraseña incorrectos, 
-                por favor inténtelo de nuevo.</font> </h3>";
-                $_SESSION['access_error'] = '0';
-            }
-        }
+       
+        if(!isset($_SESSION)) 
+        { 
+            session_start(); 
+        } 
+   
+       if(isset($_SESSION['error_login'])){
+           if(count($_SESSION['error_login']) > 0) {
+               echo '<ul class="errores">';
+           }
+       
+           foreach($_SESSION['error_login'] as $error) {
+               echo "<li>$error</li>";
+           }
+       
+           if (count($_SESSION['error_login']) > 0) {
+               echo '</ul>';
+           }
+           unset($_SESSION['error_login']);
+       }
+       
 
     ?>               
 </form>

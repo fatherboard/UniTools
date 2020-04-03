@@ -19,32 +19,37 @@
     $dao_usuario = new DAOUsuario();
 
     if (empty($username) ) {
-        //$erroresFormulario[] = "El nombre de usuario no puede estar vacío";
-        echo "1";
+        $_SESSION['error_login'][] = "El nombre de usuario no puede estar vacío";
     }
 
     if (empty($password) ) {
-        //$erroresFormulario[] = "El password no puede estar vacío.";
-        echo "2";
+        $_SESSION['error_login'][] = "El password no puede estar vacío.";
     }
     $userData = $dao_usuario->search_username($username);
 
-    if ($userData == null) {
-        //$erroresFormulario[] = "Usuario y/o contraseña no son correctos.";
-        echo "ha llegao";
-    }
-    else {
-        $encrypted = $userData->get_password();
+    if (count($_SESSION['error_login']) == 0)  {
 
-        if (password_verify($password, $encrypted)) {
-            $_SESSION['login'] = '1';
-            $_SESSION['username'] = $username;
-            echo "siuuu";
-            header("location:../index.php?page=perfil");
+        if ($userData == null) {
+            $_SESSION['error_login'][] = "Usuario y/o contraseña no son correctos.";
+            header("location:../index.php?page=login");
         }
         else {
-            //$erroresFormulario[] = "Usuario y/o contraseña no son correctos";
-            echo "aqui";
-        }
-    } 
+            $encrypted = $userData->get_password();
+
+            if (password_verify($password, $encrypted)) {
+                $_SESSION['login'] = '1';
+                $_SESSION['username'] = $username;
+                echo "siuuu";
+                header("location:../index.php?page=perfil");
+            }
+            else {
+                $_SESSION['error_login'][] = "Usuario y/o contraseña no son correctos";
+                header("location:../index.php?page=login");;
+            }
+        } 
+    }
+
+    else {
+        header("location:../index.php?page=login");
+    }
 ?>

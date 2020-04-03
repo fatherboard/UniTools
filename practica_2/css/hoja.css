@@ -172,6 +172,10 @@ figcaption {
     margin-top: 10px;
 }
 
+.errores {
+    color: red;
+}
+
 /*Muerte temporal del footer
 .footer {
     position: relative;
