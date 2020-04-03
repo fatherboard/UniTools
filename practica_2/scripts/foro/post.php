@@ -13,7 +13,7 @@
 
 	$columna = [
 		"user" => $userData.get_name(),
-		"title" => $_SESSION['username'],
+		"title" => $_SESSION['title'],
 		"content" => $_SESSION['contenido'],
 		"categoria" => $_SESSION['category']
 	];
