@@ -5,9 +5,9 @@
     <a class= "botonForo" href="index.php?page=temas">Elegir Tema</a>
 
     <?php
-        echo "hola esto está en construcción";
-        include_once("../practica_2/dao/dao_post.php");       
-        include_once("../practica_2/dao/dao_user.php");
+        echo "hola esto está en construcción";    
+        include_once("../../dao/dao_user.php");
+        include_once("../../dao/dao_post.php");
         $foro_data = new TOUpost();
         $dao_post = new DAOpost();
         $dao_user = new DAOUsuario();
