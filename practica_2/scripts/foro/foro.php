@@ -1,15 +1,17 @@
+
+
 <div class = "cotenido">
     <a class= "botonForo" href="index.php?page=nuevoPost">Nuevo Post</a>
     <a class= "botonForo" href="index.php?page=temas">Elegir Tema</a>
 
     <?php
         echo "hola esto está en construcción";
-        include_once("../dao/dao_post.php");
-        $foro_data = new TOUpost;
+        include_once("../dao/dao_post.php");        
+        $foro_data = new TOUpost();
         $dao_post = new DAOpost();
 
         echo "$foro_data = $dao_post->search_post('1')";
-
+    
        
 
 
