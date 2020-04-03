@@ -59,7 +59,7 @@ class TOUPost {
 	}
     
 	public function get_id(){
-		return $this->$id_Post;
+		return $this->id_Post;
 	}
     
 	public function get_user(){
