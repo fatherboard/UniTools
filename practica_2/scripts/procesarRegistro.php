@@ -12,7 +12,7 @@
         session_start(); 
     } 
     
-    include_once('/xampp/htdocs/UniTools/practica_2/dao/dao_user.php');
+    include_once('../dao/dao_user.php');
     $username =  htmlspecialchars(trim(strip_tags($_REQUEST["username"])));
     $email = htmlspecialchars(trim(strip_tags($_REQUEST["email"])));
     $password = $_REQUEST["password"];
