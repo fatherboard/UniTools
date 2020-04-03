@@ -4,7 +4,7 @@
 -->
 
 <?php
-include_once('../dao/dao_user.php');
+include_once('dao/dao_user.php');
 $user = new TOUser();
 $dao_usuario = new DAOUsuario();
 $userData = $dao_usuario->search_username($_SESSION['username']);
