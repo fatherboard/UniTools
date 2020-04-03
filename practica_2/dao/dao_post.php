@@ -20,7 +20,7 @@ class DAOpost extends DAO {
         $title = $TOUpost->get_title();
         $content = $TOUpost->get_content();
         $category =  $TOUpost->category();
-		$sql = sprintf("INSERT INTO post(user,title,content,category) 
+		$sql = sprintf("INSERT INTO posts(user,title,content,category) 
 		    VALUES ('$user', '$title', '$content', '$category')");
 		$result = $this->ejecutarConsulta($sql);
 		
@@ -32,18 +32,19 @@ class DAOpost extends DAO {
 	}
 
 	public function search_post($id){
-		$sql = sprintf("SELECT * FROM post WHERE id_post = $id");
-		$result = $this->ejecutarConsulta($sql);
-		
+		$sql = sprintf("SELECT * FROM posts WHERE id_post = $id");
+		$result = $this->ejecutarConsulta($sql) or die ($this->conn->error);
+		// he modificado esta funcion para que devuelva el array solo para ver si lo crea bien (hay que cambiar a return $post)
 		if (count($result) > 0) {
 			$post = new TOUpost($result['user'],$result['title'],$result['content'],$result['category']);
-			return $post;
-		}
-		return null;
+			return $result;
+		}else{
+            return null;
+        }
 	}
 
 	public function update_title($id,$title){
-		$sql = sprintf("UPDATE post SET title = $title WHERE id_post = $id");
+		$sql = sprintf("UPDATE posts SET title = $title WHERE id_post = $id");
 		$result = $this->ejecutarConsulta($sql);
 		
 		if (count($result) > 0) {
@@ -54,7 +55,7 @@ class DAOpost extends DAO {
 	}
 
 	public function update_content($id,$content){	
-		$sql = sprintf("UPDATE post SET content = '" .$content. "' WHERE id_post = $id");
+		$sql = sprintf("UPDATE posts SET content = '" .$content. "' WHERE id_post = $id");
 		$result = $this->ejecutarConsulta($sql);
 		
 		if (count($result) > 0) {
@@ -65,7 +66,7 @@ class DAOpost extends DAO {
 	}
 
 	public function update_category($id,$category){
-		$sql = sprintf("UPDATE post SET category = $category WHERE id_post = $id");
+		$sql = sprintf("UPDATE posts SET category = $category WHERE id_post = $id");
 		$result = $this->ejecutarConsulta($sql);
 		
 		if (count($result) > 0) {
@@ -76,7 +77,7 @@ class DAOpost extends DAO {
 	}
 
 	public function show_all_data(){
-		$sql = sprintf("SELECT * FROM post");
+		$sql = sprintf("SELECT * FROM posts");
 		$result = $this->ejecutarConsulta($sql);
 		if (count($result) > 0) {
 			$post = new TOUpost($result['user'],$result['title'],$result['content'],$result['category']);

@@ -6,17 +6,11 @@
 
     <?php
         echo "hola esto está en construcción";
-        include_once("../dao/dao_post.php");        
+        include_once("../practica_2/dao/dao_post.php");        
         $foro_data = new TOUpost();
         $dao_post = new DAOpost();
 
-        echo "$foro_data = $dao_post->search_post('1')";
-    
-       
-
-
-
-
+        echo $dao_post->search_post('2');
 
         /*
         Analizar GET y hacer output de los posts de la categoría seleccionada
