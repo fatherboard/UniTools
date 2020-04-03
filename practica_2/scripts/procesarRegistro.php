@@ -13,7 +13,6 @@
     strip_tags -> elimina tags de HTML, XML y PHP
     */
     include_once("../dao/dao_user.php");
-    $servername = "localhost";
     $username =  htmlspecialchars(trim(strip_tags($_REQUEST["username"])));
     $email = htmlspecialchars(trim(strip_tags($_REQUEST["email"])));
     $password = $_REQUEST["password"];
@@ -62,15 +61,17 @@
 
     $user = new TOUser($columna);
     $dao_usuario = new DAOUsuario();
-    $dao_usuario->insert_User($user);
+    if ($dao_usuario->insert_User($user)) {
+        $_SESSION['login'] = '1';
+        $_SESSION['username'] = $username;
+        header("location:../index.php");
+    }
+
+    else {
+        $_SESSION['register_error'] = '1';
+        $_SESSION['reg_mess'] = "El registro no ha tenido éxito";
+        header("Location:index.php?page=registrar");
+    }
     
-    $_SESSION['login'] = '1';
-    $_SESSION['username'] = $username;
-    //header("location:../index.php");
-
-    echo $email;
-    echo $password;
-    echo $username;
-
 
 ?>
