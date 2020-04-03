@@ -45,4 +45,5 @@
             echo "aqui";
         }
     } 
+    $dao_usuario->disconnect();
 ?>
