@@ -12,11 +12,12 @@
     trim -> elimina espacios en blanco de la izquierda o derecha 
     strip_tags -> elimina tags de HTML, XML y PHP
     */
-    include_once("../dao/dao_user.php");
+    include_once('/xampp/htdocs/UniTools/practica_2/dao/dao_user.php');
     $username =  htmlspecialchars(trim(strip_tags($_REQUEST["username"])));
     $email = htmlspecialchars(trim(strip_tags($_REQUEST["email"])));
     $password = $_REQUEST["password"];
     $password2 = $_REQUEST["password2"];
+    $premium = 0;
 
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
          $_SESSION['register_error'] = '1';
@@ -52,25 +53,18 @@
     
     //VERIFICAR SI USUARIO ESTÁ YA EN LA BBDD
 
-    $columna = [
-        "email" => $email,
-        "password" => $password,
-        "user_name" => $username,
-        "premium" => 0
-    ];
-
-    $user = new TOUser($columna);
+    $user = new TOUser($email, $password, $username, $premium);
     $dao_usuario = new DAOUsuario();
     if ($dao_usuario->insert_User($user)) {
         $_SESSION['login'] = '1';
         $_SESSION['username'] = $username;
-        //header("location:../index.php");
+        header("location:../index.php");
     }
 
     else {
         $_SESSION['register_error'] = '1';
         $_SESSION['reg_mess'] = "El registro no ha tenido éxito";
-        //header("Location:index.php?page=registrar");
+        header("Location:index.php?page=registrar");
     }
     
 
