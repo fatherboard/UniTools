@@ -23,8 +23,7 @@
             $post_id = $curr_post->get_id(); // id del usuario que ha posteado
             $usuario = $dao_user->search_userId($post_id);
             $categoria = $curr_post->get_category();
-        //FALTA DAO RESPUESTA Y PONER NOMBRE DE LA CAT
-        
+         
             if ($usuario == null) {
                 $username = "Usuario borrado";
             }
@@ -37,11 +36,12 @@
 		    echo "<tr>";
 			echo "<td>ID del post: " . $post_id . "</td>";
 			echo "<td>Usuario: " . $username . "</td>";
-            echo "<td>Título: " . "<a href=\"../index.php?page=post\">" . $curr_post->get_title() . "</a></td>";
+            echo "<td>Título: " . "<a href=\"index.php?page=post&id=" . $post_id . "\">" . $curr_post->get_title() . "</a></td>";
             echo "<td>Categoría: " . $categoria . "</td>";
 		    echo "</tr>";
 	        echo "</tbody>";
             echo "</table>";       
+           
             
         } 
         $dao_user->disconnect();

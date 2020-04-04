@@ -63,7 +63,8 @@ if(isset($_GET["page"])) {
     }
 
     else if ($_GET["page"] == "post"){
-        require("scripts/post.php");
+        $id = $_GET["id"];
+        require("scripts/foro/post.php");
     }
     else {
         http_response_code(404);
