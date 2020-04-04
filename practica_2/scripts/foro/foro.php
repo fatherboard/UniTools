@@ -4,6 +4,7 @@
     <a class= "botonForo" href="index.php?page=nuevoPost">Nuevo Post</a>
     <a class= "botonForo" href="index.php?page=temas">Elegir Tema</a>
 
+<<<<<<< HEAD
     <?php
   
         include_once("dao/dao_user.php");
@@ -12,11 +13,17 @@
         
 
         $dao_respuesta = new DAOrespuesta();
+=======
+    <?php   
+        include_once("dao/dao_user.php");
+        include_once("dao/dao_post.php");
+       
+        $foro_data = new TOUpost();
+>>>>>>> 78d9623eecbf63ac443936b96a7f8447c3def6bb
         $dao_post = new DAOpost();
         $dao_user = new DAOUsuario();
         $res = $dao_post->show_all_data();
         
-    
         while(!empty($res)){
             $curr_post = array_shift($res);
             $user_id = $curr_post->get_user(); // id del usuario que ha posteado

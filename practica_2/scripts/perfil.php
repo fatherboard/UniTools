@@ -1,8 +1,4 @@
 
-<!--
-    <p> user name: <?php //echo $_SESSION['username'] ?></p>
--->
-
 <?php
 include_once('dao/dao_user.php');
 $user = new TOUser();
@@ -11,17 +7,23 @@ $userData = $dao_usuario->search_username($_SESSION['username']);
 
 //inicialización de variables
 
-$email = $password1 = $password2 = $premium = "";
+$emailUpdate = $password1 = $password2 = $premiumUpdate = "";
 $emailErr = $passwordErr = $premiumErr = "";
 
+$username = $_SESSION['username'];
+$premium = $userData -> get_premium();
+$email = $userData -> get_email();
+$password = $userData -> get_password();
+
+/*
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($_POST["email"])) {
         $emailErr = "Es necesario introducir un correo";
     } else {
-        $email = test_input($_POST["email"]);
+        $emailUpdate = test_input($_POST["email"]);
 
         // check if e-mail address is well-formed
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        if (!filter_var($emailUpdate, FILTER_VALIDATE_EMAIL)) {
         $emailErr = "Introduzca un correo válio";
         }
     }
@@ -38,15 +40,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $passwordErr = "Las contraseñas no concident";
         }
     }
-
-
-    function test_input($data) {
-        $data = trim($data);
-        $data = stripslashes($data);
-        $data = htmlspecialchars($data);
-        return $data;
-    }
 }
+*/
 ?>
 
 
@@ -57,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class= "per_fotocard">
         <img id="per_foto" alt="foto_perfil" src="/UniTools/practica_2/img/Default_user_icon.jpg" >  
         </div>
-    <p id="p_username"><b> Nombre de ususario: <?php echo $userData->get_username() ?> </b></p>
+    <p id="p_username"><b> Nombre de ususario: <?php echo $username ?> </b></p>
     </div>
 </div>
 <div class="per_columnaDer">
@@ -67,7 +62,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="per_card">
             Usuario premium: 
             <?php 
-            if($userData->get_premium())
+            //código provisional hasta que implementemos
+            //la funcionalidad de subscribirse a la página:
+
+            if(!$premium)
                 echo " Sí, días restantes 29.";
             else{
                 echo " No... ¡Hazte premium hoy mismo! ";
@@ -79,20 +77,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <!-- current email -->
     <div class="per_card">
-            E-mail: <?php echo $userData->get_email()?> <br>
+            E-mail: <?php echo $email?> <br>
     </div> <br>
 
     <!-- new email -->
     <div class="per_card">        
         Actualizar correo:
-        <input type="text" name="email" value="<?php echo $email;?>">
+        <input type="text" name="email" value="<?php echo $emailUpdate;?>">
         <span class="error">* <?php echo $emailErr;?> </span>
-        <input type="submit" value = "Actualizar" name="ac_email" onclick=acEmail()>
+        <input type="button" value = "Actualizar" name="ac_email" onsubmit="return acEmail()">
     </div><br>
 
     <!-- current password -->
     <div class="per_card">
-        Contraseña actual: <?php echo $userData->get_password()?> 
+        Contraseña actual: <?php echo $password?> 
     </div><br>
 
     <!-- new password #1-->
@@ -107,7 +105,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         Volver a introducir:
         <input type="password" name="password2" value="<?php echo $password2;?>">
         <span class="error">* <?php echo $passwordErr;?></span>
-        <input type="submit" value = "Actualizar" name="ac_password"  onclick=acPassword()>
+        <input type="button" value = "Actualizar" name="ac_password"  onsubmit="return acPassword()">
     </div>
 </form>
 </div>
@@ -115,12 +113,47 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 <script>
+
+function test_input($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
 function acEmail() {
-    <?php echo $userData->set_email($email)?>
-    //hacer que user data se actualize en la bbdd;
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        if (empty($_POST["email"])) {
+            $emailErr = "Es necesario introducir un correo";
+        } else {
+            $emailUpdate = test_input($_POST["email"]);
+
+            // Asegurarse que es un correo válido
+            if (!filter_var($emailUpdate, FILTER_VALIDATE_EMAIL)) {
+            $emailErr = "Introduzca un correo válio";
+            }
+            else
+            <?php echo $dao_usuario->update_email($username, $emailUpdate)?>
+        }
+    }
+    return true;
 }
 
 function acPassword() {
-    <?php echo $userData->set_password($password2)?>
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        if (empty($_POST["password1"]) || empty($_POST["password2"])) {
+            $passwordErr = "Es necesario rellenar ambas contraseñas";
+            } 
+            else {
+            $password1 = test_input($_POST["password1"]);
+            $password2 = test_input($_POST["password2"]);
+
+            // check if e-mail address is well-formed
+            if ($password1 != $password2) {
+                $passwordErr = "Las contraseñas no concident";
+            }
+            else
+            <?php echo $dao_usuario->update_password($username, $password)?>
+        }
+    }
 }
 </script>
