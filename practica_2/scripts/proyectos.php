@@ -1,4 +1,4 @@
 <?php
-echo"<h1>EN CONSTRUCCIÓN</h1>";
+echo"<h1>EN CONSTUCCIÓN</h1>";
 ?>
   

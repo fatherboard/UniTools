@@ -12,7 +12,7 @@
     trim -> elimina espacios en blanco de la izquierda o derecha 
     strip_tags -> elimina tags de HTML, XML y PHP
     */
-    $_SESSION['access_error'] = '0';
+    $_SESSION['error_login'] = [];
     $username = isset($_POST['username']) ? $_POST['username'] : null;
     $password = isset($_POST['password']) ? $_POST['password'] : null;
     $user = new TOUser();
@@ -25,7 +25,6 @@
     if (empty($password) ) {
         $_SESSION['error_login'][] = "El password no puede estar vacío.";
     }
-    
     $userData = $dao_usuario->search_username($username);
 
     if (count($_SESSION['error_login']) == 0)  {
@@ -40,7 +39,6 @@
             if (password_verify($password, $encrypted)) {
                 $_SESSION['login'] = '1';
                 $_SESSION['username'] = $username;
-                $_SESSION['id'] = $userData->get_id();
                 echo "siuuu";
                 header("location:../index.php?page=perfil");
             }

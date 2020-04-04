@@ -24,10 +24,10 @@ class DAOpost extends DAO {
 		    VALUES ('$user', '$title', '$content', '$category')");
 		$result = $this->insertarConsulta($sql);
 		
-		if (!$result) {
-			return null;
+		if ($result) {
+			return true;
 		}
-		return $result;
+		return null;
 	}
 
 	public function search_post($id){

@@ -1,6 +1,10 @@
 
 <?php
 
+if(!isset($_SESSION)) 
+{ 
+    session_start(); 
+} 
 
 if($_SERVER['REQUEST_METHOD'] != 'POST')
 {
@@ -28,7 +32,8 @@ else
     $foro_data = new TOUpost();
     $dao_post = new DAOpost();
     $dao_user = new DAOUsuario();
-    $new_post = new TOUPost('', $_SESSION['id'], $titulo, $contenido, $categoria);
+    $user_id = $dao_user->search_username($_SESSION['username'])->get_id();
+    $new_post = new TOUPost('', $user_id, $titulo, $contenido, $categoria);
 
     if (!$dao_post->insert_Post($new_post)) {
         echo "Error al insertar post";

@@ -3,6 +3,7 @@
     session_start();
     unset($_SESSION["login"]);
     unset($_SESSION["username"]);
+    unset($_SESSION['id']);
     unset($_SESSION["isAdmin"]);
     unset($_SESSION['access_error']);
     unset($_SESSION['userId']);

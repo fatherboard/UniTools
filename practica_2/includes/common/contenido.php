@@ -67,9 +67,10 @@ if(isset($_GET["page"])) {
         require("scripts/foro/post.php");
     }
 
-    else if ($_GET["page"] == "nuevoPost") {
+    else if ($_GET["page"] == "nuevoPost"){
         require("scripts/foro/nuevo_post.php");
     }
+
     else {
         http_response_code(404);
         require("scripts/err/404.php");

@@ -35,12 +35,12 @@ class DAOUsuario extends DAO {
 	
 	public function search_userId($userId){
 		$sql = sprintf("SELECT * FROM user WHERE id_User = $userId");
-		if ($this->ejecutarConsulta($sql) == null)
+		if (!$this->ejecutarConsulta($sql))
 			return null;
 		else 
 		{
 			$result = $this->ejecutarConsulta($sql);
-			$user = new TOUser($result['id_User'],$result['email'],$result['password'],$result['username'],$result['premium']);
+			$user = new TOUser($result['id_user'],$result['email'],$result['password'],$result['username'],$result['premium']);
 			return $user;
 		}
 	}
@@ -52,11 +52,12 @@ class DAOUsuario extends DAO {
 		else 
 		{
 			$result = $this->ejecutarConsulta($sql);
-			$user = new TOUser($result['id_User'],$result['email'],$result['password'],$result['username'],$result['premium']);
+			$user = new TOUser($result['id_user'],$result['email'],$result['password'],$result['username'],$result['premium']);
 			return $user;
 		}	
 	}
 
+	//TODO change userId -> username
 	public function update_email($username,$mail){
 		$sql = sprintf("UPDATE user SET email ='" .$mail. "' WHERE username = '" .$username. "' ");
 		if (!$this->ejecutarConsulta($sql))
@@ -64,7 +65,7 @@ class DAOUsuario extends DAO {
 		else 
 		{
 			$result = $this->ejecutarConsulta($sql);
-			$user = new TOUser($result['id_User'],$result['email'],$result['password'],$result['username'],$result['premium']);
+			$user = new TOUser($result['id_user'],$result['email'],$result['password'],$result['username'],$result['premium']);
 			return $user;
 		}
 	}
@@ -76,7 +77,7 @@ class DAOUsuario extends DAO {
 		else 
 		{
 			$result = $this->ejecutarConsulta($sql);
-			$user = new TOUser($result['id_User'],$result['email'],$result['password'],$result['username'],$result['premium']);
+			$user = new TOUser($result['id_user'],$result['email'],$result['password'],$result['username'],$result['premium']);
 			return $user;
 		}
 	}
@@ -89,7 +90,7 @@ class DAOUsuario extends DAO {
 		else 
 		{
 			$result = $this->ejecutarConsulta($sql);
-			$user = new TOUser($result['id_User'],$result['email'],$result['password'],$result['username'],$result['premium']);
+			$user = new TOUser($result['id_user'],$result['email'],$result['password'],$result['username'],$result['premium']);
 			return $user;
 		}
 	}

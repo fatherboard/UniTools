@@ -20,17 +20,10 @@
         
         while(!empty($res)){
             $curr_post = array_shift($res);
-            $post_id = $curr_post->get_id(); // id del usuario que ha posteado
+            $post_id = $curr_post->get_id(); // id del post
             $usuario = $dao_user->search_userId($post_id);
             $categoria = $curr_post->get_category();
-            //FALTA DAO RESPUESTA Y PONER NOMBRE DE LA CAT
-        
-            if ($usuario == null) {
-                $username = "Usuario borrado";
-            }
-            else {
-                $username = $usuario->get_username();
-            }
+            $title = $curr_post->get_title();
          
             if ($usuario == null) {
                 $username = "Usuario borrado";
@@ -48,7 +41,9 @@
             echo "<td>Categoría: " . $categoria . "</td>";
 		    echo "</tr>";
 	        echo "</tbody>";
-            echo "</table>";       
+            echo "</table>";   
+
+            //echo $dao_user->search_username($_SESSION['username'])->get_id();
            
             
         } 
