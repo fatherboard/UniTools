@@ -32,7 +32,6 @@ class DAOUsuario extends DAO {
 		}
 	}
 
-	//TODO Delete if we transition form userId -> username as primary key
 	
 	public function search_userId($userId){
 		$sql = sprintf("SELECT * FROM user WHERE id_User = $userId");
