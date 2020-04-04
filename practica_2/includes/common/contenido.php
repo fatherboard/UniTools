@@ -67,7 +67,7 @@ if(isset($_GET["page"])) {
     }
     else {
         http_response_code(404);
-        require("scripts/404.php");
+        require("scripts/err/404.php");
     }
 }
 
