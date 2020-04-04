@@ -7,8 +7,8 @@ include_once('post_class.php');
 class DAOrespuesta extends DAO {
 
 	/*  El DAO utiliza el Trasfer Object (TO) para pasarnos la info
-	 *  del post. Y nosotros podemos usar el TO para modificarlo, o crear uno,
-	 *  y darselo al DAO para que lo use.
+	 *  de la respuesta. Y nosotros podemos usar el TO para modificarla, o crear una,
+	 *  y darselo al DAO para que la use.
 	 */
 	
 	public function __construct(){
