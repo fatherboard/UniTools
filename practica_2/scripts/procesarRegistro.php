@@ -23,13 +23,13 @@
 
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {  //Se comprueba si el formato del email es correcto, si no, error
         $_SESSION['error_registro'][] = "El email introducido no es válido";
-         //echo "1";
+        
  
     }
 
     if ($password != $password2) {  //Se comparan las contraseñas son iguales, si no, error
         $_SESSION['error_registro'][] = "Las contraseñas introducidas no coinciden";
-        //echo "2";
+     
     }
     /*
     if (!preg_match('/^(?=[a-z])(?=[A-Z])[a-zA-Z]{8,}$/', $password)) //Restricciones de formato de contraseña
@@ -40,19 +40,19 @@
 
     if (empty($username) ) {    //Si el campo de usuario está vacío, error
         $_SESSION['error_registro'][] = "El usuario no puede estar vacío";
-        //echo "3";
+
     }
 
     if ( empty($password) || empty($password2)) {//Si el campo de contraseña está vacío, error
         $_SESSION['error_registro'][] = "La contraseñas no puede estar vacía";
-        //echo "4";
+
     }
 
     $dao_usuario = new DAOUsuario();
 
     if ($dao_usuario->search_username($username)) { //Verificar si el usuario ya está en la BBDD
         $_SESSION['error_registro'][] = "El usuario insertado ya existe";
-        //echo "5";
+ 
     }
 
     $encrypted = password_hash($password,PASSWORD_BCRYPT); //Creación del hash de la contraseña para su subida
@@ -63,19 +63,17 @@
         if ($dao_usuario->insert_User($user)) { //Si la creación del usuario es exitosa se realiza el login
             $_SESSION['login'] = '1';
             $_SESSION['username'] = $username;
-            //echo "6";
+
             header("location:../index.php");
         }
     
         else {  //En caso contrario, error
             $_SESSION['error_registro'][] = "El registro no ha tenido éxito";
-            //echo "7";
+ 
         }
     }
 
-    else {  //En caso contrario, error y vuelta a registro.php con los errores
-        //echo "8";
-        //echo count($_SESSION['error_registro']);
+    else {  //En caso contrario vuelta a registro.php con los errores
         header("location:../index.php?page=registrar");
     }
 ?>

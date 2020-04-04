@@ -80,6 +80,6 @@ if(isset($_GET["page"])) {
 
 else {
     echo "<h1>Página principal</h1>
-    <p> Aquí está el contenido público, visible para todos los usuarios. </p>";
+    <p> Aquí estará el contenido público, en estos momentos la página se encuentra en construcción. </p>";
 }
 ?>

@@ -29,7 +29,7 @@
 
     <?php 
         //muerte temporal del footer
-	 	//require("includes/common/pie.php") ;
+	 	//require("includes/common/pie.php") ; 
 	?>
 	
 

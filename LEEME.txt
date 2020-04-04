@@ -1,0 +1,17 @@
+Funcionalidades:
+
+Login y registro.
+Herramientas
+Foro (aunque añadiremos extras en la próxima entrega)
+
+
+Instrucciones para crear, probay y establecer la BBDD:
+
+1- Entrar a http://localhost/phpmyadmin
+2- Crear BBDD con cotejamiento formato utf8_general_ci llamada unitoolsdb
+3- Importar la base de datos llamada unitoolsdb.sql situada en la carpeta mysql del proyecto
+4- Tenemos algunos usuarios (de la aplicación) ya creados, la contraseña para todos ellos es 123
+5- Para iniciar sesión se una el nombre de usuario (por ejemplo usuario: hugo contraseña: 123)
+6- Para registrarse hay que introducir un nombre de usuario (único), email y la contraseña 2 veces (se verifica si son iguales)
+
+De momento no hay contraseña en la base de datos, simplemente usamos "root" sin contraseña.

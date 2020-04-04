@@ -6,7 +6,7 @@
         <tr><td>
         Password: </td> <td><input type="password" name = "password" placeholder='contraseña' required></td></tr>
     </table>
-        <input type="submit" value = "Enviar">
+        <input class="send-buttons" type="submit" value = "Enviar">
 
     <?php
        

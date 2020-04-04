@@ -79,8 +79,7 @@
 			else {
 				$str = $str.toString(10);
 			}
-                        //document.getElementById("valor_d").innerHTML = $str;
-                        // TODO: PQ LO DE ARRIBA NO FUNCIONA? COMO EVITAR QUE LA PAGINA REFRESQUE?
+                      
                         alert('Resultado de la conversión = ' + $str);
                 }
         }

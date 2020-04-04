@@ -9,7 +9,7 @@
     unset($_SESSION['userId']);
     unset($_SESSION['register_error']);
     unset($_SESSION['reg_mess']);
-    /*unset();*/
+ 
 
     header("Location:index.php");
     exit;

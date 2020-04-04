@@ -2,7 +2,6 @@
 
 <div class = "cotenido">
     <a class= "botonForo" href="index.php?page=nuevoPost">Nuevo Post</a>
-    <a class= "botonForo" href="index.php?page=temas">Elegir Tema</a>
 
 
     <?php
@@ -38,13 +37,10 @@
 			echo "<td>ID del post: " . $post_id . "</td>";
 			echo "<td>Usuario: " . $username . "</td>";
             echo "<td>Título: " . "<a href=\"index.php?page=post&id=" . $post_id . "\">" . $title . "</a></td>";
-            echo "<td>Categoría: " . $categoria . "</td>";
+            //echo "<td>Categoría: " . $categoria . "</td>";
 		    echo "</tr>";
 	        echo "</tbody>";
-            echo "</table>";   
-
-            //echo $dao_user->search_username($_SESSION['username'])->get_id();
-           
+            echo "</table>"; 
             
         } 
         $dao_user->disconnect();
