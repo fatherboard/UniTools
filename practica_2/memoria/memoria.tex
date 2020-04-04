@@ -184,7 +184,7 @@ Al mismo tiempo, hemos desarrollado otras dos funcionalidades que, sin depender 
 Hemos seguido la estructura de carpetas explicada en la teoría de la asignatura. Hemos creado un usuario extra para la Base de Datos (aparte del propio root, con total acceso) con diferentes permisos y privilegios, así como una tabla extra en la Base de Datos, como log de los accesos fallidos en el Login. La contraseña se ha encriptado con Bcrypt y un hash para mayor seguridad. 
 \newline
 
-A la hora de dividir el trabajo, decidimos dejar a cada miembro del equipo encargado de dirigir cada una de las partes. Dicho lo cual, hemos hecho un esfuerzo por realizar videollamadas semanalmente para coordinar el trabajo y asegurarnos de que todos estábamos al corriente del funcionamiento de lo demás. Hemos utilizado GitHub para gestionar las versiones y commits del proyecto. \textbf{El código mostrado en esta memoria, podría no estar completamente actualizado debido a pequeños cambios para pulir detalles, no obstante la idea general explicada será la misma en cualquier caso}.
+A la hora de dividir el trabajo, decidimos dejar a cada miembro del equipo encargado de dirigir cada una de las partes. Dicho lo cual, hemos hecho un esfuerzo por realizar videollamadas semanalmente para coordinar el trabajo y asegurarnos de que todos estábamos al corriente del funcionamiento de lo demás. Hemos utilizado GitHub para gestionar las versiones y commits del proyecto. \textbf{El código mostrado en esta memoria, podría no estar completamente actualizado debido a pequeños cambios para pulir detalles, no obstante la idea general explicada será la misma en cualquier caso}. Nótese que hay un archivo .htaccess oculto.
 \newpage
 \section{Scripts para las vistas}
 Las vistas posibles de esta versión son entre las que permite navegar el Menú de la página web, aunque algunas de ellas no mostrarán ningún contenido si el usuario no ha sido previamente registrado.
@@ -413,6 +413,31 @@ Además, ya hemos montado la versión básica del Perfil, tal y como se muestra 
 \newline
 
 \includegraphics[scale = 0.6]{Perfil_unitools.png}
+
+Un archivo no accesible por las vistas (ya que en sus propias reglas se define como protegido) es includes/.htaccess, que hemos generado teniendo en cuenta:
+
+\begin{itemize}
+    \item Redirección de errores a archivos de /scripts/err
+    \item Bloqueo de bots.
+    \item Prevención de visualización de .htaccess.
+    \item Prevención de listado de los directorios.
+\end{itemize}
+\newline
+
+
+\begin{lstlisting}
+Options +FollowSymLinks
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^index.php[nc]
+RewriteRule ^(.*)$ http://www.index.php/$1 [r=301,nc]
+ErrorDocument 400 /scripts/err/400.php
+RewriteEngine On 
+RewriteCond %{HTTP_USER_AGENT} ^BlackWidow [OR]
+<Files .htaccess>
+order allow,deny
+deny from all
+(...)
+\end{lstlisting}
 
  \newpage
 \section{Scripts adicionales}
