@@ -175,7 +175,7 @@ A continuación, hemos dividido entre scripts de vista, de apoyo y de lógica. E
 
 \item Desarrollar tres funcionalidades principales. Para comenzar a darle forma a nuestra web, hemos elegido por un lado funcionalidades esenciales: Es decir, sin ellas lo demás no sería posible, este es el caso de \textbf{Login y Registro}. 
 
-Al mismo tiempo, hemos desarrollado otras dos funcionalidades que, sin depender otras de ellas, planteaban también un reto técnico. Estas han sido Herramientas \textbf{y más importante, Foro}.
+Al mismo tiempo, hemos desarrollado otras dos funcionalidades que, sin depender otras de ellas, no planteaban un gran reto técnico. Estas han sido \textbf{Herramientas y, más importante, Foro}.
 
 \end{enumerate}
 
@@ -189,7 +189,7 @@ A la hora de dividir el trabajo, decidimos dejar a cada miembro del equipo encar
 \section{Scripts para las vistas}
 Las vistas posibles de esta versión son entre las que permite navegar el Menú de la página web, aunque algunas de ellas no mostrarán ningún contenido si el usuario no ha sido previamente registrado.
 \begin{itemize}
-    \item (scripts/perfil.php) Perfil incluye ya toda la información del usuario, incluido si se trata de un usuario Premium.
+    \item (scripts/perfil.php) Perfil incluirá en sucesivas versiones toda la información del usuario, inlcuido si se trata de un usuario Premium.
     \item (scripts/proyectos.php) Proyectos permitirá a los estudiantes subir código de sus proyectos.
     \item (scripts/foro.php) \textbf{Foro permite a los usuarios postear mensajes}.
     \item (scripts/mensajes.php) Mensajes requerirá estar loggeado.
@@ -282,126 +282,35 @@ function texto(){
 }
 \end{lstlisting}
 
-La otra funcionalidad y la principal de esta práctica es el Foro, gestionado mediante el patrón de diseño DAO. Una vez un usuario se ha registrado e iniciado sesión, puede \textbf{tanto revisar la lista de Posts publicados como escribir un nuevo Posts}, con scripts/post.php.
+La otra funcionalidad que hemos implementado durante esta práctica, al menos en su versión más básica, es el Foro. Una vez un usuario se ha registrado e iniciado sesión, puede \textbf{tanto revisar la lista de Posts publicados como escribir un nuevo Posts}, con scripts/post.php.
 
-Para mostrar los posts del foro, basta con usar los DAO, que realizan unas queries a la Base de Datos que ordenan las entradas por antigüedad, cosa que se puede hacer sin problema gracias a los id, que ascienden automáticamente. Una vez se tienen los Transfer Object de las entradas, estas pueden asociarse al TO del usuario, para luego crear una tabla con su información (id y Nombre de Usuario).
+Para mostrar los posts del foro, basta con realizar una query a la Base de Datos que ordene las entradas por antigüedad, cosa que se puede hacer sin problema gracias a los id, que ascienden automáticamente. Una vez se tienen las entradas, estas pueden asociarse a su usuario, para luego crear una tabla con su información (id y Nombre de Usuario).
 \newline
 
 \begin{lstlisting}[language=PHP]
-<?php   
-        include_once("dao/dao_user.php");
-        include_once("dao/dao_post.php");
-     
-        $foro_data = new TOUpost();
-        $dao_post = new DAOpost();
-        $dao_user = new DAOUsuario();
-        $res = $dao_post->show_all_data();
-        
-        while(!empty($res)){
-            $curr_post = array_shift($res);
-            $user_id = $curr_post->get_user(); // id del usuario 
-            $usuario = $dao_user->search_userId($user_id);
-            (...)
-            echo "<table class=\"posts\">";
-	          echo "<tbody>";
-		        echo "<tr>";
-			      echo "<td>ID del post:".$curr_post->get_id()."</td>";
-            (...)
-            echo "</table>";       
-        } 
-        $dao_user->disconnect();
-        $dao_post->disconnect();
-    ?>
+require_once 'connectdb.php';
+
+$query = mysqli_query($conn, "SELECT * FROM forumposts ORDER BY id_post DESC");
+
+while($res = mysqli_fetch_array($query)){
+    
+    $userQuery=$res['user'];
+    $userById = mysqli_query($conn, "SELECT * FROM user WHERE id_user=$userQuery");  
+    $resultUser = mysqli_fetch_array($userById);
+    echo "<table class=\"posts\">";
+    echo "<tbody>";
+    echo "<tr>";
+	  echo "<td>ID del post: " . $res['id_post'] . "</td>";
+    (...)
 \end{lstlisting}
 
-Publicar entradas en el foro es un poco más intrincado, ya que requiere coger el texto escrito por el usuario y realizar una inserción en la Base de Datos. El DAO hace:
+Publicar entradas en el foro es un poco más intrincado, ya que requiere coger el texto escrito por el usuario y realizar una inserción en la Base de Datos.
 \newline
 
 \begin{lstlisting}[language=SQL]
-$sql = sprintf("INSERT INTO posts(user,title,content,category) 
-		    VALUES ('$user', '$title', '$content', '$category')");
-$result = $this->ejecutarConsulta($sql);
+$sql = "INSERT INTO forumposts(usuario, content) VALUES ('$username', '$contenido')";
 \end{lstlisting}
-La conexión a la Base de Datos tendrá que hacerse con los permisos necesarios para insertar, por lo que hemos decidido dar al usuario no root permisos de inserción. De todo ello se hablará más detenidamente en el Capítulo dedicado a la BBDD. El "padre" de los DAO es el encargado de gestionar la conexión.
-\newline
-\begin{lstlisting}[language=PHP]
-<?php
-
-class DAO {
-
- public $conn;
-	
-   public function __construct() {
-
-	if (!$this->conn){
-		
-		$this->conn = mysqli_connect("localhost", "root", "", "unitoolsdb");
-		
-		if( mysqli_connect_error ()){
-			 die ("Conexion con la base de datos fallida : " . mysqli_connect_error());
-		}	 
-    (...)
-?>
-\end{lstlisting}
-
-Y luego las clases DAO heredan de éste:
-\newline
-\begin{lstlisting}[language=PHP]
-<?php
-
-include_once('DAO.php');
-include_once('user_class.php');
-
-/* Data Access Object */
-class DAOUsuario extends DAO {
-
-	public function __construct(){
-		parent::__construct();
-	}
-
-	public function insert_User($TOUser){
-		$mail = $TOUser->get_email();
-        $pass = $TOUser->get_password();
-        $username = $TOUser->get_username();
-        $premium =  $TOUser->get_premium();
-		$sql = "INSERT INTO user SET email='$mail' , password='$pass', username='$username', premium='$premium'";
-		
-		if (!$this->insertarConsulta($sql))
-			return false;
-		else 
-		{
-			return true;
-		}
-	}
-\end{lstlisting}
-
-Y utilizan los Transfer Object como "moneda de cambio" de la información:
-\newline
-\begin{lstlisting}[language=PHP]
-<?php
-
-/* Transfer Object */
-class TOUser {
-
-	private $userId;
-	private $email;
-	private $password;
-	private $user_name;
-	private $premium;
-
-	function __construct($userId='',$email='',$password='',$user_name='',$premium=''){
-		$this->userId = $userId;
-		$this->email = $email;
-		$this->password = $password;
-		$this->user_name = $user_name;
-		$this->premium = $premium;
-	}
-	(...)
-?>
-\end{lstlisting}
-Además, ya hemos montado la versión básica del Perfil, tal y como se muestra a continuación.
-
-\includegraphics[scale = 0.6]{Perfil_unitools.png}
+La conexión a la Base de Datos tendrá que hacerse con los permisos necesarios para insertar, por lo que hemos decidido dar al usuario no root permisos de inserción. De todo ello se hablará más detenidamente en el Capítulo dedicado a la BBDD.
 
  \newpage
 \section{Scripts adicionales}
@@ -489,9 +398,9 @@ A continuación repasaremos la estructura que hemos seguido para nuestra Base de
 \newline
 
 
-\includegraphics[scale = 0.6]{UnitoolsER.png}
+\includegraphics[scale = 0.7]{UniToolsER.png}
 
-Como se puede ver, la Base de Datos consta de seis tablas: User,Repository, Logs,Posts,Respuesta y Categories. Cada una de ellas con su clave primaria y relacionada con otra (u otras, en el caso de User). 
+Como se puede ver, la Base de Datos consta de cuatro tablas: User,Repository, Logs y ForumPosts, cada una de ellas con su clave primaria y relacionada con otra (u otras, en el caso de User). La tabla User es la única con más de una primary key, ya que dos usuarios podrán tener el mismo id pero diferentes roles. 
 
 Además, se pueden apreciar las restricciones de cantidad. Un usuario puede crear N repositorios, así como generar N logs de fallos y publicar N posts en un foro. Todas las relaciones son para con el Usuario y de tipo (1,N). Desgraciadamente, \textbf{esta información se pierde al traducir el Modelo ER a un modelo relacional}, por culpa de las limitaciones inherentes al segundo. Este segundo esquema quedaría entonces como se muestra a continuación.
 \newline
