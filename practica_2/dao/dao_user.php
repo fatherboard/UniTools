@@ -35,7 +35,7 @@ class DAOUsuario extends DAO {
 	
 	public function search_userId($userId){
 		$sql = sprintf("SELECT * FROM user WHERE id_User = $userId");
-		if (!$this->ejecutarConsulta($sql))
+		if ($this->ejecutarConsulta($sql) == null)
 			return null;
 		else 
 		{

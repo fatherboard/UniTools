@@ -19,16 +19,15 @@ class DAOpost extends DAO {
 		$user = $TOUpost->get_user();
         $title = $TOUpost->get_title();
         $content = $TOUpost->get_content();
-        $category =  $TOUpost->category();
-		$sql = sprintf("INSERT INTO posts(user,title,content,category) 
+        $category =  $TOUpost->get_category();
+		$sql = sprintf("INSERT INTO posts(user,title,content,id_cat) 
 		    VALUES ('$user', '$title', '$content', '$category')");
-		$result = $this->ejecutarConsulta($sql);
+		$result = $this->insertarConsulta($sql);
 		
-		if (count($result) > 0) {
-			$post = new TOUpost($result['id_post'], $result['user'], $result['title'], $result['content'], $result['id_cat']);			
-			return $post;
+		if (!$result) {
+			return null;
 		}
-		return null;
+		return $result;
 	}
 
 	public function search_post($id){
