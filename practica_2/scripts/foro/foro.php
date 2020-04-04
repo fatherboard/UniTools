@@ -20,9 +20,10 @@
         
         while(!empty($res)){
             $curr_post = array_shift($res);
-            $post_id = $curr_post->get_id(); // id del usuario que ha posteado
+            $post_id = $curr_post->get_id(); // id del post
             $usuario = $dao_user->search_userId($post_id);
             $categoria = $curr_post->get_category();
+            $title = $curr_post->get_title();
          
             if ($usuario == null) {
                 $username = "Usuario borrado";
@@ -36,7 +37,7 @@
 		    echo "<tr>";
 			echo "<td>ID del post: " . $post_id . "</td>";
 			echo "<td>Usuario: " . $username . "</td>";
-            echo "<td>Título: " . "<a href=\"index.php?page=post&id=" . $post_id . "\">" . $curr_post->get_title() . "</a></td>";
+            echo "<td>Título: " . "<a href=\"index.php?page=post&id=" . $post_id . "\">" . $title . "</a></td>";
             echo "<td>Categoría: " . $categoria . "</td>";
 		    echo "</tr>";
 	        echo "</tbody>";

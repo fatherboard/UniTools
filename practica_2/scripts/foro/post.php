@@ -4,27 +4,32 @@
 	include_once("dao/dao_post.php");       
     include_once("dao/dao_user.php");
 
-	echo "<h1> titulo del post </h1>";
-	echo "<h3> contenido del post </h3>";
-	echo $id;
+	//echo $id;
 
 
 	$foro_data = new TOUpost();
 	$dao_post = new DAOpost();
-	$dao_usuario = new DAOUsuario();
+	$dao_user = new DAOUsuario();
 
-	$userData = $dao_usuario->search_username($_SESSION['username']);
 
-	$columna = [
-		"user" => $userData->get_username(),
-		"title" => $_SESSION['title'],
-		"content" => $_SESSION['contenido'],
-		"categoria" => $_SESSION['category']
-	];
-	$foro_data->create_Post($columna);
-	$data_post->insertPost($foro_data);
+	$curr_post = $dao_post->search_post($id);
+	$post_id = $curr_post->get_id(); // id del post
+	$usuario = $dao_user->search_userId($post_id);
+	$categoria = $curr_post->get_category();
+	$title = $curr_post->get_title();
+	$contenido = $curr_post->get_content();
 
-	$dao_usuario->disconnect();
-	$dao_post->disconnect();
-	$dao_post->disconnect();       
+	$post = $dao_post->search_post($id); //id viene del get de contenido
+
+	if ($usuario == null) {
+		$username = "Usuario borrado";
+	}
+	else {
+		$username = $usuario->get_username();
+	}
+
+	echo "<h1>" . $title . "</h1></br>";
+	echo "<h3>" . $contenido . "</h3></br>";
+
+	$dao_user->disconnect();     
 ?>
