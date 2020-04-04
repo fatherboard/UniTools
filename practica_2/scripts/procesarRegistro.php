@@ -13,6 +13,7 @@
     } 
     
     include_once('../dao/dao_user.php');
+    $id_user = "";
     $username =  htmlspecialchars(trim(strip_tags($_REQUEST["username"])));
     $email = htmlspecialchars(trim(strip_tags($_REQUEST["email"])));
     $password = $_REQUEST["password"];
@@ -54,7 +55,7 @@
     }
 
     $encrypted = password_hash($password,PASSWORD_BCRYPT); //Creación del hash de la contraseña para su subida
-    $user = new TOUser($email, $encrypted, $username, $premium);
+    $user = new TOUser($id_user, $email, $encrypted, $username, $premium);
     
 
     if (count($_SESSION['error_registro']) == 0)  {

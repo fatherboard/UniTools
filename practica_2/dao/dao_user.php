@@ -17,7 +17,8 @@ class DAOUsuario extends DAO {
 	
 
 	public function insert_User($TOUser){
-		$mail = $TOUser->get_email();
+		$id_user = $TOUser->get_id();
+		$mail = $mail = $TOUser->get_email();
         $pass = $TOUser->get_password();
         $username = $TOUser->get_username();
         $premium =  $TOUser->get_premium();
