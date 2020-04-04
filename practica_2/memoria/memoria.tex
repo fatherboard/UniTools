@@ -175,7 +175,7 @@ A continuación, hemos dividido entre scripts de vista, de apoyo y de lógica. E
 
 \item Desarrollar tres funcionalidades principales. Para comenzar a darle forma a nuestra web, hemos elegido por un lado funcionalidades esenciales: Es decir, sin ellas lo demás no sería posible, este es el caso de \textbf{Login y Registro}. 
 
-Al mismo tiempo, hemos desarrollado otras dos funcionalidades que, sin depender otras de ellas, no planteaban un gran reto técnico. Estas han sido \textbf{Herramientas y, más importante, Foro}.
+Al mismo tiempo, hemos desarrollado otras dos funcionalidades que, sin depender otras de ellas, planteaban también un reto técnico. Estas han sido Herramientas \textbf{y más importante, Foro}.
 
 \end{enumerate}
 
@@ -189,13 +189,13 @@ A la hora de dividir el trabajo, decidimos dejar a cada miembro del equipo encar
 \section{Scripts para las vistas}
 Las vistas posibles de esta versión son entre las que permite navegar el Menú de la página web, aunque algunas de ellas no mostrarán ningún contenido si el usuario no ha sido previamente registrado.
 \begin{itemize}
-    \item (scripts/perfil.php) Perfil incluirá en sucesivas versiones toda la información del usuario, inlcuido si se trata de un usuario Premium.
+    \item (scripts/perfil.php) Perfil incluye ya toda la información del usuario, incluido si se trata de un usuario Premium.
     \item (scripts/proyectos.php) Proyectos permitirá a los estudiantes subir código de sus proyectos.
-    \item (scripts/foro.php) \textbf{Foro permite a los usuarios postear mensajes}.
+    \item (scripts/foro.php) \textbf{Foro permite a los usuarios postear y ver mensajes}.
     \item (scripts/mensajes.php) Mensajes requerirá estar loggeado.
     \item (scripts/herramientas.php) \textbf{Herramientas incluye algunas utilidades para los estudiantes} a modo de funcionalidades. En esta versión hemos añadido varias, que serán explicadas luego.
     \item (scripts/login.php) Login permite iniciar sesión al usuario, tal y como se explicará más tarde. 
-    \item (scripts/registro.php) Registrar permite crear un nuevo usuario, mediante una conexión a la Base de Datos, como se explicará a continuación.
+    \item (scripts/registro.php) Registrar permite crear un nuevo usuario, mediante una conexión a la Base de Datos del DAO, como se explicará a continuación.
 \end{itemize}
 
 En realidad, en nuestro portal sólo se accede a una página, que es index.php, cuyo código se muestra a continuación. Se ha incluido un caso condicional para hacer \textit{session\_start()}, para que en el caso que el usuario se acabe de conectar ó su sesión haya caducado, se puedan restaurar las variables globales.
@@ -282,35 +282,137 @@ function texto(){
 }
 \end{lstlisting}
 
-La otra funcionalidad que hemos implementado durante esta práctica, al menos en su versión más básica, es el Foro. Una vez un usuario se ha registrado e iniciado sesión, puede \textbf{tanto revisar la lista de Posts publicados como escribir un nuevo Posts}, con scripts/post.php.
+La otra funcionalidad y la principal de esta práctica es el Foro, gestionado mediante el patrón de diseño DAO. Una vez un usuario se ha registrado e iniciado sesión, puede \textbf{tanto revisar la lista de Posts publicados como escribir un nuevo Posts}, con scripts/post.php.
 
-Para mostrar los posts del foro, basta con realizar una query a la Base de Datos que ordene las entradas por antigüedad, cosa que se puede hacer sin problema gracias a los id, que ascienden automáticamente. Una vez se tienen las entradas, estas pueden asociarse a su usuario, para luego crear una tabla con su información (id y Nombre de Usuario).
+Para mostrar los posts del foro, basta con usar los DAO, que realizan unas queries a la Base de Datos que ordenan las entradas por antigüedad, cosa que se puede hacer sin problema gracias a los id, que ascienden automáticamente. Una vez se tienen los Transfer Object de las entradas, estas pueden asociarse al TO del usuario, para luego crear una tabla con su información (id y Nombre de Usuario).
 \newline
 
 \begin{lstlisting}[language=PHP]
-require_once 'connectdb.php';
-
-$query = mysqli_query($conn, "SELECT * FROM forumposts ORDER BY id_post DESC");
-
-while($res = mysqli_fetch_array($query)){
-    
-    $userQuery=$res['user'];
-    $userById = mysqli_query($conn, "SELECT * FROM user WHERE id_user=$userQuery");  
-    $resultUser = mysqli_fetch_array($userById);
-    echo "<table class=\"posts\">";
-    echo "<tbody>";
-    echo "<tr>";
-	  echo "<td>ID del post: " . $res['id_post'] . "</td>";
-    (...)
+<?php   
+        include_once("dao/dao_user.php");
+        include_once("dao/dao_post.php");
+     
+        $foro_data = new TOUpost();
+        $dao_post = new DAOpost();
+        $dao_user = new DAOUsuario();
+        $res = $dao_post->show_all_data();
+        
+        while(!empty($res)){
+            $curr_post = array_shift($res);
+            $user_id = $curr_post->get_user(); // id del usuario 
+            $usuario = $dao_user->search_userId($user_id);
+            (...)
+            echo "<table class=\"posts\">";
+	          echo "<tbody>";
+		        echo "<tr>";
+			      echo "<td>ID del post:".$curr_post->get_id()."</td>";
+            (...)
+            echo "</table>";       
+        } 
+        $dao_user->disconnect();
+        $dao_post->disconnect();
+    ?>
 \end{lstlisting}
 
-Publicar entradas en el foro es un poco más intrincado, ya que requiere coger el texto escrito por el usuario y realizar una inserción en la Base de Datos.
+Publicar entradas en el foro es un poco más intrincado, ya que requiere coger el texto escrito por el usuario y realizar una inserción en la Base de Datos. El DAO hace:
 \newline
 
 \begin{lstlisting}[language=SQL]
-$sql = "INSERT INTO forumposts(usuario, content) VALUES ('$username', '$contenido')";
+$sql = sprintf("INSERT INTO posts(user,title,content,category) 
+		    VALUES ('$user', '$title', '$content', '$category')");
+$result = $this->ejecutarConsulta($sql);
 \end{lstlisting}
-La conexión a la Base de Datos tendrá que hacerse con los permisos necesarios para insertar, por lo que hemos decidido dar al usuario no root permisos de inserción. De todo ello se hablará más detenidamente en el Capítulo dedicado a la BBDD.
+La conexión a la Base de Datos tendrá que hacerse con los permisos necesarios para insertar, por lo que hemos decidido dar al usuario no root permisos de inserción. De todo ello se hablará más detenidamente en el Capítulo dedicado a la BBDD. El "padre" de los DAO es el encargado de gestionar la conexión.
+\newline
+\begin{lstlisting}[language=PHP]
+<?php
+
+class DAO {
+
+ public $conn;
+	
+   public function __construct() {
+
+	if (!$this->conn){
+		
+		$this->conn = mysqli_connect("localhost", "root", "", "unitoolsdb");
+		
+		if( mysqli_connect_error ()){
+			 die ("Conexion con la base de datos fallida : " . mysqli_connect_error());
+		}	 
+    (...)
+?>
+\end{lstlisting}
+
+Y luego las clases DAO heredan de éste:
+\newline
+\begin{lstlisting}[language=PHP]
+<?php
+
+include_once('DAO.php');
+include_once('user_class.php');
+
+/* Data Access Object */
+class DAOUsuario extends DAO {
+
+	public function __construct(){
+		parent::__construct();
+	}
+
+	public function insert_User($TOUser){
+		$mail = $TOUser->get_email();
+        $pass = $TOUser->get_password();
+        $username = $TOUser->get_username();
+        $premium =  $TOUser->get_premium();
+		$sql = "INSERT INTO user SET email='$mail' , password='$pass', username='$username', premium='$premium'";
+		
+		if (!$this->insertarConsulta($sql))
+			return false;
+		else 
+		{
+			return true;
+		}
+	}
+\end{lstlisting}
+
+Y utilizan los Transfer Object como "moneda de cambio" de la información:
+\newline
+\begin{lstlisting}[language=PHP]
+<?php
+
+/* Transfer Object */
+class TOUser {
+
+	private $userId;
+	private $email;
+	private $password;
+	private $user_name;
+	private $premium;
+
+	function __construct($userId='',$email='',$password='',$user_name='',$premium=''){
+		$this->userId = $userId;
+		$this->email = $email;
+		$this->password = $password;
+		$this->user_name = $user_name;
+		$this->premium = $premium;
+	}
+	(...)
+	
+  public function get_user(){
+		// Devuelve un array con todos los datos de usuario
+		$columna = [
+		    "email"     => $this->email,
+		    "password"  => $this->password,
+		    "user_name" => $this->user_name,
+		    "premium"   => $this->premium
+		];
+		return $columna;
+	}
+\end{lstlisting}
+Además, ya hemos montado la versión básica del Perfil, tal y como se muestra a continuación. Esta incluye información como los días que quedan de Premium, así como la contraseña, y la posibilidad de actualziar correo y/o contraseña.
+\newline
+
+\includegraphics[scale = 0.6]{Perfil_unitools.png}
 
  \newpage
 \section{Scripts adicionales}
@@ -318,78 +420,67 @@ Dos scripts que es importante mencionar son el de Login y el de Registro, ambos 
 
 El contenido de scripts/registrar.php es simplemente un form sencillo, cuya action es procesarRegistro.php, en la misma carpeta. A continuación se describirán algunas de las partes más importantes de este script.
 
-Primero, se crean variables que serán utilizadas para la conexión con la Base de Datos. Estas son los campos de la tabla usuario, que fueron previamente rellenados en registro.php. Además, se utilizan las funciones \textit{trim} y \textit{strip\_tags} para hacer "sanitize" del input. Esto incluye eliminar espacios, e \textbf{impedir que el usuario introduzca código malicioso en las entradas}.
+Primero, se crean variables que serán utilizadas para la conexión con la Base de Datos por parte de los DAO. Estas son los campos de la tabla usuario, que fueron previamente rellenados en registro.php. Por t, se utilizan las funciones \textit{trim} y \textit{strip\_tags} para hacer "sanitize" del input. Esto incluye eliminar espacios, e \textbf{impedir que el usuario introduzca código malicioso en las entradas}. Por otro lado, se utilizan funciones extra para comprobar la validez de los campos introducidos, que de fallar darán lugar a mensajes de error en rojo. Como se ve en la línea 19, las contraseñas se almacenan en la BBDD cifradas con un hash.
 \newline
 \begin{lstlisting}[language=PHP]
-$servername = "localhost";
+include_once('../dao/dao_user.php');
+$id_user = "";
 $username =  htmlspecialchars(trim(strip_tags($_REQUEST["username"])));
 $email = htmlspecialchars(trim(strip_tags($_REQUEST["email"])));
-$password = htmlspecialchars(trim(strip_tags($_REQUEST["password"])));
-$nick = htmlspecialchars(trim(strip_tags($_REQUEST["nick"])));
-$rol = ($_REQUEST["rol"]);
-$Premium = ($_REQUEST["premium"]);
-require_once 'connectdb.php';
-\end{lstlisting}
+$password = $_REQUEST["password"];
+$password2 = $_REQUEST["password2"];
+$premium = 0;
 
-Acabado esto, toca conectarse a la Base de Datos, utilizando la última línea del código anterior, que llama a connectdb.php. En este script se intentará conectar a la Base de Datos,
-especificando el nombre del servidor, el usuario y la Base de Datos. Para evitar que un estudiante cualesquiera pueda modificar las tablas de la Base de Datos, \textbf{este acceso se lleva a cabo con el nombre de un usuario con pocos privilegios}.
-\newline
-\begin{lstlisting}[language=PHP]
-<?php
- $conn = mysqli_connect("localhost", "usuario1", "", "unitoolsdb");
- if( mysqli_connect_error ()){
-     die ("Acceso a BBDD fallido : " . mysqli_connect_error());
- }else{ echo "Connected successfully";   }
-?>
-\end{lstlisting}
-Una vez se haya establecido la conexión, el script procesarRegistro.php podrá realizar una query e incluir al usuario en las tablas de la Base de Datos. No obstante, esto lo hará tras primero comprobar que se ha podido conectar a la Base de Datos satisfactoriamente. Como se puede comprobar a continuación, la petición SQL se trata de una sencilla inserción en la tabla user, utilizando todas las variables que fueron previamente revisadas.
-
-\begin{lstlisting}[language=PHP]
-$sql = "INSERT INTO 
- user(id_User, email, password, Nick, Rol, Premium) 
- VALUES('$username','$email','$password','$nick','$rol','$Premium')";
-if ($conn->query($sql) === TRUE) {
-           echo "New record created successfully";
-} else { echo "Error: " . $sql . "<br>" . $conn->error;  }  
-\end{lstlisting}
-
-El script de procesarLogin.php es muy similar. Se reciben los valores que han sido introducidos en el form de login.php y estos se utilzan para realizar la query. Eso si, como era de esperar en esta ocasión la petición SQL no es una inserción, sino un SELECT que comprueba que los valores son idénticos.
-\newline
-\begin{lstlisting}[language=PHP]
-$query = mysqli_query($conn, 
-    "SELECT * FROM user 
-    WHERE Nick='$username' 
-    AND password='$password'");
-
-if(!$query){ 
-    echo mysqli_error($conn);
-        // Si falla la consulta, mejor no seguir ejecutando.
-        exit;
-} 
-
-// Validamos los datos introducidos en el login
-if($user = mysqli_fetch_assoc($query)) {
-        $conn->close();
-        $_SESSION['access_success'] = $username;
-        header("Location:index.php");
-} else {
-        $_SESSION['access_error'] = '1';
-        header("location: login.php");
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {  
+    $_SESSION['error_registro'][] = "El email introducido no es valido";
 }
+(...)
+$dao_usuario = new DAOUsuario();
+
+if ($dao_usuario->search_username($username)) { 
+        $_SESSION['error_registro'][]="Usuario insertado existe";
+}
+
+$encrypted = password_hash($password,PASSWORD_BCRYPT); 
+$user = new TOUser($id_user,$email,$encrypted,$username, premium);
+(...)
 \end{lstlisting}
 
-Como se puede apreciar en la línea 19, se emplea una variable global para marcar que el acceso ha fracasado en caso de que los datos sean erroneos, y otra para la situación opuesta. Estas variables son luego revisadas por login.php, que llamó a procesarLogin.php, para saber si ha devuelto un valor la petición.
+Acabado esto, toca conectarse a la Base de Datos, utilizando eL DAO. En este script se intentará conectar a la Base de Datos, utilizando los valores proporcionados por el TO del Post. Esta función se encuentra en /dao/dao\_post.php.
 \newline
-\begin{lstlisting} [language=PHP]
-<?php
- if(isset($_SESSION['access_error'])){
-    $try =  $_SESSION['access_error'];
-    if($try == '1'){
-        echo "\n";
-        echo " <h3> <font color = 'red'> Datos incorrectos.</font> </h3>";
-        $_SESSION['access_error'] = '0';
-        }
-    }
+\begin{lstlisting}[language=PHP]
+public function insert_Post($TOUpost){
+		$user = $TOUpost->get_user();
+    $title = $TOUpost->get_title();
+    $content = $TOUpost->get_content();
+    $category =  $TOUpost->category();
+	  $sql = sprintf("INSERT INTO posts(user,title,content,category) 
+		    VALUES ('$user', '$title', '$content', '$category')");
+	  $result = $this->ejecutarConsulta($sql);
+		
+		if (count($result) > 0) {
+			$post = new TOUpost($result['id_post'], $result['user'],   $result['title'], $result['content'], $result['id_cat']);			
+			return $post;
+		}
+		return null;
+	}
+\end{lstlisting}
+Como se puede observar, la petición SQL se trata de una sencilla inserción en la tabla user, utilizando todas las variables que fueron previamente revisadas.
+
+El script de procesarLogin.php es muy similar. Se reciben los valores que han sido introducidos en el form de login.php y estos se utilzan para realizar la query en el DAO, compartidos por el TOU. Eso si, como era de esperar en esta ocasión la petición SQL no es una inserción, sino un SELECT que comprueba que los valores son idénticos.
+\newline
+\begin{lstlisting}[language=PHP]
+public function search_username($username){
+		$sql = sprintf("SELECT * FROM user WHERE username = '" .      $username. "'");
+		if (!$this->ejecutarConsulta($sql))
+			return null;
+		else 
+		{
+			$result = $this->ejecutarConsulta($sql);
+			$user = new TOUser($result['id_User'],$result['email'],      $result['password'],$result['username'],$result['premium']);
+			return $user;
+		}	
+	}
 \end{lstlisting}
 
 \newpage
@@ -398,16 +489,18 @@ A continuación repasaremos la estructura que hemos seguido para nuestra Base de
 \newline
 
 
-\includegraphics[scale = 0.7]{UniToolsER.png}
+\includegraphics[scale = 0.6]{UnitoolsER.png}
 
-Como se puede ver, la Base de Datos consta de cuatro tablas: User,Repository, Logs y ForumPosts, cada una de ellas con su clave primaria y relacionada con otra (u otras, en el caso de User). La tabla User es la única con más de una primary key, ya que dos usuarios podrán tener el mismo id pero diferentes roles. 
+Como se puede ver, la Base de Datos consta de seis tablas: User, Repository, Logs (de accesos fallidos), Posts (en el Foro), Respuesta (del Foro) y Categories (para el Foro). Cada una de ellas con su clave primaria y relacionada con otra (u otras, como en el caso de User). 
 
-Además, se pueden apreciar las restricciones de cantidad. Un usuario puede crear N repositorios, así como generar N logs de fallos y publicar N posts en un foro. Todas las relaciones son para con el Usuario y de tipo (1,N). Desgraciadamente, \textbf{esta información se pierde al traducir el Modelo ER a un modelo relacional}, por culpa de las limitaciones inherentes al segundo. Este segundo esquema quedaría entonces como se muestra a continuación.
+Además, se pueden apreciar las restricciones de cantidad. Un usuario puede crear N repositorios, así como generar N logs de fallos y publicar N posts en un foro. Casi todas las relaciones son para con el Usuario y de tipo (1,N). 
+
+Desgraciadamente, \textbf{esta información se pierde al traducir el Modelo ER a un modelo relacional}, por culpa de las limitaciones inherentes al segundo. Este segundo esquema quedaría entonces como se muestra a continuación.
 \newline
 
 \includegraphics[scale = 0.7]{UniToolsDB.png}
 
-Estas cuatro tablas luego son pobladas en nuestra Base de Datos, los ids son incrementados por orden de apariencia y estos no pueden ser nulos, tal y como se puede apreciar en el siguiente código.
+Estas seis tablas luego son pobladas en nuestra Base de Datos, los ids son incrementados por orden de apariencia y estos no pueden ser nulos, tal y como se puede apreciar en el siguiente código.
 
 Además, como puede apreciarse en el código mostrado abajo, se han añadido restricciones para las foreign key y políticas CASCADE para las actualizaciones.
 \newline
@@ -436,7 +529,7 @@ Como se puede ver, el usuario root tiene todos los permisos tanto desde un punto
 
 \includegraphics[scale = 0.5]{root.jpg}
 
-Por otro lado, los privilegios del usuario normal (\textbf{usuario1}) son mucho más limitados, como se puede ver debajo. En este caso, la contraseña que usamos para el usuario normal es unitoolsdb.
+Por otro lado, los privilegios del usuario normal (\textbf{usuario1}) son mucho más limitados, como se puede ver debajo. En este caso,\textbf{ la contraseña que usamos para el usuario normal es unitoolsdb}.
 
 \includegraphics[scale = 0.5]{user.png}
 
