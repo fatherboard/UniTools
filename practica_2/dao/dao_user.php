@@ -31,18 +31,18 @@ class DAOUsuario extends DAO {
 	}
 
 	//TODO Delete if we transition form userId -> username as primary key
-	/*
+	
 	public function search_userId($userId){
 		$sql = sprintf("SELECT * FROM user WHERE id_User = $userId");
 		if (!$this->ejecutarConsulta($sql))
 			return null;
 		else 
 		{
-		$result = $this->ejecutarConsulta($sql);
-			$user = new TOUser($result['userId'],$result['email'],$result['password'],$result['username'],$result['premium']);
+			$result = $this->ejecutarConsulta($sql);
+			$user = new TOUser($result['id_User'],$result['email'],$result['password'],$result['username'],$result['premium']);
 			return $user;
 		}
-	}*/
+	}
 
 	public function search_username($username){
 		$sql = sprintf("SELECT * FROM user WHERE username = '" .$username. "'");
@@ -51,7 +51,7 @@ class DAOUsuario extends DAO {
 		else 
 		{
 			$result = $this->ejecutarConsulta($sql);
-			$user = new TOUser($result['email'],$result['password'],$result['username'],$result['premium']);
+			$user = new TOUser($result['id_User'],$result['email'],$result['password'],$result['username'],$result['premium']);
 			return $user;
 		}	
 	}
@@ -63,8 +63,8 @@ class DAOUsuario extends DAO {
 			return null;
 		else 
 		{
-		$result = $this->ejecutarConsulta($sql);
-			$user = new TOUser($result['email'],$result['password'],$result['username'],$result['premium']);
+			$result = $this->ejecutarConsulta($sql);
+			$user = new TOUser($result['id_User'],$result['email'],$result['password'],$result['username'],$result['premium']);
 			return $user;
 		}
 	}
@@ -75,8 +75,8 @@ class DAOUsuario extends DAO {
 			return null;
 		else 
 		{
-		$result = $this->ejecutarConsulta($sql);
-			$user = new TOUser($result['email'],$result['password'],$result['username'],$result['premium']);
+			$result = $this->ejecutarConsulta($sql);
+			$user = new TOUser($result['id_User'],$result['email'],$result['password'],$result['username'],$result['premium']);
 			return $user;
 		}
 	}
@@ -88,8 +88,8 @@ class DAOUsuario extends DAO {
 			return null;
 		else 
 		{
-		$result = $this->ejecutarConsulta($sql);
-			$user = new TOUser($result['email'],$result['password'],$result['username'],$result['premium']);
+			$result = $this->ejecutarConsulta($sql);
+			$user = new TOUser($result['id_User'],$result['email'],$result['password'],$result['username'],$result['premium']);
 			return $user;
 		}
 	}

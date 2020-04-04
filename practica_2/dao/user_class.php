@@ -3,12 +3,14 @@
 /* Transfer Object */
 class TOUser {
 
+	private $userId;
 	private $email;
 	private $password;
 	private $user_name;
 	private $premium;
 
-	function __construct($email='',$password='',$user_name='',$premium=''){
+	function __construct($userId='',$email='',$password='',$user_name='',$premium=''){
+		$this->userId = $userId;
 		$this->email = $email;
 		$this->password = $password;
 		$this->user_name = $user_name;
@@ -72,6 +74,10 @@ class TOUser {
 
 	public function get_premium(){
 		return $this->premium;
+	}
+
+	public function get_id(){
+		return $this->userId;
 	}
 }
 ?>
