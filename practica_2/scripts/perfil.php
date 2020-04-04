@@ -1,14 +1,12 @@
-
-<!--
-    <p> user name: <?php //echo $_SESSION['username'] ?></p>
--->
-
 <?php
 include_once('dao/dao_user.php');
+
+if(!isset($_SESSION)) 
+        session_start(); 
+
 $user = new TOUser();
 $dao_usuario = new DAOUsuario();
 $userData = $dao_usuario->search_username($_SESSION['username']);
-
 //inicialización de variables
 
 $emailUpdate = $password1 = $password2 = $premiumUpdate = "";
@@ -18,42 +16,6 @@ $username = $_SESSION['username'];
 $premium = $userData -> get_premium();
 $email = $userData -> get_email();
 $password = $userData -> get_password();
-
-/*
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (empty($_POST["email"])) {
-        $emailErr = "Es necesario introducir un correo";
-    } else {
-        $email = test_input($_POST["email"]);
-
-        // check if e-mail address is well-formed
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $emailErr = "Introduzca un correo válio";
-        }
-    }
-
-    if (empty($_POST["password1"]) || empty($_POST["password2"])) {
-        $passwordErr = "Es necesario rellenar ambas contraseñas";
-        } 
-        else {
-        $password1 = test_input($_POST["password1"]);
-        $password2 = test_input($_POST["password2"]);
-
-        // check if e-mail address is well-formed
-        if ($password1 != $password2) {
-            $passwordErr = "Las contraseñas no concident";
-        }
-    }
-
-
-    function test_input($data) {
-        $data = trim($data);
-        $data = stripslashes($data);
-        $data = htmlspecialchars($data);
-        return $data;
-    }
-}
-*/
 ?>
 
 
@@ -92,9 +54,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <!-- new email -->
     <div class="per_card">        
         Actualizar correo:
-        <input type="text" name="email" value="<?php echo $email;?>">
+        <input type="text" name="email">
         <span class="error">* <?php echo $emailErr;?> </span>
-        <input type="button" value = "Actualizar" name="ac_email" onsubmit=acEmail()>
+        <input type="button" value = "Actualizar" name="ac_email" onclick=acEmail()>
     </div><br>
 
     <!-- current password -->
@@ -114,58 +76,57 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         Volver a introducir:
         <input type="password" name="password2" value="<?php echo $password2;?>">
         <span class="error">* <?php echo $passwordErr;?></span>
-        <input type="button" value = "Actualizar" name="ac_password"  onsubmit=acPassword()>
+        <input type="button" value = "Actualizar" name="ac_password"  onclick=acPassword()>
     </div>
 </form>
 </div>
 
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (empty($_POST["email"])) {
+        $emailErr = "Es necesario introducir un correo";
+    } else {
+        $email = test_input($_POST["email"]);
 
-
-<script>
-
-function test_input($data) {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
-}
-function acEmail() {
-     "hola"
-
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        echo: "entró en post";
-        if (empty($_POST["email"])) {
-            $emailErr = "Es necesario introducir un correo";
-        } else {
-            $emailUpdate = test_input($_POST["email"]);
-
-            // Asegurarse que es un correo válido
-            if (!filter_var($emailUpdate, FILTER_VALIDATE_EMAIL)) {
-            $emailErr = "Introduzca un correo válio";
-            }
-            else
-            <?php echo $dao_usuario->update_email($username, $emailUpdate)?>
+        // check if e-mail address is well-formed
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $emailErr = "Introduzca un correo válio";
         }
     }
-    return true;
+
+    if (empty($_POST["password1"]) || empty($_POST["password2"])) {
+        $passwordErr = "Es necesario rellenar ambas contraseñas";
+        } 
+        else {
+        $password1 = test_input($_POST["password1"]);
+        $password2 = test_input($_POST["password2"]);
+
+        // check if e-mail address is well-formed
+        if ($password1 != $password2) {
+            $passwordErr = "Las contraseñas no concident";
+        }
+    }
+
+
+    function test_input($data) {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    }
+
+
+}
+?>
+
+<script>
+function acEmail() {
+    <?php echo $dao_usuario->update_email($username, "a@hotmail.com")?>
+    $email = $emailUpdate;
 }
 
 function acPassword() {
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        if (empty($_POST["password1"]) || empty($_POST["password2"])) {
-            $passwordErr = "Es necesario rellenar ambas contraseñas";
-            } 
-            else {
-            $password1 = test_input($_POST["password1"]);
-            $password2 = test_input($_POST["password2"]);
-
-            // check if e-mail address is well-formed
-            if ($password1 != $password2) {
-                $passwordErr = "Las contraseñas no concident";
-            }
-            else
-            <?php echo $dao_usuario->update_password($username, $password)?>
-        }
-    }
+     <?php echo $dao_usuario->update_password($username, $password)?>
+     $password = $password1;
 }
 </script>
