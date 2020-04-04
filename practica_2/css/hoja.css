@@ -234,7 +234,7 @@ img#per_foto{
     display: block;
     background-color: #aaa;
 
-    padding: 20px;
+    padding: 5px;
     object-fit: scale-down;
     text-align: center;
     float:center;

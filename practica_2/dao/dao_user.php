@@ -57,7 +57,6 @@ class DAOUsuario extends DAO {
 		}	
 	}
 
-	//TODO change userId -> username
 	public function update_email($username,$mail){
 		$sql = sprintf("UPDATE user SET email ='" .$mail. "' WHERE username = '" .$username. "' ");
 		if (!$this->ejecutarConsulta($sql))
