@@ -25,7 +25,7 @@ class DAOpost extends DAO {
 		$result = $this->ejecutarConsulta($sql);
 		
 		if (count($result) > 0) {
-			$post = new TOUpost($result['id_post'], $result['user'], $result['title'], $result['content'], $result['categoria']);			
+			$post = new TOUpost($result['id_post'], $result['user'], $result['title'], $result['content'], $result['id_cat']);			
 			return $post;
 		}
 		return null;
@@ -36,7 +36,7 @@ class DAOpost extends DAO {
 		$result = $this->ejecutarConsulta($sql);
         
 		if (count($result) > 0) {
-			$post = new TOUpost($result['id_post'], $result['user'], $result['title'], $result['content'], $result['categoria']);			
+			$post = new TOUpost($result['id_post'], $result['user'], $result['title'], $result['content'], $result['id_cat']);			
             return $post;
 		}else{
             return null;
@@ -48,7 +48,7 @@ class DAOpost extends DAO {
 		$result = $this->ejecutarConsulta($sql);
 		
 		if (count($result) > 0) {
-			$post = new TOUpost($result['id_post'], $result['user'], $result['title'], $result['content'], $result['categoria']);			
+			$post = new TOUpost($result['id_post'], $result['user'], $result['title'], $result['content'], $result['id_cat']);			
             return $post;
 		}
 		return null;
@@ -59,7 +59,7 @@ class DAOpost extends DAO {
 		$result = $this->ejecutarConsulta($sql);
 		
 		if (count($result) > 0) {
-			$post = new TOUpost( $result['id_post'],$result['user'],$result['title'],$result['content'],$result['categoria']);
+			$post = new TOUpost( $result['id_post'],$result['user'],$result['title'],$result['content'],$result['id_cat']);
 			return $post;
 		}
 		return null;
@@ -70,7 +70,7 @@ class DAOpost extends DAO {
 		$result = $this->ejecutarConsulta($sql);
 		
 		if (count($result) > 0) {
-			$post = new TOUpost( $result['id_post'],$result['user'],$result['title'],$result['content'],$result['categoria']);
+			$post = new TOUpost( $result['id_post'],$result['user'],$result['title'],$result['content'],$result['id_cat']);
 			return $post;
 		}
 		return null;
@@ -81,7 +81,7 @@ class DAOpost extends DAO {
 		$query = $this->devolverConsulta($sql);
         $array = [];
         while($result = mysqli_fetch_assoc($query)){
-            $post = new TOUpost( $result['id_post'],$result['user'],$result['title'],$result['content'],$result['categoria']);
+            $post = new TOUpost( $result['id_post'],$result['user'],$result['title'],$result['content'],$result['id_cat']);
             array_push($array, $post);
         }
 

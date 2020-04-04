@@ -14,6 +14,7 @@ class DAOUsuario extends DAO {
 	public function __construct(){
 		parent::__construct();
 	}
+	
 
 	public function insert_User($TOUser){
 		$mail = $TOUser->get_email();

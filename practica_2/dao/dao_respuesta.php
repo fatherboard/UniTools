@@ -30,7 +30,7 @@ class DAOrespuesta extends DAO {
 	public function search_respuesta($id){
 		$sql = sprintf("SELECT * FROM respuesta WHERE id_respuesta = $id");
 		$result = $this->ejecutarConsulta($sql);
-		$post = new TOUpost($result['user'],$result['date'],$result['category '],$result['content']);
+		$post = new TOUpost($result['user'],$result['date'],$result['category'],$result['content']);
 		return $post;
 	}
 
@@ -46,6 +46,17 @@ class DAOrespuesta extends DAO {
 		$result = $this->ejecutarConsulta($sql);
 		$post = new TOUpost($result['user'],$result['title'],$result['cetegory'],$result['content']);
 		return $post;
+	}
+
+	public function count_respuestas($id_post){
+		$sql = sprintf("SELECT * FROM respuesta WHERE id_respuesta = $id_post");
+		$result = $this->ejecutarConsulta($sql);
+
+		if ($result == null) {
+			return 0;
+		}
+
+		return count($result);
 	}
 }
 
