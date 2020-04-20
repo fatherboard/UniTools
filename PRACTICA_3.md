@@ -1,0 +1,37 @@
+# ENTREGA: 7 MAYO
+
+
+1. **Añadir los CSS** necesarios para que la aplicación tenga una apariencia interesante y atractiva.
+   NOTAS: Flex y Grid. Mensajes del foro guapos.
+
+
+2. **Implementar un 60% de la funcionalidad total del proyecto final**.
+   NOTAS: Perfil chetarlo. Terminar foro (clases). Mensajes. 
+          Cambiar Login y Registro al formato del Foro (clase Form y FormLogin/FormRegistro ver ejercicio 3).
+          Añadir en Registro lo de los fallidos (en la BBDD "logs").
+          Si es admin inicia sesión con más privilegios.
+
+
+3. **Refinar y ampliar la base de datos**.
+   Añadir campo para saber si es Admin aparte de Premium.
+   NOTAS: Llenarla de morralla. Poner muchas entradas en el Foro y gente hablando.
+          Scripts de rellenar,etc.
+
+
+4. **Corregir todos los errores cometidos en las entrega de la práctica anterior con las correcciones que 
+proporcionará el profesor. **
+   NOTAS: Apartado de Memoria con correcciones.
+   Cosas que hacer:
+   4.1 Form y FormRegistro / FormLogin. -> CARLOS & BRUNO
+   4.2 session_destroy en logout.
+   4.3 Cambiar estructura página -> HUGO.
+   4.4 Chetar las columnas de las BBDD, ejemplo DNI. 
+   4.5 Exportar la movida de las BBDD en trocitos.
+
+
+5. **Ampliar la memoria que servirá para la versión definitiva del proyecto final.**
+   NOTAS: Incluyendo 4 y explicar pasos para entrar BBDD, menos código incrustado.
+          Pantallas vista. Usuarios de prueba.
+
+
+6. **Pedir tutoría** -> Posibles cagadas. Nuestra práctica tiene en el mismo SQL toda la BBDD comentarle.
