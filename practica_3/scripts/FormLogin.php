@@ -1,6 +1,8 @@
 <?php
 
-include_once('Form.php');
+include_once('scripts/Form.php');
+require_once('dao/user_class.php');
+require_once('dao/dao_user.php');
 
 class FormLogin extends Form {
 
@@ -8,11 +10,17 @@ class FormLogin extends Form {
 		parent::__construct('login');
 	}
 
-	protected function generaCampos($datosIniciales){
-
-		$html  = 'Username: </td> <td><input type ="text" name="username" placeholder='Nombre usuario' required> </td></tr>';
-        $html .= '<tr><td>';
-        $html .= 'Password: </td> <td><input type="password" name = "password" placeholder='contraseña' required></td></tr>';
+	protected function generaCampos(){
+         $html  = '<fieldset>';
+    	 $html .= '<legend>Usuario y contraseña</legend>';
+    	 $html .= '<div class="grupo-control">';
+    	 $html .= '<label>Nombre de usuario:</label> <input type="text" name="username" />';
+    	 $html .= '</div>';
+    	 $html .= '<div class="grupo-control">';
+    	 $html .= '<label>Password:</label> <input type="password" name="password" />';
+    	 $html .= '</div>';
+    	 $html .= '<button type="submit" name="login">Entrar</button>';
+    	 $html .= '</fieldset>';
         return $html;
 	}
 
@@ -42,26 +50,24 @@ class FormLogin extends Form {
 
 	        if ($userData == null) {
 	            $_SESSION['error_login'][] = "Usuario y/o contraseña no son correctos.";
-	            header("location:../index.php?page=login");
+	            return "index.php?page=login";
 	        }
 	        else {
 	            $encrypted = $userData->get_password();
-
 	            if (password_verify($password, $encrypted)) {
 	                $_SESSION['login'] = '1';
 	                $_SESSION['username'] = $username;
-	                echo "siuuu";
-	                header("location:../index.php?page=perfil");
+	                return "index.php?page=perfil";
 	            }
 	            else {
 	                $_SESSION['error_login'][] = "Usuario y/o contraseña no son correctos";
-	                header("location:../index.php?page=login");;
+	                return "index.php?page=login";
 	            }
 	        } 
 	    }
 
 	    else {
-	        header("location:../index.php?page=login");
+	       return "index.php?page=login";
 	    }
        
 	}

@@ -27,20 +27,25 @@ abstract class Form {
         }  
 	}
 
+    private function formularioEnviado(&$params){
+        return isset($params['action']) && $params['action'] == $this->formId;
+    }     
+    
 	protected function procesaFormulario($datos){
         return array();
     }
   
-	protected function generaCampos($datosIniciales){
+	protected function generaCampos(){
         return '';
     }
 
-	private function generaFormulario($errores = array(),&$datos = array()){
+	private function generaFormulario($errores = array(), &$datos = array()){
 
-		$html  = '<form name="'.$this->name.'" method="post" action = "'. $this->action .'">';
-		$html .= '<table><tr><td>';
+		$html  = '<form name="'.$this->name.'" method="post" action = "'. $this->action .'"id="'.$this->formId.'">';
+        $html .= '<input type="hidden" name="action" value="'.$this->formId.'" />';
+
 		$html .= $this->generaCampos();
-		$html .= '<input class="send-buttons" type="submit" value = "Enviar"></form>'
+        $html .= '</form>';
 		return $html;
 	}
 }
