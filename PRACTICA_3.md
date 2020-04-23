@@ -42,7 +42,7 @@
    
    * 4.9 Poder responder en el Foro. -> HUGO & CANSEK
    
-   * 4.10 **Barra de búsqueda** para buscar usuarios y post -> FERNANDO & CANSEK
+   * 4.10 **Barra de búsqueda** para buscar usuarios y post -> FERNANDO. HECHO! 
    
 
 5. **Ampliar la memoria que servirá para la versión definitiva del proyecto final.**
