@@ -6,7 +6,13 @@
     $dao_user = new DAOUsuario();
     $search = $_POST['buscar'];
     $res = $dao_post->search_certain_post($search);
-    echo "Se han encontrado " . count($res) . " resultados!!";
+    if(count($res) == '1'){
+        echo "<h2>Se han encontrado " . count($res) . " resultado!!</h2>";
+    }
+    else{
+        echo "<h2>Se han encontrado " . count($res) . " resultados!!</h2>";
+    }
+    
     while(!empty($res)){
         $curr_post = array_shift($res);
         $post_id = $curr_post->get_id(); // id del post

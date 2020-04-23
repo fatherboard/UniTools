@@ -51,26 +51,7 @@ class DAOpost extends DAO {
             array_push($array, $post);
 		}
 		return $array; 
-		/*$queryResult = mysqli_num_rows($query);
-		
-        if($queryResult > 0){
-			while($row = mysqli_fetch_ssoc($query)){
-                echo "<table class=\"posts\">";
-	        	echo "<tbody>";
-		    	echo "<tr>";
-				echo "<td>ID del post: " . $post_id . "</td>";
-				echo "<td>Usuario: " . $username . "</td>";
-            	echo "<td>Título: " . "<a href=\"index.php?page=post&id=" . $post_id . "\">" . $title . "</a></td>";
-            	//echo "<td>Categoría: " . $categoria . "</td>";
-		    	echo "</tr>";
-	        	echo "</tbody>";
-            	echo "</table>"; 
-            }
-        }
-        else{
-            return "Fuck";
-		}*/
-		
+			
 		
 	}
 
