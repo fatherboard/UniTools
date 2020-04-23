@@ -24,7 +24,7 @@
 
    Cosas que hacer:
    
-   * 4.1 Form y FormRegistro / FormLogin. -> CARLOS & BRUNO
+   * 4.1 Form y FormRegistro / FormLogin. -> CARLOS & BRUNO. HECHO!
    
    * 4.2 session_destroy en logout. -> CANSEK
    
