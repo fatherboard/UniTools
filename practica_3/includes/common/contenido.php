@@ -49,6 +49,9 @@ if(isset($_GET["page"])) {
     else if ($_GET["page"] == "foro") {
         require("scripts/foro/foro.php");
     }
+    else if ($_GET["page"] == "search") {
+        require("scripts/foro/search.php");
+    }
     else if ($_GET["page"] == "mensajes"){
         if (!isset($_SESSION["login"])) {
             echo "<p>No puedes ver este contenido, loggeate para poder visualizarlo.</p>";

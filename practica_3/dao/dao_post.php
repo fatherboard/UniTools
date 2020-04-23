@@ -42,6 +42,38 @@ class DAOpost extends DAO {
         }
 	}
 
+	public function search_certain_post($search){
+		$sql = "SELECT * FROM posts WHERE id_post LIKE '%%$search%%' OR user LIKE '%%$search%%' OR title LIKE '%%$search%%' OR content LIKE '%%$search%%' OR id_cat LIKE '%%$search%%'";
+		$query = $this->devolverConsulta($sql);
+		$array = [];
+		while($result = mysqli_fetch_assoc($query)){
+            $post = new TOUpost( $result['id_post'],$result['user'],$result['title'],$result['content'],$result['id_cat']);
+            array_push($array, $post);
+		}
+		return $array; 
+		/*$queryResult = mysqli_num_rows($query);
+		
+        if($queryResult > 0){
+			while($row = mysqli_fetch_ssoc($query)){
+                echo "<table class=\"posts\">";
+	        	echo "<tbody>";
+		    	echo "<tr>";
+				echo "<td>ID del post: " . $post_id . "</td>";
+				echo "<td>Usuario: " . $username . "</td>";
+            	echo "<td>Título: " . "<a href=\"index.php?page=post&id=" . $post_id . "\">" . $title . "</a></td>";
+            	//echo "<td>Categoría: " . $categoria . "</td>";
+		    	echo "</tr>";
+	        	echo "</tbody>";
+            	echo "</table>"; 
+            }
+        }
+        else{
+            return "Fuck";
+		}*/
+		
+		
+	}
+
 	public function update_title($id,$title){
 		$sql = sprintf("UPDATE posts SET title = '" .$title. "' WHERE id_post = $id");
 		$result = $this->ejecutarConsulta($sql);

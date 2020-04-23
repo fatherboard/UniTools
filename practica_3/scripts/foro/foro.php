@@ -2,7 +2,10 @@
 
 <div class = "cotenido">
     <a class= "botonForo" href="index.php?page=nuevoPost">Nuevo Post</a>
-
+    <form action="index.php?page=search" method="POST">
+    <input type = "text" name = "buscar" placeholder = "Buscar">
+    <button type = "submit" name = "submit-buscar"  href = "index.php?page=search">Buscar </button>
+    </form>
 
     <?php
   
@@ -17,6 +20,7 @@
         $dao_user = new DAOUsuario();
         $res = $dao_post->show_all_data();
         
+    
         while(!empty($res)){
             $curr_post = array_shift($res);
             $post_id = $curr_post->get_id(); // id del post

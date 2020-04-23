@@ -54,6 +54,14 @@
     color: black;
 }
 
+.botonBuscar{
+    border-style: outset;
+
+    padding: 2px;
+    background-color: rgb(141, 111, 170);
+    color: black;
+}
+
 form {
     margin-top: 20px;
 }
