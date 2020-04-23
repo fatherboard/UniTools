@@ -13,10 +13,10 @@ class FormLogin extends Form {
 	protected function generaCampos(){
          $html  = '<fieldset>';
     	 $html .= '<legend>Usuario y contraseña</legend>';
-    	 $html .= '<div class="grupo-control">';
+    	 $html .= '<div>';
     	 $html .= '<label>Nombre de usuario:</label> <input type="text" name="username" />';
     	 $html .= '</div>';
-    	 $html .= '<div class="grupo-control">';
+    	 $html .= '<div>';
     	 $html .= '<label>Password:</label> <input type="password" name="password" />';
     	 $html .= '</div>';
     	 $html .= '<button type="submit" name="login">Entrar</button>';
