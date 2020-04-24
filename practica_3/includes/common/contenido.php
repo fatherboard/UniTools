@@ -83,13 +83,17 @@ if(isset($_GET["page"])) {
 
 else {
     echo "<h1> Unitools</h1>
-            <h2><em>Tu lugar favorito en la nube </h2> <h3> Sube - Almacena - Descarga</em> </h3> 
-            <h4><cite> Únete a nuestra comunidad y disfruta de todas sus ventajas y posibilidades</cite> </h4>
+
+        <h2><em>Tu lugar favorito en la nube </h2> <h3> Sube - Almacena - Descarga</em> </h3> 
+
+        <h4><cite> Únete a nuestra comunidad y disfruta de todas sus ventajas y posibilidades</cite> </h4>
+        
            <p> Unitools es una plataforma creada el 24 de Febrero de 2020 por un pequeño grupo de estudiantes.
              <br /> La principal función de Unitool es permitirte tanto subir, actualizar y descargar tus archivos personales
              de tal manera que puedas accceder a ellos desde cualquier sitio y desde todos tus dispositivos.
              <br /> Gracias a nuestra comunidad, podrás hacer uso de diversas herramientas, iniciar temas de conversación,
-              resolver tus dudas y responder a otros usuarios.    </p>
+              resolver tus dudas y responder a otros usuarios.   
+            </p>
              
     <p> Aquí estará el contenido público, en estos momentos la página se encuentra en construcción. </p>";
 
