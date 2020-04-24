@@ -85,9 +85,9 @@ else {
     echo "<h1> Unitools</h1>
             <h2><em>Tu lugar favorito en la nube </h2> <h3> Sube - Almacena - Descarga</em> </h3> 
             <h4><cite> Únete a nuestra comunidad y disfruta de todas sus ventajas y posibilidades</cite> </h4>
-    <body>   
-
-    </body>
+           <p> Unitools es una plataforma creada el 24 de Febrero de 2020 por un pequeño grupo de estudiantes.
+             <br /> La principal función de Unitool    </p>
+             
     <p> Aquí estará el contenido público, en estos momentos la página se encuentra en construcción. </p>";
 
     
