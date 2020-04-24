@@ -82,7 +82,18 @@ if(isset($_GET["page"])) {
 
 
 else {
-    echo "<h1>Página principal</h1>
+    echo "<h1> Unitools</h1>
+            <h2><em>Tu lugar favorito en la nube </h2> <h3> Sube - Almacena - Descarga</em> </h3> 
+            <h4><cite> Únete a nuestra comunidad y disfruta de todas sus ventajas y posibilidades</cite> </h4>
+    <body>   
+
+    </body>
     <p> Aquí estará el contenido público, en estos momentos la página se encuentra en construcción. </p>";
+
+    
+
+
+   
+
 }
 ?>
