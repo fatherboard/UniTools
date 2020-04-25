@@ -6,13 +6,16 @@
                 <img src="img/UniTools.png" alt="UniTools" width="70">
             </a>
         </center>
-        <h1> Unitools</h1>
+        <h1><strong> UniTools </strong></h1>
       
     </div>
 
     <div class "apartado2">
-        <h2><em>Tu lugar favorito en la nube </h2> <h3> Sube - Almacena - Descarga</em> </h3> 
-        <h4><cite> Únete a nuestra comunidad y disfruta de todas sus ventajas y posibilidades</cite> </h4>
+        <h2><em> Tu lugar favorito en la nube </h2> 
+        <h3> Sube - Almacena - Descarga </em></h3> 
+        <a href = "registro.php">
+            <h4><i><ins> Únete a nuestra comunidad y disfruta de todas sus ventajas y posibilidades </ins></i></h4>
+        </a>
     </div> 
     
     <div class "apartado3">
@@ -21,8 +24,17 @@
             de tal manera que puedas accceder a ellos desde cualquier sitio y desde todos tus dispositivos.
             <br /> Gracias a nuestra comunidad, podrás hacer uso de diversas herramientas, iniciar temas de conversación,
             resolver tus dudas y responder a otros usuarios.   
+            <br /> No te lo pienses más y sumergete en esta increible esperencia.
         </p>
     </div>   
 
-        <p> Aquí estará el contenido público, en estos momentos la página se encuentra en construcción. </p>;
+    <div class "apartado4">
+        <center>
+             <img src ="img/iconosubida.png" width="50">
+             <img src ="img/iconocarpeta.png" width="50"> 
+             <img src ="img/iconodescarga.png" width="50">                         
+        </center>
+    </div>
+
+        <p><mark> Actualmente la página se encuentra en construcción. </mark></p>;
 </div>
