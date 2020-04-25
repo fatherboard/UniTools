@@ -24,17 +24,20 @@
             de tal manera que puedas accceder a ellos desde cualquier sitio y desde todos tus dispositivos.
             <br /> Gracias a nuestra comunidad, podrás hacer uso de diversas herramientas, iniciar temas de conversación,
             resolver tus dudas y responder a otros usuarios.   
-            <br /> No te lo pienses más y sumergete en esta increible esperencia.
+            <br /> No te lo pienses más y sumergete en esta increible experencia.
         </p>
     </div>   
 
     <div class "apartado4">
         <center>
-             <img src ="img/iconosubida.png" width="50">
-             <img src ="img/iconocarpeta.png" width="50"> 
-             <img src ="img/iconodescarga.png" width="50">                         
+             <img src ="img/iconosubida.png" alt="sube"width="50">
+             <img src ="img/iconocarpeta.png" alt="guarda"width="50"> 
+             <img src ="img/iconodescarga.png" alt="descarga" width="50">                         
         </center>
     </div>
 
+    <div class "apartado5">
         <p><mark> Actualmente la página se encuentra en construcción. </mark></p>;
+    </div>
+    
 </div>
