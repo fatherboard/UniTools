@@ -16,23 +16,23 @@
 
 <body>
 
-<div id="contenedor">
+    <div id="contenedor">
 
-    <?php 
-        require("includes/common/cabecera.php") ;
-	 	require("includes/common/navegacion.php") ;
-	?>
+        <?php 
+            require("includes/common/cabecera.php") ;
+	 	    require("includes/common/navegacion.php") ;
+	    ?>
 
-	<div id="contenido">
-	   <?php require("includes/common/contenido.php");?>
-	</div>
+	    <div id="contenido">
+	    <?php require("includes/common/contenido.php");?>
+	    </div>
 
-    <?php 
-        //muerte temporal del footer
-	 	//require("includes/common/pie.php") ; 
-	?>
+        <?php 
+            //muerte temporal del footer
+	 	    //require("includes/common/pie.php") ; 
+	    ?>
 	
 
-</div> <!-- Fin del contenedor -->
+    </div> <!-- Fin del contenedor -->
 
 </body>

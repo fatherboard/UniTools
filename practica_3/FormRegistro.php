@@ -79,18 +79,18 @@
                     $_SESSION['login'] = '1';
                     $_SESSION['username'] = $username;
 
-                    return "index.php?page=perfil";
+                    return "perfil.php";
                 }
 
                 else {  //En caso contrario, error
                     $_SESSION['error_registro'][] = "El registro no ha tenido éxito";
                     
-                    return "index.php?page=registrar";
+                    return "registrar.php";
                 }
             }
 
             else {  //En caso contrario vuelta a registro.php con los errores
-                return "index.php?page=registrar";
+                return "registrar.php";
             }
 
         }

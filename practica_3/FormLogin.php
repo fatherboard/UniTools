@@ -1,6 +1,6 @@
 <?php
 
-include_once('scripts/Form.php');
+include_once('Form.php');
 require_once('dao/user_class.php');
 require_once('dao/dao_user.php');
 
@@ -50,24 +50,24 @@ class FormLogin extends Form {
 
 	        if ($userData == null) {
 	            $_SESSION['error_login'][] = "Usuario y/o contraseña no son correctos.";
-	            return "index.php?page=login";
+	            return "login.php";
 	        }
 	        else {
 	            $encrypted = $userData->get_password();
 	            if (password_verify($password, $encrypted)) {
 	                $_SESSION['login'] = '1';
 	                $_SESSION['username'] = $username;
-	                return "index.php?page=perfil";
+	                return "perfil.php";
 	            }
 	            else {
 	                $_SESSION['error_login'][] = "Usuario y/o contraseña no son correctos";
-	                return "index.php?page=login";
+	                return "login.php";
 	            }
 	        } 
 	    }
 
 	    else {
-	       return "index.php?page=login";
+	       return "login.php";
 	    }
        
 	}
