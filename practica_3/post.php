@@ -56,10 +56,16 @@ include_once("dao/dao_user.php");
 			echo "<h3>" . $contenido . "</h3></br>";
 
 			$dao_user->disconnect();
+
+			echo "<button onclick=\"location.href='respuesta.php?post=" . $post_id . "'\">Responder</button>"
 			?>
+
+			
+
 		</div>
 
 		<?php
+
 		//muerte temporal del footer
 		//require("includes/common/pie.php") ; 
 		?>

@@ -1,7 +1,7 @@
 <?php
 
 include_once('DAO.php');
-include_once('post_class.php');
+require_once('dao/respuesta_class.php');
 
 /* Data Access Object */
 class DAOrespuesta extends DAO {
@@ -17,37 +17,26 @@ class DAOrespuesta extends DAO {
 
 	public function insert_respuesta($TOrespuesta){
         $user = $TOrespuesta->get_user();
-        $date = $TOrespuesta->get_date();
-        $category =  $TOrespuesta->category();
+        $id_post =  $TOrespuesta->get_post();
         $content = $TOrespuesta->get_content();
-		$sql = sprintf("INSERT INTO respuesta(user,date,category,content) 
-		    VALUES ('$user', '$date', '$category', '$content')");
-		$result = $this->ejecutarConsulta($sql);
-		$post = new TOUpost($result['user'],$result['date'],$result['category'],$result['content']);
-		return $post;
+		$sql = sprintf("INSERT INTO respuesta(id_post,user,content) 
+		    VALUES ('$id_post', '$user', '$content')");
+		$result = $this->insertarConsulta($sql);
+		return $result;
 	}
 
 	public function search_respuesta($id){
 		$sql = sprintf("SELECT * FROM respuesta WHERE id_respuesta = $id");
 		$result = $this->ejecutarConsulta($sql);
-		$post = new TOUpost($result['user'],$result['date'],$result['category'],$result['content']);
-		return $post;
+		$respuesta = new TOrespuesta($result['id_respuesta'], $result['id_post'], $result['user'], $result['date'], $result['content']);
+		return $respuesta;
 	}
 
 	public function update_content($id,$content){
 		$sql = sprintf("UPDATE respuesta SET content = $content WHERE id_respuesta = $id");
 		$result = $this->ejecutarConsulta($sql);
-		$post = new TOUpost($result['user'],$result['date'],$result['category'],$result['content']);
-		return $post;
+		return $result;
 	}
-
-	public function update_category($id,$category){
-		$sql = sprintf("UPDATE respuesta SET category = $category WHERE id_respuesta = $id");
-		$result = $this->ejecutarConsulta($sql);
-		$post = new TOUpost($result['user'],$result['title'],$result['cetegory'],$result['content']);
-		return $post;
-	}
-
 }
 
 ?>

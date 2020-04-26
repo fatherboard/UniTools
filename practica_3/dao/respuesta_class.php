@@ -4,28 +4,21 @@
 class TORespuesta {
 
 	private $id_respuesta;
+	private $id_post;
 	private $user;
 	private $date;
-	private $cat_resp;
 	private $content;
 
-	function __construct($user='',$date='',$cat_resp='',$content=''){
+	function __construct($id_respuesta='', $id_post='', $date=null, $user='', $content=''){
 
+		$this->is_respuesta = $id_respuesta;
+		$this->is_post = $id_post;
 		$this->user = $user;
 		$this->date = $date;
-		$this->cat_resp = $cat_resp;
 		$this->content = $content;
 	}
 	
 	/* Set functions (DAO uses)  ################################################################# */
-	
-	public function create_resp($columna){
-
-		$this->user = $columna['user'];
-		$this->title = $columna['title'];
-		$this->content = $columna['content'];
-		$this->cat_resp = $columna['cat_resp'];
-	}
 
 	public function set_user($user){
 		$this->user = $user;
@@ -39,8 +32,8 @@ class TORespuesta {
 		$this->content = $content;
 	}
 
-	public function set_category($cat_resp){
-		$this->cat_resp = $cat_resp;
+	public function set_id_post($id){
+		$this->id_post = $id;
 	}
 
 	/* Get functions ################################################################# */
@@ -48,13 +41,22 @@ class TORespuesta {
 	public function get_resp(){
 		// devuelde un array con todos los datos de usuario
 		$columna = [
+			"id_respueta" => $this->id_respuesta,
+			"id_post" => $this->id_post,
 		    "user" => $this->user,
 		    "date" => $this->date,
-		    "content" => $this->content,
-		    "cat_resp" => $this->cat_resp
+		    "content" => $this->content
 		];
 
 		return $columna;
+	}
+
+	public function get_id(){
+		return $this->id_respuesta;
+	}
+
+	public function get_post(){
+		return $this->id_post;
 	}
 
 	public function get_user(){
@@ -65,12 +67,8 @@ class TORespuesta {
 		return $this->date;
 	}
 
-	public function get_set_content(){
+	public function get_content(){
 		return $this->content;
-	}
-
-	public function get_category(){
-		return $this->cat_resp;
 	}
 }
 
