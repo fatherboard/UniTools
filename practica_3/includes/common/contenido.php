@@ -39,5 +39,13 @@
     <div class "apartado5">
         <p><mark> Actualmente la página se encuentra en construcción. </mark></p>;
     </div>
+
+    <div class "apartado6">
+        <center>
+             <img src ="img/facultad.jpg" alt="facu"width="700">
+        </center>
+    </div>
+
+   
     
 </div>
