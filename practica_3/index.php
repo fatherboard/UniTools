@@ -25,6 +25,10 @@
 
 	    <div id="contenido">
 	    <?php require("includes/common/contenido.php");?>
+        </div>
+        
+        <div id="barraLateral">
+	    <?php require("includes/common/barraLateral.php");?>
 	    </div>
 
         <?php 

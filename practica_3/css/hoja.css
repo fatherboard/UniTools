@@ -250,3 +250,16 @@ img#per_foto{
 
 .per_error {color: #FF0000;}
 
+.principal{
+    display: flex;
+}
+
+.contenido{
+    background-color: magenta;
+    flex-basis: 80%;
+}
+
+.barraLateral{
+    background-color:lightsalmon;
+    flex-basis: 20%;
+}
