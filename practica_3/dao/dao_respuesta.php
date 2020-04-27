@@ -15,10 +15,11 @@ class DAOrespuesta extends DAO {
 		parent::__construct();
 	}
 
-	public function insert_respuesta($TOrespuesta){
-        $user = $TOrespuesta->get_user();
-        $id_post =  $TOrespuesta->get_post();
-        $content = $TOrespuesta->get_content();
+	public function insert_respuesta($TORespuesta){
+        $user = $TORespuesta->get_user();
+        $id_post =  $TORespuesta->get_post();
+		$content = $TORespuesta->get_content();
+		
 		$sql = sprintf("INSERT INTO respuesta(id_post,user,content) 
 		    VALUES ('$id_post', '$user', '$content')");
 		$result = $this->insertarConsulta($sql);
@@ -37,6 +38,19 @@ class DAOrespuesta extends DAO {
 		$result = $this->ejecutarConsulta($sql);
 		return $result;
 	}
+
+	public function show_all_answers($id){
+		$sql = sprintf("SELECT * FROM respuesta WHERE id_post = $id ORDER BY id_respuesta ASC");
+		$query = $this->devolverConsulta($sql);
+        $array = [];
+        while($result = mysqli_fetch_assoc($query)){
+            $respuesta = new TORespuesta($result['id_respuesta'],$result['id_post'],$result['user'],$result['date'],$result['content']);
+            array_push($array, $respuesta);
+        }
+
+		return $array; 
+	}
+
 }
 
 ?>

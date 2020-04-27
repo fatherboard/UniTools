@@ -9,7 +9,7 @@ class TORespuesta {
 	private $date;
 	private $content;
 
-	function __construct($id_respuesta='', $id_post='', $date=null, $user='', $content=''){
+	function __construct($id_respuesta='', $id_post='', $date='', $user='', $content=''){
 
 		$this->is_respuesta = $id_respuesta;
 		$this->is_post = $id_post;

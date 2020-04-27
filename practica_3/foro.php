@@ -36,7 +36,6 @@ include_once("dao/dao_respuesta.php");
 
                 <?php
 
-                $dao_respuesta = new DAOrespuesta();
 
                 $dao_post = new DAOpost();
                 $dao_user = new DAOUsuario();

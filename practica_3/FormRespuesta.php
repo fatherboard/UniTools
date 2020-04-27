@@ -8,9 +8,8 @@ class FormRespuesta extends Form {
 
 	private $post=null;
 	
-	public function __construct($id){
+	public function __construct(){
 		parent::__construct('respuesta');
-		$this->post = $id;
 	}
 
 	protected function generaCampos(){
@@ -30,7 +29,8 @@ class FormRespuesta extends Form {
 	    
 	    $_SESSION['error_respuesta'] = [];
 		$contenido = htmlspecialchars(trim(strip_tags($_REQUEST["contenido"])));
-        $user = new TOUser();
+		$user = new TOUser();
+		$id_post = $_GET["post"];
         
         $dao_usuario = new DAOUsuario();
         $dao_respuesta = new DAOrespuesta();
@@ -38,29 +38,30 @@ class FormRespuesta extends Form {
 	    if (empty($contenido) ) {
 	        $_SESSION['error_respuesta'][] = "No se puede enviar un comentario vacío.";
 	    }
-	    $user = $dao_usuario->search_username($_SESSION['username']);
+		$user = $dao_usuario->search_username($_SESSION['username']);
 
+		
 	    if (count($_SESSION['error_respuesta']) == 0)  {
 
 	        if ($user == null) {
 	            $_SESSION['error_respuesta'][] = "Se ha producido un error";
-	            return "respuesta.php?post=" . $this->post;
+	            return "respuesta.php?post=" . $id_post;
 	        }
 	        else {
-                $id_post = $this->post;
-                $username = $user->get_username();
-                $respuesta = new TORespuesta('', $id_post, $username, null, $contenido);
+				$userid = $user->get_id();
+				$respuesta = new TORespuesta('', $id_post, '', $userid, $contenido);
+				echo $respuesta->get_post();
                 $result = $dao_respuesta->insert_respuesta($respuesta);
 
                 if (!$result) {
                     $_SESSION['error_respuesta'][] = "No se ha podido realizar la respuesta";
-                    return "respuesta.php?post=" . $this->post;
+                    return "respuesta.php?post=" . $id_post;
                 }
 	        } 
 	    }
 
 	    else {
-			return "respuesta.php?post=" . $this->post;
+			return "respuesta.php?post=" . $id_post;
 	    }
        
 	}

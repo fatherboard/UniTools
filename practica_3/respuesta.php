@@ -28,7 +28,7 @@ if (!isset($_SESSION)) {
 
             require_once('FormRespuesta.php'); //include_once?
             $post = $_GET["post"];
-            $form = new FormRespuesta($post);
+            $form = new FormRespuesta();
             $html = $form->gestiona();
 
             if (!isset($_SESSION)) {
