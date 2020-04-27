@@ -25,12 +25,8 @@
 
 	    <div id="contenido">
 	    <?php require("includes/common/contenido.php");?>
-        </div>
-        
-        <div id="barraLateral">
-	    <?php require("includes/common/barraLateral.php");?>
-	    </div>
-
+        </div>        
+       
         <?php 
             //muerte temporal del footer
 	 	    //require("includes/common/pie.php") ; 

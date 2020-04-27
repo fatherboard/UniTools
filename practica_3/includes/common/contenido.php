@@ -1,9 +1,42 @@
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="css/hoja.css" />
+       <!-- <link rel="stylesheet" type="text/css" href="css/hoja.css" /> -->
+       <style type="text/css">
+            
+                .principal{
+                    display: flex;
+                    flex-flow: row;
+                    align-items: stretch;
+                }
+
+                .barraLateralIzq{
+                    background-color:gray;
+                    flex-basis: 20%;
+                }
+
+                .contenido{
+                    background-color: whitesmoke;
+                    flex-basis: 80%;
+                }                
+
+                .barraLateralDer{
+                    background-color:slateblue;
+                    flex-basis: 20%;
+                }
+
+                .apartado3{
+                    justify-content: space-around;
+                    padding: 30px;
+                }
+       </style>
     </head>
     <body>
     <div class="principal">
+
+        <div class="barraLateralIzq">
+                <p>Barra Lateral Izquierda<p>
+        </div>
+
         <div class="contenido">
             <div class "apartado1">
                 <center>
@@ -23,14 +56,22 @@
                 </a>
             </div> 
             
-            <div class "apartado3">
-                <p> Unitools es una plataforma creada el 24 de Febrero de 2020 por un pequeño grupo de estudiantes.
-                    <br /> La principal función de Unitool es permitirte tanto subir, actualizar y descargar tus archivos personales
-                    de tal manera que puedas accceder a ellos desde cualquier sitio y desde todos tus dispositivos.
-                    <br /> Gracias a nuestra comunidad, podrás hacer uso de diversas herramientas, iniciar temas de conversación,
-                    resolver tus dudas y responder a otros usuarios.   
-                    <br /> No te lo pienses más y sumergete en esta increible experencia.
-                </p>
+            <div class ="apartado3">
+                    <p> 
+                        Unitools es una plataforma creada el 24 de Febrero de 2020 por un pequeño grupo de estudiantes. 
+                    </p>
+                    <p> 
+                        La principal función de Unitool es permitirte tanto subir, actualizar y descargar tus archivos personales
+                        de tal manera que puedas accceder a ellos desde cualquier sitio y desde todos tus dispositivos.
+                    </p>
+                    <p> 
+                        Gracias a nuestra comunidad, podrás hacer uso de diversas herramientas, iniciar temas de conversación,
+                         resolver tus dudas y responder a otros usuarios.
+                    </p>  
+                    <p> 
+                        No te lo pienses más y sumergete en esta increible experencia.
+                    </p>
+                
             </div>   
 
             <div class "apartado4">
@@ -55,10 +96,10 @@
                 <embed src="music/musicafondo3.mp3" autostarty="true" loop="true" volume="60" width="0" height="0">
             </div>  
             
-        </div>
+        </div>       
 
-        <div class="barraLateral">
-                <p>Barra Lateral<p>
+        <div class="barraLateralDer">
+            <p>Barra Lateral Derecha</p>
         </div>
 
     </div>

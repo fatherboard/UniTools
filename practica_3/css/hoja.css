@@ -249,7 +249,7 @@ img#per_foto{
 }
 
 .per_error {color: #FF0000;}
-
+/*
 .principal{
     display: flex;
 }
@@ -263,3 +263,4 @@ img#per_foto{
     background-color:lightsalmon;
     flex-basis: 20%;
 }
+/*
