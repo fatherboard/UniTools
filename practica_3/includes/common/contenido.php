@@ -10,6 +10,9 @@
                 }
 
                 .barraLateralIzq{
+                    display: flex;
+                    flex-flow: column;
+                    justify-content: space-around;
                     background-color:gray;
                     flex-basis: 20%;
                 }
@@ -20,7 +23,10 @@
                 }                
 
                 .barraLateralDer{
+                    display: flex;
+                    flex-flow: column;
                     background-color:slateblue;
+                    justify-content: space-around;
                     flex-basis: 20%;
                 }
 
@@ -30,15 +36,17 @@
                 }
        </style>
     </head>
+
     <body>
     <div class="principal">
 
         <div class="barraLateralIzq">
                 <p>Barra Lateral Izquierda<p>
+                <img src ="img/img_back/open-neon-signage-turned-on-2995188.jpg" alt="sube"width="200">
         </div>
 
         <div class="contenido">
-            <div class "apartado1">
+            <div class="apartado1">
                 <center>
                     <a href="index.php">
                         <img src="img/UniTools.png" alt="UniTools" width="70">
@@ -48,7 +56,7 @@
             
             </div>
 
-            <div class "apartado2">
+            <div class="apartado2">
                 <h2><em> Tu lugar favorito en la nube </h2> 
                 <h3> Sube - Almacena - Descarga </em></h3> 
                 <a href = "registro.php">
@@ -56,7 +64,7 @@
                 </a>
             </div> 
             
-            <div class ="apartado3">
+            <div class="apartado3">
                     <p> 
                         Unitools es una plataforma creada el 24 de Febrero de 2020 por un pequeño grupo de estudiantes. 
                     </p>
@@ -74,7 +82,7 @@
                 
             </div>   
 
-            <div class "apartado4">
+            <div class="apartado4">
                 <center>
                     <img src ="img/iconosubida.png" alt="sube"width="50">
                     <img src ="img/iconocarpeta.png" alt="guarda"width="50"> 
@@ -82,17 +90,19 @@
                 </center>
             </div>
 
-            <div class "apartado5">
+            <div class="apartado5">
                 <p><mark> Actualmente la página se encuentra en construcción. </mark></p>;
             </div>
 
-            <div class "apartado6">
+            <div class="apartado6">
                 <center>
-                    <img src ="img/facultad.jpg" alt="facu"width="700">
+                   <!-- <img src ="img/facultad.jpg" alt="facu"width="700"> -->
+                    <img src ="img/img_back/photo-of-person-holding-mobile-phone-3183153.jpg" alt="sube"width="700">
+                    
                 </center>
             </div>   
 
-            <div class "apartado7">
+            <div class="apartado7">
                 <embed src="music/musicafondo3.mp3" autostarty="true" loop="true" volume="60" width="0" height="0">
             </div>  
             
@@ -100,6 +110,9 @@
 
         <div class="barraLateralDer">
             <p>Barra Lateral Derecha</p>
+            <center>
+            <img src ="img/img_back/person-using-a-mac-book-pro-4050287.jpg" alt="sube"width="200">
+            </center>
         </div>
 
     </div>
