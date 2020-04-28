@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-04-2020 a las 17:44:27
+-- Tiempo de generación: 28-04-2020 a las 17:03:18
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.2
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `unitoolsdb`
+-- Base de datos: `detele_dis`
 --
 
 -- --------------------------------------------------------
@@ -113,22 +113,28 @@ CREATE TABLE `user` (
   `email` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
   `username` varchar(30) NOT NULL,
-  `premium` tinyint(1) NOT NULL
+  `admin` tinyint(1) NOT NULL,
+  `premium` tinyint(1) NOT NULL,
+  `teléfono` int(11) DEFAULT NULL,
+  `pais` text DEFAULT NULL,
+  `ciudad` text DEFAULT NULL,
+  `programas` varchar(100) DEFAULT NULL COMMENT 'Lenguajes de programación',
+  `hobbies` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `user`
 --
 
-INSERT INTO `user` (`id_user`, `email`, `password`, `username`, `premium`) VALUES
-(4, 'caca@caca.com', '1', 'hugo', 1),
-(5, 'l@l.l', '1', 'l', 1),
-(6, '1@hola.com', '$2y$10$7gUTaS4clDnZgsUv2RuLeeei7/qFHFB9UBjYtvfQOcCnHV4MNJSPG', 'man', 0),
-(8, '1@hola.com', '$2y$10$qaUhcW0ficbue3HzsihzfOHqKw1/aMCJhwcLNobu/GvCCRjak7eea', 'pt_esp', 0),
-(9, '1@hola.com', '$2y$10$1/Zm3fnVyIh7jeBFBsN48uUXuMKptC3zT6pKlT.xg0vzzW98LKF7q', 'rapiteu', 0),
-(10, 'bruno@bruno.com', '$2y$10$ucC.1OeAhaPOebAhszNwK.fxBXJENeBVSXHDoAWd2ZxN8hgnaICpC', 'bruno', 0),
-(11, 'carlos@carlos.com', '$2y$10$w.Ptrg3oMYDRW4HihfZ7Qe4uBAnwL3ogHFzSDofoxqtE7.2BxO85m', 'carlos', 0),
-(12, 'luis@luis.com', '$2y$10$xJzKbgn0bSIOOuEQkNaCWuQ/tvSYl53E9MFMAFJiE8.UjKxZx/Q1W', 'luis', 0);
+INSERT INTO `user` (`id_user`, `email`, `password`, `username`, `admin`, `premium`, `teléfono`, `pais`, `ciudad`, `programas`, `hobbies`) VALUES
+(4, 'caca@caca.com', '1', 'hugo', 0, 1, NULL, NULL, NULL, NULL, NULL),
+(5, 'l@l.l', '1', 'l', 0, 1, NULL, NULL, NULL, NULL, NULL),
+(6, '1@hola.com', '$2y$10$7gUTaS4clDnZgsUv2RuLeeei7/qFHFB9UBjYtvfQOcCnHV4MNJSPG', 'man', 0, 0, NULL, NULL, NULL, NULL, NULL),
+(8, '1@hola.com', '$2y$10$qaUhcW0ficbue3HzsihzfOHqKw1/aMCJhwcLNobu/GvCCRjak7eea', 'pt_esp', 0, 0, NULL, NULL, NULL, NULL, NULL),
+(9, '1@hola.com', '$2y$10$1/Zm3fnVyIh7jeBFBsN48uUXuMKptC3zT6pKlT.xg0vzzW98LKF7q', 'rapiteu', 0, 0, NULL, NULL, NULL, NULL, NULL),
+(10, 'bruno@bruno.com', '$2y$10$ucC.1OeAhaPOebAhszNwK.fxBXJENeBVSXHDoAWd2ZxN8hgnaICpC', 'bruno', 0, 0, NULL, NULL, NULL, NULL, NULL),
+(11, 'carlos@carlos.com', '$2y$10$w.Ptrg3oMYDRW4HihfZ7Qe4uBAnwL3ogHFzSDofoxqtE7.2BxO85m', 'carlos', 0, 0, NULL, NULL, NULL, NULL, NULL),
+(12, 'luis@luis.com', '$2y$10$xJzKbgn0bSIOOuEQkNaCWuQ/tvSYl53E9MFMAFJiE8.UjKxZx/Q1W', 'luis', 0, 0, NULL, NULL, NULL, NULL, NULL);
 
 --
 -- Índices para tablas volcadas
