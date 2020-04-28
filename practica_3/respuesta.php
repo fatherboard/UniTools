@@ -30,7 +30,6 @@ if (!isset($_SESSION)) {
             $post = $_GET["post"];
             $form = new FormRespuesta();
             $html = $form->gestiona();
-
             if (!isset($_SESSION)) {
                 session_start();
             }
@@ -50,7 +49,7 @@ if (!isset($_SESSION)) {
                 unset($_SESSION['error_respuesta']);
             }
 
-
+            
             ?>
         </div>
 

@@ -26,21 +26,23 @@ class FormRespuesta extends Form {
 	    { 
 	        session_start(); 
 	    } 
-	    
+		
+		
+		$dao_usuario = new DAOUsuario();
+        $dao_respuesta = new DAOrespuesta();
 	    $_SESSION['error_respuesta'] = [];
 		$contenido = htmlspecialchars(trim(strip_tags($_REQUEST["contenido"])));
 		$user = new TOUser();
 		$id_post = $_GET["post"];
+		$user = $dao_usuario->search_username($_SESSION['username']);
+        $userid = $user->get_id();
         
-        $dao_usuario = new DAOUsuario();
-        $dao_respuesta = new DAOrespuesta();
 
 	    if (empty($contenido) ) {
 	        $_SESSION['error_respuesta'][] = "No se puede enviar un comentario vacío.";
 	    }
-		$user = $dao_usuario->search_username($_SESSION['username']);
-
 		
+
 	    if (count($_SESSION['error_respuesta']) == 0)  {
 
 	        if ($user == null) {
@@ -48,9 +50,8 @@ class FormRespuesta extends Form {
 	            return "respuesta.php?post=" . $id_post;
 	        }
 	        else {
-				$userid = $user->get_id();
-				$respuesta = new TORespuesta('', $id_post, '', $userid, $contenido);
-				echo $respuesta->get_post();
+				$respuesta = new TORespuesta('', $id_post, $userid, '', $contenido);
+				echo $respuesta->get_post(); //para testeo
                 $result = $dao_respuesta->insert_respuesta($respuesta);
 
                 if (!$result) {
