@@ -91,7 +91,7 @@
             </div>
 
             <div class="apartado5">
-                <p><mark> Actualmente la página se encuentra en construcción. </mark></p>;
+                <p><mark> Actualmente la página se encuentra en construcción. </mark></p>
             </div>
 
             <div class="apartado6">
@@ -116,6 +116,10 @@
         </div>
 
     </div>
+       
+    <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.5/lib/darkmode-js.min.js"></script>
+    <script> new Darkmode().showWidget();</script>
+    <script src="./practica_3/script/script.js"></script>
 
 </body>
 
