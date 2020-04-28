@@ -71,7 +71,7 @@ include_once("dao/dao_user.php");
 				} else {
 					$username = $usuario->get_username();
 				}
-
+				
 				echo "<table class=\"respuestas\">";
 				echo "<tbody>";
 				echo "<tr>";
