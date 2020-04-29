@@ -34,7 +34,7 @@ class DAOproject extends DAO {
 		$result = $this->ejecutarConsulta($sql);
         
 		if (count($result) > 0) {
-			$proj = new TOUpost($result['id_Proyecto'], 
+			$proj = new TOUproject($result['id_Proyecto'], 
             $result['user'], $result['title'], $result['content'], 
              $result['lenguaje'], $result['candado'],$result['estrellas']);			
             return $proj;
@@ -49,7 +49,7 @@ class DAOproject extends DAO {
 		$query = $this->devolverConsulta($sql);
 		$array = [];
 		while($result = mysqli_fetch_assoc($query)){
-            $proj = new TOUpost($result['id_Proyecto'], 
+            $proj = new TOUproject($result['id_Proyecto'], 
             $result['user'], $result['title'], $result['content'], 
              $result['lenguaje'], $result['candado'],$result['estrellas']);			
             array_push($array, $proj);
@@ -63,7 +63,7 @@ class DAOproject extends DAO {
 		$result = $this->ejecutarConsulta($sql);
 		
 		if (count($result) > 0) {
-			$proj = new TOUpost($result['id_Proyecto'], 
+			$proj = new TOUproject($result['id_Proyecto'], 
             $result['user'], $result['title'], $result['content'], 
              $result['lenguaje'], $result['candado'],$result['estrellas']);			
             return $proj;
@@ -76,7 +76,7 @@ class DAOproject extends DAO {
 		$result = $this->ejecutarConsulta($sql);
 		
 		if (count($result) > 0) {
-			$proj = new TOUpost($result['id_Proyecto'], 
+			$proj = new TOUproject($result['id_Proyecto'], 
             $result['user'], $result['title'], $result['content'], 
              $result['lenguaje'], $result['candado'],$result['estrellas']);			
             return $proj;
@@ -89,7 +89,7 @@ class DAOproject extends DAO {
 		$result = $this->ejecutarConsulta($sql);
 		
 		if (count($result) > 0) {
-			$proj = new TOUpost($result['id_Proyecto'], 
+			$proj = new TOUproject($result['id_Proyecto'], 
             $result['user'], $result['title'], $result['content'], 
              $result['lenguaje'], $result['candado'],$result['estrellas']);			
             return $proj;
@@ -102,7 +102,7 @@ class DAOproject extends DAO {
 		$query = $this->devolverConsulta($sql);
         $array = [];
         while($result = mysqli_fetch_assoc($query)){
-            $proj = new TOUpost($result['id_Proyecto'], 
+            $proj = new TOUproject($result['id_Proyecto'], 
             $result['user'], $result['title'], $result['content'], 
              $result['lenguaje'], $result['candado'],$result['estrellas']);			
 
