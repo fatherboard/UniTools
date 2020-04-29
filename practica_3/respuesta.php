@@ -20,13 +20,12 @@ if (!isset($_SESSION)) {
         <?php
         require("includes/common/cabecera.php");
         require("includes/common/navegacion.php");
-        ?>
+	require("includes/common/FormRespuesta.php");
+	?>
 
         <div id="contenido">
             <?php
 
-
-            require_once('FormRespuesta.php'); //include_once?
             $post = $_GET["post"];
             $form = new FormRespuesta();
             $html = $form->gestiona();
