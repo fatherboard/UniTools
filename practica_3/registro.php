@@ -20,11 +20,11 @@ if (!isset($_SESSION)) {
         <?php
         require("includes/common/cabecera.php");
         require("includes/common/navegacion.php");
-        ?>
+	require("includes/common/FormRegistro.php");
+	?>
 
         <div id="contenido">
             <?php
-            require_once('FormRegistro.php');
 
             $form = new FormRegistro();
             $html = $form->gestiona();
