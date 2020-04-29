@@ -249,18 +249,39 @@ img#per_foto{
 }
 
 .per_error {color: #FF0000;}
-/*
+
+/* Inicio css*/
+
 .principal{
     display: flex;
+    flex-flow: row;
+    align-items: stretch;
+}
+
+.barraLateralIzq{
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    background-color:gray;
+    flex-basis: 20%;
 }
 
 .contenido{
-    background-color: magenta;
+    background-color: whitesmoke;
     flex-basis: 80%;
-}
+}                
 
-.barraLateral{
-    background-color:lightsalmon;
+.barraLateralDer{
+    display: flex;
+    flex-flow: column;
+    background-color:slateblue;
+    justify-content: space-around;
     flex-basis: 20%;
 }
-/*
+
+.apartado3{
+    justify-content: space-around;
+    padding: 30px;
+}
+
+/* FIN Inicio css*/
