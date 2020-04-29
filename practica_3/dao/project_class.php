@@ -1,7 +1,7 @@
 <?php
 
 /* Transfer Object */
-class TOUProject {
+class TOUproject {
 
 	private $id_Proyecto;
 	private $user;

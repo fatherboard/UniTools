@@ -51,8 +51,9 @@ include_once("dao/dao_user.php");
                         $proj_data = new TOUproject();
                         $dao_proj = new DAOproject();
                         $dao_user = new DAOUsuario();
-                        $user_id = $dao_user->search_username($_SESSION['username'])->get_id();
-                        $new_proj = new TOUProject('', $user_id, $titulo, $contenido, $lenguaje, $privado);
+			$user_id = $dao_user->search_username($_SESSION['username'])->get_id();
+			// 3 estrellas por defecto
+                        $new_proj = new TOUproject('', $user_id, $titulo, $contenido, $lenguaje, $privado,3);
 
                         if (!$dao_proj->insert_Project($new_proj)) {
                             echo "Error al insertar project";
