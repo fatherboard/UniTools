@@ -47,12 +47,18 @@ include_once("dao/dao_project.php");
                     $title = $curr_proj->get_title();
 		    $candado = $curr_proj->get_candado();
 		    $estrellas = $curr_proj->get_estrellas();
+		    $privado = $curr_proj->get_privado();
+		    $priv = "Repositorio publico"
 
                     if ($usuario == null) {
                         $username = "Usuario borrado";
                     } else {
                         $username = $usuario->get_username();
                     }
+
+		    if ($privado === true){
+		    	$priv = "Repositorio privado (Feature Premium)";
+		    }
 
                     echo "<table class=\"posts\">";
                     echo "<tbody>";
@@ -63,6 +69,8 @@ include_once("dao/dao_project.php");
                     echo "<td>Lenguaje: " . $lenguaje . "</td>";
 		    echo "<td>CANDADO: " . $candado . "</td>";
 		    echo "<td>VALORACION: " . $estrellas . " estrellas </td>";
+		    echo "<td>Privacidad: " . $priv " </td>";
+		    echo "<td>"
 		    echo "</tr>";
                     echo "</tbody>";
                     echo "</table>";
