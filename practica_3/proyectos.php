@@ -25,11 +25,12 @@ include_once("dao/dao_project.php");
         require("includes/common/navegacion.php");
         ?>
 
+	<h2>  Proyectos guardados </h2>
         <div id="contenido">
             <div class="contenido">
-                <a class="botonProj" href="nuevo_project.php">Nuevo Proyecto</a>
+                <a class="botonForo" href="nuevo_project.php">Nuevo Proyecto</a>
                 <form action="search.php" method="POST">
-                    <input type="text" name="buscar" placeholder="Buscar">
+                    <!-- <input type="text" name="buscar" placeholder="Buscar">-->
                     <!-- <button type="submit" name="submit-buscar" href="search.php">Buscar </button> -->
                 </form>
 
@@ -39,17 +40,16 @@ include_once("dao/dao_project.php");
                 $dao_user = new DAOUsuario();
                 $res = $dao_project->show_all_data();
 
-                while (!empty($res)) {
+		while (!empty($res)) {
                     $curr_proj = array_shift($res);
-                    $project_id = $curr_proj->get_id(); // id del proyecto
-                    $usuario = $dao_user->search_userId($project_id);
-                    $lenguaje = $curr_proj->get_lenguaje();
-                    $title = $curr_proj->get_title();
+		    $project_id = $curr_proj->get_id(); // id del proyecto
+		    $usuario = $dao_user->search_userId($project_id);
+		    $lenguaje = $curr_proj->get_lenguaje();
+                    $title = $curr_proj->get_titulo();
 		            $candado = $curr_proj->get_candado();
 		            $estrellas = $curr_proj->get_estrellas();
 		            $privado = $curr_proj->get_privado();
 		            $priv = "Repositorio publico";
-
                     if ($usuario == null) {
                         $username = "Usuario borrado";
                     } else {
@@ -71,7 +71,10 @@ include_once("dao/dao_project.php");
 		            echo "<td>VALORACION: " . $estrellas . " estrellas </td>";
 		            echo "<td>Privacidad: " . $priv . " </td>";
 		            echo "<td>";
-		            echo "</tr>";
+			    echo "</tr>";
+		    //echo "<form method="get" action=".$file .">"
+   		    ////echo "<button type="submit">Descargar</button>"
+		    //echo "</form>"
                     echo "</tbody>";
                     echo "</table>";
                 }
