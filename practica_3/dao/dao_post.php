@@ -99,6 +99,13 @@ class DAOpost extends DAO {
 
 		return $array; 
 	}
+
+	public function borrarPost($id) {
+		$sql = sprintf("DELETE FROM posts WHERE id_post = $id");
+		$result = $this->insertarConsulta($sql);
+		
+		return $result;
+	}
     
 }
 

@@ -38,9 +38,9 @@ include_once("dao/dao_user.php");
 			$proj_id = $curr_proj->get_id(); // id del project
 			$usuario = $dao_user->search_userId($proj_id);
 			$lenguaje = $curr_proj->get_lenguaje();
-			$title = $curr_proj->get_title();
+			$title = $curr_proj->get_titulo();
 			$candado = $curr_proj->get_candado();
-			$contenido = $curr_proj->get_content();
+			$contenido = $curr_proj->get_contenido();
 
 			$proj = $dao_proj->search_project($id); //id viene del get de contenido
 
