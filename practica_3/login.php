@@ -20,7 +20,7 @@ if (!isset($_SESSION)) {
         <?php
         require("includes/common/cabecera.php");
         require("includes/common/navegacion.php");
-	require("includes/common/FormLogin.php");
+	    require("includes/FormLogin.php");
 	?>
 
         <div id="contenido">
