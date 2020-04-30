@@ -45,10 +45,10 @@ include_once("dao/dao_project.php");
                     $usuario = $dao_user->search_userId($project_id);
                     $lenguaje = $curr_proj->get_lenguaje();
                     $title = $curr_proj->get_title();
-		    $candado = $curr_proj->get_candado();
-		    $estrellas = $curr_proj->get_estrellas();
-		    $privado = $curr_proj->get_privado();
-		    $priv = "Repositorio publico"
+		            $candado = $curr_proj->get_candado();
+		            $estrellas = $curr_proj->get_estrellas();
+		            $privado = $curr_proj->get_privado();
+		            $priv = "Repositorio publico";
 
                     if ($usuario == null) {
                         $username = "Usuario borrado";
@@ -67,11 +67,11 @@ include_once("dao/dao_project.php");
                     echo "<td>Usuario: " . $username . "</td>";
                     echo "<td>Nombre: " . "<a href=\"project.php?&id=" . $project_id . "\">" . $title . "</a></td>";
                     echo "<td>Lenguaje: " . $lenguaje . "</td>";
-		    echo "<td>CANDADO: " . $candado . "</td>";
-		    echo "<td>VALORACION: " . $estrellas . " estrellas </td>";
-		    echo "<td>Privacidad: " . $priv " </td>";
-		    echo "<td>"
-		    echo "</tr>";
+		            echo "<td>CANDADO: " . $candado . "</td>";
+		            echo "<td>VALORACION: " . $estrellas . " estrellas </td>";
+		            echo "<td>Privacidad: " . $priv . " </td>";
+		            echo "<td>";
+		            echo "</tr>";
                     echo "</tbody>";
                     echo "</table>";
                 }

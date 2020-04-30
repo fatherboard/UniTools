@@ -12,7 +12,7 @@ class DAOproject extends DAO {
  
 	public function insert_Project($TOUproject)
   {  
-		$user = $TOUproject->get_user();
+	$user = $TOUproject->get_user();
     $title = $TOUproject->get_title();
     $content = $TOUproject->get_content();
     $lenguaje =  $TOUproject->get_lenguaje();
@@ -84,7 +84,7 @@ class DAOproject extends DAO {
 		return null;
 	}
 
-	public function update_lenguaje($id,$category){
+	public function update_lenguaje($id,$lenguaje){
 		$sql = sprintf("UPDATE projects SET lenguaje = $lenguaje WHERE id_Proyecto = $id");
 		$result = $this->ejecutarConsulta($sql);
 		

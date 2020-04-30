@@ -95,7 +95,7 @@ class TOUproject {
 		return $this->candado;
 	}
   
-  public function get_estrellas){
+  public function get_estrellas(){
 		return $this->estrellas;
 	}
   
