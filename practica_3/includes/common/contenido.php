@@ -1,46 +1,13 @@
 <html>
     <head>
-       <!-- <link rel="stylesheet" type="text/css" href="./practica_3/css/hoja.css"/> -->
-    <style>
-.principal{
-    display: flex;
-    flex-flow: row;
-    align-items: stretch;
-}
-
-.barraLateralIzq{
-    display: flex;
-    flex-flow: column;
-    justify-content: space-around;
-    background-color:gray;
-    flex-basis: 20%;
-}
-
-.contenido{
-    background-color: whitesmoke;
-    flex-basis: 80%;
-}                
-
-.barraLateralDer{
-    display: flex;
-    flex-flow: column;
-    background-color:slateblue;
-    justify-content: space-around;
-    flex-basis: 20%;
-}
-
-.apartado3{
-    justify-content: space-around;
-    padding: 30px;
-}      
-</style>
-    </head> 
+        <link rel="stylesheet" type="text/css" href="./practica_3/css/contenido.css">    
+    </head>    
 
     <body>
     <div class="principal">
 
         <div class="barraLateralIzq">
-	        <p>Barra Lateral Izquierda<p> 
+                <p>Barra Lateral Izquierda<p>
                 <img src ="img/img_back/open-neon-signage-turned-on-2995188.jpg" alt="sube"width="200">
         </div>
 
@@ -95,8 +62,8 @@
 
             <div class="apartado6">
                 <center>
-                    <img src ="img/facultad.jpg" alt="facu"width="700"> 
-                    <!--<img src ="img/img_back/photo-of-person-holding-mobile-phone-3183153.jpg" alt="sube"width="700">-->
+                   <!-- <img src ="img/facultad.jpg" alt="facu"width="700"> -->
+                    <img src ="img/img_back/photo-of-person-holding-mobile-phone-3183153.jpg" alt="sube"width="700">
                     
                 </center>
             </div>   
