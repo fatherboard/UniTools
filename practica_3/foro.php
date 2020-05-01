@@ -59,7 +59,7 @@ include_once("dao/dao_respuesta.php");
                     echo "<tbody>";
                     echo "<tr>";
                     echo "<td>ID del post: " . $post_id . "</td>";
-                    echo "<td>Usuario: " . $username . "</td>";
+                    echo "<td><b>Usuario:</b> " . $username . "</td>";
                     echo "<td>Título: " . "<a href=\"post.php?&id=" . $post_id . "\">" . $title . "</a></td>";
                     //echo "<td>Categoría: " . $categoria . "</td>";
                     echo "</tr>";

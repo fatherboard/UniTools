@@ -54,6 +54,7 @@
     color: black;
 }
 
+
 .botonBuscar{
     border-style: outset;
 
@@ -283,5 +284,7 @@ img#per_foto{
     justify-content: space-around;
     padding: 30px;
 }
+
+
 
 /* FIN Inicio css*/
