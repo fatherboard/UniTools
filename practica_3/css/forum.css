@@ -34,6 +34,7 @@
     color: black;
 }
 
+
 table {
   width:100%;
 }
@@ -57,7 +58,7 @@ table#t01 tr:nth-child(odd) {
 }
 
 table#t01 th {
-  background-color: #916f5d;
+  background-color: #3e7e99;
   color: black;
 }
 
@@ -68,4 +69,5 @@ table#t01 th {
     background-color: rgb(141, 111, 170);
     color: black;
 }
+
 

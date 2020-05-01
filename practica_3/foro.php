@@ -12,7 +12,7 @@ include_once("dao/dao_respuesta.php");
 <html>
 
 <head>
-    <link rel="stylesheet" type="text/css" href="css/hoja.css">
+    <link rel="stylesheet" type="text/css" href="css/forum.css">
     <title>INDEX</title>
     <meta charset="UTF-8">
 </head>
@@ -29,11 +29,12 @@ include_once("dao/dao_respuesta.php");
         <div id="contenido">
             <div class="cotenido">
                 <a class="botonForo" href="nuevo_post.php">Nuevo Post</a>
-                <form action="search.php" method="POST">
+                 <p></p>
+                 <form action="search.php" method="POST">
                     <input type="text" name="buscar" placeholder="Buscar">
                     <button type="submit" name="submit-buscar" href="search.php">Buscar </button>
                 </form>
-
+		<p></p>
                 <?php
 
 
@@ -41,6 +42,13 @@ include_once("dao/dao_respuesta.php");
                 $dao_user = new DAOUsuario();
                 $res = $dao_post->show_all_data();
 
+	         echo "<table id='t01' style='width:100%'>";
+	         echo "<tr>";
+	         echo "<th>Título</th>";
+		 echo "<th>ID del post</th>";
+		echo "<th>Usuario</th>";
+		echo "</tr>";	
+	
 
                 while (!empty($res)) {
                     $curr_post = array_shift($res);
@@ -55,17 +63,16 @@ include_once("dao/dao_respuesta.php");
                         $username = $usuario->get_username();
                     }
 
-                    echo "<table class=\"posts\">";
-                    echo "<tbody>";
-                    echo "<tr>";
-                    echo "<td>ID del post: " . $post_id . "</td>";
-                    echo "<td><b>Usuario:</b> " . $username . "</td>";
-                    echo "<td>Título: " . "<a href=\"post.php?&id=" . $post_id . "\">" . $title . "</a></td>";
+		  echo "<tr>";
+		  echo "<td>" . "<a href=\"post.php?&id=" . $post_id . "\">" . $title . "</a></td>";
+		  echo "<td>"  . $post_id ."</td>";
+		  echo "<td>" . $username   . "</td>";
+                  
+		  echo "</tr>";
+  
                     //echo "<td>Categoría: " . $categoria . "</td>";
-                    echo "</tr>";
-                    echo "</tbody>";
-                    echo "</table>";
                 }
+	       echo "</table>";
                 $dao_user->disconnect();
                 ?>
 

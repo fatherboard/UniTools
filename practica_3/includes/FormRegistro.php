@@ -12,10 +12,10 @@
         protected function generaCampos(){
             
             $html = '<fieldset>';
-			$html .= '<div><label>Nombre de usuario:</label> <input class="control" type="text" name="username"/></div>';
-			$html .= '<div><label>Nombre:</label> <input class="control" type="text" name="nombre" /></div>';
-            $html .= '<div><label>Email:</label> <input class="control" type="text" name="email" /></div>';
-			$html .= '<div><label>Password:</label> <input class="control" type="password" name="password" /></div>';
+			$html .= '<div><label>Nombre de usuario:</label> <input class="control" type="text" name="username" style="margin-left: 84px;"/></div>';
+			$html .= '<div><label>Nombre:</label> <input class="control" type="text" name="nombre" style="margin-left: 164px";/></div>';
+            $html .= '<div><label>Email:</label> <input class="control" type="text" name="email" style="margin-left: 182px;"/></div>';
+			$html .= '<div><label>Password:</label> <input class="control" type="password" name="password" style="margin-left: 152px;" /></div>';
 			$html .= '<div><label>Vuelve a introducir el Password:</label> <input class="control" type="password" name="password2" /><br/></div>';
 			$html .= '<button type="submit" name="register">Registrar</button>';
             $html .= '</fieldset>';

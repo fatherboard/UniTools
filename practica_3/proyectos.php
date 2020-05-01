@@ -43,7 +43,8 @@ include_once("dao/dao_project.php");
 		
 	         echo "<table id='t01' style='width:100%'>";
 	         echo "<tr>";
-                  echo "<th>ID del Proyecto</th>";
+		 //echo "<th>ID del Proyecto</th>";
+		echo "<th>Titulo</th>";
 		echo "<th>Usuario</th>";
 		echo "<th>Lenguaje</th>";
 		echo "<th>Candado</th>";
@@ -78,12 +79,14 @@ include_once("dao/dao_project.php");
 		    	$candado = "EN EDICIÓN";
 		    }
 			
-		 echo "<tr>";
-		 echo "<td>" . $project_id ."</td>";
+		    echo "<tr>";
+		    echo "<td>" . "<a href=\"post.php?&id=" . $post_id . "\">" . $title . "</a></td>";
+		    
+		    //echo "<td>" . $project_id ."</td>";
 		 echo "<td>" . $username   . "</td>";
                    echo "<td>" . $lenguaje   . "</td>";
                    echo "<td>" . $candado    . "</td>";
-		 echo "<td>" .  $estrellas . "</td>";
+		 echo "<td>" .  $estrellas . " estrellas </td>";
 		 echo "<td>" . $priv .  "</td>";
 		 echo "</tr>";
 

@@ -14,11 +14,11 @@ class FormLogin extends Form {
          $html  = '<fieldset>';
     	 $html .= '<legend>Usuario y contraseña</legend>';
     	 $html .= '<div>';
-    	 $html .= '<label>Nombre de usuario:</label> <input type="text" name="username" />';
+    	 $html .= '<label>Nombre de usuario:</label> <input type="text" name="username" style="margin-left: 50px;"/>';
     	 $html .= '</div>';
     	 $html .= '<div>';
-    	 $html .= '<label>Password:</label> <input type="password" name="password" />';
-    	 $html .= '</div>';
+    	 $html .= '<label>Password:</label> <input type="password" name="password" style="margin-left: 116px;"/>';
+	 $html .= '</div>';
     	 $html .= '<button type="submit" name="login">Entrar</button>';
     	 $html .= '</fieldset>';
         return $html;

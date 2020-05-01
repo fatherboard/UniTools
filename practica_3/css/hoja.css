@@ -285,6 +285,21 @@ img#per_foto{
     padding: 30px;
 }
 
-
+fieldset
+{
+    margin:auto;
+  background-color:#CCC;
+  max-width:800px;
+  padding:16px;
+    border:2px solid green;
+    -moz-border-radius:8px;
+    -webkit-border-radius:8px;	
+    border-radius:8px;		
+}
+.legend1
+{
+  margin-bottom:0px;
+  margin-left:16px;
+}
 
 /* FIN Inicio css*/
