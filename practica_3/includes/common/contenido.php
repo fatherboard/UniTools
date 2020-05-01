@@ -1,14 +1,19 @@
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="./practica_3/css/contenido.css">    
+        <link rel="stylesheet" type="text/css" href="./practica_3/css/contenido.css">  
+        <!-- <link rel="stylesheet" type="text/css" href="./practica_3/css/contenidoanim.css"> -->      
+        
     </head>    
 
     <body>
-    <div class="principal">
+    
+
+   <div class="principal">
 
         <div class="barraLateralIzq">
-                <p>Barra Lateral Izquierda<p>
-                <img src ="img/img_back/open-neon-signage-turned-on-2995188.jpg" alt="sube"width="200">
+                <div><p>Barra Lateral Izquierda<p></div>
+                <div><img src ="img/img_back/open-neon-signage-turned-on-2995188.jpg" alt="sube"width="200"></div>
+                <div><img src ="img/img_back/person-using-a-mac-book-pro-4050287.jpg" alt="sube"width="200"></div>
         </div>
 
         <div class="contenido">
@@ -23,12 +28,23 @@
             </div>
 
             <div class="apartado2">
-                <h2><em> Tu lugar favorito en la nube </h2> 
+                <h2><em> Tu lugar favorito en la nube </h2>
+                
+                <div class=container>                   
+                    <div class=flip>
+                        <div><div>Sube</div></div>
+                        <div><div>Almacena</div></div>
+                        <div><div>Descarga</div></div>
+                    </div>                    
+                </div>   
+                
                 <h3> Sube - Almacena - Descarga </em></h3> 
                 <a href = "registro.php">
                     <h4><i><ins> Únete a nuestra comunidad y disfruta de todas sus ventajas y posibilidades </ins></i></h4>
                 </a>
             </div> 
+
+           
             
             <div class="apartado3">
                     <p> 
@@ -75,10 +91,9 @@
         </div>       
 
         <div class="barraLateralDer">
-            <p>Barra Lateral Derecha</p>
-            <center>
-            <img src ="img/img_back/person-using-a-mac-book-pro-4050287.jpg" alt="sube"width="200">
-            </center>
+            <p>Espacio reservado </br> para anunciantes</p>
+            
+            <p> Si deseas publicitarte en nuestra página, llama al 674904134 </p>
         </div>
 
     </div>

@@ -1,15 +1,28 @@
+
+
 .principal{
     display: flex;
     flex-flow: row;
-    align-items: stretch;
+    align-items: center;
 }
 
 .barraLateralIzq{
+    border-style: solid;
+    border-color: black;
+    border-width: 8px;
     display: flex;
     flex-flow: column;
     justify-content: space-around;
-    background-color:gray;
+    background-color:black;
+    align-items: center;
     flex-basis: 20%;
+}
+
+.barraLateralIzq > div{
+    background-color: sienna;
+    align-items: center;
+    justify-content: center;
+
 }
 
 .contenido{
@@ -20,7 +33,7 @@
 .barraLateralDer{
     display: flex;
     flex-flow: column;
-    background-color:slateblue;
+    background-color:green;
     justify-content: space-around;
     flex-basis: 20%;
 }
@@ -29,3 +42,6 @@
     justify-content: space-around;
     padding: 30px;
 }   
+
+
+
