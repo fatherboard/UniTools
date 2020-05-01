@@ -1,5 +1,6 @@
-const options = {
-  bottom: '64px', // default: '32px'
+
+var options = {
+  bottom: '32px', // default: '32px'
   right: 'unset', // default: '32px'
   left: '32px', // default: 'unset'
   time: '0.3s', // default: '0.3s'
@@ -8,7 +9,7 @@ const options = {
   buttonColorDark: '#100f2c',  // default: '#100f2c'
   buttonColorLight: '#fff', // default: '#fff'
   saveInCookies: true, // default: true,
-  label: '🌓', // default: ''
+  label: 'Dark', // default: ''
   autoMatchOsTheme: true // default: true
 }
 
