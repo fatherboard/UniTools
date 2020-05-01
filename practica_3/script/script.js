@@ -1,4 +1,3 @@
-
 var options = {
   bottom: '32px', // default: '32px'
   right: 'unset', // default: '32px'
