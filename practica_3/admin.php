@@ -23,11 +23,9 @@ if (!isset($_SESSION)) {
         ?>
 
         <div id="contenido">
-            <?
+        
+            hola
 
-            echo "<h1>en construcción</h1>";
-
-            ?>
         </div>
 
         <?php

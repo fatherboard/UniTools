@@ -8,6 +8,8 @@ include_once("dao/dao_user.php");
 
 ?>
 
+
+
 <!DOCTYPE html>
 <html>
 
@@ -79,11 +81,20 @@ include_once("dao/dao_user.php");
 				echo "<td>Usuario: " . $user . "</td>";
 				echo "<td>" . $comentario . "</td>";
 				//echo "<td>Categoría: " . $categoria . "</td>";
+				
 				echo "</tr>";
 				echo "</tbody>";
 				echo "</table>";
 			}
 			$dao_user->disconnect();
+
+
+			//Botón de borrar visible para admins
+			if ($_SESSION['admin']) {
+				echo "<form action=\"post.php?id=" . $id . "\" method=\"post\">";
+    			echo "<input type=\"submit\" name=\"borrarPost\" value=\"Borrar Post\" />";
+				echo "</form>";
+			}
 
 			echo "<button onclick=\"location.href='respuesta.php?post=" . $post_id . "'\">Responder</button>"
 			?>
@@ -102,3 +113,19 @@ include_once("dao/dao_user.php");
 	</div> <!-- Fin del contenedor -->
 
 </body>
+
+<?php
+    if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['borrarPost']))
+    {
+		if ($_SESSION['admin']) {
+			$id = $_GET["id"];
+			$result = $dao_post->borrarPost($id);
+			if (!$result) header('Location: foro.php');
+			else {
+				echo "Post borrado";
+				echo "<a href=\"foro.php\">Volver al foro</a>";
+			}
+		}
+		
+    }
+?>

@@ -3,48 +3,56 @@
 /* Transfer Object */
 class TOUproject {
 
-	private $id_Proyecto;
+	private $id;
 	private $user;
-	private $title;
-	private $content;
+	private $titulo;
+	private $contenido;
 	private $lenguaje;
-  private $candado;
-  private $estrellas;
-  
-	function __construct($id_Proyecto ='',$user='',$title='',$content='',$lenguaje='',$candado='',$estrellas='')
+  	private $candado;
+	private $estrellas;
+	private $privado;
+	private $file;
+
+  function __construct($id='',$user='',$titulo='',$contenido='',$lenguaje='',$privado='',$candado='',$estrellas='',$file='')
   {
-    $this->id_Proyecto = $id_Proyecto;
-		$this->user = $user;
-		$this->title = $title;
-		$this->content = $content;
-		$this->lenguaje = $lenguaje;
+    $this->id = $id;
+    $this->user = $user;
+    $this->titulo = $titulo;
+    $this->contenido = $contenido;
+    $this->lenguaje = $lenguaje;
+    $this->privado = $privado;
     $this->candado = $candado;
     $this->estrellas = $estrellas;
-	}
+    $this->file = $file;
+  }
    
   public function create_Project($columna){
         
-		$this->user = $columna['user'];;
-		$this->title = $columna['title'];;
-		$this->content = $columna['content'];
-		$this->lenguaje = $columna['lenguaje'];
-    $this->candado = $columna['candado'];
-    $this->estrellas = $columna['estrellas'];
-	}
+	$this->user = $columna['user'];;
+	$this->titulo = $columna['titulo'];;
+	$this->contenido = $columna['contenido'];
+	$this->lenguaje = $columna['lenguaje'];
+        $this->candado = $columna['candado'];
+        $this->estrellas = $columna['estrellas'];
+  }
   
   public function set_user($user){
-		$this->user = $user;
+	$this->user = $user;
+  }
+
+  public function set_privado($p){
+  	$this->privado = $p;	
+  }
+
+   public function set_titulo($titulo){
+		$this->titulo = $titulo;
+   }
+
+   public function set_contenido($contenido){
+		$this->contenido = $contenido;
 	}
 
-	public function set_title($title){
-		$this->title = $title;
-	}
-
-	public function set_content($content){
-		$this->content = $content;
-	}
-
-	public function set_lenguaje($lenguaje){
+public function set_lenguaje($lenguaje){
 		$this->lenguaje = $lenguaje;
 	}
   
@@ -57,12 +65,11 @@ class TOUproject {
 	}
   
   public function get_project(){
-
-		$columna = [
-        "id_Proyecto" => $this->id_Proyecto,
+	$columna = [
+        "id" => $this->id,
 		    "user" => $this->user,
-		    "title" => $this->title,
-		    "content" => $this->content,
+		    "titulo" => $this->titulo,
+		    "contenido" => $this->contenido,
 		    "lenguaje" => $this->lenguaje,
         "candado" => $this->candado,
         "estrellas" => $this->estrellas
@@ -72,19 +79,23 @@ class TOUproject {
 	}
   
   public function get_id(){
-		return $this->id_Post;
+		return $this->id;
 	}
     
 	public function get_user(){
 		return $this->user;
 	}
 
-	public function get_title(){
-		return $this->title;
+	public function get_titulo(){
+		return $this->titulo;
 	}
 
-	public function get_content(){
-		return $this->content;
+	public function get_privado(){
+		return $this->privado;
+	}
+
+	public function get_contenido(){
+		return $this->contenido;
 	}
 
 	public function get_lenguaje(){
@@ -95,8 +106,11 @@ class TOUproject {
 		return $this->candado;
 	}
   
-  public function get_estrellas){
+  public function get_estrellas(){
 		return $this->estrellas;
 	}
-  
+  public function get_file(){
+  	return $this->file;
+  }
+
  }
