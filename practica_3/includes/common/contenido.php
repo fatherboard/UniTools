@@ -1,12 +1,130 @@
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="./practica_3/css/contenido.css">  
-        <!-- <link rel="stylesheet" type="text/css" href="./practica_3/css/contenidoanim.css"> -->      
-        
+       <!--  <link rel="stylesheet" type="text/css" href="./practica_3/css/contenido.css">  
+         <link rel="stylesheet" type="text/css" href="./practica_3/css/contenidoanim.css"> -->      
+        <style>
+            .principal{
+                display: flex;
+                flex-flow: row;
+                align-items: stretch;
+            }
+
+            .barraLateralIzq{
+                border-style: solid;
+                border-color: black;
+                border-width: 3px;
+                display: flex;
+                flex-flow: column;
+                justify-content: space-around;
+                background-color:grey;
+                align-items: center;
+                flex-basis: 20%;
+            }
+
+            .barraLateralIzq > div{
+               
+                align-items: center;
+                justify-content: center;
+
+            }
+
+            .contenido{
+                border-top-style: solid;
+                border-bottom-style: solid;
+                border-color: black;
+                border-width: 3px;
+                background-color: whitesmoke;
+                flex-basis: 80%;
+            }                
+
+            .barraLateralDer{
+                border-style: solid;
+                border-color: black;
+                border-width: 3px;
+                display: flex;
+                flex-flow: column;
+                background-color:blueviolet;
+                justify-content: space-around;
+                align-items: center;
+                flex-basis: 20%;
+            }
+
+            .barraLateralDer > div{
+                align-items: center;
+                justify-content: center;
+            }
+
+            .apartado3{
+                justify-content: space-around;
+                padding: 30px;
+            }              
+            
+            body {
+  margin:0px;
+  
+  text-align:center;
+}
+
+            #container {
+            color:#999;
+            text-transform: uppercase;
+            font-size:36px;
+            font-weight:bold;
+            padding-top:200px;  
+            position:fixed;
+            width:100%;
+            bottom:45%;
+            display:block;
+            }
+
+            #flip {
+            height:50px;
+            overflow:hidden;
+            }
+
+            #flip > div > div {
+            color:#fff;
+            padding:4px 12px;
+            height:45px;
+            margin-bottom:45px;
+            display:inline-block;
+            }
+
+            #flip div:first-child {
+            animation: show 5s linear infinite;
+            }
+
+            #flip div div {
+            background:#42c58a;
+            }
+            #flip div:first-child div {
+            background:#4ec7f3;
+            }
+            #flip div:last-child div {
+            background:#DC143C;
+            }
+
+            @keyframes show {
+            0% {margin-top:-270px;}
+            5% {margin-top:-180px;}
+            33% {margin-top:-180px;}
+            38% {margin-top:-90px;}
+            66% {margin-top:-90px;}
+            71% {margin-top:0px;}
+            99.99% {margin-top:0px;}
+            100% {margin-top:-270px;}
+            }       
+              
+                   
+            
+
+            </style>
+
+
     </head>    
 
     <body>
-    
+      
 
    <div class="principal">
 
@@ -27,16 +145,19 @@
             
             </div>
 
-            <div class="apartado2">
-                <h2><em> Tu lugar favorito en la nube </h2>
-                
-                <div class=container>                   
-                    <div class=flip>
+            <div id=container>           
+                    <div id=flip>
                         <div><div>Sube</div></div>
                         <div><div>Almacena</div></div>
                         <div><div>Descarga</div></div>
-                    </div>                    
-                </div>   
+                     </div>
+            
+                </div>
+
+            <div class="apartado2">
+                <h2><em> Tu lugar favorito en la nube </h2>          
+               
+                    
                 
                 <h3> Sube - Almacena - Descarga </em></h3> 
                 <a href = "registro.php">
@@ -91,9 +212,9 @@
         </div>       
 
         <div class="barraLateralDer">
-            <p>Espacio reservado </br> para anunciantes</p>
+            <div><p>Espacio reservado </br> para anunciantes</p> </div>
             
-            <p> Si deseas publicitarte en nuestra página, llama al 674904134 </p>
+            <div><p> Si deseas publicitarte en nuestra página, llama al 674904134 </p></div>
         </div>
 
     </div>
