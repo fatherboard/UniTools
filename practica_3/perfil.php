@@ -11,6 +11,7 @@ include_once('dao/dao_user.php');
 
 <head>
     <link rel="stylesheet" type="text/css" href="css/hoja.css">
+    <link rel="stylesheet" type="text/css" href="css/premium-popup.css">
     <title>INDEX</title>
     <meta charset="UTF-8">
 </head>
@@ -30,7 +31,7 @@ include_once('dao/dao_user.php');
             $user = new TOUser();
             $dao_usuario = new DAOUsuario();
             $userData = $dao_usuario->search_username($_SESSION['username']);
-
+            
             $username = $_SESSION['username'];
             $premium = $userData->get_premium();
             $email = $userData->get_email();
@@ -60,7 +61,39 @@ include_once('dao/dao_user.php');
                         else {
                             echo " No... ¡Hazte premium hoy mismo! ";
                         }
-                        ?> <br>
+                        ?>
+                    <button class="open-button" onclick="openForm()">Actualizar a Premium </button>
+
+
+                    <div class="form-popup" id="myForm">
+                        <form  class="form-container">
+                            <h2 >Conoce todas las ventajas de la cuenta premium!!</h1>
+
+                           
+
+                            <button type="submit" class="btn" onclick = "actualizar()">Aceptar</button>
+                            <button type="submit" class="btn cancel" onclick="closeForm()">Cerrar</button>
+                        </form>
+                    </div>
+
+                    <script>
+                        function openForm() {
+                        document.getElementById("myForm").style.display = "block";
+                        }
+
+                        function closeForm() {
+                        document.getElementById("myForm").style.display = "none";
+                        }
+
+                        function actualizar(){
+                            document.getElementById("myForm").href = "actualizarPremium.php";
+                           
+                        }
+                        
+                    </script>
+
+                        
+                         <br>
                     </div> <br>
 
                     <!-- current email -->
