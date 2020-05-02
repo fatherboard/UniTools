@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+
 <html>
     <head>
        <!--  <link rel="stylesheet" type="text/css" href="./practica_3/css/contenido.css">  
@@ -44,7 +46,7 @@
                 display: flex;
                 flex-flow: column;
                 background-color:blueviolet;
-                justify-content: space-between;
+                justify-content: flex-start;
                 align-items: center;
                 flex-basis: 20%;
             }
