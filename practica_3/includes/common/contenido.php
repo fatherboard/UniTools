@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+
 <html>
     <head>
        <!--  <link rel="stylesheet" type="text/css" href="./practica_3/css/contenido.css">  
@@ -15,7 +17,7 @@
                 border-width: 3px;
                 display: flex;
                 flex-flow: column;
-                justify-content: space-around;
+                justify-content: space-between;
                 background-color:grey;
                 align-items: center;
                 flex-basis: 20%;
@@ -44,7 +46,7 @@
                 display: flex;
                 flex-flow: column;
                 background-color:blueviolet;
-                justify-content: space-around;
+                justify-content: flex-start;
                 align-items: center;
                 flex-basis: 20%;
             }
@@ -59,11 +61,12 @@
                 padding: 30px;
             }              
             
+            /* animacion */
+
             body {
-  margin:0px;
-  
-  text-align:center;
-}
+            margin:0px;            
+            text-align:center;
+            }
 
             #container {
             color:#999;
@@ -113,11 +116,8 @@
             71% {margin-top:0px;}
             99.99% {margin-top:0px;}
             100% {margin-top:-270px;}
-            }       
-              
+            }          
                    
-            
-
             </style>
 
 
@@ -129,7 +129,7 @@
    <div class="principal">
 
         <div class="barraLateralIzq">
-                <div><p>Barra Lateral Izquierda<p></div>
+                <div><p>Titulo Barra Lateral Izq<p></div>
                 <div><img src ="img/img_back/open-neon-signage-turned-on-2995188.jpg" alt="sube"width="200"></div>
                 <div><img src ="img/img_back/person-using-a-mac-book-pro-4050287.jpg" alt="sube"width="200"></div>
         </div>

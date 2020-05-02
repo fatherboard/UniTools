@@ -8,7 +8,7 @@
                 //echo "<a href=\"index.php?page=aboutus\">Sobre nosotros</a>";
                 echo "<a href=\"foro.php\">Foro</a>";
                 echo "<a href=\"herramientas.php\">Herramientas</a>";
-                
+                echo "<a href=\"team.php\">Nosotros</a>";
                 echo"<a href=\"login.php\">Login</a>";
                 echo"<a href=\"registro.php\" >Registrar</a>";
                 
