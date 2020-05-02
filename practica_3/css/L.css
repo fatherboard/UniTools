@@ -1,0 +1,35 @@
+body {
+  margin: 40 px;
+}
+
+.contenedor {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: [c1] 1fr [c2] 8fr;
+  grid-template-rows: [r1] 1fr [r2] 11fr;
+  background-color: #fff;
+  color: #00ffea;
+}
+
+.a {
+  background-color: #124;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 100%;
+}
+
+.menu {
+  grid-column: c1;
+  grid-row: r1 / 3;
+}
+
+.cabecera {
+  grid-column: c2;
+  grid-row: r1;
+}
+
+.contenido {
+  grid-column: c2;
+  grid-row: r2;
+}
