@@ -34,7 +34,6 @@ class TOerror {
 	/* Get functions ################################################################# */
 
 	public function get_post(){
-		// devuelde un array con todos los datos de usuario
 		$columna = [
             "id_log" => $this->id_log,
 		    "user" => $this->user,
