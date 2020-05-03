@@ -16,6 +16,8 @@ include_once('dao/dao_user.php');
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,500;1,500&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/9b13eb91e9.js" crossorigin="anonymous"></script>
 
+    <link rel="stylesheet" type="text/css" href="css/hoja_OG.css">
+    <link rel="stylesheet" type="text/css" href="css/side_OG.css">
     <link rel="stylesheet" type="text/css" href="css/nav_OG.css">
 </head>
 
@@ -26,10 +28,8 @@ include_once('dao/dao_user.php');
         <?php //class="side_menu"
         require("includes/common/navegacion_OG.php");?>
         
-        <div class="cabecera">
-        INICIO LOGIN LOGOUT
-        <?php //require("includes/common/cabecera.php");?>
-        </div>
+        <?php //class="side_menu"
+        require("includes/common/cabecera_OG.php");?>
 
         <div class="contenido">
             Contraseña actual (encriptada): Hey
