@@ -25,7 +25,7 @@ a {
   text-decoration: none;
 }
 
-/* Menu lateral izquierdo */
+/* || MENU LATERAL IZQUIERDO */
 .side_menu {
   grid-column: c1;
   grid-row: r1 / 3;
@@ -33,7 +33,7 @@ a {
   display: flex;
   flex-direction: column;
   background-color: #4d71dd;
-  background-image: linear-gradient(180deg, #4d71dd 15%, #224abe 100%);
+  background-image: linear-gradient(180deg, #4d71dd 15%, #1841bd 100%);
   background-size: cover;
   padding: 0;
   font-size: 120%;
@@ -101,14 +101,6 @@ hr.side_divH {
   color: rgb(255, 255, 255);
 }
 
-.c-icon-text {
-  color: rgba(255, 255, 255, 0.753);
-}
-
-.c-icon-imag {
-  color: rgba(255, 255, 255, 0.336);
-}
-
 .c-b {
   color: rgb(0, 0, 0);
 }
@@ -119,7 +111,6 @@ hr.side_divH {
   display: block;
 }
 
-/*Hace todo el menu selecionable, y modifica el color al pasar el ratón por encima*/
 li.sideop {
   position: relative;
   list-style: none;
@@ -135,20 +126,22 @@ li.sideop a {
 }
 
 li.sideop a:hover {
-  background-color: rgb(160, 184, 236);
+  background-color: rgb(136, 169, 240);
   color: rgba(66, 66, 66, 0.753);
 }
 
 .side_titulo {
-  color: rgba(255, 255, 255, 0.212);
+  color: rgba(255, 255, 255, 0.329);
   text-transform: uppercase;
   text-align: left;
   padding: 0.2rem 0 0.2rem 1rem;
-  font-weight: 800;
+  font-weight: 400;
   font-size: 0.65rem;
+  padding-top: 0.7rem;
+  padding-bottom: 0.7rem;
 }
 
-/* Cabezera - Menu parte superior*/
+/* || CABECERA - Menu parte superior*/
 .cabecera {
   grid-column: c2;
   grid-row: r1;
@@ -163,7 +156,7 @@ li.sideop a:hover {
   margin: 0;
 }
 
-/* Contenido */
+/* || CONTENIDO*/
 .contenido {
   grid-column: c2;
   grid-row: r2;

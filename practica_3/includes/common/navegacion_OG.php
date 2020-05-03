@@ -25,14 +25,14 @@ if(!isset($_SESSION["login"]) || !($_SESSION["login"]))
 
     <li class="sideop">
         <a href=foro.php>
-        <i class="fas fa-house-user"></i>
+        <i class="fas fa-laptop-code"></i>
         <span>Foro</span>
         </a>
     </li>
 
     <li class="sideop">
         <a href=herramientas.php>
-        <i class="fas fa-house-user"></i>
+       <i class="far fa-window-restore"></i>
         <span>Herramientas</span>
         </a>
     </li>
@@ -45,11 +45,12 @@ if(!isset($_SESSION["login"]) || !($_SESSION["login"]))
 
     <li class="sideop">
         <a href=team.php>
-        <i class="fas fa-house-user"></i>
+        <i class="fas fa-user-astronaut"></i>
         <span>Sobre UniTools</span>
         </a>
     </li>
-    
+
+    <?php /*
     <div class="side_Login">
     <a href=login.php>Login</a>
     </div>
@@ -57,7 +58,7 @@ if(!isset($_SESSION["login"]) || !($_SESSION["login"]))
     <div class="side_Registrar">
     <a href=registro.php>Registrar</a>
     </div>
-
+    */?>
 <?php }
 else if ($_SESSION["login"])
 { ?>
