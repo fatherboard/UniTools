@@ -1,0 +1,33 @@
+html,
+body {
+  height: 100%;
+  min-height: 100%;
+  margin: 0;
+  font-size: 1rem;
+  line-height: 2;
+  text-align: left;
+  font-family: "Roboto", sans-serif;
+}
+
+.contenedor {
+  display: grid;
+  grid-gap: 0;
+  grid-template-columns: [c1] 1fr [c2] 5.5fr;
+  grid-template-rows: [r1] 1fr [r2] 11fr;
+
+  width: auto;
+  height: auto;
+  background-size: cover;
+
+  /* respetar ration al hacer zoom*/
+  min-width: 100%;
+  min-height: 100%;
+
+  background-color: #fff;
+  color: #000000;
+}
+
+/*Links no subrayados*/
+a {
+  text-decoration: none;
+}

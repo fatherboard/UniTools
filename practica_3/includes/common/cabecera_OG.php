@@ -1,6 +1,8 @@
-<div class="header">
-    <a href="index.php"><img src="img/UniTools.png" alt="UniTools" width="120"></a>
-</div>
+<nav class="cabecera sombra">
+
+<div class= "sombra">  hey</div>
+   
+</nav>
 
 <?php /*$_SESSION["username"] */?> 
 
