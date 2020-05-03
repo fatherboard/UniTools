@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Allura|Josefin+Sans');
 
+
+/* Miembros */
+
 *{
   margin: 0;
   padding: 0;
@@ -7,7 +10,8 @@
 }
 
 body{
-  background: darkslategrey;
+  color: #fff; 
+  background: #262730 url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/93/noise-bg.png) repeat 0 0;  
   font-family: 'Josefin Sans', sans-serif;
 }
 
@@ -70,3 +74,8 @@ body{
   height: 100px;
   padding: 5px;
 }
+
+
+/* Social */
+
+
