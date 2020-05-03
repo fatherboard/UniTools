@@ -31,7 +31,7 @@
 
         <li class="sideop">
             <a href=mensajes.php>
-            <i class="fas fa-laptop-code"></i>
+            <i class="fas fa-comment-dots"></i>
             <span>Mensajes</span>
             </a>
         </li>
@@ -63,21 +63,21 @@
 
         <li class="sideop">
             <a href=mensajes.php>
-            <i class="fas fa-laptop-code"></i>
+            <i class="fas fa-comment-dots"></i>
             <span>Mensajes</span>
             </a>
         </li>
 
         <li class="sideop">
             <a href=foro.php>
-            <i class="fas fa-laptop-code"></i>
+            <i class="far fa-window-restore"></i>
             <span>Foro</span>
             </a>
         </li>
 
         <li class="sideop">
             <a href=herramientas.php>
-        <i class="far fa-window-restore"></i>
+        <i class="fas fa-tools"></i>
             <span>Herramientas</span>
             </a>
         </li>
