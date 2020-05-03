@@ -22,8 +22,7 @@
   box-sizing: border-box;
   overflow: hidden;
   font-weight: 100;
-  font-style: italic;
-  font-size: 150%;
+  font-size: 200%;
   letter-spacing: 0.04rem;
   text-align: center;
 }

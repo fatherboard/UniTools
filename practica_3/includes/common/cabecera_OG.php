@@ -1,4 +1,8 @@
 <nav class="cabecera">
+
+    <div class="quote">
+        ¡Ayudando a estudiantes desde 2020!
+    </div>
     <ul class="nav_iconos">
         <li class="nav_login nav_i">
             <a href=login.php>

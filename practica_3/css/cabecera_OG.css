@@ -14,7 +14,25 @@
 
   height: 5rem;
 }
+/* ||QUOTE */
+.quote {
+  display: flex;
+  flex-direction: row;
+  margin-right: 0;
+  margin-left: auto;
+  box-sizing: border-box;
 
+  align-items: center;
+  justify-content: center;
+
+  padding-left: 0;
+  padding-right: 0;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 150%;
+}
+
+/* ||Botones de LOGIN y REGISTRAR */
 .nav_iconos {
   display: flex;
   flex-direction: row;
@@ -23,7 +41,7 @@
   list-style: none;
 
   margin-left: auto;
-  margin-right: 4rem;
+  margin-right: 7rem;
   box-sizing: border-box;
 }
 
