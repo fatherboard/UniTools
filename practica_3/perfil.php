@@ -31,6 +31,7 @@ include_once('dao/dao_user.php');
             $user = new TOUser();
             $dao_usuario = new DAOUsuario();
             $userData = $dao_usuario->search_username($_SESSION['username']);
+            $premium = $dao_usuario->search_premium($_SESSION['username']);
             
             $username = $_SESSION['username'];
             $premium = $userData->get_premium();
@@ -62,35 +63,19 @@ include_once('dao/dao_user.php');
                             echo " No... ¡Hazte premium hoy mismo! ";
                         }
                         ?>
-                    <button class="open-button" onclick="openForm()">Actualizar a Premium </button>
-
-
-                    <div class="form-popup" id="myForm">
-                        <form  class="form-container">
-                            <h2 >Conoce todas las ventajas de la cuenta premium!!</h1>
-
-                           
-
-                            <button type="submit" class="btn" onclick = "actualizar()">Aceptar</button>
-                            <button type="submit" class="btn cancel" onclick="closeForm()">Cerrar</button>
-                        </form>
-                    </div>
+                    <button class="open-button" onclick="popup()">Actualizar a Premium </button>
+                    
 
                     <script>
-                        function openForm() {
-                        document.getElementById("myForm").style.display = "block";
+                        function popup(){
+                            window.open('popup.php', 'popup', 'height=400, width=400, top=200, left=550,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no')
                         }
-
-                        function closeForm() {
-                        document.getElementById("myForm").style.display = "none";
-                        }
-
-                        function actualizar(){
-                            document.getElementById("myForm").href = "actualizarPremium.php";
-                           
-                        }
-                        
                     </script>
+                   
+
+
+
+
 
                         
                          <br>
