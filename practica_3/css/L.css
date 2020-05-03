@@ -50,6 +50,8 @@ a {
   box-sizing: border-box;
   overflow: hidden;
 
+  font-weight: 100;
+  font-style: italic;
   font-size: 150%;
   letter-spacing: 0.04rem;
   text-align: center;
@@ -161,7 +163,7 @@ li.sideop a:hover {
 .contenido {
   grid-column: c2;
   grid-row: r2;
-
+  font-weight: 100;
   background-color: rgb(233, 233, 233);
   color: rgb(0, 0, 0);
 

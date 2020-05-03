@@ -8,7 +8,7 @@ if(!isset($_SESSION["login"]) || !($_SESSION["login"]))
     </div>
     </a>
 
-    <hr class="side_divH margin-x0 margin-y0">
+    <hr class="side_divH">
 
     <li class="sideop">
         <a href=index.php>
@@ -46,7 +46,7 @@ if(!isset($_SESSION["login"]) || !($_SESSION["login"]))
     <li class="sideop">
         <a href=team.php>
         <i class="fas fa-user-astronaut"></i>
-        <span>Sobre UniTools</span>
+        <span>Nuestro Equipo</span>
         </a>
     </li>
 
