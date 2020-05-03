@@ -11,8 +11,6 @@
   padding: 0;
   font-size: 120%;
   list-style: none;
-  align-self: stretch;
-  min-height: 200px;
 }
 
 .side_unitools {
@@ -23,7 +21,6 @@
   display: inline-grid;
   box-sizing: border-box;
   overflow: hidden;
-
   font-weight: 100;
   font-style: italic;
   font-size: 150%;
@@ -116,19 +113,4 @@ li.sideop a:hover {
   font-size: 0.65rem;
   padding-top: 0.7rem;
   padding-bottom: 0.7rem;
-}
-
-/* || CONTENIDO*/
-.contenido {
-  grid-column: c2;
-  grid-row: r2;
-
-  background-color: rgb(233, 233, 233);
-  color: rgb(47, 0, 255);
-
-  font-size: 150%;
-  font-weight: 100;
-
-  padding: 0;
-  margin: 0;
 }

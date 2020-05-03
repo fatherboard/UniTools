@@ -18,7 +18,8 @@ include_once('dao/dao_user.php');
 
     <link rel="stylesheet" type="text/css" href="css/hoja_OG.css">
     <link rel="stylesheet" type="text/css" href="css/side_OG.css">
-    <link rel="stylesheet" type="text/css" href="css/nav_OG.css">
+    <link rel="stylesheet" type="text/css" href="css/cabecera_OG.css">
+    <link rel="stylesheet" type="text/css" href="css/content_OG.css">
 </head>
 
 <body>

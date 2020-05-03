@@ -1,0 +1,89 @@
+/* || CABECERA - Menu parte superior*/
+.cabecera {
+  grid-column: c2;
+  grid-row: r1;
+
+  display: flex;
+
+  background-color: rgb(255, 255, 255);
+  color: rgb(32, 32, 32);
+
+  font-size: 100%;
+  padding: 0;
+  margin: 0;
+
+  height: 5rem;
+}
+
+.sombra {
+  box-shadow: 0 0.15rem 1.8rem -1.8rem rgb(255, 0, 170);
+}
+
+.nav_iconos {
+  display: flex;
+  flex-direction: row;
+  padding-left: 0;
+  padding-right: 0;
+  list-style: none;
+
+  margin-left: auto;
+  margin-right: 4rem;
+  box-sizing: border-box;
+}
+
+.nav_i {
+  color: #fff;
+  border-color: #ffffff;
+
+  display: inline-block;
+  text-align: center;
+  font-size: 1rem;
+  border-radius: 2rem;
+}
+.nav_login {
+  background-color: #93aefc;
+  border: 1px solid #6b88df;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.nav_reg {
+  background-color: #4e73df;
+  border: 1px solid #3c57aa;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+li.nav_i a {
+  display: block;
+  padding: 1rem 0 1rem 1rem;
+  color: rgb(255, 255, 255);
+  transition: all 0.4s ease-in-out;
+  cursor: pointer;
+  border: none;
+}
+li.nav_login a {
+  padding: 0.4rem 1.5rem 0.4rem 2rem;
+}
+
+li.nav_reg a {
+  padding: 0.4rem 2rem 0.4rem 1.5rem;
+}
+
+li.nav_i a:hover {
+  border-radius: 2rem;
+}
+
+li.nav_login a:hover {
+  background-color: #6b88df;
+
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+li.nav_reg a:hover {
+  background-color: #3c57aa;
+
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}

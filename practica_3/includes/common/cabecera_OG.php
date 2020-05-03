@@ -1,10 +1,25 @@
-<nav class="cabecera sombra">
+<nav class="cabecera">
+    <ul class="nav_iconos">
+        <li class="nav_login nav_i">
+            <a href=login.php>
+        <span>Login</span>
+        </a>
 
-<div class= "sombra">  hey</div>
-   
+        <li class="nav_reg nav_i">
+            <a href=registro.php>
+        <span>Registrarse</span>
+        </a>
+    </ul>
 </nav>
 
-<?php /*$_SESSION["username"] */?> 
+
+
+<?php /*
+
+<hr class="side_divV">
+
+
+$_SESSION["username"] */?> 
 
 <?php /*
     <div class="side_Login">
