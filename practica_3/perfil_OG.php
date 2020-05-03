@@ -33,7 +33,9 @@ include_once('dao/dao_user.php');
         require("includes/common/cabecera_OG.php");?>
 
         <div class="contenido">
-            Contraseña actual (encriptada): Hey
+            Hey
+        <?php //class="side_menu"
+        //require("perfil.php");?>
         </div>
 
     </div> <!-- Fin del contenedor -->

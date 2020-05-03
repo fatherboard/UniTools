@@ -3,12 +3,17 @@
   grid-column: c2;
   grid-row: r2;
 
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
   background-color: rgb(233, 233, 233);
   color: rgb(47, 0, 255);
 
   font-size: 150%;
   font-weight: 100;
 
-  padding: 0;
+  padding-top: 5res;
   margin: 0;
 }

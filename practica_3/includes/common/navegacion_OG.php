@@ -43,7 +43,7 @@
 
         <li class="sideop">
             <a href=perfil.php> 
-            <i class="fas fa-house-user"></i>
+            <i class="far fa-id-badge"></i>
             <span>Mi Pefil</span>
             </a>
         </li>
