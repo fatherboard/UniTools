@@ -1,31 +1,55 @@
-<div class="side_menu margin-0">
+<ul class="side_menu margin-x0 margin-y0 ">
 <?php
 if(!isset($_SESSION["login"]) || !($_SESSION["login"]))
 { ?>
     <a class="side_unitools d-flex justify-content-center align-items-center margin" href=index.php>
     <div class= "side_unitools_texto c-w">
-        Uni Tools
+        UniTools
     </div>
     </a>
 
-    <hr class="side_divH margin-0">
+    <hr class="side_divH margin-x0 margin-y0">
 
-    <div class="side_Inicio">
-    <a href=index.php>Inicio</a>
+    <li class="sideop">
+        <a href=index.php>
+        <i class="fas fa-house-user"></i>
+        <span>Inicio</span>
+        </a>
+    </li>
+
+    <hr class="side_divH">
+
+    <div class="side_titulo">
+        Comunidad
     </div>
 
-    <div class="side_Foro">
-    <a href=foro.php>Foro</a>
+    <li class="sideop">
+        <a href=foro.php>
+        <i class="fas fa-house-user"></i>
+        <span>Foro</span>
+        </a>
+    </li>
+
+    <li class="sideop">
+        <a href=herramientas.php>
+        <i class="fas fa-house-user"></i>
+        <span>Herramientas</span>
+        </a>
+    </li>
+
+    <hr class="side_divH">
+
+    <div class="side_titulo">
+        Información
     </div>
 
-    <div class="side_Herramientas">
-    <a href=herramientas.php>Herramientas</a>
-    </div>
-
-    <div class="side_Nosotros">
-    <a href=team.php>Nosotros</a>
-    </div>
-
+    <li class="sideop">
+        <a href=team.php>
+        <i class="fas fa-house-user"></i>
+        <span>Sobre UniTools</span>
+        </a>
+    </li>
+    
     <div class="side_Login">
     <a href=login.php>Login</a>
     </div>
@@ -68,4 +92,4 @@ else if ($_SESSION["login"])
 
 <?php } ?>
 
-</div>
+</ul>
