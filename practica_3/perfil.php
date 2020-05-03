@@ -58,12 +58,17 @@ include_once('dao/dao_user.php');
                         Usuario premium:
                         <?php
                         if ($premium)
-                            echo " Sí, días restantes 29.";
+                            echo " Sí";
                         else {
                             echo " No... ¡Hazte premium hoy mismo! ";
                         }
                         ?>
-                    <button class="open-button" onclick="popup()">Actualizar a Premium </button>
+                    <?php
+                        if($premium != 1){
+                           echo' <button class="open-button" onclick="popup()">Actualizar a Premium </button>';
+                        }
+                    ?>
+                    
                     
 
                     <script>

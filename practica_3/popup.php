@@ -24,18 +24,38 @@
 
 <?php
 
+if (!isset($_SESSION)) {
+    session_start();
+}
+
+
+ include_once('dao/dao_user.php');
+ $user = new TOUser();
+ $dao_usuario = new DAOUsuario();
+
+
+
 if(isset($_POST['confirm_delete'])) {
-   // query
 
+  echo '<script type="text/javascript">self.close(); opener.location.href = "perfil.php";</script>';
+}
 
-   // at the end
-   echo '<script type="text/javascript">self.close(); opener.location.href = "perfil.php";</script>';
+if(isset($_POST['confirm_update'])){
+    $nombre = $_SESSION['username'];
+    echo "$nombre";
+    $dao_usuario->update_premium($nombre);
+    echo '<script type="text/javascript">self.close(); opener.location.href = "perfil.php";</script>';
 }
 
 ?>
 
 <form method="POST" action="popup.php">
-    <button type="button" id="cancel_delete">SUSCRIBIR</button>
+    <button type="submit" name="confirm_update">SUSCRIBIR</button>
     <button type="submit" name="confirm_delete">CANCELAR</button>
 </form>
+
+<script type="text/javascript">
+
+     
+</script>
 
