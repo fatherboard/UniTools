@@ -2,18 +2,27 @@ html,
 body {
   height: 100%;
   margin: 0;
+  font-size: 1rem;
+  line-height: 1.5;
+  text-align: left;
 }
 
 .contenedor {
   display: grid;
-  grid-gap: 0px;
-  grid-template-columns: [c1] 1fr [c2] 8fr;
+  grid-gap: 0;
+  grid-template-columns: [c1] 1fr [c2] 7.5fr;
   grid-template-rows: [r1] 1fr [r2] 11fr;
 
-  min-height: 100%;
+  width: 100vw;
+  height: 100vh;
 
   background-color: #fff;
   color: #00ffea;
+}
+
+/*Links no subrayados*/
+a {
+  text-decoration: none;
 }
 
 /* Menu lateral izquierdo */
@@ -25,16 +34,66 @@ body {
   display: flex;
   flex-direction: column;
 
-  background-color: rgb(111, 154, 238);
-  color: #fff;
-  padding: 5px;
-  font-size: 100%;
+  background-color: #4d71dd;
+  background-image: linear-gradient(180deg, #4d71dd 15%, #224abe 100%);
+  background-size: cover;
+
+  padding: 0;
+  margin-bottom: 0;
+  font-size: 150%;
 }
 
-.boxM {
-  color: #fff;
-  padding: 5px;
-  font-size: 100%;
+.side_unitools {
+  height: 4.5rem;
+}
+
+.side_unitools_texto {
+  display: inline-grid;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+hr.side_divH {
+  margin: 0px 2px 2px;
+  margin-bottom: 0;
+  margin-top: 0;
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.103);
+  border-bottom: none;
+}
+
+/*Opciones generales, descritas en clases individuales para reducir código duplicado*/
+.d-flex {
+  display: flex;
+}
+
+.margin {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.margin-0 {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.c-w {
+  color: rgb(255, 255, 255);
+}
+
+.c-b {
+  color: rgb(0, 0, 0);
 }
 
 /* Cabezera - Menu parte superior*/
@@ -42,10 +101,10 @@ body {
   grid-column: c2;
   grid-row: r1;
 
+  height: 4.5rem;
+
   background-color: rgb(224, 234, 255);
   color: rgb(0, 0, 0);
-  border-radius: 5px;
-  padding: 10px;
   font-size: 100%;
 }
 
@@ -54,9 +113,8 @@ body {
   grid-column: c2;
   grid-row: r2;
 
-  background-color: rgb(189, 160, 0);
+  background-color: rgb(255, 248, 209);
   color: #fff;
-  border-radius: 5px;
   padding: 10px;
   font-size: 100%;
 }
