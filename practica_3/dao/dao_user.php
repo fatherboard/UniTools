@@ -45,6 +45,18 @@ class DAOUsuario extends DAO {
 		}
 	}
 
+	public function search_premium($username){
+		
+		$sql = sprintf("SELECT premium FROM user WHERE username = '" .$username. "'");
+		if (!$this->ejecutarConsulta($sql))
+			return null;
+		else{
+			$result = $this->ejecutarConsulta($sql);
+			$premium = $result;
+			return $premium;
+		}
+	}
+
 	public function search_username($username){
 		$sql = sprintf("SELECT * FROM user WHERE username = '" .$username. "'");
 		if (!$this->ejecutarConsulta($sql))
