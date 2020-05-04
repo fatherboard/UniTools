@@ -32,9 +32,12 @@ include_once('dao/dao_user.php');
         require("includes/common/cabecera_OG.php");?>
 
         <div class="contenido">
-            <div class="pag">
-            hey
-            </div>
+            <div class="box a">A</div>
+            <div class="box b">B</div>
+            <div class="box c">C</div>
+            <div class="box d">D</div>
+            <div class="box e">E</div>
+            <div class="box f">F</div>
         </div>
 
     </div> <!-- Fin del contenedor -->
