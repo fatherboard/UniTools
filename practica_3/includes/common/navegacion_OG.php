@@ -1,3 +1,7 @@
+<head>
+    <script src="https://kit.fontawesome.com/9b13eb91e9.js" crossorigin="anonymous"></script>
+</head>
+
 <ul class="side_menu margin-x0 margin-y0 ">
 
     <a class="side_unitools d-flex justify-content-center align-items-center margin" href=index.php>

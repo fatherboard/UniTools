@@ -7,6 +7,8 @@ body {
   line-height: 2;
   text-align: left;
   font-family: "Roboto", sans-serif;
+
+  overflow: hidden;
 }
 
 .contenedor {
@@ -17,7 +19,6 @@ body {
 
   width: auto;
   height: auto;
-  background-size: cover;
 
   /* respetar ration al hacer zoom*/
   min-width: 100%;

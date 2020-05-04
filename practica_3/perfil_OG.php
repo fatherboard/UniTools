@@ -14,7 +14,6 @@ include_once('dao/dao_user.php');
     <meta charset="UTF-8">
 
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300;1,100&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/9b13eb91e9.js" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" type="text/css" href="css/hoja_OG.css">
     <link rel="stylesheet" type="text/css" href="css/side_OG.css">
@@ -29,13 +28,13 @@ include_once('dao/dao_user.php');
         <?php //class="side_menu"
         require("includes/common/navegacion_OG.php");?>
         
-        <?php //class="side_menu"
+        <?php //class="cabecera"
         require("includes/common/cabecera_OG.php");?>
 
         <div class="contenido">
-            Hey
-        <?php //class="side_menu"
-        //require("perfil.php");?>
+            <div class="pag">
+            hey
+            </div>
         </div>
 
     </div> <!-- Fin del contenedor -->
