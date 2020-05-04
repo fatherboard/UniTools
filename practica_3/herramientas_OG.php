@@ -29,11 +29,16 @@ require("includes/common/navegacion_OG.php");?>
 require("includes/common/cabecera_OG.php");?>
 
         <div class="contenido">
-                <div class="pag">
+                <div class="pag-flex tools">
+                        <div class="box">
+                                <div class="t2">
                                 <h1>Herramientas</h1>
+                                </div>
+                                <div class="b2">
                                 <p>UniTools pretende ayudar a los estudiantes de la Facultad en las asignaturas de programación.
                                         Por ello, incluimos aquí herramientas de uso público y gratuito que pensamos pueden seros de
                                         utilidad en el desarrollo de vuestras prácticas.<em> !Muchas más herramientas se añadirán en el futuro!</em></p>
+                                </div>
                         </div>
 
                         <div class="split left">

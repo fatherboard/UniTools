@@ -76,12 +76,6 @@ include_once('dao/dao_user.php');
                             window.open('popup.php', 'popup', 'height=400, width=400, top=200, left=550,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no')
                         }
                     </script>
-                   
-
-
-
-
-
                         
                          <br>
                     </div> <br>

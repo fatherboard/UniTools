@@ -17,6 +17,7 @@
 
 /* ||QUOTE */
 .quote {
+  overflow: hidden;
   flex-direction: row;
   margin-right: 0;
   margin-left: auto;
