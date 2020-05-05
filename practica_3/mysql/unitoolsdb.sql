@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.6deb5
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Apr 30, 2020 at 05:22 PM
--- Server version: 5.7.29-0ubuntu0.18.04.1
--- PHP Version: 7.2.24-0ubuntu0.18.04.4
+-- Host: 127.0.0.1
+-- Generation Time: May 05, 2020 at 03:26 PM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -122,9 +123,16 @@ CREATE TABLE `respuesta` (
   `id_respuesta` int(11) NOT NULL,
   `id_post` int(11) NOT NULL,
   `user` int(11) NOT NULL,
-  `date` date NOT NULL,
+  `date` date NOT NULL DEFAULT current_timestamp(),
   `content` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `respuesta`
+--
+
+INSERT INTO `respuesta` (`id_respuesta`, `id_post`, `user`, `date`, `content`) VALUES
+(1, 10, 14, '2020-05-05', 'jajajaja');
 
 -- --------------------------------------------------------
 
@@ -153,7 +161,8 @@ INSERT INTO `user` (`id_user`, `email`, `password`, `username`, `premium`) VALUE
 (10, 'bruno@bruno.com', '$2y$10$ucC.1OeAhaPOebAhszNwK.fxBXJENeBVSXHDoAWd2ZxN8hgnaICpC', 'bruno', 0),
 (11, 'carlos@carlos.com', '$2y$10$w.Ptrg3oMYDRW4HihfZ7Qe4uBAnwL3ogHFzSDofoxqtE7.2BxO85m', 'carlos', 0),
 (12, 'luis@luis.com', '$2y$10$xJzKbgn0bSIOOuEQkNaCWuQ/tvSYl53E9MFMAFJiE8.UjKxZx/Q1W', 'luis', 0),
-(13, 'calos@calos.com', '$2y$10$Yjud3pHxUEyS0E9YlvSYS.rrTw7FpV3KsQ5Ll0TG8DAAelmgnxu7i', 'calos', 0);
+(13, 'calos@calos.com', '$2y$10$Yjud3pHxUEyS0E9YlvSYS.rrTw7FpV3KsQ5Ll0TG8DAAelmgnxu7i', 'calos', 0),
+(14, 'a@a.com', '$2y$10$/mbM68JbR3yHLlVR62FCku47om6Cb7ol/NW8VsBgGIxV6RX4GoUti', 'andres', 0);
 
 --
 -- Indexes for dumped tables
@@ -217,36 +226,43 @@ ALTER TABLE `user`
 --
 ALTER TABLE `categories`
   MODIFY `id_cat` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `logs`
 --
 ALTER TABLE `logs`
   MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
   MODIFY `id_post` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
 --
 -- AUTO_INCREMENT for table `project`
 --
 ALTER TABLE `project`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
 --
 -- AUTO_INCREMENT for table `repository`
 --
 ALTER TABLE `repository`
   MODIFY `id_rep` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `respuesta`
 --
 ALTER TABLE `respuesta`
-  MODIFY `id_respuesta` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_respuesta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
 --
 -- Constraints for dumped tables
 --
@@ -287,6 +303,7 @@ ALTER TABLE `repository`
 ALTER TABLE `respuesta`
   ADD CONSTRAINT `respuesta_ibfk_1` FOREIGN KEY (`user`) REFERENCES `user` (`id_user`) ON UPDATE CASCADE,
   ADD CONSTRAINT `respuesta_ibfk_2` FOREIGN KEY (`id_post`) REFERENCES `posts` (`id_post`) ON UPDATE CASCADE;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
