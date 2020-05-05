@@ -14,7 +14,7 @@ include_once("dao/dao_user.php");
 <html>
 
 <head>
-	<link rel="stylesheet" type="text/css" href="css/hoja.css">
+	<link rel="stylesheet" type="text/css" href="css/forum.css">
 	<title>INDEX</title>
 	<meta charset="UTF-8">
 </head>
@@ -54,9 +54,20 @@ include_once("dao/dao_user.php");
 				$username = $usuario->get_username();
 			}
 
-			echo "<h1>" . $title . "</h1></br>";
-			echo "<h3>" . $contenido . "</h3></br>";
-
+			 echo "<table id='t01' style='width:100%'>";
+             echo "<tr>";
+             //echo "<th>ID del Proyecto</th>";
+             echo "<th>Titulo</th>";
+             echo "<th>Usuario</th>";
+             echo "<th>Contenido</th>";
+             echo "</tr>";  
+             echo "<tr>";
+             echo "<td>". $title ."</td>";
+             echo "<td>" . $username . "</td>";
+			 echo "<td>". $contenido ."</td>";
+			 echo "</tr>";  
+             echo "</table>";    
+			 echo "<p></p>";
 			
 			$res = $dao_resp->show_all_answers($id);
 

@@ -11,7 +11,7 @@ include_once("dao/dao_user.php");
 <html>
 
 <head>
-	<link rel="stylesheet" type="text/css" href="css/hoja.css">
+	<link rel="stylesheet" type="text/css" href="css/projs.css">
 	<title>INDEX</title>
 	<meta charset="UTF-8">
 </head>
@@ -27,8 +27,6 @@ include_once("dao/dao_user.php");
 
 		<div id="contenido">
 			<?php
-
-			$dao_resp = new DAOrespuesta();
 			$proj_data = new TOUproject();
 			$dao_proj = new DAOproject();
 			$dao_user = new DAOUsuario();
@@ -39,25 +37,53 @@ include_once("dao/dao_user.php");
 			$usuario = $dao_user->search_userId($proj_id);
 			$lenguaje = $curr_proj->get_lenguaje();
 			$title = $curr_proj->get_titulo();
-			$candado = $curr_proj->get_candado();
+			$estrellas = $curr_proj->get_estrellas();
 			$contenido = $curr_proj->get_contenido();
-
-			$proj = $dao_proj->search_project($id); //id viene del get de contenido
+			$candado = $curr_proj->get_candado();
 
 			if ($usuario == null) {
 				$username = "Usuario borrado";
 			} else {
 				$username = $usuario->get_username();
 			}
-
-			echo "<h1>" . $title . "</h1></br>";
-			echo "<h3> LENGUAJE: " . $lenguaje . "</h3></br>";
-			echo "<h3> CANDADO:  " . $candado . "</h3></br>";
-			echo "<h3>" . $contenido . "</h3></br>"; 
 			
+			if ($candado === true ){
+				$candado = "ON";
+			}
+		    else {
+				$candado = "OFF";
+			}
+
+             echo "<table id='t01' style='width:100%'>";
+             echo "<tr>";
+             //echo "<th>ID del Proyecto</th>";
+             echo "<th>Titulo</th>";
+             echo "<th>Usuario</th>";
+             echo "<th>Lenguaje</th>";
+             echo "<th>Candado</th>";
+             echo "<th>Valoracion</th>";
+             echo "</tr>";  
+             echo "<tr>";
+             echo "<td>". $title ."</td>";
+			 echo "<td>". $username ."</td>";
+			 echo "<td>". $lenguaje ."</td>";
+			 echo "<td>". $candado ."</td>";
+			 echo "<td>". $estrellas ." estrellas </td>";
+			 echo "</tr>";  
+             echo "</table>";    
+             
+             echo "<table id='t01' style='width:100%'>";
+             echo "<tr>";
+             echo "<th> CONTENIDO </th>";
+			 echo "</tr>"; 
+			 echo "<tr>";
+			 echo "<td>" . $contenido . "</td>";
+			 echo "</tr>";
+             echo "</table>"; 
+     
 			$dao_user->disconnect();
 
-			echo "<button onclick=\"location.href='editar_proj.php?proj=" . $proj_id . "'\">Editar</button>"
+			echo "<p></p><button onclick=\"location.href='editar_proj.php?proj=" . $proj_id . "'\">Editar</button>"
 			?>
 
 		</div>

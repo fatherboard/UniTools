@@ -80,7 +80,7 @@ include_once("dao/dao_project.php");
 		    }
 			
 		    echo "<tr>";
-		    echo "<td>" . "<a href=\"post.php?&id=" . $post_id . "\">" . $title . "</a></td>";
+		    echo "<td>" . "<a href=\"project.php?&id=" . $project_id . "\">" . $title . "</a></td>";
 		    
 		    //echo "<td>" . $project_id ."</td>";
 		 echo "<td>" . $username   . "</td>";

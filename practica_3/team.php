@@ -122,7 +122,7 @@ background: #262730 url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/93/noise-bg
             </div>
             <h3>Carlos Bilbao</h3>
             <p class="role">Black hat</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est quaerat tempora, voluptatum quas facere dolorum aut cumque nihil nulla harum nemo distinctio quam blanditiis dignissimos.</p>
+            <p>"Disfrutando de la creación de esta página web!"</p>
             </div>
             <div class="team_member">
             <div class="team_img">

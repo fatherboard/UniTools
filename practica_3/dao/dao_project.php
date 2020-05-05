@@ -38,7 +38,7 @@ class DAOproject extends DAO {
 		if (count($result) > 0) {
 			$proj = new TOUproject($result['id'], 
             $result['userId'], $result['titulo'], $result['contenido'], 
-             $result['lenguaje'], $result['candado'],$result['estrellas']);			
+             $result['lenguaje'], $result['privado'],$result['candado'],$result['estrellas']);			
             return $proj;
 		}else{
             return null;

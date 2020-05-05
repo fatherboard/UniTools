@@ -30,7 +30,7 @@
             </div>
 
             <div id=container>           
-                    <div id=flip>
+                    <div style = "position:relative; left:160px; top:2px;" id=flip>
                         <div><div>Sube</div></div>
                         <div><div>Almacena</div></div>
                         <div><div>Descarga</div></div>
@@ -40,16 +40,13 @@
 
             <div class="apartado2">
                 <h2><em> Tu lugar favorito en la nube </h2>          
-               
-                    
-                
+                                    
                 <h3> Sube - Almacena - Descarga </em></h3> 
                 <a href = "registro.php">
                     <h4><i><ins> Únete a nuestra comunidad y disfruta de todas sus ventajas y posibilidades </ins></i></h4>
                 </a>
             </div> 
 
-           
             
             <div class="apartado3">
                     <p> 
