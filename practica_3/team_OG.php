@@ -2,25 +2,32 @@
 <html>
 
 <head>
-<link rel="stylesheet" type="text/css" href="css/hoja.css">
-<link rel="stylesheet" type="text/css" href="css/team.css">
-<link rel="stylesheet" type="text/css" href="css/social.css">
+        <title>INDEX</title>
+    <meta charset="UTF-8">
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300;1,100;0,200&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    <link rel="stylesheet" type="text/css" href="css/hoja_OG.css">
+    <link rel="stylesheet" type="text/css" href="css/side_OG.css">
+    <link rel="stylesheet" type="text/css" href="css/cabecera_OG.css">
+    <link rel="stylesheet" type="text/css" href="css/content_OG.css">
 
-
+    
+    <link rel="stylesheet" type="text/css" href="css/team.css">
+    <link rel="stylesheet" type="text/css" href="css/social.css">
 </head>
 
 <body>
+ <div class="contenedor">
 
-<div id="contenedor">
+<?php //class="side_menu"
+require("includes/common/navegacion_OG.php");?>
 
-    <?php
-    require("includes/common/cabecera.php");
-    require("includes/common/navegacion.php");
-    ?>
+<?php //class="cabecera"
+require("includes/common/cabecera_OG.php");?>
 
-    <div class="wrapper">
+<div class="wrapper">
         <h1>El Team</h1> </br>
         <div class="team">
             <div class="team_member">

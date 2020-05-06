@@ -22,6 +22,9 @@
   padding-bottom: 100px;
 }
 
+ul {
+  list-style: none;
+}
 .pag-flex {
   display: flex;
   flex-flow: row wrap;
@@ -35,35 +38,54 @@
 .box {
   background-color: transparent;
   border: 1px solid #e3e6f0;
-  border-radius: 5px;
+  border-radius: 1rem;
   color: black;
   word-wrap: break-word;
+
+  margin: 1.5rem;
 }
-.box .t2 {
-  padding: 0.75rem 1.25rem;
+.box .t1 {
+  padding: 0.4rem 1.25rem;
   margin-bottom: 0;
   background-color: #f8f9fc;
   border-bottom: 1px solid #e3e6f0;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+
+  color: #4e73df;
 }
 
-.box .b2 {
-  padding: 1.25rem;
+.box .t1 h2 {
+  font-weight: 500;
+  font-size: 140%;
+}
+
+.box .b1 {
+  padding: 0.6rem 1.25rem;
   background-color: white;
-}
-.box .tittle {
-  padding: 1px;
-  margin: 5px;
-  background-color: lightblue;
-  border-color: rgb(0, 255, 13);
-  border-width: 2px;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
+  border-radius: 1rem;
+  font-size: 100%;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }
 
-.box .body {
-  padding: 1px;
-  background-color: lightpink;
-  border-color: lightseagreen;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
+.fc {
+  display: flex;
+  justify-content: space-evenly;
 }
+
+.fc-col {
+  flex-flow: column wrap;
+}
+
+.fc-row {
+  flex-flow: row wrap;
+
+  width: 100h;
+}
+
+/*TEAM EMPIEZA AQUI*/
