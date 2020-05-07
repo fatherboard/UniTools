@@ -1,4 +1,7 @@
 <?php
+if (!isset($_SESSION)) {
+    session_start();
+}
 
 class DAO {
 
@@ -7,8 +10,12 @@ class DAO {
 	public function __construct() {
 
 		if (!$this->conn){
-		
-			$this->conn = mysqli_connect("localhost", "root", "", "unitoolsdb");
+			
+			if(isset($_SESSION['admin']) && $_SESSION['admin']){
+				$this->conn = mysqli_connect("localhost", "root", "", "unitoolsdb");
+			}else{
+				$this->conn = mysqli_connect("localhost", "Usuario", "", "unitoolsdb");
+			}
 		
 			if( mysqli_connect_error ()){
 			     die ("Conexión con la base de datos fallida : " . mysqli_connect_error());
