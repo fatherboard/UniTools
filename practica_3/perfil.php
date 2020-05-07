@@ -1,6 +1,6 @@
 <?php
 if (!isset($_SESSION)) {
-    session_start();
+  session_start();
 }
 
 include_once('dao/dao_user.php');
@@ -22,24 +22,24 @@ include_once('dao/dao_user.php');
   <div id="contenedor">
 
     <?php
-        require("includes/common/cabecera.php");
-        require("includes/common/navegacion.php");
-        ?>
+    require("includes/common/cabecera.php");
+    require("includes/common/navegacion.php");
+    ?>
 
     <div id="contenido">
       <?php
 
-            $user = new TOUser();
-            $dao_usuario = new DAOUsuario();
-            $userData = $dao_usuario->search_username($_SESSION['username']);
-            $premium = $dao_usuario->search_premium($_SESSION['username']);
-            
-            $username = $_SESSION['username'];
-            $premium = $userData->get_premium();
-            $email = $userData->get_email();
-            $password = $userData->get_password();
+      $user = new TOUser();
+      $dao_usuario = new DAOUsuario();
+      $userData = $dao_usuario->search_username($_SESSION['username']);
+      $premium = $dao_usuario->search_premium($_SESSION['username']);
 
-            ?>
+      $username = $_SESSION['username'];
+      $premium = $userData->get_premium();
+      $email = $userData->get_email();
+      $password = $userData->get_password();
+
+      ?>
 
 
       <body id="per">
@@ -58,23 +58,23 @@ include_once('dao/dao_user.php');
           <div class="per_card">
             Usuario premium:
             <?php
-                        if ($premium)
-                            echo " Sí";
-                        else {
-                            echo " No... ¡Hazte premium hoy mismo! ";
-                        }
-                        
+            if ($premium)
+              echo " Sí";
+            else {
+              echo " No... ¡Hazte premium hoy mismo! ";
+            }
 
 
 
 
 
 
-                
-                    if($premium == 0){
-                    
 
-            echo'<button data-modal-target="#modal" class="click-me">Actualizar a cuenta Premium </button>
+
+            if ($premium == 0) {
+
+
+              echo '<button data-modal-target="#modal" class="click-me">Actualizar a cuenta Premium </button>
             <div class="modal" id="modal">
               <div class="modal-header">
                 <div class="title"> Pásate al premium <br></div>
@@ -92,8 +92,8 @@ include_once('dao/dao_user.php');
               </div>
 
               <div class=modal-footer>
-                <form method="POST" action="">
-                  <button class="click-me" type="submit" name="confirm_update" onclick="actualizar()"> Suscribir
+                <form method="POST" action="perfil.php">
+                  <button class="click-me" type="submit" name="hacersePremium"> Suscribir
                   </button>
                 </form>
 
@@ -102,11 +102,9 @@ include_once('dao/dao_user.php');
 
 
             <div id="overlay"></div>';
-            
-            }
-           else{
-                
-                echo '<button data-modal-target = "#modal" class="click-me">Dejar de ser Premium </button>
+            } else {
+
+              echo '<button data-modal-target = "#modal" class="click-me">Dejar de ser Premium </button>
                         <div class="modal" id="modal">
                              <div class="modal-header">
                                 <div class="title"> ¿Seguro que quieres dejar de ser premium? <br></div>
@@ -134,8 +132,8 @@ include_once('dao/dao_user.php');
                         </div>';
             }
 
-?>
-            
+            ?>
+
             <br>
           </div> <br>
 
@@ -153,9 +151,9 @@ include_once('dao/dao_user.php');
     </div>
 
     <?php
-        //muerte temporal del footer
-        //require("includes/common/pie.php") ; 
-        ?>
+    //muerte temporal del footer
+    //require("includes/common/pie.php") ; 
+    ?>
 
 
   </div> <!-- Fin del contenedor -->
@@ -163,21 +161,12 @@ include_once('dao/dao_user.php');
 </body>
 
 
-
-<script>
-            function actualizar() {
-              
-              <?php $dao_usuario -> update_premium($username); ?>
-              self.close();
-              opener.location.href("perfil.php");
-            }
-            </script>
-
-            <script>
-            function downgrade() {
-              
-              <?php $dao_usuario -> downgrade_premium($username); ?>
-              self.close();
-              opener.location.href("perfil.php");
-            }
-            </script>
+<?php
+if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['hacersePremium'])) {
+  $dao_usuario->update_premium($username);
+  header('Location: perfil.php');
+} else if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['quitarPremium'])) {
+  $dao_usuario->downgrade_premium($username);
+  header('Location: perfil.php');
+}
+?>
