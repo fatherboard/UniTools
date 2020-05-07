@@ -43,7 +43,6 @@ class DAOerror extends DAO {
         }
 	}
 
-
 	/* 
 	searchErrorByUser se usa para saber si X usuario ha producido un error al logearse
 	*/

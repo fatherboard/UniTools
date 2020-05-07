@@ -45,15 +45,15 @@ include_once("dao/dao_respuesta.php");
 	         echo "<table id='t01' style='width:100%'>";
 	         echo "<tr>";
 	         echo "<th>Título</th>";
-		 echo "<th>ID del post</th>";
-		echo "<th>Usuario</th>";
-		echo "</tr>";	
+		     echo "<th>ID del post</th>";
+		     echo "<th>Usuario</th>";
+		     echo "</tr>";	
 	
 
                 while (!empty($res)) {
                     $curr_post = array_shift($res);
                     $post_id = $curr_post->get_id(); // id del post
-                    $usuario = $dao_user->search_userId($post_id);
+                    $usuario = $dao_user->search_userId($curr_post->get_user());
                     $categoria = $curr_post->get_category();
                     $title = $curr_post->get_title();
 

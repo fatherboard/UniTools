@@ -23,8 +23,8 @@ if (!isset($_SESSION)) {
         ?>
 
         <div id="contenido">
-        
-            hola
+            
+            
 
         </div>
 

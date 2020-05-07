@@ -11,7 +11,7 @@
                 echo "<a href=\"team.php\">Nosotros</a>";
                 echo"<a href=\"login.php\">Login</a>";
                 echo"<a href=\"registro.php\" >Registrar</a>";
-                
+
             }
             else if ($_SESSION["login"])
             {
@@ -23,6 +23,11 @@
 
                 //derecha
                 echo"<a href=\"logout.php\" >Logout</a>";
-                        }
+                
+                if(isset($_SESSION["admin"]) && $_SESSION["admin"]){
+                     echo "<a href=\"admin.php\">Administrador</a>";
+                }
+            }
+
     ?>
 </div>

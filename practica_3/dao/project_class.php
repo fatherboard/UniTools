@@ -67,10 +67,10 @@ public function set_lenguaje($lenguaje){
   public function get_project(){
 	$columna = [
         "id" => $this->id,
-		    "user" => $this->user,
-		    "titulo" => $this->titulo,
-		    "contenido" => $this->contenido,
-		    "lenguaje" => $this->lenguaje,
+		"user" => $this->user,
+		"titulo" => $this->titulo,
+		"contenido" => $this->contenido,
+		"lenguaje" => $this->lenguaje,
         "candado" => $this->candado,
         "estrellas" => $this->estrellas
 		];

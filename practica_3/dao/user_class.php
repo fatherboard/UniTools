@@ -8,13 +8,14 @@ class TOUser {
 	private $password;
 	private $user_name;
 	private $premium;
-
-	function __construct($userId='',$email='',$password='',$user_name='',$premium=''){
+	private $admin;
+	function __construct($userId='',$email='',$password='',$user_name='',$premium='', $admin=''){
 		$this->userId = $userId;
 		$this->email = $email;
 		$this->password = $password;
 		$this->user_name = $user_name;
 		$this->premium = $premium;
+		$this->admin = $admin;
 	}
 	
 	/*
@@ -31,7 +32,8 @@ class TOUser {
 		$this->email = $columna['email'];
 		$this->password = $columna['password'];
 		$this->user_name = $columna['user_name'];
-		$this->premium = $columna['premium'];
+		$this->premium = $columna['premium'];		
+		$this->admin = $columna['admin'];
 	}
 
 	public function set_email($correo){
@@ -54,7 +56,8 @@ class TOUser {
 		    "email" => $this->email,
 		    "password" => $this->password,
 		    "user_name" => $this->user_name,
-		    "premium" => $this->premium
+		    "premium" => $this->premium,
+		    "admin" => $this->admin
 		];
 
 		return $columna;
@@ -78,6 +81,10 @@ class TOUser {
 
 	public function get_id(){
 		return $this->userId;
+	}
+
+	public function isAdmin(){
+		return $this->admin;
 	}
 }
 ?>

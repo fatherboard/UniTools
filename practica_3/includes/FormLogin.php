@@ -18,7 +18,7 @@ class FormLogin extends Form {
     	 $html .= '</div>';
     	 $html .= '<div>';
     	 $html .= '<label>Password:</label> <input type="password" name="password" style="margin-left: 116px;"/>';
-	 $html .= '</div>';
+	 	 $html .= '</div>';
     	 $html .= '<button type="submit" name="login">Entrar</button>';
     	 $html .= '</fieldset>';
         return $html;
@@ -57,6 +57,11 @@ class FormLogin extends Form {
 	            if (password_verify($password, $encrypted)) {
 	                $_SESSION['login'] = '1';
 	                $_SESSION['username'] = $username;
+	                if($userData->isAdmin()){
+	                	$_SESSION['admin'] = '1';
+	                }else{
+	                	$_SESSION['admin'] = '0';	                	
+	                }
 	                return "perfil.php";
 	            }
 	            else {

@@ -34,6 +34,7 @@
             $password = $_REQUEST["password"];
             $password2 = $_REQUEST["password2"];
             $premium = 0;
+            $admin = 0;
             $_SESSION['error_registro'] = [];
 
             if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {  //Se comprueba si el formato del email es correcto, si no, error
@@ -71,14 +72,14 @@
             }
 
             $encrypted = password_hash($password,PASSWORD_BCRYPT); //Creación del hash de la contraseña para su subida
-            $user = new TOUser($id_user, $email, $encrypted, $username, $premium);
+            $user = new TOUser($id_user, $email, $encrypted, $username, $premium, $admin);
 
 
             if (count($_SESSION['error_registro']) == 0)  {
                 if ($dao_usuario->insert_User($user)) { //Si la creación del usuario es exitosa se realiza el login
                     $_SESSION['login'] = '1';
                     $_SESSION['username'] = $username;
-
+                    $_SESSION['admin']= '0';
                     return "perfil.php";
                 }
 
