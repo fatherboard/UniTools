@@ -30,10 +30,10 @@ require("includes/common/cabecera_OG.php");?>
 
 <div class="contenido">
   <div class="pag-flex tools">
-    <div class="fc fc-col">
+    <div class="fb-col">
       <div class="box">
           <div class="t1">
-            <h2>Herramientas</h2>
+            <h1>Herramientas</h1>
           </div>
           <div class="b1">
             <p>UniTools pretende ayudar a los estudiantes de la Facultad en las asignaturas de programación.
@@ -42,55 +42,69 @@ require("includes/common/cabecera_OG.php");?>
           </div>
       </div>
 
-      <ul class="fc fc-row">
-          <li class="box">
+      <ul class="gr-tools">
+          <li class="box to1">
             <div class= "t2">
-              <label for="phone" style="color:green"> (1) Introduzca su palabra para darle formato:</label>
+              <h2> Introduzca su palabra para darle formato:</h2>
             </div>
-            <div class="b2">
-              <input type="integer" id="valor_d4" name="valor_d4" placeholder="Ejemplo">
-              <button type="button" onclick="texto();">Convertir texto</button>
-              <canvas id="myCanvas" style="width: 300px;height:100px;margin: 0px auto; border: 1px solid red;" style="border:1px solid #000000;">
-              </canvas>
+            <div class="b2 fb-col fb-center">
+                <p> Pega aquí tu texto para verlo con un nuevo formato! </p> 
+
+                <div class="fb-row fb-center to1_enter">
+                  <input type="integer" id="valor_d4" name="valor_d4" placeholder="Ejemplo">
+                  <button type="button" onclick="texto();">Convertir</button>
+                </div>
+                
+                <canvas class="box to1_canvas" id="myCanvas"></canvas>
             </div>
           </li>
 
-          <li class="box">
-            <div class= "t2">
-              <label for="phone" style="color:green"> (2) Introduzca su texto para contar las palabras:</label>
+          <li class="box to2">
+            <div class="t2">
+               <h2> Introduzca su texto para contar las palabras:</h2>
             </div>
             <div class="b2">
-              <input type="string" id="valor_d3" name="valor_d3" placeholder="fhritp">
-              <button type="button" onclick="count();" onsubmit="return false">Contar palabras</button>
+              <div class="fb-row fb-center">
+                <input type="string" id="valor_d3" name="valor_d3" placeholder="fhritp">
+                <button type="button" onclick="count();" onsubmit="return false">Contar</button>
+              </div>
+            </div>
+          </li>
+          <li class="box to3">
+            <div class="t2">
+              <h2> Introduzca el decimal a convertir a binario:</h2>
+            </div>
+            <div class="b2">
+              <div class="fb-row fb-center">
+                <input type="integer" id="valor_d2" name="valor_d2" placeholder="610">
+                <button type="button" onclick="convertir(2);" onsubmit="return false">Convertir</button>
+              </div>
+            </div>
+
+          <li class="box to4">
+            <div class="t2">
+              <h2> Introduzca el decimal a convertir a hexadecimal:</h2>
+            </div>
+            <div class="b2">
+              <div class="fb-row fb-center">
+                <input type="integer" id="valor_d" name="valor_d" placeholder="123">
+                <button type="button" onclick="convertir(1);" onsubmit="return false">Convertir</button>
+              </div>
             </div>
           </li>
 
-          <li class="box">
-            <div class= "t2">
-            <label for="phone" style="color:green"> (3) Introduzca el decimal a convertir a hexadecimal:</label>
-            </div>
-            <div class="b2">
-            <input type="integer" id="valor_d" name="valor_d" placeholder="123"><br><br>
-            <button type="button" onclick="convertir(1);" onsubmit="return false">Convertir a hexadecimal</button>
-            </div>
-          </li>
+          
 
-          <li class="box">
-            <div class= "t2">
-            <label for="phone" style="color:green"> (4) Introduzca el decimal a convertir a binario:</label>
-            </div>
-            <div class="b2">
-            <input type="integer" id="valor_d2" name="valor_d2" placeholder="610"><br><br>
-            <button type="button" onclick="convertir(2);" onsubmit="return false">Convertir a binario</button>
-            </div>
-          <li class="box">
-            <div class= "t2">
-              <label for="phone" style="color:green"> (5) Introduzca el binario a convertir a decimal:</label>
+          <li class="box to5 moveit">
+            <div class="t2">
+              <h2> Introduzca el binario a convertir a decimal:</h2>
             </div>
 
             <div class="b2">
-            <input type="integer" id="valor_d12" name="valor_d12" placeholder="10110"><br><br>
-            <button type="button" onclick="convertir(3);" onsubmit="return false">Convertir a decimal</button>
+              <div class="fb-row fb-center">
+                <input type="integer" id="valor_d12" name="valor_d12" placeholder="10110">
+                <button type="button" onclick="convertir(3);" onsubmit="return false">Convertir</button>
+              </div>
             </div>
           </li>
       </ul>
@@ -104,8 +118,8 @@ require("includes/common/cabecera_OG.php");?>
 <script>
         var c = document.getElementById("myCanvas");
         var ctx = c.getContext("2d");
-        ctx.font = "italic small-caps 30px Verdana";
-        ctx.strokeText("Ejemplo", 30, 70);
+        ctx.font = "italic small-caps 70px Verdana";
+        ctx.strokeText("Ejemplo", 10, 90);
 
         function texto() {
                 $str = document.getElementById('valor_d4').value;

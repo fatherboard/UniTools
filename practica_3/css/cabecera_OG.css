@@ -54,15 +54,15 @@
   border-radius: 2rem;
 }
 .nav_login {
-  background-color: #93aefc;
-  border: 1px solid #6b88df;
+  background-color: #5cecd4;
+  border: 1px solid #4accb6;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
 
 .nav_reg {
-  background-color: #4e73df;
-  border: 1px solid #3c57aa;
+  background-color: #2dc8ae;
+  border: 1px solid #26aa94;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
