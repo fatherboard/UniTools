@@ -54,15 +54,15 @@
   border-radius: 2rem;
 }
 .nav_login {
-  background-color: #5cecd4;
-  border: 1px solid #4accb6;
+  background-color: #aa98fa;
+  border: 1px solid #8071c2;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
 
 .nav_reg {
-  background-color: #2dc8ae;
-  border: 1px solid #26aa94;
+  background-color: #796afd;
+  border: 1px solid rgb(91, 69, 192);
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
@@ -71,10 +71,9 @@ li.nav_i a {
   display: block;
   padding: 1rem;
   color: rgb(255, 255, 255);
-  transition: background-color 5s;
   cursor: pointer;
   border: none;
-  transition: color 0.5s;
+  transition: 0.5s;
 }
 li.nav_login a {
   padding: 0.4rem 1.5rem 0.4rem 2rem;
