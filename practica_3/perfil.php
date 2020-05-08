@@ -91,45 +91,42 @@ include_once('dao/dao_user.php');
                 7-Forma parte de la gran familia de Unitools. <br>
               </div>
 
-              <div class=modal-footer>
+              
                 <form method="POST" action="perfil.php">
                   <button class="click-me" type="submit" name="hacersePremium"> Suscribir
                   </button>
                 </form>
 
-              </div>
+              
             </div>
 
 
             <div id="overlay"></div>';
             } else {
 
-              echo '<button data-modal-target = "#modal" class="click-me">Dejar de ser Premium </button>
-                        <div class="modal" id="modal">
-                             <div class="modal-header">
-                                <div class="title"> ¿Seguro que quieres dejar de ser premium? <br></div>
-                                <button data-close-button class="close-buttonX"> &times;</button>    
-                            </div>
-
-                            <div class="modal-body">
-                            1-Consigue repositorios privados. <br>
-                            2-Sin límite de tamaño de archivos. <br>
-                            3-Di adiós a la publicidad <br>
-                            4-Ocupa el lugar más alto de los rankings. <br>
-                            5-Utiliza los mensajes de la plataforma. <br>
-                            6-Recibe antes que nadie nuestras novedades. <br>
-                            7-Forma parte de la gran familia de Unitools. <br>
-                          </div>
-
-
-                            <div class=modal-footer>   
-                                <form method="POST" action="">
-                                    <button class = "click-me"type="submit" name="confirm_update" onclick= "downgrade()"> Continuar </button>
-                                </form>    
-                                                    
-                            </div>
-                            <div  id="overlay"></div> 
-                        </div>';
+              echo '<button data-modal-target="#modal" class="click-me">Cancelar Premium </button>
+              <div class="modal" id="modal">
+                <div class="modal-header">
+                  <div class="title"> Cancelar cuenta premium <br></div>
+                  <button data-close-button class="close-buttonX"> &times;</button>
+                </div>
+              
+                <div class="modal-body">
+                  ¿Estás seguro que quieres dejar de ser usuario premium? <br>
+                  Perderás todas las ventajas que ello conlleva.
+                </div>
+              
+                <div class=modal-footer>
+                  <form method="POST" action="perfil.php">
+                  <button class="afirmativo" type="submit" name="quitarPremium"> Aceptar</button>
+                    <button class="negativo" type="submit" > Cancelar</button>
+                  </form>
+              
+                </div>
+              </div>
+              
+              
+              <div id="overlay"></div>';
             }
 
             ?>
