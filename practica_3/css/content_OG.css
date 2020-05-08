@@ -47,7 +47,7 @@ ul {
 
 .fb-col {
   display: flex;
-  flex-flow: column wrap;
+  flex-direction: column;
 }
 
 .fb-row {
@@ -58,15 +58,13 @@ ul {
 
 .box {
   background-color: transparent;
-  border: 1px solid #e3e6f0;
-  border-radius: 1rem;
+
   color: black;
   word-wrap: break-word;
   margin: 2rem 1.5rem 0;
-
-  box-shadow: 0 0.5rem 2rem 0 rgba(96, 98, 114, 0.178);
 }
 .t1 {
+  border: 1px solid #e3e6f0;
   padding: 0.4rem 1.25rem;
   margin-bottom: 0;
   background-color: #f8f9fc;
@@ -81,6 +79,7 @@ ul {
 }
 
 .b1 {
+  border: 1px solid #e3e6f0;
   padding: 0.6rem 1.25rem;
   background-color: white;
   border-radius: 1rem;
@@ -91,9 +90,12 @@ ul {
   border-top-right-radius: 0;
 
   color: #000;
+
+  box-shadow: 0 0.5rem 2rem 0 rgba(96, 98, 114, 0.178);
 }
 
 .t2 {
+  border: 1px solid #e3e6f0;
   padding: 0.1rem 1rem;
   margin-bottom: 0;
   border-bottom: 1px solid #e3e6f0;
@@ -105,9 +107,12 @@ ul {
   font-size: 90%;
   background-color: #f8f9fc;
   color: #000;
+
+  box-shadow: 0 0.5rem 2rem 0 rgba(96, 98, 114, 0.178);
 }
 
 .b2 {
+  border: 1px solid #e3e6f0;
   padding: 0.6rem 1.25rem;
   background-color: white;
   border-radius: 1rem;
@@ -119,6 +124,8 @@ ul {
   border-top-right-radius: 0;
 
   color: #000;
+
+  box-shadow: 0 0.5rem 2rem 0 rgba(96, 98, 114, 0.178);
 }
 
 .box h1 {
@@ -138,6 +145,7 @@ ul {
   color: #fff;
 }
 */
+/*INICIO*/
 
 /*HERRAMIENTAS          to => tools*/
 .gr-tools {
@@ -202,4 +210,6 @@ ul {
   align-self: flex-start;
 }
 
-/*TEAM EMPIEZA AQUI*/
+/*PROYECTOS*/
+
+/*--NUEVOS PROYECTOS*/

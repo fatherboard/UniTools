@@ -29,86 +29,84 @@ require("includes/common/navegacion_OG.php");?>
 require("includes/common/cabecera_OG.php");?>
 
 <div class="contenido">
-  <div class="pag-flex tools">
-    <div class="fb-col">
-      <div class="box">
-          <div class="t1">
-            <h1>Herramientas</h1>
-          </div>
-          <div class="b1">
-            <p>UniTools pretende ayudar a los estudiantes de la Facultad en las asignaturas de programación.
-            Por ello, incluimos aquí herramientas de uso público y gratuito que pensamos pueden seros de
-            utilidad en el desarrollo de vuestras prácticas.<em> !Muchas más herramientas se añadirán en el futuro!</em></p>
-          </div>
-      </div>
-
-      <ul class="gr-tools">
-          <li class="box to1">
-            <div class= "t2">
-              <h2> Introduzca su palabra para darle formato:</h2>
-            </div>
-            <div class="b2 fb-col fb-center">
-                <p> Pega aquí tu texto para verlo con un nuevo formato! </p> 
-
-                <div class="fb-row fb-center to1_enter">
-                  <input type="integer" id="valor_d4" name="valor_d4" placeholder="Ejemplo">
-                  <button type="button" onclick="texto();">Convertir</button>
-                </div>
-                
-                <canvas class="box to1_canvas" id="myCanvas"></canvas>
-            </div>
-          </li>
-
-          <li class="box to2">
-            <div class="t2">
-               <h2> Introduzca su texto para contar las palabras:</h2>
-            </div>
-            <div class="b2">
-              <div class="fb-row fb-center">
-                <input type="string" id="valor_d3" name="valor_d3" placeholder="fhritp">
-                <button type="button" onclick="count();" onsubmit="return false">Contar</button>
-              </div>
-            </div>
-          </li>
-          <li class="box to3">
-            <div class="t2">
-              <h2> Introduzca el decimal a convertir a binario:</h2>
-            </div>
-            <div class="b2">
-              <div class="fb-row fb-center">
-                <input type="integer" id="valor_d2" name="valor_d2" placeholder="610">
-                <button type="button" onclick="convertir(2);" onsubmit="return false">Convertir</button>
-              </div>
-            </div>
-
-          <li class="box to4">
-            <div class="t2">
-              <h2> Introduzca el decimal a convertir a hexadecimal:</h2>
-            </div>
-            <div class="b2">
-              <div class="fb-row fb-center">
-                <input type="integer" id="valor_d" name="valor_d" placeholder="123">
-                <button type="button" onclick="convertir(1);" onsubmit="return false">Convertir</button>
-              </div>
-            </div>
-          </li>
-
-          
-
-          <li class="box to5 moveit">
-            <div class="t2">
-              <h2> Introduzca el binario a convertir a decimal:</h2>
-            </div>
-
-            <div class="b2">
-              <div class="fb-row fb-center">
-                <input type="integer" id="valor_d12" name="valor_d12" placeholder="10110">
-                <button type="button" onclick="convertir(3);" onsubmit="return false">Convertir</button>
-              </div>
-            </div>
-          </li>
-      </ul>
+  <div class="pag-flex fb-col">
+    <div class="box">
+        <div class="t1">
+          <h1>Herramientas</h1>
+        </div>
+        <div class="b1">
+          <p>UniTools pretende ayudar a los estudiantes de la Facultad en las asignaturas de programación.
+          Por ello, incluimos aquí herramientas de uso público y gratuito que pensamos pueden seros de
+          utilidad en el desarrollo de vuestras prácticas.<em> !Muchas más herramientas se añadirán en el futuro!</em></p>
+        </div>
     </div>
+
+    <ul class="gr-tools">
+        <li class="box to1">
+          <div class= "t2">
+            <h2> Introduzca su palabra para darle formato:</h2>
+          </div>
+          <div class="b2 fb-col fb-center">
+              <p> Pega aquí tu texto para verlo con un nuevo formato! </p> 
+
+              <div class="fb-row fb-center to1_enter">
+                <input type="integer" id="valor_d4" name="valor_d4" placeholder="Ejemplo">
+                <button type="button" onclick="texto();">Convertir</button>
+              </div>
+              
+              <canvas class="box to1_canvas" id="myCanvas"></canvas>
+          </div>
+        </li>
+
+        <li class="box to2">
+          <div class="t2">
+              <h2> Introduzca su texto para contar las palabras:</h2>
+          </div>
+          <div class="b2">
+            <div class="fb-row fb-center">
+              <input type="string" id="valor_d3" name="valor_d3" placeholder="fhritp">
+              <button type="button" onclick="count();" onsubmit="return false">Contar</button>
+            </div>
+          </div>
+        </li>
+        <li class="box to3">
+          <div class="t2">
+            <h2> Introduzca el decimal a convertir a binario:</h2>
+          </div>
+          <div class="b2">
+            <div class="fb-row fb-center">
+              <input type="integer" id="valor_d2" name="valor_d2" placeholder="610">
+              <button type="button" onclick="convertir(2);" onsubmit="return false">Convertir</button>
+            </div>
+          </div>
+
+        <li class="box to4">
+          <div class="t2">
+            <h2> Introduzca el decimal a convertir a hexadecimal:</h2>
+          </div>
+          <div class="b2">
+            <div class="fb-row fb-center">
+              <input type="integer" id="valor_d" name="valor_d" placeholder="123">
+              <button type="button" onclick="convertir(1);" onsubmit="return false">Convertir</button>
+            </div>
+          </div>
+        </li>
+
+        
+
+        <li class="box to5 moveit">
+          <div class="t2">
+            <h2> Introduzca el binario a convertir a decimal:</h2>
+          </div>
+
+          <div class="b2">
+            <div class="fb-row fb-center">
+              <input type="integer" id="valor_d12" name="valor_d12" placeholder="10110">
+              <button type="button" onclick="convertir(3);" onsubmit="return false">Convertir</button>
+            </div>
+          </div>
+        </li>
+      </ul>
   </div>
 </div> <!-- Fin del contenedor -->
 
