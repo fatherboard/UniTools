@@ -32,6 +32,14 @@ body{
 	border-bottom: 1px solid black;
 }
 
+.modal-footer{
+	padding: 10px 15px;
+	display: block;
+	justify-content: space-between;
+	align-items: center;
+	border-top: 1px solid black;
+}
+
 .modal-header .title{
 	font-size: 1.25rem;
 	font-weight: bold;
@@ -170,4 +178,30 @@ p{
 
 .click-me:hover{
 	background: #219150;
+}
+
+
+.afirmativo{
+width: 130px;
+color: black;
+float: left;
+bottom: 15px;
+right: 15px;
+height: 30px;
+margin-left: 20%;
+background-color: rgb(3, 182, 3);
+text-align: center;
+font-size: 18px;
+}
+
+.negativo{
+	width: 130px;
+	color: black;
+float: right;
+bottom: 15px;
+right: 30px;
+margin-right: 20%;
+background-color: red;
+text-align: center;
+font-size: 18px;
 }

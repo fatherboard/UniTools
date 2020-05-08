@@ -93,6 +93,17 @@ class DAOUsuario extends DAO {
 		}
 	}
 
+	public function downgrade_premium($username){
+		$sql = sprintf("UPDATE user SET premium = 0 WHERE username = '" .$username. "'");
+		if (!$this->ejecutarConsulta($sql))
+			return null;
+		else{
+			$result = $this->ejecutarConsulta($sql);
+			$user = new TOUser($result['id_user'],$result['email'],$result['password'],$result['username'],$result['premium'], $result['admin']);
+			return $user;
+		}
+	}
+
 	public function update_password($username,$pass){	
 		$sql = sprintf("UPDATE user SET password = 	'" .$pass. "' WHERE username = '" .$username. "' ");
 		if (!$this->ejecutarConsulta($sql))
