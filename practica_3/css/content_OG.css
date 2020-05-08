@@ -40,7 +40,6 @@ ul {
 /* Clases generales*/
 
 /* fc -> Flex content*/
-
 .fb-center {
   align-items: center;
 }
@@ -56,6 +55,7 @@ ul {
   padding-left: 0;
 }
 
+/*box content*/
 .box {
   background-color: transparent;
 
@@ -63,6 +63,14 @@ ul {
   word-wrap: break-word;
   margin: 2rem 1.5rem 0;
 }
+
+.field {
+  border-radius: 1rem;
+  border: 1px solid #e3e6f0;
+  padding: 0.4rem 1.25rem;
+  margin-bottom: 0;
+}
+
 .t1 {
   border: 1px solid #e3e6f0;
   padding: 0.4rem 1.25rem;
@@ -136,6 +144,19 @@ ul {
 .box h2 {
   font-weight: 300;
   font-size: 120%;
+}
+
+/*positioning*/
+.v-center {
+  align-items: center;
+}
+
+.h-center {
+  justify-items: center;
+}
+
+.text-center {
+  text-align: center;
 }
 
 /*GREEN
@@ -213,3 +234,28 @@ ul {
 /*PROYECTOS*/
 
 /*--NUEVOS PROYECTOS*/
+.n_pr form {
+  align-items: right;
+}
+.n_pr_h {
+  width: auto;
+}
+.n_pr textarea {
+  padding: 0.5rem 0.5rem 0;
+  width: 100%;
+}
+.n_pr p {
+  margin: 0;
+  text-align: left;
+}
+
+.n_pr .submit-center {
+  text-align: center;
+  margin: 0.5rem 0;
+}
+
+.n_pr .tittle-row {
+  padding-top: 0.8rem;
+  margin-left: 1rem;
+  width: 79%;
+}

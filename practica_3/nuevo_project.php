@@ -39,19 +39,21 @@ require("includes/common/cabecera_OG.php");?>
 
                     if ($_SERVER['REQUEST_METHOD'] != 'POST') {
                         //Falta categoria ?>
-                        <div class=" fb-col box align-items-center">
+                        <div class="n_pr fb-col box v-center">
                             <form action="" method="post">
-                                <div class= "t2">
+                                <div class= "t2 text-center">
                                     <h2> Creación de un nuevo proyecto</h2>
                                 </div>
 
-                                <div class="b2">
-                                <p>Título: <input type="text" name="titulo" /></p>
-                                <p>Contenido: <textarea class="inputPost" name="contenido" ></textarea></p>
-                                <p>Lenguaje: <textarea class="inputPost" name="lenguaje"></textarea></p>
-                                <p>Privado: <input type="checkbox" name="privado"/></p> 
+                                <div class="b2 text-center">
+                                    <div class="fb-row">
+                                    <p>Título:</p> <textarea class="field tittle-row" name="titulo" rows="1"></textarea> 
+                                    </div>
+                                <p>Contenido:</p> <textarea class="field" name="contenido" rows="2" ></textarea>
+                                <p>Lenguaje:</p> <textarea class="field" name="lenguaje" rows="2"></textarea>
+                                <p>Privado: <input type="checkbox" name="privado"></span></p> 
                                 <p>Archivo: <input type="file" name="archivo" value="archivo"/></p>
-                                <p><input type="submit" value="Subir" /></p>
+                                <p class="submit-center"><input type="submit" value="Subir"class="field v-center"/></p>
                                 </div>
                             </form> 
                         </div><?php
@@ -61,17 +63,17 @@ require("includes/common/cabecera_OG.php");?>
 
                         $titulo = $_POST['titulo'];
                         $contenido = $_POST['contenido'];
-			$lenguaje = $_POST['lenguaje'];
-			$privado = $_POST['privado'];
-			$candado = 0;
-			$file = $_POST['archivo'];
+                        $lenguaje = $_POST['lenguaje'];
+                        $privado = $_POST['privado'];
+                        $candado = 0;
+                        $file = $_POST['archivo'];
 
                         $proj_data = new TOUproject();
                         $dao_proj = new DAOproject();
-			$dao_user = new DAOUsuario();
-			$user_id = $dao_user->search_username($_SESSION['username'])->get_id();
-			$privado = 1;
-			$new_proj = new TOUproject('',$user_id, $titulo, $contenido, $lenguaje, $privado,$candado,3,$file);
+                        $dao_user = new DAOUsuario();
+                        $user_id = $dao_user->search_username($_SESSION['username'])->get_id();
+                        $privado = 1;
+                        $new_proj = new TOUproject('',$user_id, $titulo, $contenido, $lenguaje, $privado,$candado,3,$file);
 		        	
 			if (!$dao_proj->insert_Project($new_proj)) {
                             echo "Error al insertar project";
@@ -90,12 +92,6 @@ require("includes/common/cabecera_OG.php");?>
 
             ?>
         </div>
-
-        <?php
-        //muerte temporal del footer
-        //require("includes/common/pie.php") ; 
-        ?>
-
 
     </div> <!-- Fin del contenedor -->
 
