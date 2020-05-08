@@ -86,12 +86,12 @@
                 else {  //En caso contrario, error
                     $_SESSION['error_registro'][] = "El registro no ha tenido éxito";
                     
-                    return "registrar.php";
+                    return "registro.php";
                 }
             }
 
             else {  //En caso contrario vuelta a registro.php con los errores
-                return "registrar.php";
+                return "registro.php";
             }
 
         }

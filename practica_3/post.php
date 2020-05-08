@@ -41,7 +41,7 @@ include_once("dao/dao_user.php");
 
 			$curr_post = $dao_post->search_post($id);
 			$post_id = $curr_post->get_id(); // id del post
-			$usuario = $dao_user->search_userId($post_id);
+			$usuario = $dao_user->search_userId($curr_post->get_user());
 			$categoria = $curr_post->get_category();
 			$title = $curr_post->get_title();
 			$contenido = $curr_post->get_content();
