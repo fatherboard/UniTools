@@ -51,11 +51,6 @@ require("includes/common/cabecera_OG.php");?>
                             <button  type="submit" name="submit-buscar" href="search.php">Buscar </button>
                         </div>                        
                     </form>
-<<<<<<< HEAD
-                    
-
-=======
->>>>>>> ec6aa06eb176f1249412089da2d5dd6ec0b563fb
                 </div>
 
                 <?php
