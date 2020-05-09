@@ -14,10 +14,10 @@
 ul.cgreen {
   background-color: #1f1b29;
   background-image: linear-gradient(
-    360deg,
+    0deg,
     rgb(168, 151, 202) 0%,
     #6033ad 30%,
-    #2f204d 100%
+    #3f2b69 100%
   );
 }
 /*GREEN
