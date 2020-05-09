@@ -40,9 +40,9 @@ require("includes/common/cabecera_OG.php");?>
             </div>
             <div class = "b1">
                 <div class = "fb-row jc_space-between v-center" id = "posts">
+
                     <div class="nav_i " id="btn_foro">
-                    <a  href="nuevo_post.php">Nuevo Post</a>
-                    
+                        <a  href="nuevo_post.php">Nuevo Post</a>
                     </div>
         
                     <form action="search.php" method="POST" id = "foro_barra_busqueda" class="fb-row" >
@@ -51,14 +51,15 @@ require("includes/common/cabecera_OG.php");?>
                             <button  type="submit" name="submit-buscar" href="search.php">Buscar </button>
                         </div>                        
                     </form>
+<<<<<<< HEAD
                     
 
+=======
+>>>>>>> ec6aa06eb176f1249412089da2d5dd6ec0b563fb
                 </div>
-           
-                
+
                 <?php
-
-
+                
                 $dao_post = new DAOpost();
                 $dao_user = new DAOUsuario();
                 $res = $dao_post->show_all_data();

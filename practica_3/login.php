@@ -21,7 +21,7 @@ if (!isset($_SESSION)) {
         require("includes/common/cabecera.php");
         require("includes/common/navegacion.php");
 	    require("includes/FormLogin.php");
-	?>
+	    ?>
 
         <div id="contenido">
             <?php

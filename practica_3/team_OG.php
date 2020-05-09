@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300;1,100;0,200&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+
     <link rel="stylesheet" type="text/css" href="css/hoja_OG.css">
     <link rel="stylesheet" type="text/css" href="css/side_OG.css">
     <link rel="stylesheet" type="text/css" href="css/cabecera_OG.css">
@@ -16,6 +17,7 @@
     
     <link rel="stylesheet" type="text/css" href="css/team.css">
     <link rel="stylesheet" type="text/css" href="css/social.css">
+
 </head>
 
 <body>
@@ -27,8 +29,12 @@ require("includes/common/navegacion_OG.php");?>
 <?php //class="cabecera"
 require("includes/common/cabecera_OG.php");?>
 
-<div class="wrapper">
-        <h1>El Team</h1> </br>
+<div class="contenido">
+    <div class="wrapper">
+         <div class="fb-col box" id="prs_g">
+		    <div class="t1 fb-row" >
+			<h1>Nuestro equipo</h1>
+		    </div>
         <div class="team">
             <div class="team_member">
                 <div class="team_img">
@@ -89,7 +95,7 @@ require("includes/common/cabecera_OG.php");?>
         <a href="https://www.instagram.com/cansek98/" class="fa fa-instagram"></a>
     </div>
 	
-
+    </div>
 </div>
 </body>
 
