@@ -64,7 +64,7 @@ include_once("dao/dao_respuesta.php");
                     }
 
 		  echo "<tr>";
-		  echo "<td>" . "<a href=\"post.php?&id=" . $post_id . "\">" . $title . "</a></td>";
+		  echo "<td>" . "<a href=\"post.php?id=" . $post_id . "\">" . $title . "</a></td>";
 		  echo "<td>"  . $post_id ."</td>";
 		  echo "<td>" . $username   . "</td>";
                   

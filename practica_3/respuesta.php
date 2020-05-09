@@ -26,7 +26,6 @@ if (!isset($_SESSION)) {
         <div id="contenido">
             <?php
 
-            $post = $_GET["post"];
             $form = new FormRespuesta();
             $html = $form->gestiona();
             if (!isset($_SESSION)) {

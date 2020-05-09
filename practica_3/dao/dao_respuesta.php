@@ -19,9 +19,10 @@ class DAOrespuesta extends DAO {
         $user = $TORespuesta->get_user();
         $id_post =  $TORespuesta->get_post();
 		$content = $TORespuesta->get_content();
+		$answer_to = $TORespuesta->get_answer();
 		
-		$sql = sprintf("INSERT INTO respuesta(id_post,user,content) 
-		    VALUES ('$id_post', '$user', '$content')");
+		$sql = sprintf("INSERT INTO respuesta(id_post,user,content,answer_to) 
+		    VALUES ('$id_post', '$user', '$content', $answer_to)");
 		$result = $this->insertarConsulta($sql);
 		return $result;
 	}
@@ -29,7 +30,7 @@ class DAOrespuesta extends DAO {
 	public function search_respuesta($id){
 		$sql = sprintf("SELECT * FROM respuesta WHERE id_respuesta = $id");
 		$result = $this->ejecutarConsulta($sql);
-		$respuesta = new TOrespuesta($result['id_respuesta'], $result['id_post'], $result['user'], $result['date'], $result['content']);
+		$respuesta = new TOrespuesta($result['id_respuesta'], $result['id_post'], $result['user'], $result['date'], $result['content'], $result['answer_to']);
 		return $respuesta;
 	}
 
@@ -40,11 +41,23 @@ class DAOrespuesta extends DAO {
 	}
 
 	public function show_all_answers($id){
-		$sql = sprintf("SELECT * FROM respuesta WHERE id_post = $id ORDER BY id_respuesta ASC");
+		$sql = sprintf("SELECT * FROM respuesta WHERE id_post = $id  AND answer_to = '-1' ORDER BY id_respuesta ASC");
 		$query = $this->devolverConsulta($sql);
         $array = [];
         while($result = mysqli_fetch_assoc($query)){
-            $respuesta = new TORespuesta($result['id_respuesta'],$result['id_post'],$result['user'],$result['date'],$result['content']);
+            $respuesta = new TORespuesta($result['id_respuesta'],$result['id_post'],$result['user'],$result['date'],$result['content'],$result['answer_to']);
+            array_push($array, $respuesta);
+        }
+
+		return $array; 
+	}
+
+	public function show_nested_answers($id,$id_post){
+		$sql = sprintf("SELECT * FROM respuesta WHERE id_post = $id AND answer_to = $id_post ORDER BY id_respuesta ASC");
+		$query = $this->devolverConsulta($sql);
+        $array = [];
+        while($result = mysqli_fetch_assoc($query)){
+            $respuesta = new TORespuesta($result['id_respuesta'],$result['id_post'],$result['user'],$result['date'],$result['content'],$result['answer_to']);
             array_push($array, $respuesta);
         }
 

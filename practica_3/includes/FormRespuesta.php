@@ -34,6 +34,7 @@ class FormRespuesta extends Form {
 		$contenido = htmlspecialchars(trim(strip_tags($_REQUEST["contenido"])));
 		$user = new TOUser();
 		$id_post = $_GET["post"];
+		$answer = isset($_GET['answer']) ? $_GET['answer'] : '-1';
 		$user = $dao_usuario->search_username($_SESSION['username']);
         $userid = $user->get_id();
         
@@ -50,7 +51,7 @@ class FormRespuesta extends Form {
 	            return "respuesta.php?post=" . $id_post;
 	        }
 	        else {
-				$respuesta = new TORespuesta('', $id_post, $userid, '', $contenido);
+				$respuesta = new TORespuesta('', $id_post, $userid, '', $contenido, $answer);
 				echo $respuesta->get_post(); //para testeo
                 $result = $dao_respuesta->insert_respuesta($respuesta);
 
