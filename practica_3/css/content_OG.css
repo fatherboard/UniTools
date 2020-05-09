@@ -115,7 +115,6 @@ ul {
   font-size: 90%;
   background-color: #f8f9fc;
   color: #000;
-
   box-shadow: 0 0.5rem 2rem 0 rgba(96, 98, 114, 0.178);
 }
 
@@ -146,6 +145,53 @@ ul {
   font-size: 120%;
 }
 
+/*Tabla---------------------------------------------------------------------------------------------------------*/
+table {
+  width: auto;
+  margin: 2rem 0;
+}
+
+/*
+.prs tbody {
+  border-radius: 3rem;
+}
+
+
+tr:first-child {
+  border-radius: 5rem 5rem 0 0;
+}
+
+table tr:last-child {
+  border-radius: 0 0 5rem 5rem;
+}
+*/
+
+table,
+th,
+td {
+  border: 1px solid rgb(97, 97, 97);
+  border-collapse: collapse;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 0.5rem;
+}
+
+table#t01 tr:nth-child(even) {
+  background-color: rgb(200, 200, 200);
+}
+
+table#t01 tr:nth-child(odd) {
+  background-color: rgb(131, 130, 130);
+}
+
+table#t01 th {
+  background-color: #975cf6;
+  color: black;
+}
+
 /*positioning*/
 .v-center {
   align-items: center;
@@ -157,6 +203,10 @@ ul {
 
 .text-center {
   text-align: center;
+}
+
+.text-left {
+  text-align: left;
 }
 
 /*GREEN
@@ -250,65 +300,47 @@ ul {
   color: rgb(255, 173, 118);
 }
 
-/*Tabla*/
-.prs table {
-  width: auto;
-  margin: 2rem 0;
+#prs_link {
+  padding: 0;
 }
-
-.prs tbody {
-}
-
-table,
-th,
-td {
-  border: 1px solid rgb(97, 97, 97);
-  border-collapse: collapse;
-}
-
-th,
-td {
-  padding: 1rem;
-  text-align: left;
-}
-
-table#t01 tr:nth-child(even) {
-  background-color: rgb(200, 200, 200);
-}
-
-table#t01 tr:nth-child(odd) {
-  background-color: rgb(180, 180, 180);
-}
-
-table#t01 th {
-  background-color: #975cf6;
+#prs_link a {
+  display: block;
   color: black;
+  height: 3rem;
+  text-align: center;
+  padding: 0.5rem 0 0 0;
+  /*padding: 0.5rem 0.3rem;*/
 }
-
+#prs_link a:hover {
+  text-decoration: underline;
+  color: rgb(0, 19, 128);
+  background-color: pink;
+  display: block;
+}
 /*PROYECTO pr*/
 
 /*--NUEVOS PROYECTOS n_pr*/
-.n_pr form {
+#n_pr form {
   align-items: right;
 }
-.n_pr_h {
+#n_pr_h {
   width: auto;
 }
-.n_pr textarea {
+#n_pr textarea {
   padding: 0.5rem 0.5rem 0;
   width: 100%;
 }
-.n_pr p {
+#n_pr p {
   margin: 0;
   text-align: left;
 }
 
-.n_pr .submit-center {
+#n_pr #submit-center {
   text-align: center;
   margin: 0.5rem 0;
 }
 
-.n_pr .tittle-row {
+#n_pr .tittle-row {
   padding-top: 0.8rem;
   margin-left: 1rem;
   width: 79%;

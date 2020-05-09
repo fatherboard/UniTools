@@ -50,8 +50,7 @@ require("includes/common/cabecera_OG.php");?>
 				?>
 
 			 <table id='t01' style='width:100%'>
-			 <tbody>
-				<tr>
+				<tr class="tb_header">
 					<th>ID del Proyecto</th>
 					<th>Titulo</th>
 					<th>Usuario</th>
@@ -60,7 +59,6 @@ require("includes/common/cabecera_OG.php");?>
 					<th>Valoracion</th>
 					<th>Privacidad</th>
 				</tr> 
-			</tbody>
 		<?php
 		while (!empty($res)) 
 		{
@@ -93,10 +91,8 @@ require("includes/common/cabecera_OG.php");?>
 		    else {
 		    	$candado = "EN EDICIÓN";
 		    }?>
-				<tbody class="content">
-				 
-				<tr>
-					<td> <a href="project.php?&id= <?php echo $project_id ?> ">
+				<tr class="tb_content">
+					<td id="prs_link"> <a id="blah" href="project.php?&id= <?php echo $project_id ?> ">
 
 						 <?php echo $title      ?> </a></td>
 					<td> <?php echo $project_id ?> </td>
@@ -110,7 +106,7 @@ require("includes/common/cabecera_OG.php");?>
 		}?>
 				</tbody>
 				</table>
-			<?php $dao_user->disconnect(); ?>
+			<?php $dao_user->disconnect();?>
 
             </div>
         </div>

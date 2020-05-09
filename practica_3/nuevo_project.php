@@ -39,7 +39,7 @@ require("includes/common/cabecera_OG.php");?>
 
                     if ($_SERVER['REQUEST_METHOD'] != 'POST') {
                         //Falta categoria ?>
-                        <div class="n_pr fb-col box v-center">
+                        <div class="fb-col box v-center" id="n_pr">
                             <form action="" method="post">
                                 <div class= "t2 text-center">
                                     <h2> Creación de un nuevo proyecto</h2>
@@ -53,7 +53,7 @@ require("includes/common/cabecera_OG.php");?>
                                 <p>Lenguaje:</p> <textarea class="field" name="lenguaje" rows="2"></textarea>
                                 <p>Privado: <input type="checkbox" name="privado"></span></p> 
                                 <p>Archivo: <input type="file" name="archivo" value="archivo"/></p>
-                                <p class="submit-center"><input type="submit" value="Subir"class="field v-center"/></p>
+                                <p id="submit-center"><input type="submit" value="Subir"class="field v-center"/></p>
                                 </div>
                             </form> 
                         </div><?php
