@@ -39,6 +39,7 @@ require("includes/common/cabecera_OG.php");?>
             <h1>Foro</h1>
             </div>
             <div class = "b1">
+<<<<<<< HEAD
                 <div class = "fb-row jc_space-between v-center" id = "posts">
                     <div class="nav_i " id="btn_foro">
                     <a  href="nuevo_post.php">Nuevo Post</a>
@@ -46,11 +47,20 @@ require("includes/common/cabecera_OG.php");?>
                     </div>
         
                     <form action="search.php" method="POST" id = "foro_barra_busqueda" class="fb-row" >
+=======
+                <div class = "fb-row">
+                    <form action="search.php" method="POST">
+>>>>>>> 0d80d7ece4bd2532e1cec5265ce6cfb15a7fb5ec
                         <input type="text" name="buscar" placeholder="Buscar en posts">
                         <div>
                             <button  type="submit" name="submit-buscar" href="search.php">Buscar </button>
                         </div>                        
                     </form>
+
+                    <div class="nav_i " id="nav_nuevo_pr">
+                    <a class="botonForo" href="nuevo_post.php">Nuevo Post</a>
+                    </div>
+
                 </div>
            
                 
