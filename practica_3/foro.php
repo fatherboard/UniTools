@@ -12,29 +12,42 @@ include_once("dao/dao_respuesta.php");
 <html>
 
 <head>
-    <link rel="stylesheet" type="text/css" href="css/forum.css">
-    <title>INDEX</title>
+        <title>INDEX</title>
     <meta charset="UTF-8">
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300;1,100;0,200&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="css/hoja_OG.css">
+    <link rel="stylesheet" type="text/css" href="css/side_OG.css">
+    <link rel="stylesheet" type="text/css" href="css/cabecera_OG.css">
+    <link rel="stylesheet" type="text/css" href="css/content_OG.css">
 </head>
 
 <body>
+ <div class="contenedor">
 
-    <div id="contenedor">
+<?php //class="side_menu"
+require("includes/common/navegacion_OG.php");?>
 
-        <?php
-        require("includes/common/cabecera.php");
-        require("includes/common/navegacion.php");
-        ?>
+<?php //class="cabecera"
+require("includes/common/cabecera_OG.php");?>
 
-        <div id="contenido">
+<div class="contenido">
             <div class="cotenido">
-                <a class="botonForo" href="nuevo_post.php">Nuevo Post</a>
-                 <p></p>
+            <div class="fb-col box" id="prs_g">
+		    <div class="t1 fb-row" >
+            <h1>Foro</h1>
+            </div>
+            <div class = "b1">
+            <ul class="nav_iconos">
+                <a class="nuevoPost flex_c" href="nuevo_post.php">Nuevo Post</a>
+                </ul>
+    
                  <form action="search.php" method="POST">
                     <input type="text" name="buscar" placeholder="Buscar">
                     <button type="submit" name="submit-buscar" href="search.php">Buscar </button>
                 </form>
-		<p></p>
+		
                 <?php
 
 
@@ -79,12 +92,9 @@ include_once("dao/dao_respuesta.php");
             </div>
         </div>
 
-        <?php
-        //muerte temporal del footer
-        //require("includes/common/pie.php") ; 
-        ?>
 
-
+        </div>
+    
     </div> <!-- Fin del contenedor -->
 
 </body>
