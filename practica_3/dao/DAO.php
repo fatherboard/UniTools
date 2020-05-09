@@ -12,9 +12,11 @@ class DAO {
 		if (!$this->conn){
 			
 			if(isset($_SESSION['admin']) && $_SESSION['admin']){
+				// aqui vamos a tener que cambiar para la VPS, habra que poner de usuario Admin y de contraseña Administrador
+				// puede que tambien haya problemas al poner ¨localhost¨ si no usamos xampp y lo que queremos es usar el VPS
 				$this->conn = mysqli_connect("localhost", "root", "", "unitoolsdb");
 			}else{
-				$this->conn = mysqli_connect("localhost", "Usuario", "", "unitoolsdb");
+				$this->conn = mysqli_connect("localhost", "Usuario", "User", "unitoolsdb");
 			}
 		
 			if( mysqli_connect_error ()){
