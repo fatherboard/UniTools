@@ -397,7 +397,7 @@ table#prs {
   width: 79%;
 }
 
-/*-- FORO  n_pr*/
+/*-- FORO  foro*/
 
 #posts {
   padding-left: 0;
@@ -435,10 +435,7 @@ table#prs {
   color: rgb(255, 173, 118);
 }
 
-#foro_barra_busqueda {
-}
-
-/*-- NUEVO POST  n_pr*/
+/*-- NUEVO POST  n_p*/
 
 #n_p form {
   align-items: right;
