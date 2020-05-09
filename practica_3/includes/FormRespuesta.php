@@ -14,14 +14,17 @@ class FormRespuesta extends Form {
 
 	protected function generaCampos(){
 		$html = 
-		'<div class="fb-col box v-center" id="n_pr">
-			<fieldset class="fb-col field v-center" id="n_pr">
-				<div >
-					<label>Respuesta:</label> 
-					<input class="control" type="text" name="contenido"/>
+		'<div class="fb-col box v-center" id="form_reply">
+			<div>
+				<div class="t2 fb-row">
+					<p>Respuesta:</p> 
+					<button class="submit-center" type="submit" name="enviar">Enviar</button>
 				</div>
-				<button type="submit" name="enviar">Enviar</button>
-			</fieldset>
+
+				<div class="b2">
+					<textarea class="field" type="text" name="contenido"></textarea>
+				</div>
+			</div>
 		</div>';
 		return $html;
 	}

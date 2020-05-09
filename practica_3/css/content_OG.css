@@ -229,6 +229,10 @@ tr:nth-child(odd) {
   justify-content: space-between;
 }
 
+.submit-center {
+  margin: 0.8rem 0;
+}
+
 /*GREEN
 .box .t1 .cgreen,
 .box .t2 .cgreen {
@@ -385,18 +389,13 @@ table#prs {
   text-align: left;
 }
 
-#n_pr #submit-center {
-  text-align: center;
-  margin: 0.5rem 0;
-}
-
 #n_pr .tittle-row {
   padding-top: 0.8rem;
   margin-left: 1rem;
   width: 79%;
 }
 
-/*-- FORO  n_pr*/
+/*-- FORO  fr*/
 
 #posts {
   padding-left: 0;
@@ -433,13 +432,8 @@ table#prs {
 #btn_for_buscar a:hover {
   color: rgb(255, 173, 118);
 }
-<<<<<<< HEAD
 
-#foro_barra_busqueda {
-}
-
-
-/*-- NUEVO POST  n_pr*/
+/*-- NUEVO POST  n_post*/
 #nuevoPost_btn {
   background-color: #6732fa;
   border: 1px solid #7e50fb;
@@ -452,14 +446,13 @@ table#prs {
   height: 2rem;
 }
 
-#nuevopost label{
+#nuevopost label {
   width: 200px;
   display: inline-block;
   text-align: right;
-  
 }
 
-#enviar_btn{
+#enviar_btn {
   background-color: #6732fa;
   border: 1px solid #7e50fb;
   width: fit-content;
@@ -471,12 +464,30 @@ table#prs {
   height: 2rem;
   margin-right: 5px;
   margin-bottom: 5px;
-  
 }
 
+/*----------------------------------------------INCLUDES------------------------------------------------------------*/
 
+/*FormRespuesta -> form_res*/
 
+#form_reply label {
+  align-items: right;
+}
 
+#form_reply button {
+  margin-right: 0;
+}
+#form_reply textarea {
+  padding: 0.5rem 0.5rem 0;
+  width: 100%;
+}
+#form_reply p {
+  margin: 1rem;
+  text-align: left;
+}
 
-=======
->>>>>>> ec6aa06eb176f1249412089da2d5dd6ec0b563fb
+#form_reply .tittle-row {
+  padding-top: 0.8rem;
+  margin-left: 1rem;
+  width: 79%;
+}
