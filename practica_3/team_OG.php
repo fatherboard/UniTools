@@ -30,11 +30,16 @@ require("includes/common/navegacion_OG.php");?>
 require("includes/common/cabecera_OG.php");?>
 
 <div class="contenido">
-    <div class="wrapper">
+   
+    <div class="box">
          <div class="fb-col box" id="prs_g">
 		    <div class="t1 fb-row" >
-			<h1>Nuestro equipo</h1>
-		    </div>
+			<h1>Nuestro equipo  </h1>
+            </div>
+        <div class="b1">
+        <p>Aquí encontrarás información sobre nuestros miembros y compenentes.</p>
+
+        </div>
         <div class="team">
             <div class="team_member">
                 <div class="team_img">
@@ -84,6 +89,8 @@ require("includes/common/cabecera_OG.php");?>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est quaerat tempora, voluptatum quas facere dolorum aut cumque nihil nulla harum nemo distinctio quam blanditiis dignissimos.</p>
             </div>
         </div>
+        
+    
     </div>
 
     <div class="social">
