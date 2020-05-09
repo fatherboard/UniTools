@@ -52,7 +52,8 @@ ul {
   border-radius: 2rem;
 }
 
-.btn a {
+.btn a,
+.btn button {
   display: block;
   padding: 1rem;
   color: rgb(255, 255, 255);
@@ -448,13 +449,16 @@ table#prs {
 #n_p form {
   align-items: right;
 }
+
 #n_p {
   width: auto;
 }
+
 #n_p textarea {
   padding: 0.5rem 0.5rem 0;
   width: 100%;
 }
+
 #n_p p {
   margin: 0;
   text-align: left;
@@ -497,7 +501,6 @@ table#prs {
 }
 
 /*----------------------------------------------INCLUDES------------------------------------------------------------*/
-
 /*FormRespuesta -> form_res*/
 
 #form_reply label {
@@ -507,12 +510,14 @@ table#prs {
 #form_reply button {
   margin-right: 0;
 }
+
 #form_reply textarea {
   padding: 0.5rem 0.5rem 0;
   width: 100%;
 }
+
 #form_reply p {
-  margin: 1rem;
+  margin: 1rem 1rem 1rem 0;
   text-align: left;
 }
 
@@ -520,4 +525,17 @@ table#prs {
   padding-top: 0.8rem;
   margin-left: 1rem;
   width: 79%;
+}
+
+#btn_form_reply {
+  background-color: #d4a610;
+  border: 1px solid #6e4801;
+  width: fit-content;
+  color: white;
+  border-radius: 5rem;
+  cursor: pointer;
+}
+
+#btn_form_reply :hover {
+  color: rgb(255, 173, 118);
 }
