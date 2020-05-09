@@ -32,7 +32,7 @@ require("includes/common/navegacion_OG.php");?>
 require("includes/common/cabecera_OG.php");?>
 
 <div class="contenido">
-	<div class="fb-col prs">
+	<div class="fb-col" id="prs_g">
 		<div class="nav_i nav_nuevo_pr">
 				<a class="botonForo" href="nuevo_project.php">Nuevo Proyecto</a>
 		</div>
@@ -49,8 +49,8 @@ require("includes/common/cabecera_OG.php");?>
                 $res = $dao_project->show_all_data();
 				?>
 
-			 <table id='t01' style='width:100%'>
-				<tr class="tb_header">
+			 <table id='prs'>
+				<tr class="round">
 					<th>ID del Proyecto</th>
 					<th>Titulo</th>
 					<th>Usuario</th>
@@ -91,7 +91,7 @@ require("includes/common/cabecera_OG.php");?>
 		    else {
 		    	$candado = "EN EDICIÓN";
 		    }?>
-				<tr class="tb_content">
+				<tr>
 					<td id="prs_link"> <a id="blah" href="project.php?&id= <?php echo $project_id ?> ">
 
 						 <?php echo $title      ?> </a></td>

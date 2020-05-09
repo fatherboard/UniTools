@@ -151,21 +151,6 @@ table {
   margin: 2rem 0;
 }
 
-/*
-.prs tbody {
-  border-radius: 3rem;
-}
-
-
-tr:first-child {
-  border-radius: 5rem 5rem 0 0;
-}
-
-table tr:last-child {
-  border-radius: 0 0 5rem 5rem;
-}
-*/
-
 table,
 th,
 td {
@@ -179,17 +164,17 @@ td {
   padding: 0.5rem;
 }
 
-table#t01 tr:nth-child(even) {
+th {
+  background-color: #e0d7f0;
+  color: black;
+}
+
+tr:nth-child(even) {
   background-color: rgb(200, 200, 200);
 }
 
-table#t01 tr:nth-child(odd) {
+tr:nth-child(odd) {
   background-color: rgb(131, 130, 130);
-}
-
-table#t01 th {
-  background-color: #975cf6;
-  color: black;
 }
 
 /*positioning*/
@@ -282,7 +267,7 @@ table#t01 th {
 }
 
 /*PROYECTOS prs*/
-.prs {
+#prs_g {
   margin: 2rem 1.5rem 0;
 }
 .nav_nuevo_pr {
@@ -298,6 +283,28 @@ table#t01 th {
 
 .nav_nuevo_pr a:hover {
   color: rgb(255, 173, 118);
+}
+
+.round {
+  border-radius: 5rem;
+}
+
+table#prs {
+  color: black;
+  width: 100%;
+}
+
+#prs tbody {
+  border-radius: 3rem;
+  background-color: powderblue;
+}
+
+table#prs tr:first-child {
+  border-radius: 5rem 5rem 0 0;
+}
+
+table tr:last-child {
+  border-radius: 0 0 5rem 5rem;
 }
 
 #prs_link {
@@ -316,6 +323,10 @@ table#t01 th {
   color: rgb(0, 19, 128);
   background-color: pink;
   display: block;
+}
+
+th {
+  background-color: #da9921;
 }
 /*PROYECTO pr*/
 
