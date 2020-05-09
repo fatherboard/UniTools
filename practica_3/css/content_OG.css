@@ -301,6 +301,7 @@ tr:nth-child(odd) {
 #prs_g {
   margin: 2rem 1.5rem 0;
 }
+
 #btn_nuevo_pr {
   background-color: #6732fa;
   border: 1px solid #7e50fb;
@@ -347,23 +348,23 @@ table#prs {
 #prs th {
   background-color: #437be4;
 }
-/*PROYECTO pr*/
 
+/*--PROYECTO pr*/
 #btn_pr {
-  background-color: #67f842;
-  border: 1px solid #14ad21;
+  background-color: #1cecec;
+  border: 1px solid #1854f6;
   width: 5rem;
   margin-top: 0.2rem;
-}
 
-#btn_pr a {
   padding: 0.2rem 0.4rem;
   margin-left: left;
+  cursor: pointer;
 }
 
-#btn_pr a:hover {
-  color: rgb(51, 243, 185);
+#btn_pr:hover {
+  background-color: rgb(35, 155, 119);
 }
+
 /*--NUEVOS PROYECTOS n_pr*/
 #n_pr form {
   align-items: right;
@@ -427,7 +428,4 @@ table#prs {
 
 #btn_for_buscar a:hover {
   color: rgb(255, 173, 118);
-}
-
-#foro_barra_busqueda {
 }

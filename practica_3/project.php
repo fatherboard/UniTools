@@ -60,7 +60,8 @@ require("includes/common/cabecera_OG.php");?>
 					$candado = "OFF";
 				}
 				?>
-				<div class="fb-col box" id="prs_g">
+				<div class="fb-col box">
+
 					<div class="t1 fb-row" >
 						<h1>Proyecto</h1>
 					</div>
@@ -98,8 +99,8 @@ require("includes/common/cabecera_OG.php");?>
 				$dao_user->disconnect();?>
 
 				<button class="btn" id="btn_pr" onclick="location.href='editar_proj.php?proj= <?php echo $proj_id ?> ">Editar</button>
-</div>
-				</div> 
+				</div>
+			</div> 
 	</div>		
 </div> <!-- Fin del contenedor -->
 
