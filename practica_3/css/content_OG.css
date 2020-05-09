@@ -564,7 +564,7 @@ table#prs {
   background-color: #6732fa;
   border: 1px solid #7e50fb;
   width: fit-content;
-  margin-top: 0.2rem 0, 0, 0.2rem;
+  margin: 0.8rem 0 0 0.2rem;
   color: white;
   border-radius: 5rem;
   cursor: pointer;
