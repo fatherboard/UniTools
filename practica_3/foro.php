@@ -39,15 +39,19 @@ require("includes/common/cabecera_OG.php");?>
             <h1>Foro</h1>
             </div>
             <div class = "b1">
-            <ul class="nav_iconos">
-                <a class="nuevoPost flex_c" href="nuevo_post.php">Nuevo Post</a>
-                </ul>
-    
-                 <form action="search.php" method="POST">
-                    <input type="text" name="buscar" placeholder="Buscar">
-                    <button type="submit" name="submit-buscar" href="search.php">Buscar </button>
-                </form>
-		
+                <div class = "posts">
+                    <div class="nav_i " id="nav_nuevo_pr">
+                    <a class="botonForo" href="nuevo_post.php">Nuevo Post</a>
+                    
+                    </div>
+        
+                    <form action="search.php" method="POST">
+                        <input type="text" name="buscar" placeholder="Buscar en posts">
+                        <button type="submit" name="submit-buscar" href="search.php">Buscar </button>
+                    </form>
+                </div>
+           
+                
                 <?php
 
 
