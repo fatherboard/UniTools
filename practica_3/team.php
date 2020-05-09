@@ -41,7 +41,7 @@ require("includes/common/cabecera_OG.php");?>
         </div>
 
         
-        <div class="fb-row jc_space-between" id="team">
+        <div class="fb-row jc_space-around" id="team">
             <div class="team_member">
                 <div class="team_img">
                     <img src="img/fotosTeam/hugo.png" alt="Team_image">
@@ -71,7 +71,7 @@ require("includes/common/cabecera_OG.php");?>
                  </div>
                 <h3>Luis Cepeda</h3>
                 <p class="role">Anonimous calvo</p>
-                <p>Futuro ingeniero informático ---</p>
+                <p>"A veces </p>
             </div>
             <div class="team_member">
                 <div class="team_img">

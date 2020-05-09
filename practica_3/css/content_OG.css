@@ -229,7 +229,7 @@ tr:nth-child(odd) {
   justify-content: space-between;
 }
 
-.jc_space-between {
+.jc_space-around {
   justify-content: space-around;
 }
 
