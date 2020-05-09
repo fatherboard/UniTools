@@ -34,32 +34,63 @@ require("includes/common/navegacion_OG.php");?>
 require("includes/common/cabecera_OG.php");?>
 
     <div class="contenido">
-      <div class="cotenido">
-        <div class="fb-col box" id="prs_g">
-          <div class="t1 fb-row">
-            <h1>Nuevo Post</h1>
-          </div>
-          <div class = "b1">
-          <?php
+      <?php
             if (isset($_SESSION['login'])) {
                 if ($_SESSION['login']) {
 
                     if ($_SERVER['REQUEST_METHOD'] != 'POST') {
                         ?>
-                        
-                        <div id = "nuevopost">
-                            <form action="" method="post">
-                            <label for="titulo">Titulo: </label>
-                            <textarea type="text" name="titulo" placeholder = "Escribe un título"></textarea>
-                            <label for="titulo">Contenido: </label>
-                            <textarea class="inputPost" name="contenido" placeholder = "Escribe un contenido"></textarea>
-                
-                            <input type="submit" id = "nuevoPost_btn" class = "fb-center"> </input>
-                        </form>
+
+                <div class="fb-col box v-center" id="n_p">
+                <form action="" method="post">
+                    <div class="t2 text-center">
+                    <h1>Nuevo Post</h1>
                     </div>
-                        
-                        
-                        <?php
+                    <div class="b2 text-center">
+              <div class="fb-row">
+                <p>Título: <textarea class="field tittle-row" name="titulo" rows="1"
+                    placeholder="Escribe un título"></textarea>
+              </div>
+              <p>Contenido:</p> <textarea class="field" name="contenido" rows="2"
+                placeholder="Escribe un contenido"></textarea>
+                <p id = "submit-center"><input type="submit" id = "btn_enviar_npost" value="Enviar" class="field v-center" /></p>
+                
+              
+            </form>
+          </div>
+
+
+
+
+          <!--
+
+                        <div class="fb-col box v-center" id="n_pr">
+                            <form action="" method="post">
+                                <div class= "t2 text-center">
+                                    <h2> Creación de un nuevo proyecto</h2>
+                                </div>
+
+                                <div class="b2 text-center">
+                                    <div class="fb-row">
+                                    <p>Título:</p> <textarea class="field tittle-row" name="titulo" rows="1"></textarea> 
+                                    </div>
+                                <p>Contenido:</p> <textarea class="field" name="contenido" rows="2" ></textarea>
+                                <p>Lenguaje:</p> <textarea class="field" name="lenguaje" rows="2"></textarea>
+                                <p>Privado: <input type="checkbox" name="privado"></span></p> 
+                                <p>Archivo: <input type="file" name="archivo" value="archivo"/></p>
+                                <p id="submit-center"><input type="submit" value="Subir"class="field v-center"/></p>
+                                </div>
+                            </form> 
+                        </div>
+
+
+
+
+
+                    -->
+
+
+          <?php
                     } else {
 
                         //the form has been posted, so save it
@@ -98,18 +129,18 @@ require("includes/common/cabecera_OG.php");?>
 
 
 
-          </div>
-
-
-          
         </div>
 
-        <?php
+
+
+      </div>
+
+      <?php
         //muerte temporal del footer
         //require("includes/common/pie.php") ; 
         ?>
 
 
-      </div> <!-- Fin del contenedor -->
+    </div> <!-- Fin del contenedor -->
 
 </body>

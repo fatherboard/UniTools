@@ -433,7 +433,6 @@ table#prs {
 #btn_for_buscar a:hover {
   color: rgb(255, 173, 118);
 }
-<<<<<<< HEAD
 
 #foro_barra_busqueda {
 }
@@ -441,15 +440,8 @@ table#prs {
 
 /*-- NUEVO POST  n_pr*/
 #nuevoPost_btn {
-  background-color: #6732fa;
-  border: 1px solid #7e50fb;
-  width: fit-content;
-  margin-top: 0.2rem;
-  margin-left: 0.2rem;
-  color: white;
-  border-radius: 5rem;
-  cursor: pointer;
-  height: 2rem;
+  text-align: center;
+  margin: 0.5rem 0;
 }
 
 #nuevopost label{
@@ -459,7 +451,34 @@ table#prs {
   
 }
 
-#enviar_btn{
+
+#n_p form {
+  align-items: right;
+}
+#n_p {
+  width: auto;
+}
+#n_p textarea {
+  padding: 0.5rem 0.5rem 0;
+  width: 100%;
+}
+#n_p p {
+  margin: 0;
+  text-align: left;
+}
+
+#n_p #submit-center {
+  text-align: center;
+  margin: 0.5rem 0;
+}
+
+#n_p .tittle-row {
+  padding-top: 0.8rem;
+  margin-left: 1rem;
+  width: 79%;
+}
+
+#btn_enviar_npost {
   background-color: #6732fa;
   border: 1px solid #7e50fb;
   width: fit-content;
@@ -469,14 +488,15 @@ table#prs {
   border-radius: 5rem;
   cursor: pointer;
   height: 2rem;
-  margin-right: 5px;
-  margin-bottom: 5px;
-  
 }
 
 
+#btn_enviar_npost :hover {
+  color: rgb(255, 173, 118);
+}
 
+#n_p #submit-center {
+  text-align: center;
+  margin: 0.5rem 0;
+}
 
-
-=======
->>>>>>> ec6aa06eb176f1249412089da2d5dd6ec0b563fb
