@@ -561,7 +561,18 @@ table#prs {
 }
 
 #form_reply button {
-  margin-right: 0;
+  background-color: #6732fa;
+  border: 1px solid #7e50fb;
+  width: fit-content;
+  margin-top: 0.2rem 0, 0, 0.2rem;
+  color: white;
+  border-radius: 5rem;
+  cursor: pointer;
+  height: 2rem;
+}
+
+#form_reply button:hover {
+  color: rgb(255, 173, 118);
 }
 
 #form_reply textarea {
