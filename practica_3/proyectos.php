@@ -34,7 +34,7 @@ require("includes/common/cabecera_OG.php");?>
 <div class="contenido">
 	<div class="fb-col box" id="prs_g">
 		<div class="t1 fb-row" >
-			<h1>Foro</h1>
+			<h1>Proyectos</h1>
 		</div>
 		<div class="b1">
 			<div class="nav_i" id="nav_nuevo_pr">
