@@ -47,12 +47,14 @@ require("includes/common/cabecera_OG.php");?>
                     <h1>Nuevo Post</h1>
                     </div>
                     <div class="b2 text-center">
-              <div class="fb-row">
-                <p>Título: <textarea class="field tittle-row" name="titulo" rows="1"
-                    placeholder="Escribe un título"></textarea>
-              </div>
-              <p>Contenido:</p> <textarea class="field" name="contenido" rows="2"
+                    <div class="fb-row">
+                    <p>Título del nuevo post: <textarea class="field tittle-row" name="titulo" rows="1" placeholder="Escribe un título"></textarea>       
+                    </div>
+              
+                <div id = "contenido_npost">
+                <p>Contenido:</p> <textarea class="field tittle-row"  name="contenido" rows="2"
                 placeholder="Escribe un contenido"></textarea>
+                </div>
                 <p id = "submit-center"><input type="submit" id = "btn_enviar_npost" value="Enviar" class="field v-center" /></p>
                 
               

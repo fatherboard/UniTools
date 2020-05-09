@@ -52,8 +52,7 @@ ul {
   border-radius: 2rem;
 }
 
-.btn a,
-.btn button {
+.btn a {
   display: block;
   padding: 1rem;
   color: rgb(255, 255, 255);
@@ -230,10 +229,6 @@ tr:nth-child(odd) {
   justify-content: space-between;
 }
 
-.submit-center {
-  margin: 0.8rem 0;
-}
-
 /*GREEN
 .box .t1 .cgreen,
 .box .t2 .cgreen {
@@ -391,13 +386,18 @@ table#prs {
   text-align: left;
 }
 
+#n_pr #submit-center {
+  text-align: center;
+  margin: 0.5rem 0;
+}
+
 #n_pr .tittle-row {
   padding-top: 0.8rem;
   margin-left: 1rem;
   width: 79%;
 }
 
-/*-- FORO  fr*/
+/*-- FORO  n_pr*/
 
 #posts {
   padding-left: 0;
@@ -435,31 +435,22 @@ table#prs {
   color: rgb(255, 173, 118);
 }
 
-/*-- NUEVO POST  n_post*/
-#nuevoPost_btn {
-  text-align: center;
-  margin: 0.5rem 0;
+#foro_barra_busqueda {
 }
 
-#nuevopost label {
-  width: 200px;
-  display: inline-block;
-  text-align: right;
-}
+/*-- NUEVO POST  n_pr*/
 
 #n_p form {
   align-items: right;
 }
-
 #n_p {
   width: auto;
 }
-
 #n_p textarea {
   padding: 0.5rem 0.5rem 0;
-  width: 100%;
+  width: 50px;
+  height: 50px;
 }
-
 #n_p p {
   margin: 0;
   text-align: left;
@@ -473,7 +464,18 @@ table#prs {
 #n_p .tittle-row {
   padding-top: 0.8rem;
   margin-left: 1rem;
-  width: 79%;
+  width: 90%;
+}
+
+#n_p .contenido-row {
+  padding-top: 0.8rem;
+  margin-left: 1rem;
+  width: 90%;
+}
+
+#n_p .contenido_npost {
+  padding: 0.5rem 0.5rem 0;
+  width: 100%;
 }
 
 #btn_enviar_npost {
@@ -486,10 +488,6 @@ table#prs {
   border-radius: 5rem;
   cursor: pointer;
   height: 2rem;
-  margin-right: 5px;
-  margin-bottom: 5px;
-  margin-right: 5px;
-  margin-bottom: 5px;
 }
 
 #btn_enviar_npost :hover {
@@ -528,17 +526,4 @@ table#prs {
   padding-top: 0.8rem;
   margin-left: 1rem;
   width: 79%;
-}
-
-#btn_form_reply {
-  background-color: #d4a610;
-  border: 1px solid #6e4801;
-  width: fit-content;
-  color: white;
-  border-radius: 5rem;
-  cursor: pointer;
-}
-
-#btn_form_reply :hover {
-  color: rgb(255, 173, 118);
 }
