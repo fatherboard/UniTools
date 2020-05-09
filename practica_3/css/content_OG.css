@@ -469,6 +469,12 @@ table#prs {
   width: 90%;
 }
 
+#n_p .contenido-row {
+  padding-top: 0.8rem;
+  margin-left: 1rem;
+  width: 90%;
+}
+
 #n_p .contenido_npost{
   padding: 0.5rem 0.5rem 0;
   width: 100%;
@@ -495,4 +501,5 @@ table#prs {
   text-align: center;
   margin: 0.5rem 0;
 }
+
 
