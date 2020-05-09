@@ -221,6 +221,17 @@ tr:nth-child(odd) {
   text-align: left;
 }
 
+.jc_space-between {
+  justify-content: space-between;
+}
+
+/*GREEN
+.box .t1 .cgreen,
+.box .t2 .cgreen {
+  background-color: #2dc8ae;
+  color: #fff;
+}
+*/
 /*INICIO*/
 
 /*HERRAMIENTAS          to => tools*/
@@ -378,4 +389,45 @@ table#prs {
   padding-top: 0.8rem;
   margin-left: 1rem;
   width: 79%;
+}
+
+/*-- FORO  n_pr*/
+
+#posts {
+  padding-left: 0;
+}
+
+#btn_foro {
+  background-color: #6732fa;
+  border: 1px solid #7e50fb;
+  width: 10rem;
+  margin-top: 0.2rem;
+}
+
+#btn_foro a {
+  padding: 0.4rem 0.7rem 0.4rem 0.7rem;
+  margin-left: left;
+}
+
+#btn_foro a:hover {
+  color: rgb(255, 173, 118);
+}
+
+#foro_barra_busqueda button {
+  background-color: #6732fa;
+  border: 1px solid #7e50fb;
+  width: fit-content;
+  margin-top: 0.2rem;
+  margin-left: 0.2rem;
+  color: white;
+  border-radius: 5rem;
+  cursor: pointer;
+  height: 2rem;
+}
+
+#btn_for_buscar a:hover {
+  color: rgb(255, 173, 118);
+}
+
+#foro_barra_busqueda {
 }
