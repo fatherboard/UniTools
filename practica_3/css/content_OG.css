@@ -439,17 +439,7 @@ table#prs {
 
 
 /*-- NUEVO POST  n_pr*/
-#nuevoPost_btn {
-  text-align: center;
-  margin: 0.5rem 0;
-}
 
-#nuevopost label{
-  width: 200px;
-  display: inline-block;
-  text-align: right;
-  
-}
 
 
 #n_p form {
@@ -460,7 +450,8 @@ table#prs {
 }
 #n_p textarea {
   padding: 0.5rem 0.5rem 0;
-  width: 100%;
+  width: 50px;
+  height: 50px;
 }
 #n_p p {
   margin: 0;
@@ -475,7 +466,12 @@ table#prs {
 #n_p .tittle-row {
   padding-top: 0.8rem;
   margin-left: 1rem;
-  width: 79%;
+  width: 90%;
+}
+
+#n_p .contenido_npost{
+  padding: 0.5rem 0.5rem 0;
+  width: 100%;
 }
 
 #btn_enviar_npost {
