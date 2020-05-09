@@ -82,6 +82,7 @@ ul {
 }
 
 /*box content*/
+
 .box {
   background-color: transparent;
 
@@ -95,6 +96,8 @@ ul {
   border: 1px solid #e3e6f0;
   padding: 0.4rem 1.25rem;
   margin-bottom: 0;
+  background-color: #f8f9fc;
+  box-shadow: 0 0.5rem 2rem 0 rgba(96, 98, 114, 0.178);
 }
 
 .t1 {
@@ -109,6 +112,7 @@ ul {
   border-bottom-right-radius: 0;
 
   color: #000;
+  box-shadow: 0 0.5rem 2rem 0 rgba(96, 98, 114, 0.178);
   /*color: #2dc8ae;*/
 }
 
@@ -429,3 +433,50 @@ table#prs {
 #btn_for_buscar a:hover {
   color: rgb(255, 173, 118);
 }
+<<<<<<< HEAD
+
+#foro_barra_busqueda {
+}
+
+
+/*-- NUEVO POST  n_pr*/
+#nuevoPost_btn {
+  background-color: #6732fa;
+  border: 1px solid #7e50fb;
+  width: fit-content;
+  margin-top: 0.2rem;
+  margin-left: 0.2rem;
+  color: white;
+  border-radius: 5rem;
+  cursor: pointer;
+  height: 2rem;
+}
+
+#nuevopost label{
+  width: 200px;
+  display: inline-block;
+  text-align: right;
+  
+}
+
+#enviar_btn{
+  background-color: #6732fa;
+  border: 1px solid #7e50fb;
+  width: fit-content;
+  margin-top: 0.2rem;
+  margin-left: 0.2rem;
+  color: white;
+  border-radius: 5rem;
+  cursor: pointer;
+  height: 2rem;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  
+}
+
+
+
+
+
+=======
+>>>>>>> ec6aa06eb176f1249412089da2d5dd6ec0b563fb

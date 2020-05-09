@@ -13,10 +13,16 @@ class FormRespuesta extends Form {
 	}
 
 	protected function generaCampos(){
-		$html = '<fieldset>';
-		$html .= '<div><label>Respuesta:</label> <input class="control" type="text" name="contenido"/></div>';
-		$html .= '<button type="submit" name="enviar">Enviar</button>';
-		$html .= '</fieldset>';
+		$html = 
+		'<div class="fb-col box v-center" id="n_pr">
+			<fieldset class="fb-col field v-center" id="n_pr">
+				<div >
+					<label>Respuesta:</label> 
+					<input class="control" type="text" name="contenido"/>
+				</div>
+				<button type="submit" name="enviar">Enviar</button>
+			</fieldset>
+		</div>';
 		return $html;
 	}
 

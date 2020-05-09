@@ -76,7 +76,7 @@ include_once("dao/dao_user.php");
 				$curr_resp = array_shift($res);
 				$resp_id = $curr_resp->get_id();
 				$post_id = $curr_resp->get_post(); // id del post
-				$usuario = $dao_user->search_userId($curr_resp->get_user());
+				
 				$date = $curr_resp->get_date();
 				$comentario = $curr_resp->get_content();
 
@@ -104,7 +104,7 @@ include_once("dao/dao_user.php");
 					$nest_resp = array_shift($nested);
 					$resp_id = $nest_resp->get_id();
 					$post_id = $nest_resp->get_post(); // id del post
-					$user = $nest_resp->get_user();
+					$usuario = $dao_user->search_userId($nest_resp->get_user());
 					$date = $nest_resp->get_date();
 					$comentario = $nest_resp->get_content();
 

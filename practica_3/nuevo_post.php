@@ -12,34 +12,56 @@ include_once("dao/dao_user.php");
 <html>
 
 <head>
-    <link rel="stylesheet" type="text/css" href="css/hoja.css">
-    <title>INDEX</title>
-    <meta charset="UTF-8">
+  <title>INDEX</title>
+  <meta charset="UTF-8">
+
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300;1,100;0,200&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" href="css/hoja_OG.css">
+  <link rel="stylesheet" type="text/css" href="css/side_OG.css">
+  <link rel="stylesheet" type="text/css" href="css/cabecera_OG.css">
+  <link rel="stylesheet" type="text/css" href="css/content_OG.css">
 </head>
 
 <body>
+  <div class="contenedor">
 
-    <div id="contenedor">
+    <?php //class="side_menu"
+require("includes/common/navegacion_OG.php");?>
 
-        <?php
-        require("includes/common/cabecera.php");
-        require("includes/common/navegacion.php");
-        ?>
+    <?php //class="cabecera"
+require("includes/common/cabecera_OG.php");?>
 
-        <div id="contenido">
-            <?php
+    <div class="contenido">
+      <div class="cotenido">
+        <div class="fb-col box" id="prs_g">
+          <div class="t1 fb-row">
+            <h1>Nuevo Post</h1>
+          </div>
+          <div class = "b1">
+          <?php
             if (isset($_SESSION['login'])) {
                 if ($_SESSION['login']) {
 
                     if ($_SERVER['REQUEST_METHOD'] != 'POST') {
-                        //Falta categoria
-                        echo '<form action="" method="post">
-            <p>Título: <input type="text" name="titulo" /></p>
-            <p>Contenido: <textarea class="inputPost" name="contenido" ></textarea></p>
-            
-            <p><input type="submit" /></p>
-            </form>';
+                        ?>
+                        
+                        <div id = "nuevopost">
+                            <form action="" method="post">
+                            <label for="titulo">Titulo: </label>
+                            <textarea type="text" name="titulo" placeholder = "Escribe un título"></textarea>
+                            <label for="titulo">Contenido: </label>
+                            <textarea class="inputPost" name="contenido" placeholder = "Escribe un contenido"></textarea>
+                
+                            <input type="submit" id = "nuevoPost_btn" class = "fb-center"> </input>
+                        </form>
+                    </div>
+                        
+                        
+                        <?php
                     } else {
+
                         //the form has been posted, so save it
 
                         $titulo = $_POST['titulo'];
@@ -71,6 +93,15 @@ include_once("dao/dao_user.php");
             }
 
             ?>
+
+
+
+
+
+          </div>
+
+
+          
         </div>
 
         <?php
@@ -79,7 +110,6 @@ include_once("dao/dao_user.php");
         ?>
 
 
-    </div> <!-- Fin del contenedor -->
+      </div> <!-- Fin del contenedor -->
 
 </body>
-
