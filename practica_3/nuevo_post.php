@@ -62,32 +62,7 @@ require("includes/common/cabecera_OG.php");?>
 
 
 
-          <!--
-
-                        <div class="fb-col box v-center" id="n_pr">
-                            <form action="" method="post">
-                                <div class= "t2 text-center">
-                                    <h2> Creación de un nuevo proyecto</h2>
-                                </div>
-
-                                <div class="b2 text-center">
-                                    <div class="fb-row">
-                                    <p>Título:</p> <textarea class="field tittle-row" name="titulo" rows="1"></textarea> 
-                                    </div>
-                                <p>Contenido:</p> <textarea class="field" name="contenido" rows="2" ></textarea>
-                                <p>Lenguaje:</p> <textarea class="field" name="lenguaje" rows="2"></textarea>
-                                <p>Privado: <input type="checkbox" name="privado"></span></p> 
-                                <p>Archivo: <input type="file" name="archivo" value="archivo"/></p>
-                                <p id="submit-center"><input type="submit" value="Subir"class="field v-center"/></p>
-                                </div>
-                            </form> 
-                        </div>
-
-
-
-
-
-                    -->
+       
 
 
           <?php
