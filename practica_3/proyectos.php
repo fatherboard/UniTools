@@ -96,7 +96,7 @@ require("includes/common/cabecera_OG.php");?>
 		    	$candado = "EN EDICIÓN";
 		    }?>
 				<tr>
-					<td id="prs_link"> <a href="project.php?&id= <?php echo $tittle ?> ">
+					<td id="prs_link"> <a href="project.php?&id= <?php echo $proyect_id?> ">
 
 						 <?php echo $title      ?> </a></td>
 					<td> <?php echo $project_id ?> </td>
