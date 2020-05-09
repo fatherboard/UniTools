@@ -82,6 +82,7 @@ ul {
 }
 
 /*box content*/
+
 .box {
   background-color: transparent;
 
@@ -95,6 +96,8 @@ ul {
   border: 1px solid #e3e6f0;
   padding: 0.4rem 1.25rem;
   margin-bottom: 0;
+  background-color: #f8f9fc;
+  box-shadow: 0 0.5rem 2rem 0 rgba(96, 98, 114, 0.178);
 }
 
 .t1 {
@@ -109,6 +112,7 @@ ul {
   border-bottom-right-radius: 0;
 
   color: #000;
+  box-shadow: 0 0.5rem 2rem 0 rgba(96, 98, 114, 0.178);
   /*color: #2dc8ae;*/
 }
 
