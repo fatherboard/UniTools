@@ -32,14 +32,16 @@ require("includes/common/cabecera_OG.php");?>
 <div class="contenido">
    
     <div class="box">
-         <div class="fb-col box" id="prs_g">
+         <div class="fb-col box" id="team_titulo">
 		    <div class="t1 fb-row" >
-			<h1>Nuestro equipo  </h1>
+			    <h1>Nuestro equipo  </h1>
             </div>
         <div class="b1">
-        <p>Aquí encontrarás información sobre nuestros miembros y compenentes.</p>
+            <p>Aquí encontrarás información sobre nuestros miembros y compenentes.</p>
 
         </div>
+
+        
         <div class="team">
             <div class="team_member">
                 <div class="team_img">
@@ -50,43 +52,43 @@ require("includes/common/cabecera_OG.php");?>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est quaerat tempora, voluptatum quas facere dolorum aut cumque nihil nulla harum nemo distinctio quam blanditiis dignissimos.</p>
             </div>
             <div class="team_member">
-            <div class="team_img">
-                <img src="img/fotosTeam/cansek.png" alt="Team_image">
-            </div>
-            <h3>Daniel Canseco</h3>
-            <p class="role">Css noobi</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est quaerat tempora, voluptatum quas facere dolorum aut cumque nihil nulla harum nemo distinctio quam blanditiis dignissimos.</p></div>
+                 <div class="team_img">
+                    <img src="img/fotosTeam/cansek.png" alt="Team_image">
+                 </div>
+                 <h3>Daniel Canseco</h3>
+                 <p class="role">Css noobi</p>
+                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est quaerat tempora, voluptatum quas facere dolorum aut cumque nihil nulla harum nemo distinctio quam blanditiis dignissimos.</p></div>
             <div class="team_member">
-            <div class="team_img">
-                <img src="img/fotosTeam/fer.png" alt="Team_image">
-            </div>
-            <h3>Fernando Ruiz</h3>
-            <p class="role">Steve Job's Son</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est quaerat tempora, voluptatum quas facere dolorum aut cumque nihil nulla harum nemo distinctio quam blanditiis dignissimos.</p>
-            </div>
-            <div class="team_member">
-            <div class="team_img">
-                <img src="img/fotosTeam/cepeda.png" alt="Team_image">
-            </div>
-            <h3>Luis Cepeda</h3>
-            <p class="role">Anonimous calvo</p>
-            <p>Futuro ingeniero informático ---</p>
+                 <div class="team_img">
+                     <img src="img/fotosTeam/fer.png" alt="Team_image">
+                    </div>
+                 <h3>Fernando Ruiz</h3>
+                <p class="role">Steve Job's Son</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est quaerat tempora, voluptatum quas facere dolorum aut cumque nihil nulla harum nemo distinctio quam blanditiis dignissimos.</p>
             </div>
             <div class="team_member">
-            <div class="team_img">
-                <img src="img/fotosTeam/carlos.png" alt="Team_image">
-            </div>
-            <h3>Carlos Bilbao</h3>
-            <p class="role">Black hat</p>
-            <p>"Disfrutando de la creación de esta página web!"</p>
+                 <div class="team_img">
+                      <img src="img/fotosTeam/cepeda.png" alt="Team_image">
+                 </div>
+                <h3>Luis Cepeda</h3>
+                <p class="role">Anonimous calvo</p>
+                <p>Futuro ingeniero informático ---</p>
             </div>
             <div class="team_member">
-            <div class="team_img">
-                <img src="img/fotosTeam/bruno.png" alt="Team_image">
+                <div class="team_img">
+                    <img src="img/fotosTeam/carlos.png" alt="Team_image">
+                </div>
+                <h3>Carlos Bilbao</h3>
+                <p class="role">Black hat</p>
+                <p>"Disfrutando de la creación de esta página web!"</p>
             </div>
-            <h3>Bruno</h3>
-            <p class="role">Your worst nightmare</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est quaerat tempora, voluptatum quas facere dolorum aut cumque nihil nulla harum nemo distinctio quam blanditiis dignissimos.</p>
+            <div class="team_member">
+                <div class="team_img">
+                    <img src="img/fotosTeam/bruno.png" alt="Team_image">
+                </div>
+                <h3>Bruno</h3>
+                <p class="role">Your worst nightmare</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est quaerat tempora, voluptatum quas facere dolorum aut cumque nihil nulla harum nemo distinctio quam blanditiis dignissimos.</p>
             </div>
         </div>
         
@@ -103,7 +105,9 @@ require("includes/common/cabecera_OG.php");?>
     </div>
 	
     </div>
+
 </div>
+
 </body>
 
 </html>
