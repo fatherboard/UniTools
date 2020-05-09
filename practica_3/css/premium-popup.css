@@ -18,6 +18,7 @@ body{
 	background-color: white;
 	width: 500px;
 	max-width: 80%;
+	display: none;
 }
 
 .modal.active{
@@ -142,7 +143,7 @@ p{
 	position: absolute;
 	bottom: 12px;
 	right: 25px;
-	border: 1px solid #27ae60;
+	border: 1px black;
 	border-radius: 3px;
 	color: #27ae60;
 	padding: 8px 10px;
@@ -151,7 +152,7 @@ p{
 }
 
 .close-btn:hover{
-	background: #27ae60;
+	background: #6732fa;
 	color: white;
 	transition: .5s;
 }
@@ -166,7 +167,7 @@ p{
 	right: 15px;
 	height: 50px;
 	background: black;
-	border: 1px solid #26a65b;
+	border: 1px solid #6732fa;
 	color: white;
 	text-align: center;
 	font-size: 22px;
@@ -177,7 +178,7 @@ p{
 }
 
 .click-me:hover{
-	background: #219150;
+	background: #6732fa;
 }
 
 
