@@ -386,8 +386,11 @@ table#prs {
   border: 1px solid #7e50fb;
   width: fit-content;
   margin-top: 0.2rem;
+  margin-left: 0.2rem;
   color: white;
   border-radius: 5rem;
+  cursor: pointer;
+  height: 2rem;
 }
 
 
@@ -396,5 +399,5 @@ table#prs {
 }
 
 #foro_barra_busqueda{
-
+  
 }
