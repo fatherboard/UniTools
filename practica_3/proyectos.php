@@ -32,10 +32,14 @@ require("includes/common/navegacion_OG.php");?>
 require("includes/common/cabecera_OG.php");?>
 
 <div class="contenido">
-	<div class="fb-col" id="prs_g">
-		<div class="nav_i nav_nuevo_pr">
-				<a class="botonForo" href="nuevo_project.php">Nuevo Proyecto</a>
+	<div class="fb-col box" id="prs_g">
+		<div class="t1 fb-row" >
+			<h1>Proyectos</h1>
 		</div>
+		<div class="b1">
+			<div class="nav_i" id="nav_nuevo_pr">
+				<a class="botonForo" href="nuevo_project.php">Nuevo Proyecto</a>
+			</div>
 		<div>
 			<form action="search.php" method="POST">
 						<!-- <input type="text" name="buscar" placeholder="Buscar">-->
@@ -49,10 +53,10 @@ require("includes/common/cabecera_OG.php");?>
                 $res = $dao_project->show_all_data();
 				?>
 
-			 <table id='prs'>
-				<tr class="round">
-					<th>ID del Proyecto</th>
+			 <table id="prs"  class="round">
+				<tr>
 					<th>Titulo</th>
+					<th>ID del Proyecto</th>
 					<th>Usuario</th>
 					<th>Lenguaje</th>
 					<th>Candado</th>
@@ -92,7 +96,7 @@ require("includes/common/cabecera_OG.php");?>
 		    	$candado = "EN EDICIÓN";
 		    }?>
 				<tr>
-					<td id="prs_link"> <a id="blah" href="project.php?&id= <?php echo $project_id ?> ">
+					<td id="prs_link"> <a href="project.php?&id= <?php echo $tittle ?> ">
 
 						 <?php echo $title      ?> </a></td>
 					<td> <?php echo $project_id ?> </td>
@@ -106,6 +110,7 @@ require("includes/common/cabecera_OG.php");?>
 		}?>
 				</tbody>
 				</table>
+				</div>
 			<?php $dao_user->disconnect();?>
 
             </div>

@@ -11,21 +11,27 @@ include_once("dao/dao_user.php");
 <html>
 
 <head>
-	<link rel="stylesheet" type="text/css" href="css/projs.css">
-	<title>INDEX</title>
-	<meta charset="UTF-8">
+        <title>INDEX</title>
+    <meta charset="UTF-8">
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300;1,100;0,200&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="css/hoja_OG.css">
+    <link rel="stylesheet" type="text/css" href="css/side_OG.css">
+    <link rel="stylesheet" type="text/css" href="css/cabecera_OG.css">
+    <link rel="stylesheet" type="text/css" href="css/content_OG.css">
 </head>
 
 <body>
+ <div class="contenedor">
 
-	<div id="contenedor">
+<?php //class="side_menu"
+require("includes/common/navegacion_OG.php");?>
 
-		<?php
-		require("includes/common/cabecera.php");
-		require("includes/common/navegacion.php");
-		?>
+<?php //class="cabecera"
+require("includes/common/cabecera_OG.php");?>
 
-		<div id="contenido">
+<div class="contenido">
 			<?php
 			$proj_data = new TOUproject();
 			$dao_proj = new DAOproject();
@@ -53,47 +59,45 @@ include_once("dao/dao_user.php");
 		    else {
 				$candado = "OFF";
 			}
-
-             echo "<table id='t01' style='width:100%'>";
-             echo "<tr>";
-             //echo "<th>ID del Proyecto</th>";
-             echo "<th>Titulo</th>";
-             echo "<th>Usuario</th>";
-             echo "<th>Lenguaje</th>";
-             echo "<th>Candado</th>";
-             echo "<th>Valoracion</th>";
-             echo "</tr>";  
-             echo "<tr>";
-             echo "<td>". $title ."</td>";
-			 echo "<td>". $username ."</td>";
-			 echo "<td>". $lenguaje ."</td>";
-			 echo "<td>". $candado ."</td>";
-			 echo "<td>". $estrellas ." estrellas </td>";
-			 echo "</tr>";  
-             echo "</table>";    
+			?>
+			<div class="fb-col box" id="prs_g">
+				<div class="t1 fb-row" >
+					<h1>Proyecto</h1>
+				</div>
+				<div class="b1">
+             <table id='t01' style='width:100%'>
+             "<tr>
+             <?php //echo "<th>ID del Proyecto</th>"; ?>
+             <th>Titulo</th>
+             <th>Usuario</th>
+             <th>Lenguaje</th>
+             <th>Candado</th>
+             <th>Valoracion</th>
+            </tr>
+            <tr>
+             <td> <?php echo$title 	  ?></td>
+			 <td> <?php echo$username ?></td>
+			 <td> <?php echo$lenguaje ?></td>
+			 <td> <?php echo$candado  ?></td>
+			 <td> <?php echo$estrellas ?> estrellas </td>
+			</tr>
+             </table>  
              
-             echo "<table id='t01' style='width:100%'>";
-             echo "<tr>";
-             echo "<th> CONTENIDO </th>";
-			 echo "</tr>"; 
-			 echo "<tr>";
-			 echo "<td>" . $contenido . "</td>";
-			 echo "</tr>";
-             echo "</table>"; 
+             <table id='t01' style='width:100%'>
+            <tr>
+            <th> CONTENIDO </th>
+			 </tr>
+			 <tr>
+			<td> <?php echo $contenido ?> </td>
+			 </tr>
+             </table>
      
 			$dao_user->disconnect();
 
 			echo "<p></p><button onclick=\"location.href='editar_proj.php?proj=" . $proj_id . "'\">Editar</button>"
 			?>
 
-		</div>
-
-		<?php
-
-		//muerte temporal del footer
-		//require("includes/common/pie.php") ; 
-		?>
-
+		</div> 
 
 	</div> <!-- Fin del contenedor -->
 
