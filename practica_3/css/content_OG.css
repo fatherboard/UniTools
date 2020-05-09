@@ -231,9 +231,63 @@ ul {
   align-self: flex-start;
 }
 
-/*PROYECTOS*/
+/*PROYECTOS prs*/
+.prs {
+  margin: 2rem 1.5rem 0;
+}
+.nav_nuevo_pr {
+  background-color: #6732fa;
+  border: 1px solid #7e50fb;
+  width: 10rem;
+}
 
-/*--NUEVOS PROYECTOS*/
+.nav_nuevo_pr a {
+  padding: 0.4rem 0.7rem 0.4rem 0.7rem;
+  margin-left: left;
+}
+
+.nav_nuevo_pr a:hover {
+  color: rgb(255, 173, 118);
+}
+
+/*Tabla*/
+.prs table {
+  width: auto;
+  margin: 2rem 0;
+}
+
+.prs tbody {
+}
+
+table,
+th,
+td {
+  border: 1px solid rgb(97, 97, 97);
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 1rem;
+  text-align: left;
+}
+
+table#t01 tr:nth-child(even) {
+  background-color: rgb(200, 200, 200);
+}
+
+table#t01 tr:nth-child(odd) {
+  background-color: rgb(180, 180, 180);
+}
+
+table#t01 th {
+  background-color: #975cf6;
+  color: black;
+}
+
+/*PROYECTO pr*/
+
+/*--NUEVOS PROYECTOS n_pr*/
 .n_pr form {
   align-items: right;
 }

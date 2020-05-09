@@ -67,7 +67,7 @@
   border-bottom-left-radius: 0;
 }
 
-li.nav_i a {
+.nav_i a {
   display: block;
   padding: 1rem;
   color: rgb(255, 255, 255);

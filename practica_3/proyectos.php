@@ -11,62 +11,77 @@ include_once("dao/dao_project.php");
 <html>
 
 <head>
-    <link rel="stylesheet" type="text/css" href="css/projs.css">
-    <title>INDEX</title>
+        <title>INDEX</title>
     <meta charset="UTF-8">
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300;1,100;0,200&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="css/hoja_OG.css">
+    <link rel="stylesheet" type="text/css" href="css/side_OG.css">
+    <link rel="stylesheet" type="text/css" href="css/cabecera_OG.css">
+    <link rel="stylesheet" type="text/css" href="css/content_OG.css">
 </head>
-</head>
+
 <body>
+ <div class="contenedor">
 
-    <div id="contenedor">
+<?php //class="side_menu"
+require("includes/common/navegacion_OG.php");?>
 
-        <?php
-        require("includes/common/cabecera.php");
-        require("includes/common/navegacion.php");
-        ?>
+<?php //class="cabecera"
+require("includes/common/cabecera_OG.php");?>
 
-	<h2>  Proyectos guardados </h2>
-        <div id="contenido">
-            <div class="contenido">
-                <a class="botonForo" href="nuevo_project.php">Nuevo Proyecto</a>
-		<p></p>
-		<form action="search.php" method="POST">
-                    <!-- <input type="text" name="buscar" placeholder="Buscar">-->
-                    <!-- <button type="submit" name="submit-buscar" href="search.php">Buscar </button> -->
-                </form>
-
+<div class="contenido">
+	<div class="fb-col prs">
+		<div class="nav_i nav_nuevo_pr">
+				<a class="botonForo" href="nuevo_project.php">Nuevo Proyecto</a>
+		</div>
+		<div>
+			<form action="search.php" method="POST">
+						<!-- <input type="text" name="buscar" placeholder="Buscar">-->
+						<!-- <button type="submit" name="submit-buscar" href="search.php">Buscar </button> -->
+			</form>
+		</div>
                 <?php
 
                 $dao_project = new DAOproject();
                 $dao_user = new DAOUsuario();
                 $res = $dao_project->show_all_data();
-		
-	         echo "<table id='t01' style='width:100%'>";
-	         echo "<tr>";
-		 //echo "<th>ID del Proyecto</th>";
-		echo "<th>Titulo</th>";
-		echo "<th>Usuario</th>";
-		echo "<th>Lenguaje</th>";
-		echo "<th>Candado</th>";
-		echo "<th>Valoracion</th>";
-		echo "<th>Privacidad</th>";
-		echo "</tr>";	   
+				?>
 
-		while (!empty($res)) {
-                    $curr_proj = array_shift($res);
-		    $project_id = $curr_proj->get_id(); // id del proyecto
-		    $usuario = $dao_user->search_userId($project_id);
-		    $lenguaje = $curr_proj->get_lenguaje();
-                    $title = $curr_proj->get_titulo();
-		            $candado = $curr_proj->get_candado();
-		            $estrellas = $curr_proj->get_estrellas();
-		            $privado = $curr_proj->get_privado();
-		            $priv = "Repositorio publico";
-                    if ($usuario == null) {
-                        $username = "Usuario borrado";
-                    } else {
-                        $username = $usuario->get_username();
-                    }
+			 <table id='t01' style='width:100%'>
+			 <tbody>
+				<tr>
+					<th>ID del Proyecto</th>
+					<th>Titulo</th>
+					<th>Usuario</th>
+					<th>Lenguaje</th>
+					<th>Candado</th>
+					<th>Valoracion</th>
+					<th>Privacidad</th>
+				</tr> 
+			</tbody>
+		<?php
+		while (!empty($res)) 
+		{
+			$curr_proj = array_shift($res);
+			$project_id = $curr_proj->get_id(); // id del proyecto
+			$usuario = $dao_user->search_userId($project_id);
+			$lenguaje = $curr_proj->get_lenguaje();
+			$title = $curr_proj->get_titulo();
+			$candado = $curr_proj->get_candado();
+			$estrellas = $curr_proj->get_estrellas();
+			$privado = $curr_proj->get_privado();
+			$priv = "Repositorio publico";
+
+			if ($usuario == null) 
+			{
+				$username = "Usuario borrado";
+			} 
+			else 
+			{
+				$username = $usuario->get_username();
+			}
 
 		    if ($privado === true){
 		    	$priv = "Repositorio privado (Feature Premium)";
@@ -77,32 +92,28 @@ include_once("dao/dao_project.php");
 		    }
 		    else {
 		    	$candado = "EN EDICIÓN";
-		    }
-			
-		    echo "<tr>";
-		    echo "<td>" . "<a href=\"project.php?&id=" . $project_id . "\">" . $title . "</a></td>";
-		    
-		    //echo "<td>" . $project_id ."</td>";
-		 echo "<td>" . $username   . "</td>";
-                   echo "<td>" . $lenguaje   . "</td>";
-                   echo "<td>" . $candado    . "</td>";
-		 echo "<td>" .  $estrellas . " estrellas </td>";
-		 echo "<td>" . $priv .  "</td>";
-		 echo "</tr>";
+		    }?>
+				<tbody class="content">
+				 
+				<tr>
+					<td> <a href="project.php?&id= <?php echo $project_id ?> ">
 
-		}
-		echo "</table>";
-                $dao_user->disconnect();
-                ?>
+						 <?php echo $title      ?> </a></td>
+					<td> <?php echo $project_id ?> </td>
+					<td> <?php echo $username 	?> </td>
+					<td> <?php echo $lenguaje 	?> </td>
+					<td> <?php echo$candado   	?> </td>
+					<td> <?php echo$estrellas 	?> /5 estrellas </td>
+					<td> <?php echo$priv 	  	?></td>
+				</tr>
+		<?php 
+		}?>
+				</tbody>
+				</table>
+			<?php $dao_user->disconnect(); ?>
 
             </div>
         </div>
-
-        <?php
-        //muerte temporal del footer
-        //require("includes/common/pie.php") ; 
-        ?>
-
 
     </div> <!-- Fin del contenedor -->
 
