@@ -8,14 +8,16 @@ class TORespuesta {
 	private $user;
 	private $date;
 	private $content;
+	private $answer_to;
 
-	function __construct($id_respuesta='', $id_post='', $user='', $date='', $content=''){
+	function __construct($id_respuesta='', $id_post='', $user='', $date='', $content='', $answer_to=''){
 
 		$this->id_respuesta = $id_respuesta;
 		$this->id_post = $id_post;
 		$this->user = $user;
 		$this->date = $date;
 		$this->content = $content;
+		$this->answer_to = $answer_to;
 	}
 	
 	/* Set functions (DAO uses)  ################################################################# */
@@ -35,6 +37,11 @@ class TORespuesta {
 	public function set_id_post($id){
 		$this->id_post = $id;
 	}
+
+	public function set_answer($answer_to){
+		$this->answer_to = $answer_to;
+	}
+
 
 	/* Get functions ################################################################# */
 
@@ -69,6 +76,10 @@ class TORespuesta {
 
 	public function get_content(){
 		return $this->content;
+	}
+
+	public function get_answer(){
+		return $this->answer_to;
 	}
 }
 

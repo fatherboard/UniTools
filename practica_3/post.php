@@ -66,7 +66,8 @@ include_once("dao/dao_user.php");
              echo "<td>" . $username . "</td>";
 			 echo "<td>". $contenido ."</td>";
 			 echo "</tr>";  
-             echo "</table>";    
+			 echo "</table>";  
+			 echo "<button onclick=\"location.href='respuesta.php?post=" . $post_id . "'\">Responder</button>";  
 			 echo "<p></p>";
 			
 			$res = $dao_resp->show_all_answers($id);
@@ -75,7 +76,7 @@ include_once("dao/dao_user.php");
 				$curr_resp = array_shift($res);
 				$resp_id = $curr_resp->get_id();
 				$post_id = $curr_resp->get_post(); // id del post
-				$user = $curr_resp->get_user();
+				$usuario = $dao_user->search_userId($curr_resp->get_user());
 				$date = $curr_resp->get_date();
 				$comentario = $curr_resp->get_content();
 
@@ -89,11 +90,37 @@ include_once("dao/dao_user.php");
 				echo "<tbody>";
 				echo "<tr>";
 				echo "<td>ID: " . $resp_id . "</td>";
-				echo "<td>Usuario: " . $user . "</td>";
+				echo "<td>Usuario: " . $username . "</td>";
 				echo "<td>" . $comentario . "</td>";
+				echo "<td><a href=respuesta.php?post=" . $post_id . "&answer=" . $resp_id . ">Responder</a></td>";
+				echo "</tr>";
+				
+				
 				//echo "<td>Categoría: " . $categoria . "</td>";
 				
-				echo "</tr>";
+				$nested = $dao_resp->show_nested_answers($id,$resp_id);
+
+				while (!empty($nested)) {
+					$nest_resp = array_shift($nested);
+					$resp_id = $nest_resp->get_id();
+					$post_id = $nest_resp->get_post(); // id del post
+					$user = $nest_resp->get_user();
+					$date = $nest_resp->get_date();
+					$comentario = $nest_resp->get_content();
+
+					if ($usuario == null) {
+						$username = "Usuario borrado";
+					} else {
+						$username = $usuario->get_username();
+					}
+
+					echo "<td>ID: " . $resp_id . "</td>";
+					echo "<td>Usuario: " . $username . "</td>";
+					echo "<td>" . $comentario . "</td>";
+					echo "</tr>";
+
+				}
+
 				echo "</tbody>";
 				echo "</table>";
 			}
@@ -101,13 +128,13 @@ include_once("dao/dao_user.php");
 
 
 			//Botón de borrar visible para admins
-			if ($_SESSION['admin']) {
+			if (isset($_SESSION['admin']) && $_SESSION['admin']) {
 				echo "<form action=\"post.php?id=" . $id . "\" method=\"post\">";
     			echo "<input type=\"submit\" name=\"borrarPost\" value=\"Borrar Post\" />";
 				echo "</form>";
 			}
 
-			echo "<button onclick=\"location.href='respuesta.php?post=" . $post_id . "'\">Responder</button>"
+			
 			?>
 
 			
