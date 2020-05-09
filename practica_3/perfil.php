@@ -12,21 +12,34 @@ include_once('dao/dao_user.php');
 <head>
   <link rel="stylesheet" type="text/css" href="css/hoja.css">
   <link rel="stylesheet" type="text/css" href="css/premium-popup.css">
+  <link rel="stylesheet" type="text/css" href="css/hoja_OG.css">
+  <link rel="stylesheet" type="text/css" href="css/side_OG.css">
+  <link rel="stylesheet" type="text/css" href="css/cabecera_OG.css">
+  <link rel="stylesheet" type="text/css" href="css/content_OG.css">
   <script defer src="script/popup.js"></script>
   <title>INDEX</title>
   <meta charset="UTF-8">
 </head>
 
 <body>
+ <div class="contenedor">
 
-  <div id="contenedor">
+<?php //class="side_menu"
+require("includes/common/navegacion_OG.php");?>
 
-    <?php
-    require("includes/common/cabecera.php");
-    require("includes/common/navegacion.php");
-    ?>
+<?php //class="cabecera"
+require("includes/common/cabecera_OG.php");?>
 
-    <div id="contenido">
+<div class="contenido">
+    <div class="fb-col" id="prs_g">
+		<div class="nav_i nav_nuevo_pr">
+
+
+
+
+    
+    </div>
+    </div>
       <?php
 
       $user = new TOUser();
@@ -41,7 +54,7 @@ include_once('dao/dao_user.php');
 
       ?>
 
-
+      
       <body id="per">
 
         <div class="per_columnaIzq">
@@ -49,7 +62,9 @@ include_once('dao/dao_user.php');
             <div class="per_fotocard">
               <img id="per_foto" alt="foto_perfil" src="/UniTools/practica_2/img/Default_user_icon.jpg">
             </div>
-            <p id="p_username"><b> Nombre de ususario: <?php echo $username ?> </b></p>
+            <p id="p_username"><b> Nombre de ususario: <?php  echo $username ?> <br>
+            
+          </b></p>
           </div>
         </div>
         <div class="per_columnaDer">
@@ -63,18 +78,10 @@ include_once('dao/dao_user.php');
             else {
               echo " No... ¡Hazte premium hoy mismo! ";
             }
-
-
-
-
-
-
-
-
             if ($premium == 0) {
+              ?>
 
-
-              echo '<button data-modal-target="#modal" class="click-me">Actualizar a cuenta Premium </button>
+              <button data-modal-target="#modal" class="click-me">Actualizar a cuenta Premium </button>
             <div class="modal" id="modal">
               <div class="modal-header">
                 <div class="title"> Pásate al premium <br></div>
@@ -101,11 +108,12 @@ include_once('dao/dao_user.php');
             </div>
 
 
-            <div id="overlay"></div>';
+            <div id="overlay"></div>
+            <?php
             } else {
-
-              echo '<button data-modal-target="#modal" class="click-me">Cancelar Premium </button>
-              <div class="modal" id="modal">
+              ?>
+              <button data-modal-target="#modal" class="click-me">Cancelar Premium </button>
+            <div class="modal" id="modal">
                 <div class="modal-header">
                   <div class="title"> Cancelar cuenta premium <br></div>
                   <button data-close-button class="close-buttonX"> &times;</button>
@@ -126,17 +134,21 @@ include_once('dao/dao_user.php');
               </div>
               
               
-              <div id="overlay"></div>';
+              <div id="overlay"></div>
+              <?php
             }
 
-            ?>
+           ?>
 
             <br>
           </div> <br>
 
           <!-- current email -->
           <div class="per_card">
-            E-mail: <?php echo $email ?> <br>
+            E-mail: <?php echo $email ?>
+            
+            
+            <br>
           </div> <br>
 
           <!-- current password -->
