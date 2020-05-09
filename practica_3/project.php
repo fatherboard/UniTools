@@ -97,7 +97,7 @@ require("includes/common/cabecera_OG.php");?>
 				<?php
 				$dao_user->disconnect();?>
 
-				<button id="btn_pr" onclick="location.href='editar_proj.php?proj= <?php echo $proj_id ?> ">Editar</button>
+				<button class="btn" id="btn_pr" onclick="location.href='editar_proj.php?proj= <?php echo $proj_id ?> ">Editar</button>
 </div>
 				</div> 
 	</div>		

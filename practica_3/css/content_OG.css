@@ -32,12 +32,34 @@ ul {
 .pag-flex {
   display: flex;
   flex-flow: row wrap;
+
   justify-content: space-around;
   align-items: baseline;
   align-content: flex-start;
 }
 
 /* Clases generales*/
+
+/*botón*/
+
+.btn {
+  color: #fff;
+  border-color: #ffffff;
+
+  display: inline-block;
+  text-align: center;
+  font-size: 1rem;
+  border-radius: 2rem;
+}
+
+.btn a {
+  display: block;
+  padding: 1rem;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  border: none;
+  transition: 0.5s;
+}
 
 /* fc -> Flex content*/
 .fb-center {
@@ -58,8 +80,6 @@ ul {
   flex-flow: row wrap;
   padding-left: 0;
 }
-
-
 
 /*box content*/
 .box {
@@ -201,7 +221,7 @@ tr:nth-child(odd) {
   text-align: left;
 }
 
-.jc_space-between{
+.jc_space-between {
   justify-content: space-between;
 }
 
@@ -281,19 +301,19 @@ tr:nth-child(odd) {
 #prs_g {
   margin: 2rem 1.5rem 0;
 }
-#nav_nuevo_pr {
+#btn_nuevo_pr {
   background-color: #6732fa;
   border: 1px solid #7e50fb;
   width: 10rem;
   margin-top: 0.2rem;
 }
 
-#nav_nuevo_pr a {
+#btn_nuevo_pr a {
   padding: 0.4rem 0.7rem 0.4rem 0.7rem;
   margin-left: left;
 }
 
-#nav_nuevo_pr a:hover {
+#btn_nuevo_pr a:hover {
   color: rgb(255, 173, 118);
 }
 
@@ -329,6 +349,21 @@ table#prs {
 }
 /*PROYECTO pr*/
 
+#btn_pr {
+  background-color: #67f842;
+  border: 1px solid #14ad21;
+  width: 5rem;
+  margin-top: 0.2rem;
+}
+
+#btn_pr a {
+  padding: 0.2rem 0.4rem;
+  margin-left: left;
+}
+
+#btn_pr a:hover {
+  color: rgb(51, 243, 185);
+}
 /*--NUEVOS PROYECTOS n_pr*/
 #n_pr form {
   align-items: right;
@@ -356,13 +391,10 @@ table#prs {
   width: 79%;
 }
 
-
 /*-- FORO  n_pr*/
 
-
-#posts{
+#posts {
   padding-left: 0;
-  
 }
 
 #btn_foro {
@@ -381,7 +413,7 @@ table#prs {
   color: rgb(255, 173, 118);
 }
 
-#foro_barra_busqueda button{
+#foro_barra_busqueda button {
   background-color: #6732fa;
   border: 1px solid #7e50fb;
   width: fit-content;
@@ -393,11 +425,9 @@ table#prs {
   height: 2rem;
 }
 
-
 #btn_for_buscar a:hover {
   color: rgb(255, 173, 118);
 }
 
-#foro_barra_busqueda{
-  
+#foro_barra_busqueda {
 }
