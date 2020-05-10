@@ -71,7 +71,7 @@ require("includes/common/cabecera_OG.php");?>
                  </div>
                 <h3>Luis Cepeda</h3>
                 <p class="role">Joven Promesa</p>
-                <p> Uso el CSS como un estilo, de vida </p>
+                <p> "Uso el CSS como un estilo, de vida" Futuro ingeniero informático, no me pagan lo suficiente... bueno, no me pagan. </p>
             </div>
             <div class="team_member">
                 <div class="team_img">
@@ -79,7 +79,7 @@ require("includes/common/cabecera_OG.php");?>
                 </div>
                 <h3>Carlos Bilbao</h3>
                 <p class="role">Black hat y Grid Senior</p>
-                <p>"Disfrutando de la creación de esta página web! Tenemos muchas ideas para futuras versiones"</p>
+                <p>"¡Disfrutando de la creación de esta página web! Tenemos muchas ideas para futuras versiones"</p>
             </div>
             <div class="team_member">
                 <div class="team_img">

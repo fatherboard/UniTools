@@ -46,7 +46,67 @@ ul {
 }
 */
 
-/*INICIO*/
+/*PERFIL*/
+#perf_info {
+  margin: 2rem 1.5rem 0;
+}
+
+#perf_foto img {
+  border-radius: 5rem;
+}
+
+#perf_datos {
+}
+
+
+.caja{
+  display: flex;
+  width: 100%;
+  margin-top: 2rem;           
+  justify-content: center;
+  align-items: center;
+  }
+
+  .caja .polaroid {
+  margin: 2rem;    
+  width: 20rem;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 25px;
+  }
+
+  .caja .container {
+  text-align: center;
+  padding: 0.5rem 1rem;
+  }
+
+  .caja .carrusel{
+      margin: 1.5rem;
+      width: 40rem;
+  }
+
+  .caja2{                
+  display: flex;
+  width: 97%;
+  margin: 2rem;          
+  justify-content: center;
+  align-items: center;
+  background-image: url("img/img_back/pexels-photo-373883.jpeg"); 
+  }          
+
+  .imgfonfo{      
+    background-image: url('img/img_back/pexels-photo-373883.jpeg');          
+      position: relative;               
+      margin: 2rem;
+  }
+
+  .top-center{
+      position: absolute;
+      top: 10%;
+      left: 50%;
+      transform: transalte(-50%, -50%);
+  }
+
 
 /*HERRAMIENTAS          to => tools*/
 .gr-tools {

@@ -97,15 +97,18 @@ require("includes/common/cabecera_OG.php");?>
 		    	$candado = "EN EDICIÓN";
 		    }?>
 				<tr>
-					<td id="prs_link"> <a href="project.php?&id= <?php echo $project_id?> ">
+				<?php 
+				echo '<td id="prs_link"> <a href="project.php?id=' . $project_id . '">';
+				?>
+					
 
 						 <?php echo $title      ?> </a></td>
 					<td> <?php echo $project_id ?> </td>
 					<td> <?php echo $username 	?> </td>
 					<td> <?php echo $lenguaje 	?> </td>
-					<td> <?php echo$candado   	?> </td>
-					<td> <?php echo$estrellas 	?> /5 estrellas </td>
-					<td> <?php echo$priv 	  	?></td>
+					<td> <?php echo $candado   	?> </td>
+					<td> <?php echo $estrellas 	?> /5 estrellas </td>
+					<td> <?php echo $priv 	  	?></td>
 				</tr>
 		<?php 
 		}?>
