@@ -48,7 +48,7 @@ require("includes/common/cabecera_OG.php");?>
                 </div>
                 <h3>Hugo Martins</h3>
                 <p class="role">Linux Master</p>
-                <p>oy un joven de exóticos origenes, muy ilusionado con este proyecto lleno de ideas innovadoras y mucho futuro.</p>
+                <p>Soy un joven de exóticos origenes, muy ilusionado con este proyecto lleno de ideas innovadoras y mucho futuro.</p>
             </div>
             <div class="team_member">
                  <div class="team_img">
@@ -71,7 +71,7 @@ require("includes/common/cabecera_OG.php");?>
                  </div>
                 <h3>Luis Cepeda</h3>
                 <p class="role">Joven Promesa</p>
-                <p>Futuro ingeniero informático, no me pagan por estar aquí." </p>
+                <p>Futuro ingeniero informático, no me pagan por estar aquí. </p>
             </div>
             <div class="team_member">
                 <div class="team_img">
@@ -87,7 +87,7 @@ require("includes/common/cabecera_OG.php");?>
                 </div>
                 <h3>Bruno</h3>
                 <p class="role">Ingeniero del Software/p>
-                <p>Experto en anime y muy entusiasmado con este proyecto para la asignatura de AW.</p>
+                <p>Experto en Bases de Datos y muy entusiasmado con este proyecto para la asignatura de AW.</p>
             </div>
         </div>
         

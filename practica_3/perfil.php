@@ -59,10 +59,7 @@ require("includes/common/cabecera_OG.php");?>
             }
             else {
               echo '<img class="profilePic" id="per_foto" alt="foto_perfil" src="img/Default_user_icon.jpg">';
-            }
-
-            
-            
+            }            
             ?>
 
               
