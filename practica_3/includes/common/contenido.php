@@ -13,22 +13,32 @@
         
     <style>
 
-    .img{
-        max-width: 100%;
-        height: auto;
-    }
 
-    div.polaroid {
-  width: 80%;
-  background-color: white;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  margin-bottom: 25px;
-}
+            .caja{
+            display: flex;
+            width: 100%;
+            margin-top: 2rem;           
+            justify-content: center;
+            align-items: center;
+            }
 
-div.container {
-  text-align: center;
-  padding: 10px 20px;
-}
+            .caja .polaroid {
+            margin: 2rem;    
+            width: 20rem;
+            background-color: white;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            margin-bottom: 25px;
+            }
+
+            .caja .container {
+            text-align: center;
+            padding: 0.5rem 1rem;
+            }
+
+            .caja .carrusel{
+                margin: 1.5rem;
+                width: 40rem;
+            }
 
     </style>
     
@@ -71,18 +81,21 @@ div.container {
                 </div> 
             </div>
             
-            <div class="box">
+          
+            <div class="caja">
 
-                <div id="foteles" class="text-center">
+                    <div class="carrusel">
+                        <img src ="img/img_back/background-balance-business-commerce-583846.jpg" alt="sube"width="100%">                            
+                    </div>
 
-                   
-                         <img src ="img/img_back/background-balance-business-commerce-583846.jpg" alt="sube"width="500">                            
-                        <img src ="img/img_back/photo-of-person-holding-mobile-phone-3183153.jpg" alt="sube"width="500">                    
-                        <img src ="img/img_back/person-touching-open-macbook-on-table-839465.jpg" alt="sube"width="500">
+                    <div class="carrusel">    
+                        <img src ="img/img_back/photo-of-person-holding-mobile-phone-3183153.jpg" alt="sube"width="100%">                    
+                    </div>
 
+                    <div class="carrusel">    
+                        <img src ="img/img_back/person-touching-open-macbook-on-table-839465.jpg" alt="sube"width="100%">
+                    </div>
                  
-                </div>
-
             </div>
 
             
@@ -120,14 +133,42 @@ div.container {
                 <div id="apartado6"  class="text-center"> 
                     
                
-                      <img src ="img/img_back/pexels-photo-373883.jpeg" alt="foto" width="900">
+                      <img src ="img/img_back/pexels-photo-373883.jpeg" alt="foto" width="100%">
                      
 
                 </div>
             </div>  
                     
                                            
-                
+            <div class="caja">
+                 <div class="polaroid">
+                    <img src="img/img_back/person-using-smartphone-1394940.jpg" alt="5 Terre" style="width:100%">
+                        <div class="container">
+                            <p>Mensajes</p>
+                        </div>
+                    </div>
+
+                    <div class="polaroid">
+                         <img src="img/img_back/floor-plan-on-table-834892.jpg" alt="Norther Lights" style="width:100%">
+                        <div class="container">
+                             <p>Herramientas</p>
+                        </div>
+                    </div>
+
+                    <div class="polaroid">
+                         <img src="img/img_back/apple-business-computer-connection-392018.jpg" alt="Norther Lights" style="width:100%">
+                        <div class="container">
+                             <p>Foro</p>
+                        </div>  
+                    </div>
+
+                    <div class="polaroid">
+                         <img src="img/img_back/close-up-photo-of-laptop-keyboard-4065712.jpg" alt="Norther Lights" style="width:100%">
+                        <div class="container">
+                             <p>Post</p>
+                        </div>
+                    </div>
+            </div>    
                
             
 

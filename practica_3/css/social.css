@@ -8,15 +8,16 @@ background: #262730 url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/93/noise-bg
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    margin-top: 2rem;
 }
 .social > a{
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: center;    
 }
 
-    .fa {
+.fa {
 padding: 20px;
 font-size: 30px;
 width: 30px;
