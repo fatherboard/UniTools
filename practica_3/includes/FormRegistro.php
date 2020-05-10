@@ -50,6 +50,8 @@
             $password2 = $_REQUEST["password2"];
             $premium = 0;
             $admin = 0;
+            $nombre= htmlspecialchars(trim(strip_tags($_REQUEST["nombre"])));
+            $aboutMe='';
             $_SESSION['error_registro'] = [];
 
             if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {  //Se comprueba si el formato del email es correcto, si no, error
@@ -87,7 +89,7 @@
             }
 
             $encrypted = password_hash($password,PASSWORD_BCRYPT); //Creación del hash de la contraseña para su subida
-            $user = new TOUser($id_user, $email, $encrypted, $username, $premium, $admin);
+            $user = new TOUser($id_user, $email, $encrypted, $username, $premium, $admin, $nombre);
 
 
             if (count($_SESSION['error_registro']) == 0)  {
