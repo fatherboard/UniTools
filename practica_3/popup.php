@@ -36,7 +36,6 @@ if (!isset($_SESSION)) {
 
 
 if(isset($_POST['confirm_delete'])) {
-
   echo '<script type="text/javascript">self.close(); opener.location.href = "perfil.php";</script>';
 }
 
