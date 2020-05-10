@@ -39,9 +39,8 @@ require("includes/common/cabecera_OG.php");?>
             <p>Aquí encontrarás información sobre nuestros miembros y compenentes.</p>
 
         </div>
-
         
-        <div class="fb-row jc_space-around" id="team">
+        <div class="team">
             <div class="team_member">
                 <div class="team_img">
                     <img src="img/fotosTeam/hugo.png" alt="Team_image">
@@ -52,11 +51,12 @@ require("includes/common/cabecera_OG.php");?>
             </div>
             <div class="team_member">
                  <div class="team_img">
-                    <img src="img/fotosTeam/dani.png" alt="Team_image">
+                    <img src="img/fotosTeam/cansek.png" alt="Team_image">
                  </div>
                  <h3>Daniel Canseco</h3>
                  <p class="role">Css noobi</p>
-                 <p>"Nunca te rindas, aprende de tus errores"</p></div>
+                 <p>"Aprendiendo de los errores. Nunca te rindas"</p>
+                </div>
             <div class="team_member">
                  <div class="team_img">
                      <img src="img/fotosTeam/fer.png" alt="Team_image">
@@ -70,8 +70,8 @@ require("includes/common/cabecera_OG.php");?>
                       <img src="img/fotosTeam/cepeda.png" alt="Team_image">
                  </div>
                 <h3>Luis Cepeda</h3>
-                <p class="role">Anonimous singer</p>
-                <p>"El CSS es un estilo, de vida" </p>
+                <p class="role">Anonimous calvo</p>
+                <p>Futuro ingeniero informático ---</p>
             </div>
             <div class="team_member">
                 <div class="team_img">

@@ -8,24 +8,24 @@ if (!isset($_SESSION)) {
 <html>
 
 <head>
-    <link rel="stylesheet" type="text/css" href="css/hoja.css">
-    <title>INDEX</title>
+        <title>INDEX</title>
     <meta charset="UTF-8">
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300;1,100;0,200;0,500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="css/hoja_OG.css">
+    <link rel="stylesheet" type="text/css" href="css/content_OG.css">
 </head>
 
-<body>
+<body >
 
-    <div id="contenedor">
+    <div class="contenedor_log_reg c_background">
 
         <?php
-        require("includes/common/cabecera.php");
-        require("includes/common/navegacion.php");
 	    require("includes/FormLogin.php");
-	    ?>
+        ?>
 
-        <div id="contenido">
             <?php
-
             $form = new FormLogin();
             $html = $form->gestiona();
 
@@ -46,17 +46,7 @@ if (!isset($_SESSION)) {
                     echo '</ul>';
                 }
                 unset($_SESSION['error_login']);
-            }
-
-
-            ?>
-        </div>
-
-        <?php
-        //muerte temporal del footer
-        //require("includes/common/pie.php") ; 
-        ?>
-
+            } ?>
 
     </div> <!-- Fin del contenedor -->
 

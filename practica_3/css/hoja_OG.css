@@ -233,11 +233,21 @@ tr:nth-child(odd) {
   justify-content: center;
 }
 
+/*Fondo de pantalla (para login y registro)*/
+.c_background {
+  background-image: linear-gradient(
+    0deg,
+    #e4a8c6 20%,
+    #cf4b8d 50%,
+    #57042e 100%
+  );
+}
 
-.img{
+.img {
   max-width: 100%;
   height: auto;
 }
+
 
 /* temporal */
 .profilePic{

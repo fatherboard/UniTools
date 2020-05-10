@@ -32,8 +32,9 @@ class TOUproject {
 	$this->titulo = $columna['titulo'];;
 	$this->contenido = $columna['contenido'];
 	$this->lenguaje = $columna['lenguaje'];
-        $this->candado = $columna['candado'];
-        $this->estrellas = $columna['estrellas'];
+    $this->candado = $columna['candado'];
+    $this->estrellas = $columna['estrellas'];
+    $this->privado = $columna['privado'];
   }
   
   public function set_user($user){
@@ -72,7 +73,8 @@ public function set_lenguaje($lenguaje){
 		"contenido" => $this->contenido,
 		"lenguaje" => $this->lenguaje,
         "candado" => $this->candado,
-        "estrellas" => $this->estrellas
+        "estrellas" => $this->estrellas,
+        "privado" => $this->privado
 		];
 
 		return $columna;
