@@ -43,7 +43,6 @@ include_once('dao/dao_user.php');
       $premium = $dao_usuario->search_premium($_SESSION['username']);
 
       $username = $_SESSION['username'];
-      $premium = $userData->get_premium();
       $email = $userData->get_email();
       $name = $userData->get_name();
       $aboutMe = $userData->get_aboutMe();

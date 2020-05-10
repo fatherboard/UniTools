@@ -432,6 +432,54 @@ table#prs {
   margin: 0.5rem 0;
 }
 
+/*POSTS RESPUESTAS*/
+
+#title_answ{
+  display: inline-block;
+}
+
+#btn_answ_principal{
+  margin-right: 3.5%;
+  float: right;
+  background-color: #b83174;
+  border: 1px solid #b32069;
+  color: white;
+  width: fit-content;
+  cursor: pointer;
+  margin-top: 0.2rem;
+}
+
+
+#btn_answ button:hover {
+  color: rgb(216, 136, 176);
+}
+
+#btn_answ {
+  width: fit-content;
+  margin-right: 2%;
+  float: right;
+  background-color: #b83174;
+  border: 1px solid #b32069;
+  color: white;
+  cursor: pointer;
+  margin-top: 0.2rem;
+  
+}
+
+#celda_imagen{
+  width: 135px;
+}
+
+#celda_nombre{
+  width: 328px;
+}
+
+/*Estilo de las tablas*/
+
+
+
+
+
 /*LOGIN & REGISTRO*/
 .contenedor_log_reg {
   width: 100%;
