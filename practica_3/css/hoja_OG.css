@@ -247,3 +247,18 @@ tr:nth-child(odd) {
   max-width: 100%;
   height: auto;
 }
+
+
+/* temporal */
+.profilePic{
+  width: 360px;
+  height: 360px;
+}
+
+.forumPic{
+  width: 50px;
+  height: 50px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}

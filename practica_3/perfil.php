@@ -55,10 +55,10 @@ require("includes/common/cabecera_OG.php");?>
             <?php
             $filePath = "img/fotosPerfil/" . $_SESSION['username'] . ".jpg";
             if (file_exists($filePath)) {
-              echo '<img id="per_foto" alt="foto_perfil" src="' . $filePath . '">';
+              echo '<img class="profilePic" id="per_foto" alt="foto_perfil" src="' . $filePath . '">';
             }
             else {
-              echo '<img id="per_foto" alt="foto_perfil" src="img/Default_user_icon.jpg">';
+              echo '<img class="profilePic" id="per_foto" alt="foto_perfil" src="img/Default_user_icon.jpg">';
             }
 
             
