@@ -51,7 +51,7 @@ require("includes/common/cabecera_OG.php");?>
                                     </div>
                                 <p>Contenido:</p> <textarea class="field" name="contenido" rows="2" ></textarea>
                                 <p>Lenguaje:</p> <textarea class="field" name="lenguaje" rows="2"></textarea>
-                                <p>Privado: <input type="checkbox" name="privado"></span></p> 
+                                <p>Privado: <input value ="1" type="checkbox" name="privado"></span></p> 
                                 <p>Archivo: <input type="file" name="archivo" value="archivo"/></p>
                                 <p class="submit-center text-center"><input type="submit" value="Subir"class="field v-center"/></p>
                                 </div>
@@ -72,7 +72,6 @@ require("includes/common/cabecera_OG.php");?>
                         $dao_proj = new DAOproject();
                         $dao_user = new DAOUsuario();
                         $user_id = $dao_user->search_username($_SESSION['username'])->get_id();
-                        $privado = 1;
                         $new_proj = new TOUproject('',$user_id, $titulo, $contenido, $lenguaje, $privado,$candado,3,$file);
 		        	
 			if (!$dao_proj->insert_Project($new_proj)) {

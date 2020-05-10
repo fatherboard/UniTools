@@ -8,7 +8,7 @@ if (!isset($_SESSION)) {
 <html>
 
 <head>
-        <title>INDEX</title>
+    <title>INDEX</title>
     <meta charset="UTF-8">
 
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300;1,100;0,200&display=swap" rel="stylesheet">
@@ -28,22 +28,10 @@ require("includes/common/navegacion_OG.php");?>
 <?php //class="cabecera"
 require("includes/common/cabecera_OG.php");?>
 
-<div class="contenido">
-<div class="fb-col box" id="pg_ms">
-    <div class="t1 fb-row" >
-            <?php
-            echo "<h1>EN CONSTRUCCIÓN</h1>";
-            ?>  
-            </div>
-</div>
-        </div>
+<div class="contenido v-center">
+    <div class="field" id="msg">
+            <h1>EN CONSTRUCCIÓN</h1>
+    </div>
 
-        <?php
-        //muerte temporal del footer
-        //require("includes/common/pie.php") ; 
-        ?>
-
-
-    </div> <!-- Fin del contenedor -->
-
+</div> <!-- Fin del contenedor -->
 </body>
