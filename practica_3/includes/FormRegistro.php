@@ -1,7 +1,8 @@
 <?php
 
     include_once("includes/Form.php");
-    include_once('dao/dao_user.php');
+    require_once('dao/user_class.php');
+    require_once('dao/dao_user.php');
 
     class FormRegistro extends Form{
         
@@ -11,14 +12,29 @@
         
         protected function generaCampos(){
             
-            $html = '<fieldset>';
-			$html .= '<div><label>Nombre de usuario:</label> <input class="control" type="text" name="username" style="margin-left: 84px;"/></div>';
-			$html .= '<div><label>Nombre:</label> <input class="control" type="text" name="nombre" style="margin-left: 164px";/></div>';
-            $html .= '<div><label>Email:</label> <input class="control" type="text" name="email" style="margin-left: 182px;"/></div>';
-			$html .= '<div><label>Password:</label> <input class="control" type="password" name="password" style="margin-left: 152px;" /></div>';
-			$html .= '<div><label>Vuelve a introducir el Password:</label> <input class="control" type="password" name="password2" /><br/></div>';
-			$html .= '<button type="submit" name="register">Registrar</button>';
-            $html .= '</fieldset>';
+            $html = 
+            '<fieldset  class="fb-col" id="contenido_log">
+                <h1>UNETE A NOSOTROS</h1>
+                <div>
+                    <input name="username" type="text" placeholder="Nombre de usuario" />
+                </div>
+                <div>
+                    <input name="nombre" type="text" placeholder="Nombre propio"/>
+                </div>
+                <div>
+                    <input name="email" type="text" placeholder="Correo electrónico"/>
+                </div>
+                <div>
+                    <input name="password" type="password" placeholder="Contraseña" />
+                </div>
+                <div>
+                    <input  name="password2" type="password" placeholder="Reintroducir contraseña"/>
+                </div>
+                <div>
+                    <button type="submit" name="register">REGISTRARSE</button>
+                </div>
+            
+            </fieldset>';
             return $html;
         }
         

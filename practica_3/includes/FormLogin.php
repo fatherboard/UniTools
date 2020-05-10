@@ -15,14 +15,14 @@ class FormLogin extends Form {
 		'<fieldset class="fb-col" id="contenido_log">
 			<h1>UNITOOLS</h1>
 
-			<div class="data_field">
+			<div>
 			<input name="username" type="text"  placeholder="Nombre de usuario">
 			</div>
-			<div class="data_field">
-			<input id="log_password" name="password" type="password"  placeholder="Contraseña">
+			<div>
+			<input name="password" type="password"  placeholder="Contraseña">
 			</div>
 			
-			<div class="data_field">
+			<div>
 			<button type="submit" name="login">ENTRAR</button>
 			</div>
 		 </fieldset>';

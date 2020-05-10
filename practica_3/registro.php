@@ -12,9 +12,9 @@ if (!isset($_SESSION)) {
     <meta charset="UTF-8">
 
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300;1,100;0,200;0,500&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" type="text/css" href="css/hoja_OG.css">
     <link rel="stylesheet" type="text/css" href="css/content_OG.css">
+
 </head>
 
 <body >
@@ -30,7 +30,6 @@ if (!isset($_SESSION)) {
             if (!isset($_SESSION)) {
                 session_start();
             }
-
 
             if (isset($_SESSION['error_registro'])) {
                 if (count($_SESSION['error_registro']) > 0) {
