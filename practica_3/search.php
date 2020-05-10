@@ -38,23 +38,23 @@ require("includes/common/cabecera_OG.php");?>
 
             <div class="fb-col box" id = "pg_s">
 		    <div class="t1 fb-row" >
-            <h1>Resultados</h1>
-            </div>
-            <div class = "b1" id = "resultados_style">
-
-
-
-
             <?php
             $dao_post = new DAOpost();
             $dao_user = new DAOUsuario();
             $search = $_POST['buscar'];
             $res = $dao_post->search_certain_post($search);
             if (count($res) == '1') {
-                echo "<h2>Se han encontrado " . count($res) . " resultado!!</h2>";
+                echo "<h2>¡Se han encontrado " . count($res) . " resultado!</h2>";
             } else {
-                echo "<h2>Se han encontrado " . count($res) . " resultados!!</h2>";
-            }
+                echo "<h2>¡Se han encontrado " . count($res) . " resultados!</h2>";
+            }?>
+            </div>
+            <div class = "b1" id = "resultados_style">
+
+
+            <?php
+
+            
 
             while (!empty($res)) {
                 $curr_post = array_shift($res);
