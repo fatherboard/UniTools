@@ -50,10 +50,7 @@ require("includes/common/cabecera_OG.php");?>
       $username = $_SESSION['username'];
       $premium = $userData->get_premium();
       $email = $userData->get_email();
-      $password = $userData->get_password();
-
-      ?>
-
+      $password = $userData->get_password();?>
       
       <body id="per">
 

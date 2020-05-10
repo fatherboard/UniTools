@@ -42,7 +42,7 @@ require("includes/common/cabecera_OG.php");?>
             $dao_post = new DAOpost();
             $dao_user = new DAOUsuario();
             $search = $_POST['buscar'];
-            $res = $dao_post->search_certain_post($search);
+            $res = $dao_post->search_certain_post($search); 
             if (count($res) == '1') {
                 echo "<h2>¡Se han encontrado " . count($res) . " resultado!</h2>";
             } else {
@@ -91,12 +91,6 @@ require("includes/common/cabecera_OG.php");?>
 
             
         </div>
-
-        <?php
-        //muerte temporal del footer
-        //require("includes/common/pie.php") ; 
-        ?>
-    </div>
 
     </div> <!-- Fin del contenedor -->
 
