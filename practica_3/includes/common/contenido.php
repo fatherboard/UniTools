@@ -40,6 +40,26 @@
                 width: 40rem;
             }
 
+            .caja2{                
+            display: flex;
+            width: 97%;
+            margin: 2rem;          
+            justify-content: center;
+            align-items: center;
+            }          
+
+            .imgfonfo{                
+                position: relative;               
+                margin: 2rem;
+            }
+
+            .top-center{
+                position: absolute;
+                top: 10%;
+                left: 50%;
+                transform: transalte(-50%, -50%);
+            }
+
     </style>
     
 
@@ -128,46 +148,45 @@
             </div>   
 
 
-            <div class="box"> 
-
-                <div id="apartado6"  class="text-center"> 
-                    
-               
+          
+            <div class="caja2">        
+                <div class="imgfondo">  
                       <img src ="img/img_back/pexels-photo-373883.jpeg" alt="foto" width="100%">
-                     
+                      <div class="top-center"> Unitools </div>
+                </div>    
 
-                </div>
+                
             </div>  
                     
                                            
             <div class="caja">
                  <div class="polaroid">
-                    <img src="img/img_back/person-using-smartphone-1394940.jpg" alt="5 Terre" style="width:100%">
+                    <a href="mensajes.php"> <img src="img/img_back/person-using-smartphone-1394940.jpg" alt="5 Terre" style="width:100%"> </a>
                         <div class="container">
                             <p>Mensajes</p>
                         </div>
-                    </div>
+                </div>
 
-                    <div class="polaroid">
-                         <img src="img/img_back/floor-plan-on-table-834892.jpg" alt="Norther Lights" style="width:100%">
+                <div class="polaroid">
+                        <a href="herramientas.php"> <img src="img/img_back/floor-plan-on-table-834892.jpg" alt="Norther Lights" style="width:100%"> </a>
                         <div class="container">
                              <p>Herramientas</p>
                         </div>
-                    </div>
+                </div>
 
-                    <div class="polaroid">
-                         <img src="img/img_back/apple-business-computer-connection-392018.jpg" alt="Norther Lights" style="width:100%">
+                <div class="polaroid">
+                         <a href="foro.php">  <img src="img/img_back/apple-business-computer-connection-392018.jpg" alt="Norther Lights" style="width:100%"> </a>
                         <div class="container">
                              <p>Foro</p>
                         </div>  
-                    </div>
+                </div>
 
-                    <div class="polaroid">
-                         <img src="img/img_back/close-up-photo-of-laptop-keyboard-4065712.jpg" alt="Norther Lights" style="width:100%">
+                <div class="polaroid">
+                         <a href="post.php"> <img src="img/img_back/close-up-photo-of-laptop-keyboard-4065712.jpg" alt="Norther Lights" style="width:100%"> </a>
                         <div class="container">
                              <p>Post</p>
                         </div>
-                    </div>
+                </div>
             </div>    
                
             
