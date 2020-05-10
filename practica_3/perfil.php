@@ -52,7 +52,7 @@ require("includes/common/cabecera_OG.php");?>
       $email = $userData->get_email();
       $password = $userData->get_password();?>
       
-      <body id="per">
+      <body>
 
         <div class="per_columnaIzq">
           <div class="per_card">
@@ -79,6 +79,7 @@ require("includes/common/cabecera_OG.php");?>
               ?>
 
               <button data-modal-target="#modal" class="click-me">Actualizar a cuenta Premium </button>
+
             <div class="modal" id="modal">
               <div class="modal-header">
                 <div class="title"> Pásate al premium <br></div>
@@ -100,17 +101,13 @@ require("includes/common/cabecera_OG.php");?>
                   <button class="click-me" type="submit" name="hacersePremium"> Suscribir
                   </button>
                 </form>
-
-              
             </div>
-
-
-            <div id="overlay"></div>
+            
             <?php
             } else {
               ?>
               <button data-modal-target="#modal" class="click-me">Cancelar Premium </button>
-            <div class="modal" id="modal">
+            <div class="modal">
                 <div class="modal-header">
                   <div class="title"> Cancelar cuenta premium <br></div>
                   <button data-close-button class="close-buttonX"> &times;</button>
@@ -129,16 +126,11 @@ require("includes/common/cabecera_OG.php");?>
               
                 </div>
               </div>
-              
-              
+            <?php
+            } ?>
+
               <div id="overlay"></div>
-              <?php
-            }
-
-           ?>
-
-            <br>
-          </div> <br>
+          </div>
 
           <!-- current email -->
           <div class="per_card">

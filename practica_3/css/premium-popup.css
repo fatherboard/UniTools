@@ -1,208 +1,207 @@
-body{
-	margin:0;
-	padding:0;
-	font-family: sans-serif;
-	background: linear-gradient(#E0EAFC,#CFDEF3);
-	height: 100vh;
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background: linear-gradient(#e0eafc, #cfdef3);
+  height: 100vh;
 }
 
-.modal{
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%) scale(0);
-	transition: 200ms ease-in-out;
-	border: 1px solid black;
-	border-radius: 10px;
-	z-index: 10;
-	background-color: white;
-	width: 500px;
-	max-width: 80%;
-	display: none;
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 200ms ease-in-out;
+  border: 1px solid black;
+  border-radius: 10px;
+  z-index: 10;
+  background-color: white;
+  width: 500px;
+  max-width: 80%;
+  display: none;
 }
 
-.modal.active{
-	transform: translate(-50%, -50%) scale(1);
+.modal.active {
+  transform: translate(-50%, -50%) scale(1);
 }
 
-.modal-header{
-	padding: 10px 15px;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	border-bottom: 1px solid black;
+.modal-header {
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid black;
 }
 
-.modal-footer{
-	padding: 10px 15px;
-	display: block;
-	justify-content: space-between;
-	align-items: center;
-	border-top: 1px solid black;
+.modal-footer {
+  padding: 10px 15px;
+  display: block;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid black;
 }
 
-.modal-header .title{
-	font-size: 1.25rem;
-	font-weight: bold;
+.modal-header .title {
+  font-size: 1.25rem;
+  font-weight: bold;
 }
 
-.modal-header .close-buttonX{
-	cursor: pointer;
-	color: black;
-	border: none;
-	outline: none;
-	background: none;
-	font-size: 1.25rem;
-	font-weight: bold;
+.modal-header .close-buttonX {
+  cursor: pointer;
+  color: black;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 1.25rem;
+  font-weight: bold;
 }
 
-.modal-body{
-	padding: 10px 15px;
+.modal-body {
+  padding: 10px 15px;
 }
 
-#overlay{
-	position: fixed;
-	opacity: 0;
-	transition: 200ms ease-in-out;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background-color: rgba(0,0,0,.5);
-	pointer-events: none;
+#overlay {
+  position: fixed;
+  opacity: 0;
+  transition: 200ms ease-in-out;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  pointer-events: none;
 }
 
-#overlay.active{
-	opacity: 1;
-	pointer-events: all;
+#overlay.active {
+  opacity: 1;
+  pointer-events: all;
 }
 
-.center, .content{
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+.center,
+.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.content{
-	opacity: 0;
-	visibility: hidden;
-	width: 400px;
-	height: 350px;
-	background: white;
-	border-radius: 3px;
-	box-shadow: 0 2px 12px 0 rgba(0,0,0,.4);
+.content {
+  opacity: 0;
+  visibility: hidden;
+  width: 400px;
+  height: 350px;
+  background: white;
+  border-radius: 3px;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.4);
 }
 
-#click:checked ~ .content{
-	opacity: 1;
-	visibility: visible;
+#click:checked ~ .content {
+  opacity: 1;
+  visibility: visible;
 }
 
-
-.fa-times{
-	position: absolute;
-	right: 20px;
-	top: 20px;
-	color: #e8f7fc;
-	font-size: 20px;
-	font-weight: bold;
-	cursor: pointer;
+.fa-times {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  color: #e8f7fc;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
-.fa-check{
-	font-size: 50px;
-	color: #27ae60;
-	font-weight: bold;
-	height: 80px;
-	width: 80px;
-	border: 2px solid #27ae60;
-	text-align: center;
-	padding-top: 13px;
-	border-radius: 50%;
-	box-sizing: border-box;
-	margin: 30px 0 0 160px;
+.fa-check {
+  font-size: 50px;
+  color: #27ae60;
+  font-weight: bold;
+  height: 80px;
+  width: 80px;
+  border: 2px solid #27ae60;
+  text-align: center;
+  padding-top: 13px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  margin: 30px 0 0 160px;
 }
 
-p{
-	padding-top: 10px;
-	font-size: 19px;
-	color: #1a1a1a;
-	text-align: center;
+p {
+  padding-top: 10px;
+  font-size: 19px;
+  color: #1a1a1a;
+  text-align: center;
 }
 
-.line{
-	position: absolute;
-	bottom: 60px;
-	width: 100%;
-	height: 1px;
-	background: silver;
+.line {
+  position: absolute;
+  bottom: 60px;
+  width: 100%;
+  height: 1px;
+  background: silver;
 }
 
-.close-btn{
-	position: absolute;
-	bottom: 12px;
-	right: 25px;
-	border: 1px black;
-	border-radius: 3px;
-	color: #27ae60;
-	padding: 8px 10px;
-	font-size: 18px;
-	cursor: pointer;
+.close-btn {
+  position: absolute;
+  bottom: 12px;
+  right: 25px;
+  border: 1px black;
+  border-radius: 3px;
+  color: #27ae60;
+  padding: 8px 10px;
+  font-size: 18px;
+  cursor: pointer;
 }
 
-.close-btn:hover{
-	background: #6732fa;
-	color: white;
-	transition: .5s;
+.close-btn:hover {
+  background: #6732fa;
+  color: white;
+  transition: 0.5s;
 }
 
-#click{
-	display: none;
+#click {
+  display: none;
 }
-.click-me{
-	display: inline-block;
-	position: fixed;
-	bottom: 15px;
-	right: 15px;
-	height: 50px;
-	background: black;
-	border: 1px solid #6732fa;
-	color: white;
-	text-align: center;
-	font-size: 22px;
-	line-height: 50px;
-	border-radius: 3px;
-	cursor: pointer;
-	transition: .5s;
-}
-
-.click-me:hover{
-	background: #6732fa;
+.click-me {
+  display: inline-block;
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  height: 50px;
+  background: black;
+  border: 1px solid #6732fa;
+  color: white;
+  text-align: center;
+  font-size: 22px;
+  line-height: 50px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: 0.5s;
 }
 
-
-.afirmativo{
-width: 130px;
-color: black;
-float: left;
-bottom: 15px;
-right: 15px;
-height: 30px;
-margin-left: 20%;
-background-color: rgb(3, 182, 3);
-text-align: center;
-font-size: 18px;
+.click-me:hover {
+  background: #6732fa;
 }
 
-.negativo{
-	width: 130px;
-	color: black;
-float: right;
-bottom: 15px;
-right: 30px;
-margin-right: 20%;
-background-color: red;
-text-align: center;
-font-size: 18px;
+.afirmativo {
+  width: 130px;
+  color: black;
+  float: left;
+  bottom: 15px;
+  right: 15px;
+  height: 30px;
+  margin-left: 20%;
+  background-color: rgb(3, 182, 3);
+  text-align: center;
+  font-size: 18px;
+}
+
+.negativo {
+  width: 130px;
+  color: black;
+  float: right;
+  bottom: 15px;
+  right: 30px;
+  margin-right: 20%;
+  background-color: red;
+  text-align: center;
+  font-size: 18px;
 }
