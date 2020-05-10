@@ -84,10 +84,10 @@ class DAOUsuario extends DAO {
 
 	public function update_premium($username){
 		$sql = sprintf("UPDATE user SET premium = 1 WHERE username = '" .$username. "'");
-		if (!$this->ejecutarConsulta($sql))
+		if (!$this->insertarConsulta($sql))
 			return null;
 		else{
-			$result = $this->ejecutarConsulta($sql);
+			$result = $this->insertarConsulta($sql);
 			$user = new TOUser($result['id_user'],$result['email'],$result['password'],$result['username'],$result['premium'], $result['admin']);
 			return $user;
 		}
