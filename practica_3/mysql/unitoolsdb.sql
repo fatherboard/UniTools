@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 09, 2020 at 09:03 PM
+-- Generation Time: May 10, 2020 at 08:26 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.4
 
@@ -64,8 +64,7 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`id_post`, `user`, `title`, `content`, `id_cat`) VALUES
-(12, 16, 'Duda, cómo puedo instalar xampp?', 'Ayer me descargué el programa pero no tengo ni idea de como instalarlo. Alguién me puede ayudar?', 0),
-(13, 16, 'Prueba', '123', 0);
+(12, 16, 'Duda, cómo puedo instalar xampp?', 'Ayer me descargué el programa pero no tengo ni idea de como instalarlo. Alguién me puede ayudar?', 0);
 
 -- --------------------------------------------------------
 
@@ -91,7 +90,8 @@ CREATE TABLE `project` (
 
 INSERT INTO `project` (`id`, `titulo`, `candado`, `userId`, `estrellas`, `privado`, `lenguaje`, `contenido`, `file`) VALUES
 (6, 'Hola Mundo', 0, 13, 3, 1, 'Java', 'system', ''),
-(9, 'HELLO WORLD ', 0, 13, 3, 1, 'C', 'ESTO Y LO OTRP', 0x4552524f52);
+(9, 'HELLO WORLD ', 0, 13, 3, 1, 'C', 'ESTO Y LO OTRP', 0x4552524f52),
+(10, 'dasdsadasd', 0, 17, 3, 1, 'c++', 'asdsadsadsa', '');
 
 -- --------------------------------------------------------
 
@@ -131,7 +131,11 @@ INSERT INTO `respuesta` (`id_respuesta`, `id_post`, `user`, `date`, `content`, `
 (3, 12, 16, '2020-05-09', 'no lo entiendo men', 2),
 (4, 12, 16, '2020-05-09', 'hola', -1),
 (5, 12, 16, '2020-05-09', 'dasdsaddsd', -1),
-(6, 12, 16, '2020-05-09', 'sddddds', 5);
+(6, 12, 16, '2020-05-09', 'sddddds', 5),
+(7, 12, 16, '2020-05-09', 'dasdasdsa', 2),
+(8, 12, 16, '2020-05-09', 'hola 2', 4),
+(9, 12, 16, '2020-05-09', 'yo lo se man, es asi', 2),
+(10, 12, 15, '2020-05-09', 'jaja ke grasioso', 2);
 
 -- --------------------------------------------------------
 
@@ -145,17 +149,20 @@ CREATE TABLE `user` (
   `password` varchar(255) NOT NULL,
   `username` varchar(30) NOT NULL,
   `premium` tinyint(1) NOT NULL,
-  `admin` tinyint(1) NOT NULL
+  `admin` tinyint(1) NOT NULL,
+  `name` text NOT NULL,
+  `aboutMe` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id_user`, `email`, `password`, `username`, `premium`, `admin`) VALUES
-(15, 'bruno@bruno.bruno.org', '$2y$10$5A/Hhv2t4AMnTiPWPq3h9eEjhnu37eikqG21mS9IkPIpMNm3/OdCy', 'bruno', 0, 1),
-(16, 'hugo@hugo.hugo', '$2y$10$5v9Vz/b6SBQIZXCTXCoVr.Co0U1X8/hLsDY112OkBBPtRr8OIQM06', 'hugo', 0, 0),
-(17, 'paco@paco.paco', '$2y$10$W/YGZneL8V7SWLerP9r5HO6utcCJ.SUZDskRuDYau7QYUl7OVqUXK', 'Paco', 0, 0);
+INSERT INTO `user` (`id_user`, `email`, `password`, `username`, `premium`, `admin`, `name`, `aboutMe`) VALUES
+(15, 'bruno@bruno.bruno.org', '$2y$10$5A/Hhv2t4AMnTiPWPq3h9eEjhnu37eikqG21mS9IkPIpMNm3/OdCy', 'bruno', 0, 1, '', ''),
+(16, 'hugo@hugo.hugo', '$2y$10$5v9Vz/b6SBQIZXCTXCoVr.Co0U1X8/hLsDY112OkBBPtRr8OIQM06', 'hugo', 0, 0, '', ''),
+(17, 'paco@paco.paco', '$2y$10$W/YGZneL8V7SWLerP9r5HO6utcCJ.SUZDskRuDYau7QYUl7OVqUXK', 'Paco', 0, 0, 'Paco Comecocos', 'Soy Paco!'),
+(18, 'prueba@prueba.com', '$2y$10$pU7Fa9/jbmwMqgF44IDkfOtf/UsyWqgul/Bqr0rz5cQyNTOh7CIX2', 'prueba24', 0, 0, 'Hugo', '');
 
 --
 -- Indexes for dumped tables
@@ -230,13 +237,13 @@ ALTER TABLE `logs`
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id_post` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_post` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `project`
 --
 ALTER TABLE `project`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `repository`
@@ -248,13 +255,13 @@ ALTER TABLE `repository`
 -- AUTO_INCREMENT for table `respuesta`
 --
 ALTER TABLE `respuesta`
-  MODIFY `id_respuesta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_respuesta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- Constraints for dumped tables

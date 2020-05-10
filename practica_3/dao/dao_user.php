@@ -17,13 +17,14 @@ class DAOUsuario extends DAO {
 	
 
 	public function insert_User($TOUser){
-		$id_user = $TOUser->get_id();
 		$mail = $mail = $TOUser->get_email();
         $pass = $TOUser->get_password();
         $username = $TOUser->get_username();
         $premium =  $TOUser->get_premium();
-        $admin = $TOUser->isAdmin();
-		$sql = "INSERT INTO user SET email='$mail' , password='$pass', username='$username', premium='$premium', admin='$admin'";
+		$admin = $TOUser->isAdmin();
+		$name = $TOUser->get_name();
+		$aboutMe = $TOUser->get_aboutMe();
+		$sql = "INSERT INTO user SET email='$mail' , password='$pass', username='$username', premium='$premium', admin='$admin', name='$name', aboutMe='$aboutMe'";
 		
 		if (!$this->insertarConsulta($sql))
 			return false;
@@ -41,7 +42,7 @@ class DAOUsuario extends DAO {
 		else 
 		{
 			$result = $this->ejecutarConsulta($sql);
-			$user = new TOUser($result['id_user'],$result['email'],$result['password'],$result['username'],$result['premium'], $result['admin']);
+			$user = new TOUser($result['id_user'],$result['email'],$result['password'],$result['username'],$result['premium'], $result['admin'], $result['name'], $result['aboutMe']);
 			return $user;
 		}
 	}
@@ -65,7 +66,7 @@ class DAOUsuario extends DAO {
 		else 
 		{
 			$result = $this->ejecutarConsulta($sql);
-			$user = new TOUser($result['id_user'],$result['email'],$result['password'],$result['username'],$result['premium'], $result['admin']);
+			$user = new TOUser($result['id_user'],$result['email'],$result['password'],$result['username'],$result['premium'], $result['admin'], $result['name'], $result['aboutMe']);
 			return $user;
 		}	
 	}
@@ -77,7 +78,7 @@ class DAOUsuario extends DAO {
 		else 
 		{
 			$result = $this->ejecutarConsulta($sql);
-			$user = new TOUser($result['id_user'],$result['email'],$result['password'],$result['username'],$result['premium'], $result['admin']);
+			$user = new TOUser($result['id_user'],$result['email'],$result['password'],$result['username'],$result['premium'], $result['admin'], $result['name'], $result['aboutMe']);
 			return $user;
 		}
 	}
@@ -88,7 +89,7 @@ class DAOUsuario extends DAO {
 			return null;
 		else{
 			$result = $this->insertarConsulta($sql);
-			$user = new TOUser($result['id_user'],$result['email'],$result['password'],$result['username'],$result['premium'], $result['admin']);
+			$user = new TOUser($result['id_user'],$result['email'],$result['password'],$result['username'],$result['premium'], $result['admin'], $result['name'], $result['aboutMe']);
 			return $user;
 		}
 	}
@@ -99,7 +100,7 @@ class DAOUsuario extends DAO {
 			return null;
 		else{
 			$result = $this->ejecutarConsulta($sql);
-			$user = new TOUser($result['id_user'],$result['email'],$result['password'],$result['username'],$result['premium'], $result['admin']);
+			$user = new TOUser($result['id_user'],$result['email'],$result['password'],$result['username'],$result['premium'], $result['admin'], $result['name'], $result['aboutMe']);
 			return $user;
 		}
 	}
@@ -111,7 +112,7 @@ class DAOUsuario extends DAO {
 		else 
 		{
 			$result = $this->ejecutarConsulta($sql);
-			$user = new TOUser($result['id_user'],$result['email'],$result['password'],$result['username'],$result['premium'], $result['admin']);
+			$user = new TOUser($result['id_user'],$result['email'],$result['password'],$result['username'],$result['premium'], $result['admin'], $result['name'], $result['aboutMe']);
 			return $user;
 		}
 	}
@@ -124,7 +125,31 @@ class DAOUsuario extends DAO {
 		else 
 		{
 			$result = $this->ejecutarConsulta($sql);
-			$user = new TOUser($result['id_user'],$result['email'],$result['password'],$result['username'],$result['premium'], $result['admin']);
+			$user = new TOUser($result['id_user'],$result['email'],$result['password'],$result['username'],$result['premium'], $result['admin'], $result['name'], $result['aboutMe']);
+			return $user;
+		}
+	}
+
+	public function update_name($username, $new_name){
+		$sql = sprintf("UPDATE user SET name = '" .$new_name. "' WHERE username = $username");
+		if (!$this->ejecutarConsulta($sql))
+			return null;
+		else 
+		{
+			$result = $this->ejecutarConsulta($sql);
+			$user = new TOUser($result['id_user'],$result['email'],$result['password'],$result['username'],$result['premium'], $result['admin'], $result['name'], $result['aboutMe']);
+			return $user;
+		}
+	}
+
+	public function update_aboutMe($username, $new_aboutMe){
+		$sql = sprintf("UPDATE user SET aboutMe = '" .$new_aboutMe. "' WHERE username = $username");
+		if (!$this->ejecutarConsulta($sql))
+			return null;
+		else 
+		{
+			$result = $this->ejecutarConsulta($sql);
+			$user = new TOUser($result['id_user'],$result['email'],$result['password'],$result['username'],$result['premium'], $result['admin'], $result['name'], $result['aboutMe']);
 			return $user;
 		}
 	}
