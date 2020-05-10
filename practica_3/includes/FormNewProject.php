@@ -60,7 +60,7 @@ class FormNewProject extends Form {
 
         // codigo para guardar el archivo de proyecto en una carpeta y facilitar las descargas
 		  
-		if (isset($_POST['archivo'])){
+		if (isset($_POST['submit'])){
 		    $file = $_FILES['archivo'];
 		    $fileName = $_FILES['archivo']['name'];
 		    $fileTmpName = $_FILES['archivo']['tmp_name'];

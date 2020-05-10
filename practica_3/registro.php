@@ -22,7 +22,7 @@ if (!isset($_SESSION)) {
     <div class="contenedor_log_reg c_background">
 
         <?php
-        require("includes/FormLogin.php");
+        require("includes/FormRegistro.php");
 
             $form = new FormRegistro();
             $html = $form->gestiona();
