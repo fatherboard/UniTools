@@ -11,34 +11,19 @@
   list-style: none;
 }
 /*BLACK*/
-ul.cgreen {
+ul.color {
   background-color: #1f1b29;
   isolation: isolate;
   background-image: linear-gradient(
     0deg,
-    rgb(168, 151, 202) 0%,
-    #6033ad 30%,
-    #3f2b69 100%
+    #d888b0 0%,
+    #b32069 30%,
+    #5c002e 100%
   );
 }
-/*GREEN
-ul.cgreen {
-  background-color: #2dc8ae;
-  background-image: linear-gradient(
-    180deg,
-    #67dbc8 0%,
-    #1c8a77 50%,
-    #003b32 100%
-  );
 
-
-  li.cgreen a:hover {
-  background-color: #65f0c6;
-}
-}*/
-
-li.cgreen a:hover {
-  background-color: #e7dab77a;
+li.color a:hover {
+  background-color: #f5d0e39f;
 }
 
 .side_unitools {

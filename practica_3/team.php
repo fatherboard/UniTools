@@ -70,8 +70,8 @@ require("includes/common/cabecera_OG.php");?>
                       <img src="img/fotosTeam/cepeda.png" alt="Team_image">
                  </div>
                 <h3>Luis Cepeda</h3>
-                <p class="role">Anonimous calvo</p>
-                <p>"A veces </p>
+                <p class="role">Anonimous singer</p>
+                <p>"El CSS es un estilo, de vida" </p>
             </div>
             <div class="team_member">
                 <div class="team_img">
