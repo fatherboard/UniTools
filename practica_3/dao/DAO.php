@@ -56,7 +56,6 @@ class DAO {
 		return $result; 
 	}
     
-    
     public function disconnect(){
         $this->conn->close();
     }

@@ -47,31 +47,31 @@ require("includes/common/cabecera_OG.php");?>
                 </div>
                 <h3>Hugo Martins</h3>
                 <p class="role">Linux Master</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est quaerat tempora, voluptatum quas facere dolorum aut cumque nihil nulla harum nemo distinctio quam blanditiis dignissimos.</p>
+                <p>Soy un joven de exóticos origenes, muy ilusionado con este proyecto lleno de ideas innovadoras y mucho futuro.</p>
             </div>
             <div class="team_member">
                  <div class="team_img">
                     <img src="img/fotosTeam/cansek.png" alt="Team_image">
                  </div>
                  <h3>Daniel Canseco</h3>
-                 <p class="role">Css noobi</p>
-                 <p>"Aprendiendo de los errores. Nunca te rindas"</p>
+                 <p class="role">Css master</p>
+                 <p>"Aprendiendo de los errores. Nunca te rindas, como siempre me decía mi abuelita."</p>
                 </div>
             <div class="team_member">
                  <div class="team_img">
                      <img src="img/fotosTeam/fer.png" alt="Team_image">
                     </div>
                  <h3>Fernando Ruiz</h3>
-                <p class="role">Steve Job's Son</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est quaerat tempora, voluptatum quas facere dolorum aut cumque nihil nulla harum nemo distinctio quam blanditiis dignissimos.</p>
+                <p class="role">Experto en AW</p>
+                <p>Pienso que PHP es un lenguaje bellisimo, y nunca me canso de añadir signos del dolar por doquier.</p>
             </div>
             <div class="team_member">
                  <div class="team_img">
                       <img src="img/fotosTeam/cepeda.png" alt="Team_image">
                  </div>
                 <h3>Luis Cepeda</h3>
-                <p class="role">Anonimous calvo</p>
-                <p>Futuro ingeniero informático ---</p>
+                <p class="role">Joven promesa</p>
+                <p>Futuro ingeniero informático, no me pagan por estar aquí ---</p>
             </div>
             <div class="team_member">
                 <div class="team_img">
@@ -86,8 +86,8 @@ require("includes/common/cabecera_OG.php");?>
                     <img src="img/fotosTeam/bruno.png" alt="Team_image">
                 </div>
                 <h3>Bruno</h3>
-                <p class="role">Your worst nightmare</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est quaerat tempora, voluptatum quas facere dolorum aut cumque nihil nulla harum nemo distinctio quam blanditiis dignissimos.</p>
+                <p class="role">Ingeniero del Software y ADE</p>
+                <p>Experto en anime y muy entusiasmado con este proyecto para la asignatura de AW.</p>
             </div>
         </div>
         

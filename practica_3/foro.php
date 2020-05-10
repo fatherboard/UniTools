@@ -60,7 +60,8 @@ require("includes/common/cabecera_OG.php");?>
                 $res = $dao_post->show_all_data();
 
 	         echo "<table id='t01' style='width:100%'>";
-	         echo "<tr>";
+             echo "<tr>";
+             echo "<th>Foto Perfil</th>";
 	         echo "<th>Título</th>";
 		     echo "<th>ID del post</th>";
 		     echo "<th>Usuario</th>";
@@ -80,15 +81,22 @@ require("includes/common/cabecera_OG.php");?>
                         $username = $usuario->get_username();
                     }
 
-		  echo "<tr>";
+          echo "<tr>";
+          if ($usuario != null){
+            echo '<td><img class="forumPic" alt="foto_foro" src="img/fotosPerfil/' . $username . '.jpg"></td>';
+            }
 		  echo "<td>" . "<a href=\"post.php?id=" . $post_id . "\">" . $title . "</a></td>";
-		  echo "<td>"  . $post_id ."</td>";
-		  echo "<td>" . $username   . "</td>";
-                  
-		  echo "</tr>";
+          echo "<td>"  . $post_id ."</td>";
+          echo '<div class=Fb-row">';
+          echo "<td>" . $username   . "</td>";
+          
+            
+          }
+              
+		  echo "</div></tr>";
   
                     //echo "<td>Categoría: " . $categoria . "</td>";
-                }
+                
 	       echo "</table>";
                 $dao_user->disconnect();
                 ?>

@@ -13,22 +13,7 @@
         
     <style>
 
-    .img{
-        max-width: 100%;
-        height: auto;
-    }
 
-    div.polaroid {
-  width: 80%;
-  background-color: white;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  margin-bottom: 25px;
-}
-
-div.container {
-  text-align: center;
-  padding: 10px 20px;
-}
 
     </style>
     
@@ -71,18 +56,21 @@ div.container {
                 </div> 
             </div>
             
-            <div class="box">
+          
+            <div class="caja">
 
-                <div id="foteles" class="text-center">
+                    <div class="carrusel">
+                        <img src ="img/img_back/background-balance-business-commerce-583846.jpg" alt="sube"width="100%">                            
+                    </div>
 
-                   
-                         <img src ="img/img_back/background-balance-business-commerce-583846.jpg" alt="sube"width="500">                            
-                        <img src ="img/img_back/photo-of-person-holding-mobile-phone-3183153.jpg" alt="sube"width="500">                    
-                        <img src ="img/img_back/person-touching-open-macbook-on-table-839465.jpg" alt="sube"width="500">
+                    <div class="carrusel">    
+                        <img src ="img/img_back/photo-of-person-holding-mobile-phone-3183153.jpg" alt="sube"width="100%">                    
+                    </div>
 
+                    <div class="carrusel">    
+                        <img src ="img/img_back/person-touching-open-macbook-on-table-839465.jpg" alt="sube"width="100%">
+                    </div>
                  
-                </div>
-
             </div>
 
             
@@ -115,19 +103,46 @@ div.container {
             </div>   
 
 
-            <div class="box"> 
+          
+            <div class="caja2">        
+                <div class="imgfondo">  
+                      <img src ="img/img_back/pexels-photo-373883.jpeg" alt="foto" width="100%">
+                      <div class="top-center">  </div>
+                </div>    
 
-                <div id="apartado6"  class="text-center"> 
-                    
-               
-                      <img src ="img/img_back/pexels-photo-373883.jpeg" alt="foto" width="900">
-                     
-
-                </div>
+                
             </div>  
                     
                                            
-                
+            <div class="caja">
+                 <div class="polaroid">
+                    <a href="mensajes.php"> <img src="img/img_back/person-using-smartphone-1394940.jpg" alt="5 Terre" style="width:100%"> </a>
+                        <div class="container">
+                            <p>Mensajes</p>
+                        </div>
+                </div>
+
+                <div class="polaroid">
+                        <a href="herramientas.php"> <img src="img/img_back/floor-plan-on-table-834892.jpg" alt="Norther Lights" style="width:100%"> </a>
+                        <div class="container">
+                             <p>Herramientas</p>
+                        </div>
+                </div>
+
+                <div class="polaroid">
+                         <a href="foro.php">  <img src="img/img_back/apple-business-computer-connection-392018.jpg" alt="Norther Lights" style="width:100%"> </a>
+                        <div class="container">
+                             <p>Foro</p>
+                        </div>  
+                </div>
+
+                <div class="polaroid">
+                         <a href="post.php"> <img src="img/img_back/close-up-photo-of-laptop-keyboard-4065712.jpg" alt="Norther Lights" style="width:100%"> </a>
+                        <div class="container">
+                             <p>Post</p>
+                        </div>
+                </div>
+            </div>    
                
             
 

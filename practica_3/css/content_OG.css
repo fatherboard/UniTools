@@ -48,6 +48,52 @@ ul {
 
 /*INICIO*/
 
+.caja {
+  display: flex;
+  width: 100%;
+  margin-top: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.caja .polaroid {
+  margin: 2rem;
+  width: 20rem;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 25px;
+}
+
+.caja .container {
+  text-align: center;
+  padding: 0.5rem 1rem;
+}
+
+.caja .carrusel {
+  margin: 1.5rem;
+  width: 40rem;
+}
+
+.caja2 {
+  display: flex;
+  width: 97%;
+  margin: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.imgfonfo {
+  position: relative;
+  margin: 2rem;
+}
+
+.top-center {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: transalte(-50%, -50%);
+}
+
 /*HERRAMIENTAS          to => tools*/
 .gr-tools {
   display: grid;
@@ -354,62 +400,6 @@ table#prs {
   padding: 5px;
 }
 
-.social {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
-.social > a {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
-
-.fa {
-  padding: 20px;
-  font-size: 30px;
-  width: 30px;
-  text-align: center;
-  text-decoration: none;
-  margin: 5px 2px;
-}
-
-.fa:hover {
-  opacity: 0.7;
-}
-
-.fa-facebook {
-  background: #3b5998;
-  color: white;
-}
-
-.fa-twitter {
-  background: #55acee;
-  color: white;
-}
-
-.fa-google {
-  background: #dd4b39;
-  color: white;
-}
-
-.fa-linkedin {
-  background: #007bb5;
-  color: white;
-}
-
-.fa-youtube {
-  background: #bb0000;
-  color: white;
-}
-
-.fa-instagram {
-  background: #125688;
-  color: white;
-}
-
 /*-- SEARCH */
 
 #resultados_style {
@@ -422,26 +412,8 @@ table#prs {
 
 /*-- MENSAJES */
 
-#msg {
-  margin: 2rem 1.5rem 0;
-  width: 21rem;
-  align-self: center;
-}
-
-#msg h1 {
-  margin: 0.5rem 0;
-}
-
-/*LOGIN*/
-.contenedor_log_reg {
-  width: 100%;
-  height: 100vh;
-
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem;
+#pg_ms h1 {
+  font-weight: bold;
 }
 
 #contenido_log {
@@ -493,9 +465,6 @@ table#prs {
 }
 
 /*----------------------------------------------INCLUDES------------------------------------------------------------*/
-
-/*FormLogin -> form_login*/
-
 /*FormRespuesta -> form_res*/
 
 #form_reply label {
