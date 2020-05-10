@@ -77,7 +77,7 @@ include_once('dao/dao_user.php');
           
           <li class="field">
             <!-- premium user -->
-            <p>Usuario premium:</p>
+            <p>Usuario premium:
             <?php
             if ($premium)
               echo " Sí";
@@ -85,6 +85,7 @@ include_once('dao/dao_user.php');
               echo " No... ¡Hazte premium hoy mismo! ";
             }
             ?>
+            </p>
           </li>
           
           <li class="field">

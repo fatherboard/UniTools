@@ -113,6 +113,8 @@ ul {
 }
 
 #perf_datos {
+  margin-top: 5rem;
+  width: 100ch;
 }
 
 /*HERRAMIENTAS          to => tools*/
@@ -501,11 +503,11 @@ table#prs {
 
 /*POSTS RESPUESTAS*/
 
-#title_answ{
+#title_answ {
   display: inline-block;
 }
 
-#btn_answ_principal{
+#btn_answ_principal {
   margin-right: 3.5%;
   float: right;
   background-color: #b83174;
@@ -515,7 +517,6 @@ table#prs {
   cursor: pointer;
   margin-top: 0.2rem;
 }
-
 
 #btn_answ button:hover {
   color: rgb(216, 136, 176);
@@ -530,22 +531,17 @@ table#prs {
   color: white;
   cursor: pointer;
   margin-top: 0.2rem;
-  
 }
 
-#celda_imagen{
+#celda_imagen {
   width: 135px;
 }
 
-#celda_nombre{
+#celda_nombre {
   width: 328px;
 }
 
 /*Estilo de las tablas*/
-
-
-
-
 
 /*LOGIN & REGISTRO*/
 .contenedor_log_reg {
