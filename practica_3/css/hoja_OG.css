@@ -232,3 +232,13 @@ tr:nth-child(odd) {
 .jc_center {
   justify-content: center;
 }
+
+/*Fondo de pantalla*/
+.c_background {
+  background-image: linear-gradient(
+    0deg,
+    #e4a8c6 20%,
+    #cf4b8d 50%,
+    #57042e 100%
+  );
+}

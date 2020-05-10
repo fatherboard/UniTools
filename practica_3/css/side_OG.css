@@ -10,20 +10,6 @@
   font-size: 120%;
   list-style: none;
 }
-/*BLACK*/
-ul.color {
-  background-color: #1f1b29;
-  background-image: linear-gradient(
-    0deg,
-    #d888b0 0%,
-    #b32069 30%,
-    #5c002e 100%
-  );
-}
-
-li.color a:hover {
-  background-color: #f5d0e39f;
-}
 
 .side_unitools {
   height: 5rem;
@@ -51,6 +37,21 @@ hr.side_divH {
 
   border-top: 1px solid rgba(255, 255, 255, 0.226);
   border-bottom: none;
+}
+
+/*SideBar colors*/
+ul.color {
+  background-color: #1f1b29;
+  background-image: linear-gradient(
+    0deg,
+    #d888b0 0%,
+    #b32069 30%,
+    #5c002e 100%
+  );
+}
+
+li.color a:hover {
+  background-color: #f5d0e39f;
 }
 
 /*Opciones generales, descritas en clases individuales para reducir código duplicado*/
