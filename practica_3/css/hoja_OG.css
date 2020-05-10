@@ -242,3 +242,8 @@ tr:nth-child(odd) {
     #57042e 100%
   );
 }
+
+.img {
+  max-width: 100%;
+  height: auto;
+}

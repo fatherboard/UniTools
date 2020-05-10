@@ -3,14 +3,36 @@
 <html>
     <head>
 
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300;0,500&display=swap" rel="stylesheet">  
-    <link rel="stylesheet" type="text/css" href="css/hoja_OG.css">
-    <link rel="stylesheet" type="text/css" href="css/side_OG.css">
-    <link rel="stylesheet" type="text/css" href="css/cabecera_OG.css">
-   
-    <link rel="stylesheet" type="text/css" href="css/content_OG.css">  
-       <!-- <link rel="stylesheet" type="text/css" href="css/contenidoanim.css">  -->
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300;0,500&display=swap" rel="stylesheet">  
+        <link rel="stylesheet" type="text/css" href="css/hoja_OG.css">
+        <link rel="stylesheet" type="text/css" href="css/side_OG.css">
+        <link rel="stylesheet" type="text/css" href="css/cabecera_OG.css">
     
+        <link rel="stylesheet" type="text/css" href="css/content_OG.css">  
+        <!-- <link rel="stylesheet" type="text/css" href="css/contenidoanim.css">  -->
+        
+    <style>
+
+    .img{
+        max-width: 100%;
+        height: auto;
+    }
+
+    div.polaroid {
+  width: 80%;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 25px;
+}
+
+div.container {
+  text-align: center;
+  padding: 10px 20px;
+}
+
+    </style>
+    
+
              
     </head>    
 
@@ -52,16 +74,19 @@
             <div class="box">
 
                 <div id="foteles" class="text-center">
-                    <img src ="img/img_back/background-balance-business-commerce-583846.jpg" alt="sube"width="500">
-                    <img src ="img/img_back/photo-of-person-holding-mobile-phone-3183153.jpg" alt="sube"width="500">
-                    
-                    <img src ="img/img_back/person-touching-open-macbook-on-table-839465.jpg" alt="sube"width="500">
+
+                   
+                         <img src ="img/img_back/background-balance-business-commerce-583846.jpg" alt="sube"width="500">                            
+                        <img src ="img/img_back/photo-of-person-holding-mobile-phone-3183153.jpg" alt="sube"width="500">                    
+                        <img src ="img/img_back/person-touching-open-macbook-on-table-839465.jpg" alt="sube"width="500">
+
+                 
                 </div>
 
             </div>
 
             
-            <div id="apartado4"  class="text-center">
+            <div id="iconos"  class="text-center">
                
                     <img src ="img/iconosubida.png" alt="sube"width="50">
                     <img src ="img/iconocarpeta.png" alt="guarda"width="50"> 
@@ -87,22 +112,37 @@
                         </p>
                     
                 </div>  
-            </div>     
+            </div>   
 
+
+            <div class="box"> 
+
+                <div id="apartado6"  class="text-center"> 
+                    
+               
+                      <img src ="img/img_back/pexels-photo-373883.jpeg" alt="foto" width="900">
+                     
+
+                </div>
+            </div>  
+                    
+                                           
+                
+               
+            
 
             <div id="apartado5"  class="text-center">
                 <p><mark> Actualmente la página se encuentra en construcción. </mark></p>
             </div>
 
-            <div id="apartado6"  class="text-center">
-              
-                   <!-- <img src ="img/facultad.jpg" alt="facu"width="700"> -->
-                    <img src ="img/img_back/pexels-photo-373883.jpeg" alt="foto" width="900">                    
-             
-            </div>   
+            
 
             <div id="apartado7"  class="text-center">
-                <embed src="music/musicafondo3.mp3" autostarty="true" loop="true" volume="60" width="0" height="0">
+
+              
+                     <embed src="music/musicafondo3.mp3" autostarty="true" loop="true" volume="60" width="0" height="0">
+                    
+              
             </div>  
             
         </div>       
