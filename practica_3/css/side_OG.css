@@ -15,14 +15,14 @@ ul.color {
   background-color: #1f1b29;
   background-image: linear-gradient(
     0deg,
-    rgb(216, 136, 176) 0%,
+    #d888b0 0%,
     #b32069 30%,
-    #6d0036 100%
+    #5c002e 100%
   );
 }
 
 li.color a:hover {
-  background-color: #caa7b971;
+  background-color: #f5d0e39f;
 }
 
 .side_unitools {
