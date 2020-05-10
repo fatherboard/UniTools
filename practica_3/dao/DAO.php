@@ -16,7 +16,7 @@ class DAO {
 				// puede que tambien haya problemas al poner ¨localhost¨ si no usamos xampp y lo que queremos es usar el VPS
 				$this->conn = mysqli_connect("localhost", "root", "", "unitoolsdb");
 			}else{
-				$this->conn = mysqli_connect("localhost", "Usuario", "", "unitoolsdb");
+				$this->conn = mysqli_connect("localhost", "Usuario", "User", "unitoolsdb");
 			}
 		
 			if( mysqli_connect_error ()){
