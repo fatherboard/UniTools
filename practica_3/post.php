@@ -64,6 +64,12 @@ require("includes/common/cabecera_OG.php");?>
 					<th>Contenido</th>
 				</tr>
 				<tr>
+					<?php
+					if ($usuario != null){
+						echo '<td><img class="forumPic" alt="foto_foro" src="img/fotosPerfil/' . $username . '.jpg"></td>';
+						}
+					?>
+				
 					<td> <?php echo $title	   ?> </td>
 					<td> <?php echo $username  ?> </td>
 					<td> <?php echo $contenido ?> </td>
@@ -90,10 +96,14 @@ require("includes/common/cabecera_OG.php");?>
 			echo "<table class=\"respuestas\">";
 			echo "<tbody>";
 			echo "<tr>";
+			if ($usuario != null){
+				echo '<td><img class="forumPic" alt="foto_foro" src="img/fotosPerfil/' . $username . '.jpg"></td>';
+				}
 			echo "<td>ID: " . $resp_id . "</td>";
 			echo "<td>Usuario: " . $username . "</td>";
 			echo "<td>" . $comentario . "</td>";
 			echo "<td><a href=respuesta.php?post=" . $post_id . "&answer=" . $resp_id . ">Responder</a></td>";
+			
 			echo "</tr>";
 			
 			
@@ -115,6 +125,9 @@ require("includes/common/cabecera_OG.php");?>
 					$username = $usuario->get_username();
 				}
 
+				if ($usuario != null){
+					echo '<td><img class="forumPic" alt="foto_foro" src="img/fotosPerfil/' . $username . '.jpg"></td>';
+					}
 				echo "<td>ID: " . $resp_id . "</td>";
 				echo "<td>Usuario: " . $username . "</td>";
 				echo "<td>" . $comentario . "</td>";

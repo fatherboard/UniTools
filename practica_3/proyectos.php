@@ -68,7 +68,7 @@ require("includes/common/cabecera_OG.php");?>
 		{
 			$curr_proj = array_shift($res);
 			$project_id = $curr_proj->get_id(); // id del proyecto
-			$usuario = $dao_user->search_userId($project_id);
+			$usuario = $dao_user->search_userId($curr_proj->get_user());
 			$lenguaje = $curr_proj->get_lenguaje();
 			$title = $curr_proj->get_titulo();
 			$candado = $curr_proj->get_candado();
