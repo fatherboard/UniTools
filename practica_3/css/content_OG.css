@@ -81,9 +81,11 @@ ul {
   margin: 2rem;          
   justify-content: center;
   align-items: center;
+  background-image: url("img/img_back/pexels-photo-373883.jpeg"); 
   }          
 
-  .imgfonfo{                
+  .imgfonfo{      
+    background-image: url('img/img_back/pexels-photo-373883.jpeg');          
       position: relative;               
       margin: 2rem;
   }
