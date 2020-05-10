@@ -14,51 +14,6 @@
     <style>
 
 
-            .caja{
-            display: flex;
-            width: 100%;
-            margin-top: 2rem;           
-            justify-content: center;
-            align-items: center;
-            }
-
-            .caja .polaroid {
-            margin: 2rem;    
-            width: 20rem;
-            background-color: white;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-            margin-bottom: 25px;
-            }
-
-            .caja .container {
-            text-align: center;
-            padding: 0.5rem 1rem;
-            }
-
-            .caja .carrusel{
-                margin: 1.5rem;
-                width: 40rem;
-            }
-
-            .caja2{                
-            display: flex;
-            width: 97%;
-            margin: 2rem;          
-            justify-content: center;
-            align-items: center;
-            }          
-
-            .imgfonfo{                
-                position: relative;               
-                margin: 2rem;
-            }
-
-            .top-center{
-                position: absolute;
-                top: 10%;
-                left: 50%;
-                transform: transalte(-50%, -50%);
-            }
 
     </style>
     
@@ -152,7 +107,7 @@
             <div class="caja2">        
                 <div class="imgfondo">  
                       <img src ="img/img_back/pexels-photo-373883.jpeg" alt="foto" width="100%">
-                      <div class="top-center"> Unitools </div>
+                      <div class="top-center">  </div>
                 </div>    
 
                 
