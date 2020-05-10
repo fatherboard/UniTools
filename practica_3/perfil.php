@@ -1,27 +1,42 @@
 <?php
+
 if (!isset($_SESSION)) {
   session_start();
 }
 
 include_once('dao/dao_user.php');
+
+  $user = new TOUser();
+  $dao_usuario = new DAOUsuario();
+  $userData = $dao_usuario->search_username($_SESSION['username']);
+  $premium = $dao_usuario->search_premium($_SESSION['username']);
+
+  $username = $_SESSION['username'];
+  $premium = $userData->get_premium();
+  $email = $userData->get_email();
+  $name = $userData->get_name();
+  $aboutMe = $userData->get_aboutMe();
+  $password = $userData->get_password(); 
+  
 ?>
 
 <!DOCTYPE html>
 <html>
 
 <head>
-  <link rel="stylesheet" type="text/css" href="css/hoja.css">
-  <link rel="stylesheet" type="text/css" href="css/premium-popup.css">
-  <link rel="stylesheet" type="text/css" href="css/hoja_OG.css">
-  <link rel="stylesheet" type="text/css" href="css/side_OG.css">
-  <link rel="stylesheet" type="text/css" href="css/cabecera_OG.css">
-  <link rel="stylesheet" type="text/css" href="css/content_OG.css">
-  <script defer src="script/popup.js"></script>
-  <title>INDEX</title>
-  <meta charset="UTF-8">
+    <title>INDEX</title>
+    <meta charset="UTF-8">
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300;1,100;0,200;0,500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="css/hoja_OG.css">
+    <link rel="stylesheet" type="text/css" href="css/side_OG.css">
+    <link rel="stylesheet" type="text/css" href="css/cabecera_OG.css">
+    <link rel="stylesheet" type="text/css" href="css/content_OG.css">
 </head>
 
 <body>
+
   <div class="contenedor">
 
     <?php //class="side_menu"
@@ -31,108 +46,57 @@ include_once('dao/dao_user.php');
     require("includes/common/cabecera_OG.php"); ?>
 
     <div class="contenido">
-      <div class="fb-col" id="prs_g">
-        <div class="nav_i nav_nuevo_pr">
-        </div>
-      </div>
-      <?php
-
-      $user = new TOUser();
-      $dao_usuario = new DAOUsuario();
-      $userData = $dao_usuario->search_username($_SESSION['username']);
-      $premium = $dao_usuario->search_premium($_SESSION['username']);
-
-      $username = $_SESSION['username'];
-      $premium = $userData->get_premium();
-      $email = $userData->get_email();
-      $name = $userData->get_name();
-      $aboutMe = $userData->get_aboutMe();
-      $password = $userData->get_password(); ?>
-
-
-      <body>
-
-        <div class="per_columnaIzq">
-          <div class="per_card">
-            <div class="per_fotocard">
-
-              <?php
-              $filePath = "img/fotosPerfil/" . $_SESSION['username'] . ".jpg";
-              if (file_exists($filePath)) {
-                echo '<img class="profilePic" id="per_foto" alt="foto_perfil" src="' . $filePath . '">';
-              } else {
-                echo '<img class="profilePic" id="per_foto" alt="foto_perfil" src="img/Default_user_icon.jpg">';
-              }
-              ?>
-
-
-            </div>
-            <p id="p_username"><b> Nombre de ususario: <?php echo $username ?> <br>
-
-                <!-- upload profile picture -->
-                <form action="uploadPhoto.php" method="POST" enctype="multipart/form-data">
-                  <input type="file" name="file">
-                  <button type="submit" name="submit">Subir foto</button>
-                </form>
-
-              </b></p>
-          </div>
-        </div>
-        <div class="per_columnaDer">
-
-          <!-- premium user -->
-          <div class="per_card">
-            Usuario premium:
+      <div class="fb-row jc_center" id="perf_info">
+        <div class="fb-col field" id="perf_pic">
             <?php
+            $filePath = "img/fotosPerfil/" . $_SESSION['username'] . ".jpg";
+            if (file_exists($filePath)) { ?>
+              <img class="profilePic" alt="foto_perfil" src=" <?php echo $filePath ?>">
+            <?php } else { ?>
+              <img class="profilePic" alt="foto_perfil" src="img/Default_user_icon.jpg">
+            <?php }
+            ?>
 
+            <!-- upload profile picture -->
+              <form action="uploadPhoto.php" method="POST" enctype="multipart/form-data">
+                <input type="file" name="file">
+                <button type="submit" name="submit">Subir foto</button>
+              </form>
+        </div>
+            
+        <ul class="fb-col" id="perf_datos">
+          <li class="field">
+            <!-- user name -->
+            <p id="p_username">Nombre de ususario: <?php echo $username ?>  </p>
+          </li>    
+          
+          <li class="field">
+            <!-- premium user -->
+            <p>Usuario premium:</p>
+            <?php
             if ($premium)
               echo " Sí";
             else {
               echo " No... ¡Hazte premium hoy mismo! ";
             }
             ?>
-
+          </li>
           
-          </div> <br>
+          <li class="field">
+            <!-- current email -->
+            <p>E-mail: <?php echo $email ?></p>
+          </li>
 
-          <!-- current email -->
-          <div class="per_card">
-            E-mail: <?php echo $email ?>
-
-
-
-          </div> <br>
-
-          <!-- current password -->
-          <div class="per_card">
-            Contraseña actual (encriptada): <?php echo $password ?>
-
-
-          </div> <br>
-
-          <div class="per_card">
+          <li class="field">
             Nombre: <?php echo $name ?>
+          </li>
 
-          </div> <br>
-
-          <div class="per_card">
+          <li class="field">
             Sobre Mi: <?php echo $aboutMe ?>
-
-          </div> <br>
-
-
-
-        </div>
-    </div>
-
-    <?php
-    //muerte temporal del footer
-    //require("includes/common/pie.php") ; 
-    ?>
-
-
+          </li>
+        </ul>
+    </div> <!-- Fin del contenido -->
   </div> <!-- Fin del contenedor -->
-
 </body>
 
 

@@ -46,7 +46,17 @@ ul {
 }
 */
 
-/*INICIO*/
+/*PERFIL*/
+#perf_info {
+  margin: 2rem 1.5rem 0;
+}
+
+#perf_foto img {
+  border-radius: 5rem;
+}
+
+#perf_datos {
+}
 
 /*HERRAMIENTAS          to => tools*/
 .gr-tools {
