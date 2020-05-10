@@ -53,7 +53,7 @@ require("includes/common/cabecera_OG.php");?>
                                 <p>Lenguaje:</p> <textarea class="field" name="lenguaje" rows="2"></textarea>
                                 <p>Privado: <input type="checkbox" name="privado"></span></p> 
                                 <p>Archivo: <input type="file" name="archivo" value="archivo"/></p>
-                                <p id="submit-center"><input type="submit" value="Subir"class="field v-center"/></p>
+                                <p class="submit-center text-center"><input type="submit" value="Subir"class="field v-center"/></p>
                                 </div>
                             </form> 
                         </div><?php

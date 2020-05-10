@@ -6,8 +6,7 @@ if (!isset($_SESSION)) {
     include_once("dao/dao_user.php");
 }
 
-require("includes/common/cabecera.php");
-require("includes/common/navegacion.php");
+
 
 ?>
 
@@ -15,26 +14,47 @@ require("includes/common/navegacion.php");
 <html>
 
 <head>
-    <link rel="stylesheet" type="text/css" href="css/hoja.css">
-    <title>INDEX</title>
+        <title>INDEX</title>
     <meta charset="UTF-8">
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300;1,100;0,200;0,500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="css/hoja_OG.css">
+    <link rel="stylesheet" type="text/css" href="css/side_OG.css">
+    <link rel="stylesheet" type="text/css" href="css/cabecera_OG.css">
+    <link rel="stylesheet" type="text/css" href="css/content_OG.css">
 </head>
 
 <body>
+ <div class="contenedor">
 
-    <div id="contenedor">
+<?php //class="side_menu"
+require("includes/common/navegacion_OG.php");?>
 
-        <div id="contenido">
+<?php //class="cabecera"
+require("includes/common/cabecera_OG.php");?>
+
+<div class="contenido">
+
+            <div class="fb-col box" id = "pg_s">
+		    <div class="t1 fb-row" >
             <?php
             $dao_post = new DAOpost();
             $dao_user = new DAOUsuario();
             $search = $_POST['buscar'];
-            $res = $dao_post->search_certain_post($search);
+            $res = $dao_post->search_certain_post($search); 
             if (count($res) == '1') {
-                echo "<h2>Se han encontrado " . count($res) . " resultado!!</h2>";
+                echo "<h2>¡Se han encontrado " . count($res) . " resultado!</h2>";
             } else {
-                echo "<h2>Se han encontrado " . count($res) . " resultados!!</h2>";
-            }
+                echo "<h2>¡Se han encontrado " . count($res) . " resultados!</h2>";
+            }?>
+            </div>
+            <div class = "b1" id = "resultados_style">
+
+
+            <?php
+
+            
 
             while (!empty($res)) {
                 $curr_post = array_shift($res);
@@ -49,8 +69,10 @@ require("includes/common/navegacion.php");
                 } else {
                     $username = $usuario->get_username();
                 }
-
-                echo "<table class=\"posts\">";
+                
+                
+               
+                echo "<table id = 't02' style='width:100%' class=\"posts\">";
                 echo "<tbody>";
                 echo "<tr>";
                 echo "<td>ID del post: " . $post_id . "</td>";
@@ -64,13 +86,11 @@ require("includes/common/navegacion.php");
 
 
             ?>
+
+                </div>
+
+            
         </div>
-
-        <?php
-        //muerte temporal del footer
-        //require("includes/common/pie.php") ; 
-        ?>
-
 
     </div> <!-- Fin del contenedor -->
 

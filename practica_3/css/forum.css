@@ -62,6 +62,19 @@ table#t01 th {
   color: black;
 }
 
+table#t02 tr:nth-child(even) {
+  background-color: #eee;
+}
+
+table#t02 tr:nth-child(odd) {
+ background-color: #fff;
+}
+
+table#t02 th {
+  background-color: #3e7e99;
+  color: black;
+}
+
 .botonForo {
     border-style: outset;
 

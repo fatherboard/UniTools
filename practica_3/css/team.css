@@ -19,12 +19,14 @@ body{
   margin-top: 50px;
 }
 
+/*
 .wrapper h1{
   font-family: 'Josefin Sans';
   font-size: 52px;
   margin-bottom: 60px;
   text-align: center;
 }
+*/
 
 .team{
   display: flex;
@@ -37,7 +39,7 @@ body{
 .team .team_member{
   background: #fff;
   margin: 5px;
-  margin-bottom: 50px;
+  margin-top: 4rem;
   width: 300px;
   padding: 20px;
   line-height: 20px;

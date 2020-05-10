@@ -12,34 +12,64 @@ include_once("dao/dao_user.php");
 <html>
 
 <head>
-    <link rel="stylesheet" type="text/css" href="css/hoja.css">
-    <title>INDEX</title>
-    <meta charset="UTF-8">
+  <title>INDEX</title>
+  <meta charset="UTF-8">
+
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300;1,100;0,200&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" href="css/hoja_OG.css">
+  <link rel="stylesheet" type="text/css" href="css/side_OG.css">
+  <link rel="stylesheet" type="text/css" href="css/cabecera_OG.css">
+  <link rel="stylesheet" type="text/css" href="css/content_OG.css">
 </head>
 
 <body>
+  <div class="contenedor">
 
-    <div id="contenedor">
+    <?php //class="side_menu"
+require("includes/common/navegacion_OG.php");?>
 
-        <?php
-        require("includes/common/cabecera.php");
-        require("includes/common/navegacion.php");
-        ?>
+    <?php //class="cabecera"
+require("includes/common/cabecera_OG.php");?>
 
-        <div id="contenido">
-            <?php
+    <div class="contenido">
+      <?php
             if (isset($_SESSION['login'])) {
                 if ($_SESSION['login']) {
 
                     if ($_SERVER['REQUEST_METHOD'] != 'POST') {
-                        //Falta categoria
-                        echo '<form action="" method="post">
-            <p>Título: <input type="text" name="titulo" /></p>
-            <p>Contenido: <textarea class="inputPost" name="contenido" ></textarea></p>
-            
-            <p><input type="submit" /></p>
-            </form>';
+                        ?>
+
+                <div class="fb-col box v-center" id="n_p">
+                <form action="" method="post">
+                    <div class="t2 text-center">
+                    <h1>Nuevo Post</h1>
+                    </div>
+                    <div class="b2 text-center">
+                    <div class="fb-row">
+                    <p>Título del nuevo post: <textarea class="field tittle-row" name="titulo" rows="1" placeholder="Escribe un título"></textarea>       
+                    </div>
+              
+                <div id = "contenido_npost">
+                <p>Contenido:</p> <textarea class="field tittle-row"  name="contenido" rows="2"
+                placeholder="Escribe un contenido"></textarea>
+                </div>
+                <p id = "submit-center"><input type="submit" id = "btn_enviar_npost" value="Enviar" class="field v-center" /></p>
+                
+              
+            </form>
+          </div>
+
+
+
+
+       
+
+
+          <?php
                     } else {
+
                         //the form has been posted, so save it
 
                         $titulo = $_POST['titulo'];
@@ -71,9 +101,18 @@ include_once("dao/dao_user.php");
             }
 
             ?>
+
+
+
+
+
         </div>
 
-        <?php
+
+
+      </div>
+
+      <?php
         //muerte temporal del footer
         //require("includes/common/pie.php") ; 
         ?>
@@ -82,4 +121,3 @@ include_once("dao/dao_user.php");
     </div> <!-- Fin del contenedor -->
 
 </body>
-
