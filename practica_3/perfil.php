@@ -22,19 +22,19 @@ include_once('dao/dao_user.php');
 </head>
 
 <body>
- <div class="contenedor">
+  <div class="contenedor">
 
-<?php //class="side_menu"
-require("includes/common/navegacion_OG.php");?>
+    <?php //class="side_menu"
+    require("includes/common/navegacion_OG.php"); ?>
 
-<?php //class="cabecera"
-require("includes/common/cabecera_OG.php");?>
+    <?php //class="cabecera"
+    require("includes/common/cabecera_OG.php"); ?>
 
-<div class="contenido">
-    <div class="fb-col" id="prs_g">
-		<div class="nav_i nav_nuevo_pr">
-    </div>
-    </div>
+    <div class="contenido">
+      <div class="fb-col" id="prs_g">
+        <div class="nav_i nav_nuevo_pr">
+        </div>
+      </div>
       <?php
 
       $user = new TOUser();
@@ -45,28 +45,37 @@ require("includes/common/cabecera_OG.php");?>
       $username = $_SESSION['username'];
       $premium = $userData->get_premium();
       $email = $userData->get_email();
-      $password = $userData->get_password();?>
-      
+      $name = $userData->get_name();
+      $aboutMe = $userData->get_aboutMe();
+      $password = $userData->get_password(); ?>
+
+
       <body>
 
         <div class="per_columnaIzq">
           <div class="per_card">
             <div class="per_fotocard">
-            <?php
-            $filePath = "img/fotosPerfil/" . $_SESSION['username'] . ".jpg";
-            if (file_exists($filePath)) {
-              echo '<img class="profilePic" id="per_foto" alt="foto_perfil" src="' . $filePath . '">';
-            }
-            else {
-              echo '<img class="profilePic" id="per_foto" alt="foto_perfil" src="img/Default_user_icon.jpg">';
-            }            
-            ?>
 
-              
+              <?php
+              $filePath = "img/fotosPerfil/" . $_SESSION['username'] . ".jpg";
+              if (file_exists($filePath)) {
+                echo '<img class="profilePic" id="per_foto" alt="foto_perfil" src="' . $filePath . '">';
+              } else {
+                echo '<img class="profilePic" id="per_foto" alt="foto_perfil" src="img/Default_user_icon.jpg">';
+              }
+              ?>
+
+
             </div>
-            <p id="p_username"><b> Nombre de ususario: <?php  echo $username ?> <br>
-            
-          </b></p>
+            <p id="p_username"><b> Nombre de ususario: <?php echo $username ?> <br>
+
+                <!-- upload profile picture -->
+                <form action="uploadPhoto.php" method="POST" enctype="multipart/form-data">
+                  <input type="file" name="file">
+                  <button type="submit" name="submit">Subir foto</button>
+                </form>
+
+              </b></p>
           </div>
         </div>
         <div class="per_columnaDer">
@@ -75,87 +84,43 @@ require("includes/common/cabecera_OG.php");?>
           <div class="per_card">
             Usuario premium:
             <?php
-            echo $filePath;
+
             if ($premium)
               echo " Sí";
             else {
               echo " No... ¡Hazte premium hoy mismo! ";
             }
-            if ($premium == 0) {
-              ?>
+            ?>
 
-              <button data-modal-target="#modal" class="click-me">Actualizar a cuenta Premium </button>
-
-            <div class="modal" id="modal">
-              <div class="modal-header">
-                <div class="title"> Pásate al premium <br></div>
-                <button data-close-button class="close-buttonX"> &times;</button>
-              </div>
-
-              <div class="modal-body">
-                1-Consigue repositorios privados. <br>
-                2-Sin límite de tamaño de archivos. <br>
-                3-Di adiós a la publicidad <br>
-                4-Ocupa el lugar más alto de los rankings. <br>
-                5-Utiliza los mensajes de la plataforma. <br>
-                6-Recibe antes que nadie nuestras novedades. <br>
-                7-Forma parte de la gran familia de Unitools. <br>
-              </div>
-
-              
-                <form method="POST" action="perfil.php">
-                  <button class="click-me" type="submit" name="hacersePremium"> Suscribir
-                  </button>
-                </form>
-            </div>
-            
-            <?php
-            } else {
-              ?>
-              <button data-modal-target="#modal" class="click-me">Cancelar Premium </button>
-            <div class="modal">
-                <div class="modal-header">
-                  <div class="title"> Cancelar cuenta premium <br></div>
-                  <button data-close-button class="close-buttonX"> &times;</button>
-                </div>
-              
-                <div class="modal-body">
-                  ¿Estás seguro que quieres dejar de ser usuario premium? <br>
-                  Perderás todas las ventajas que ello conlleva.
-                </div>
-              
-                <div class=modal-footer>
-                  <form method="POST" action="perfil.php">
-                  <button class="afirmativo" type="submit" name="quitarPremium"> Aceptar</button>
-                    <button class="negativo" type="submit" > Cancelar</button>
-                  </form>
-              
-                </div>
-              </div>
-            <?php
-            } ?>
-
-              <div id="overlay"></div>
-          </div>
+          
+          </div> <br>
 
           <!-- current email -->
           <div class="per_card">
             E-mail: <?php echo $email ?>
-            
-            
-            <br>
+
+
+
           </div> <br>
 
           <!-- current password -->
           <div class="per_card">
             Contraseña actual (encriptada): <?php echo $password ?>
-          </div><br>
 
-          <!-- upload profile picture -->
-          <form action="uploadPhoto.php" method="POST" enctype="multipart/form-data">
-            <input type="file" name="file">
-            <button type="submit" name="submit">Subir foto</button>
-          </form>
+
+          </div> <br>
+
+          <div class="per_card">
+            Nombre: <?php echo $name ?>
+
+          </div> <br>
+
+          <div class="per_card">
+            Sobre Mi: <?php echo $aboutMe ?>
+
+          </div> <br>
+
+
 
         </div>
     </div>
@@ -180,3 +145,58 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['hacersePremium'])) {
   header('Location: perfil.php');
 }
 ?>
+
+<?php
+if ($premium == 0) {
+?>
+
+  <button data-modal-target="#modal" class="click-me">Actualizar a cuenta Premium </button>
+
+  <div class="modal" id="modal">
+    <div class="modal-header">
+      <div class="title"> Pásate al premium <br></div>
+      <button data-close-button class="close-buttonX"> &times;</button>
+    </div>
+
+    <div class="modal-body">
+      1-Consigue repositorios privados. <br>
+      2-Sin límite de tamaño de archivos. <br>
+      3-Di adiós a la publicidad <br>
+      4-Ocupa el lugar más alto de los rankings. <br>
+      5-Utiliza los mensajes de la plataforma. <br>
+      6-Recibe antes que nadie nuestras novedades. <br>
+      7-Forma parte de la gran familia de Unitools. <br>
+    </div>
+
+
+    <form method="POST" action="perfil.php">
+      <button class="click-me" type="submit" name="hacersePremium"> Suscribir
+      </button>
+    </form>
+  </div>
+
+<?php
+} else {
+?>
+  <button data-modal-target="#modal" class="click-me">Cancelar Premium </button>
+  <div class="modal">
+    <div class="modal-header">
+      <div class="title"> Cancelar cuenta premium <br></div>
+      <button data-close-button class="close-buttonX"> &times;</button>
+    </div>
+
+    <div class="modal-body">
+      ¿Estás seguro que quieres dejar de ser usuario premium? <br>
+      Perderás todas las ventajas que ello conlleva.
+    </div>
+
+    <div class=modal-footer>
+      <form method="POST" action="perfil.php">
+        <button class="afirmativo" type="submit" name="quitarPremium"> Aceptar</button>
+        <button class="negativo" type="submit"> Cancelar</button>
+      </form>
+
+    </div>
+  </div>
+<?php
+} ?>
