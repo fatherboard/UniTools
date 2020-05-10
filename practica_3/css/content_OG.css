@@ -354,6 +354,17 @@ table#prs {
   padding: 5px;
 }
 
+/*-- SEARCH */
+
+#resultados_style{
+  font-weight: 500;
+}
+
+#pg_s h2{
+  font-weight: bold;
+} 
+
+
 /*----------------------------------------------INCLUDES------------------------------------------------------------*/
 /*FormRespuesta -> form_res*/
 
