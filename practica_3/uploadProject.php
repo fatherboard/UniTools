@@ -20,6 +20,7 @@ if (!isset($_SESSION)) {
     if (in_array($fileExtLower, $allowed)){
         if ($fileError === 0){
             if ($fileSize < 1000000) {
+                if (!file_exists("proyectos/" . $_SESSION['project'])) mkdir("proyectos/" . $_SESSION['project']);
                 $fileDestination = 'proyectos/' . $_SESSION['project'] . '/' . $fileName;
                 move_uploaded_file($fileTmpName, $fileDestination);
                 header("Location: project.php?id=" . $_SESSION['project'] . "&subidoConExito");
