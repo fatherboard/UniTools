@@ -47,13 +47,17 @@ include_once('dao/dao_user.php');
 
     <div class="contenido">
       <div class="fb-row jc_center" id="perf_info">
-        <div class="fb-col field" id="perf_pic">
+        <div class="fb-col" id="perf_pic">
+          <div class="t2 text-center">
+            <h2>Foto de perfil</h2>
+          </div>
+          <div class="b2 text-center">
             <?php
             $filePath = "img/fotosPerfil/" . $_SESSION['username'] . ".jpg";
             if (file_exists($filePath)) { ?>
-              <img class="profilePic" alt="foto_perfil" src=" <?php echo $filePath ?>">
+              <img class="profilePic round-img" alt="foto_perfil" src=" <?php echo $filePath ?>">
             <?php } else { ?>
-              <img class="profilePic" alt="foto_perfil" src="img/Default_user_icon.jpg">
+              <img class="profilePic round-img" alt="foto_perfil" src="img/Default_user_icon.jpg">
             <?php }
             ?>
 
@@ -62,6 +66,7 @@ include_once('dao/dao_user.php');
                 <input type="file" name="file">
                 <button type="submit" name="submit">Subir foto</button>
               </form>
+            </div>
         </div>
             
         <ul class="fb-col" id="perf_datos">
