@@ -1,8 +1,7 @@
 <?php
 
     include_once("includes/Form.php");
-    require_once('dao/user_class.php');
-    require_once('dao/dao_user.php');
+    include_once('dao/dao_user.php');
 
     class FormRegistro extends Form{
         
