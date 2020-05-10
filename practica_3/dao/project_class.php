@@ -11,9 +11,9 @@ class TOUproject {
   	private $candado;
 	private $estrellas;
 	private $privado;
-	private $file;
 
-  function __construct($id='',$user='',$titulo='',$contenido='',$lenguaje='',$privado='',$candado='',$estrellas='',$file='')
+
+  function __construct($id='',$user='',$titulo='',$contenido='',$lenguaje='',$privado='',$candado='',$estrellas='')
   {
     $this->id = $id;
     $this->user = $user;
@@ -23,7 +23,7 @@ class TOUproject {
     $this->privado = $privado;
     $this->candado = $candado;
     $this->estrellas = $estrellas;
-    $this->file = $file;
+
   }
    
   public function create_Project($columna){
@@ -111,8 +111,5 @@ public function set_lenguaje($lenguaje){
   public function get_estrellas(){
 		return $this->estrellas;
 	}
-  public function get_file(){
-  	return $this->file;
-  }
 
  }
