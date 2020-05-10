@@ -18,6 +18,18 @@
         height: auto;
     }
 
+    div.polaroid {
+  width: 80%;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 25px;
+}
+
+div.container {
+  text-align: center;
+  padding: 10px 20px;
+}
+
     </style>
     
 
@@ -63,11 +75,11 @@
 
                 <div id="foteles" class="text-center">
 
-                    <div class="polaroid">
+                   
                          <img src ="img/img_back/background-balance-business-commerce-583846.jpg" alt="sube"width="500">                            
                         <img src ="img/img_back/photo-of-person-holding-mobile-phone-3183153.jpg" alt="sube"width="500">                    
                         <img src ="img/img_back/person-touching-open-macbook-on-table-839465.jpg" alt="sube"width="500">
-                    </div>
+
                  
                 </div>
 
@@ -105,12 +117,19 @@
 
             <div class="box"> 
 
-                <div id="apartado6"  class="text-center">              
+                <div id="apartado6"  class="text-center"> 
                     
-                        <img src ="img/img_back/pexels-photo-373883.jpeg" alt="foto" width="900">                    
+               
+                      <img src ="img/img_back/pexels-photo-373883.jpeg" alt="foto" width="900">
+                     
+
+                </div>
+            </div>  
+                    
+                                           
                 
-                </div>  
-            </div>
+               
+            
 
             <div id="apartado5"  class="text-center">
                 <p><mark> Actualmente la página se encuentra en construcción. </mark></p>
@@ -119,7 +138,11 @@
             
 
             <div id="apartado7"  class="text-center">
-                <embed src="music/musicafondo3.mp3" autostarty="true" loop="true" volume="60" width="0" height="0">
+
+              
+                     <embed src="music/musicafondo3.mp3" autostarty="true" loop="true" volume="60" width="0" height="0">
+                    
+              
             </div>  
             
         </div>       
