@@ -71,7 +71,7 @@ require("includes/common/cabecera_OG.php");?>
                  </div>
                 <h3>Luis Cepeda</h3>
                 <p class="role">Joven Promesa</p>
-                <p>Futuro ingeniero informático, no me pagan por estar aquí. </p>
+                <p> Uso el CSS como un estilo, de vida </p>
             </div>
             <div class="team_member">
                 <div class="team_img">
