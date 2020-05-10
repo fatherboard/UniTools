@@ -49,29 +49,18 @@
                 </div> 
             </div>
             
-            <div id="foteles" class="text-center">
-                <img src ="img/img_back/photo-of-person-holding-mobile-phone-3183153.jpg" alt="sube"width="500">
-                <img src ="img/img_back/background-balance-business-commerce-583846.jpg" alt="sube"width="500">
-                <img src ="img/img_back/person-touching-open-macbook-on-table-839465.jpg" alt="sube"width="500">
-            </div>
-            <div id="apartado3" class="text-center">
-                    <p> 
-                        Unitools es una plataforma creada el 24 de Febrero de 2020 por un pequeño grupo de estudiantes. 
-                    </p>
-                    <p> 
-                        La principal función de Unitool es permitirte tanto subir, actualizar y descargar tus archivos personales
-                        de tal manera que puedas accceder a ellos desde cualquier sitio y desde todos tus dispositivos.
-                    </p>
-                    <p> 
-                        Gracias a nuestra comunidad, podrás hacer uso de diversas herramientas, iniciar temas de conversación,
-                         resolver tus dudas y responder a otros usuarios.
-                    </p>  
-                    <p> 
-                        No te lo pienses más y sumergete en esta increible experencia.
-                    </p>
-                
-            </div>   
+            <div class="box">
 
+                <div id="foteles" class="text-center">
+                    <img src ="img/img_back/background-balance-business-commerce-583846.jpg" alt="sube"width="500">
+                    <img src ="img/img_back/photo-of-person-holding-mobile-phone-3183153.jpg" alt="sube"width="500">
+                    
+                    <img src ="img/img_back/person-touching-open-macbook-on-table-839465.jpg" alt="sube"width="500">
+                </div>
+
+            </div>
+
+            
             <div id="apartado4"  class="text-center">
                
                     <img src ="img/iconosubida.png" alt="sube"width="50">
@@ -80,6 +69,27 @@
                
             </div>
 
+            <div class="field">
+                <div id="apartado3" class="text-center">
+                        <p> 
+                            Unitools es una plataforma creada el 24 de Febrero de 2020 por un pequeño grupo de estudiantes. 
+                        </p>
+                        <p> 
+                            La principal función de Unitool es permitirte tanto subir, actualizar y descargar tus archivos personales
+                            de tal manera que puedas accceder a ellos desde cualquier sitio y desde todos tus dispositivos.
+                        </p>
+                        <p> 
+                            Gracias a nuestra comunidad, podrás hacer uso de diversas herramientas, iniciar temas de conversación,
+                            resolver tus dudas y responder a otros usuarios.
+                        </p>  
+                        <p> 
+                            No te lo pienses más y sumergete en esta increible experencia.
+                        </p>
+                    
+                </div>  
+            </div>     
+
+
             <div id="apartado5"  class="text-center">
                 <p><mark> Actualmente la página se encuentra en construcción. </mark></p>
             </div>
@@ -87,8 +97,7 @@
             <div id="apartado6"  class="text-center">
               
                    <!-- <img src ="img/facultad.jpg" alt="facu"width="700"> -->
-                    <img src ="img/img_back/photo-of-person-holding-mobile-phone-3183153.jpg" alt="sube"width="700">
-                    
+                    <img src ="img/img_back/pexels-photo-373883.jpeg" alt="foto" width="900">                    
              
             </div>   
 
