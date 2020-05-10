@@ -33,11 +33,6 @@ require("includes/common/cabecera_OG.php");?>
 <div class="contenido">
     <div class="fb-col" id="prs_g">
 		<div class="nav_i nav_nuevo_pr">
-
-
-
-
-    
     </div>
     </div>
       <?php
@@ -57,7 +52,20 @@ require("includes/common/cabecera_OG.php");?>
         <div class="per_columnaIzq">
           <div class="per_card">
             <div class="per_fotocard">
-              <img id="per_foto" alt="foto_perfil" src="/UniTools/practica_2/img/Default_user_icon.jpg">
+            <?php
+            $filePath = "img/fotosPerfil/" . $_SESSION['username'] . ".jpg";
+            if (file_exists($filePath)) {
+              echo '<img id="per_foto" alt="foto_perfil" src="' . $filePath . '">';
+            }
+            else {
+              echo '<img id="per_foto" alt="foto_perfil" src="img/Default_user_icon.jpg">';
+            }
+
+            
+            
+            ?>
+
+              
             </div>
             <p id="p_username"><b> Nombre de ususario: <?php  echo $username ?> <br>
             
@@ -70,6 +78,7 @@ require("includes/common/cabecera_OG.php");?>
           <div class="per_card">
             Usuario premium:
             <?php
+            echo $filePath;
             if ($premium)
               echo " Sí";
             else {
@@ -144,7 +153,13 @@ require("includes/common/cabecera_OG.php");?>
           <div class="per_card">
             Contraseña actual (encriptada): <?php echo $password ?>
           </div><br>
+
+          <!-- upload profile picture -->
+          <form action="uploadPhoto.php" method="POST" enctype="multipart/form-data">
+            <input type="file" name="file">
+            <button type="submit" name="submit">Subir foto</button>
           </form>
+
         </div>
     </div>
 
