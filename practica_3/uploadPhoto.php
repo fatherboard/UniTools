@@ -6,7 +6,6 @@ if (!isset($_SESSION)) {
   
 if (isset($_POST['submit'])){
     $file = $_FILES['file'];
-
     $fileName = $_FILES['file']['name'];
     $fileTmpName = $_FILES['file']['tmp_name'];
     $fileSize = $_FILES['file']['size'];
@@ -38,3 +37,4 @@ if (isset($_POST['submit'])){
         echo "Tipo de archivo no permitido!";
     }
 }
+?>

@@ -40,10 +40,10 @@ require("includes/common/cabecera_OG.php");?>
                           <?php
                             $newProject = new FormNewProject();
                             $newProject->gestiona();
-                            header("proyectos.php"); 
+            }
                             ?>
                         </div>                      
-            <?php } 
+            <?php 
                 }else{
                     echo "Necesitas estar loggeado para hacer eso";
                 }
