@@ -8,13 +8,14 @@ if (!isset($_SESSION)) {
 <html>
 
 <head>
-        <title>INDEX</title>
+    <title>INDEX</title>
     <meta charset="UTF-8">
 
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300;1,100;0,200;0,500&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300;1,100;0,200;0,500; &display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/hoja_OG.css">
     <link rel="stylesheet" type="text/css" href="css/content_OG.css">
+
+    <script src="https://kit.fontawesome.com/9b13eb91e9.js" crossorigin="anonymous"></script>
 </head>
 
 <body >
@@ -22,10 +23,8 @@ if (!isset($_SESSION)) {
     <div class="contenedor_log_reg c_background">
 
         <?php
-	    require("includes/FormLogin.php");
-        ?>
-
-            <?php
+        require("includes/FormLogin.php");
+        
             $form = new FormLogin();
             $html = $form->gestiona();
 

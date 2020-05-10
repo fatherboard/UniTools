@@ -448,14 +448,50 @@ table#prs {
   width: 30rem;
   border-radius: 3px;
   overflow: hidden;
-
-  padding: 4rem 2rem 1rem 2rem;
-  background-color: rgb(236, 236, 236);
+  height: 40rem;
+  padding: 4rem 3rem;
+  background-color: #ffffff;
   color: rgb(37, 37, 37);
   box-shadow: inset 0 0.5rem 2rem 0 rgba(96, 98, 114, 0.178);
+  border: none;
+  text-align: center;
 }
 
-conte
+#contenido_log h1 {
+  font-weight: 900;
+  padding-bottom: 3rem;
+}
+
+.data_field {
+  margin-bottom: 1rem;
+  word-wrap: break-word;
+}
+
+.data_field input {
+  border-radius: 0.5rem;
+  padding: 1.5rem 1rem;
+  width: 100%;
+  font-size: 1rem;
+  font-weight: 300;
+  background-color: #ececec;
+  color: #757680;
+  border: 1px solid #d1d3e2;
+}
+
+.data_field button {
+  border-radius: 0.5rem;
+  padding: 1.5rem 1rem;
+  margin-top: 3rem;
+  width: 100%;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #cf4b8d;
+  letter-spacing: 0.1rem;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+}
+
 /*----------------------------------------------INCLUDES------------------------------------------------------------*/
 
 /*FormLogin -> form_login*/
