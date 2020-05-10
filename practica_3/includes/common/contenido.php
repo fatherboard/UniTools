@@ -49,6 +49,11 @@
                 </div> 
             </div>
             
+            <div id="foteles" class="text-center">
+                <img src ="img/img_back/photo-of-person-holding-mobile-phone-3183153.jpg" alt="sube"width="500">
+                <img src ="img/img_back/background-balance-business-commerce-583846.jpg" alt="sube"width="500">
+                <img src ="img/img_back/person-touching-open-macbook-on-table-839465.jpg" alt="sube"width="500">
+            </div>
             <div id="apartado3" class="text-center">
                     <p> 
                         Unitools es una plataforma creada el 24 de Febrero de 2020 por un pequeño grupo de estudiantes. 
