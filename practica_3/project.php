@@ -37,7 +37,7 @@ include_once("dao/dao_user.php");
 			$dao_proj = new DAOproject();
 			$dao_user = new DAOUsuario();
 			$id = $_GET["id"];
-
+			$_SESSION['project'] = $id;
 			$curr_proj = $dao_proj->search_project($id);
 			$proj_id = $curr_proj->get_id(); // id del project
 			$usuario = $dao_user->search_userId($curr_proj->get_user());
@@ -105,13 +105,14 @@ include_once("dao/dao_user.php");
 
 
 							$dir_path = "proyectos/" . $id;
-	
+
 							if (is_dir($dir_path)) {
 								$files = opendir($dir_path); {
 									if ($files) {
 										while (($file_name = readdir($files)) !== FALSE) {
 											if ($file_name != '.' && $file_name != '..') {
-												echo '<tr><td><a href="' . $dir_path . '/' . $file_name . '" download>' . $file_name . '</a></td></tr>';
+												echo '<tr><td><a href="' . $dir_path . '/' . $file_name . '" download>' . $file_name . '</a></td>';
+												echo '<td><a href="project.php?id=' . $id . '&delete=' . $file_name . '"> Borrar archivo</a></td></tr>';
 											}
 										}
 									}
@@ -120,10 +121,14 @@ include_once("dao/dao_user.php");
 
 							?>
 
-							
+
 						</tr>
 					</table>
-
+					
+					<form action="uploadProject.php" method="POST" enctype="multipart/form-data">
+						<input type="file" name="file">
+						<button type="submit" name="submit">Subir archivo</button>
+					</form>
 
 					<?php
 					$dao_user->disconnect(); ?>
@@ -134,3 +139,10 @@ include_once("dao/dao_user.php");
 	</div> <!-- Fin del contenedor -->
 
 </body>
+
+<?php
+if (isset($_GET['delete'])) {
+	unlink("proyectos/" . $id . "/" . $_GET['delete']);
+	header('Location: project.php?id=' . $id);
+}
+?>

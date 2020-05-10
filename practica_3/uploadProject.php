@@ -5,12 +5,12 @@ if (!isset($_SESSION)) {
   }
   
   if (isset($_POST['submit'])){
-    $file = $_FILES['archivo'];
-    $fileName = $_FILES['archivo']['name'];
-    $fileTmpName = $_FILES['archivo']['tmp_name'];
-    $fileSize = $_FILES['archivo']['size'];
-    $fileError = $_FILES['archivo']['error'];
-    $fileType = $_FILES['archivo']['type'];
+    $file = $_FILES['file'];
+    $fileName = $_FILES['file']['name'];
+    $fileTmpName = $_FILES['file']['tmp_name'];
+    $fileSize = $_FILES['file']['size'];
+    $fileError = $_FILES['file']['error'];
+    $fileType = $_FILES['file']['type'];
 
     $fileExt = explode('.', $fileName);
     $fileExtLower = strtolower(end($fileExt));
@@ -20,13 +20,12 @@ if (!isset($_SESSION)) {
     if (in_array($fileExtLower, $allowed)){
         if ($fileError === 0){
             if ($fileSize < 1000000) {
-                $fileNameNew = $titulo  . "." . $fileExt;
-                $fileDestination = 'proyectos_almacenados/' . $fileNameNew;
+                $fileDestination = 'proyectos/' . $_SESSION['project'] . '/' . $fileName;
                 move_uploaded_file($fileTmpName, $fileDestination);
-                //header("Location: proyectos.php?todoBien");
+                header("Location: project.php?id=" . $_SESSION['project'] . "&subidoConExito");
             }
             else {
-                echo "El proyecto es demasiado grande!";
+                echo "El archivo es demasiado grande!";
             }
         }
         else {

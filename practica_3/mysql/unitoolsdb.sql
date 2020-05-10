@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 10, 2020 at 08:26 PM
+-- Generation Time: May 11, 2020 at 12:10 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.4
 
@@ -80,18 +80,19 @@ CREATE TABLE `project` (
   `estrellas` int(11) NOT NULL,
   `privado` tinyint(1) NOT NULL,
   `lenguaje` varchar(50) NOT NULL,
-  `contenido` varchar(200) NOT NULL,
-  `file` varbinary(200) NOT NULL
+  `contenido` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `project`
 --
 
-INSERT INTO `project` (`id`, `titulo`, `candado`, `userId`, `estrellas`, `privado`, `lenguaje`, `contenido`, `file`) VALUES
-(6, 'Hola Mundo', 0, 13, 3, 1, 'Java', 'system', ''),
-(9, 'HELLO WORLD ', 0, 13, 3, 1, 'C', 'ESTO Y LO OTRP', 0x4552524f52),
-(10, 'dasdsadasd', 0, 17, 3, 1, 'c++', 'asdsadsadsa', '');
+INSERT INTO `project` (`id`, `titulo`, `candado`, `userId`, `estrellas`, `privado`, `lenguaje`, `contenido`) VALUES
+(6, 'Hola Mundo', 0, 13, 3, 1, 'Java', 'system'),
+(9, 'HELLO WORLD ', 0, 13, 3, 1, 'C', 'ESTO Y LO OTRP'),
+(10, 'dasdsadasd', 0, 17, 3, 1, 'c++', 'asdsadsadsa'),
+(11, 'fsadfsdff', 0, 17, 3, 0, 'c++', 'sdfsdfdsf'),
+(12, 'prueba 212', 0, 16, 3, 0, 'dasddada', 'asdasdda');
 
 -- --------------------------------------------------------
 
@@ -160,9 +161,11 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id_user`, `email`, `password`, `username`, `premium`, `admin`, `name`, `aboutMe`) VALUES
 (15, 'bruno@bruno.bruno.org', '$2y$10$5A/Hhv2t4AMnTiPWPq3h9eEjhnu37eikqG21mS9IkPIpMNm3/OdCy', 'bruno', 0, 1, '', ''),
-(16, 'hugo@hugo.hugo', '$2y$10$5v9Vz/b6SBQIZXCTXCoVr.Co0U1X8/hLsDY112OkBBPtRr8OIQM06', 'hugo', 0, 0, '', ''),
+(16, 'hugo@hugo.hugo', '$2y$10$5v9Vz/b6SBQIZXCTXCoVr.Co0U1X8/hLsDY112OkBBPtRr8OIQM06', 'hugo', 0, 0, 'Hugo Ribeiro', 'Soy yo'),
 (17, 'paco@paco.paco', '$2y$10$W/YGZneL8V7SWLerP9r5HO6utcCJ.SUZDskRuDYau7QYUl7OVqUXK', 'Paco', 0, 0, 'Paco Comecocos', 'Soy Paco!'),
-(18, 'prueba@prueba.com', '$2y$10$pU7Fa9/jbmwMqgF44IDkfOtf/UsyWqgul/Bqr0rz5cQyNTOh7CIX2', 'prueba24', 0, 0, 'Hugo', '');
+(18, 'prueba@prueba.com', '$2y$10$pU7Fa9/jbmwMqgF44IDkfOtf/UsyWqgul/Bqr0rz5cQyNTOh7CIX2', 'prueba24', 0, 0, 'Hugo', ''),
+(19, 'willymelculo@rex.com', '$2y$10$Jq4tli01HRLMoO1wEKPlH.ywsLcTBrmGoUkdKBwwW836Wps04NDAi', 'Willyrex', 0, 0, '', ''),
+(20, 'asdsa@gdas.com', '$2y$10$b9rDTyls1/79RrsS5tHx3uVcOPEu7wl4My4uA.3eo4kA8tf/yr7T6', 'dasddsad', 0, 0, 'dasdd', '');
 
 --
 -- Indexes for dumped tables
@@ -243,7 +246,7 @@ ALTER TABLE `posts`
 -- AUTO_INCREMENT for table `project`
 --
 ALTER TABLE `project`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `repository`
@@ -261,7 +264,7 @@ ALTER TABLE `respuesta`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- Constraints for dumped tables
