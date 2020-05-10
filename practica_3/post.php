@@ -58,7 +58,8 @@ require("includes/common/cabecera_OG.php");?>
 
 			<table id='t01' style='width:100%'>
 				<tr>
-					<?php /*echo "<th>ID del Proyecto</th>"; */?>
+					<?php /*echo "<th>ID del Post</th>"; */?>
+					<th>Foto de perfil</th>
 					<th>Titulo</th>
 					<th>Usuario</th>
 					<th>Contenido</th>

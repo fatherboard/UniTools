@@ -106,7 +106,7 @@
           
             <div class="caja2">        
                 <div class="imgfondo">  
-                      <img src ="img/img_back/pexels-photo-373883.jpeg" alt="foto" width="100%">
+                     <img src ="img/img_back/pexels-photo-373883.jpeg" alt="foto" width="100%"> 
                       <div class="top-center">  </div>
                 </div>    
 
