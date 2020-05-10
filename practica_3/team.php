@@ -86,7 +86,7 @@ require("includes/common/cabecera_OG.php");?>
                     <img src="img/fotosTeam/bruno.png" alt="Team_image">
                 </div>
                 <h3>Bruno</h3>
-                <p class="role">Ingeniero del Software/p>
+                <p class="role">Ingeniero del Software </p>
                 <p>Experto en Bases de Datos y muy entusiasmado con este proyecto para la asignatura de AW.</p>
             </div>
         </div>
