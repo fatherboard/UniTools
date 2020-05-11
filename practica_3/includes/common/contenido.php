@@ -12,11 +12,9 @@
         <!-- <link rel="stylesheet" type="text/css" href="css/contenidoanim.css">  -->
         
     <style>
+       
 
-
-
-    </style>
-    
+    </style>   
 
              
     </head>    
@@ -51,8 +49,8 @@
                                         
                     <h3> Sube - Almacena - Descarga </em></h3> 
                     <a href = "registro.php">
-                        <h4><i><ins> Únete a nuestra comunidad y disfruta de todas sus ventajas y posibilidades </ins></i></h4>
-                    </a>
+                        <p> Únete a nuestra comunidad y disfruta de todas sus ventajas y posibilidades</p>
+                     </a>    
                 </div> 
             </div>
             
@@ -60,15 +58,15 @@
             <div class="caja">
 
                     <div class="carrusel">
-                        <img src ="img/img_back/background-balance-business-commerce-583846.jpg" alt="sube"width="100%">                            
+                        <img src ="img/img_back/background-balance-business-commerce-583846.jpg" alt="img_1"width="100%">                            
                     </div>
 
                     <div class="carrusel">    
-                        <img src ="img/img_back/photo-of-person-holding-mobile-phone-3183153.jpg" alt="sube"width="100%">                    
+                        <img src ="img/img_back/photo-of-person-holding-mobile-phone-3183153.jpg" alt="img_2"width="100%">                    
                     </div>
 
                     <div class="carrusel">    
-                        <img src ="img/img_back/person-touching-open-macbook-on-table-839465.jpg" alt="sube"width="100%">
+                        <img src ="img/img_back/person-touching-open-macbook-on-table-839465.jpg" alt="img_3"width="100%">
                     </div>
                  
             </div>
@@ -116,30 +114,30 @@
                                            
             <div class="caja">
                  <div class="polaroid">
-                    <a href="mensajes.php"> <img src="img/img_back/person-using-smartphone-1394940.jpg" alt="5 Terre" style="width:100%"> </a>
+                    <a href="mensajes.php"> <img src="img/img_back/person-using-smartphone-1394940.jpg" alt="img1" style="width:100%"> </a>
                         <div class="container">
-                            <p>Mensajes</p>
+                             <a href="mensajes.php"> <p>Mensajes</p></a>
                         </div>
                 </div>
 
                 <div class="polaroid">
-                        <a href="herramientas.php"> <img src="img/img_back/floor-plan-on-table-834892.jpg" alt="Norther Lights" style="width:100%"> </a>
-                        <div class="container">
-                             <p>Herramientas</p>
+                        <a href="herramientas.php"> <img src="img/img_back/floor-plan-on-table-834892.jpg" alt="img2" style="width:100%"> </a>
+                             <div class="container">
+                        <a href="herramientas.php"><p>Herramientas</p></a>
                         </div>
                 </div>
 
                 <div class="polaroid">
-                         <a href="foro.php">  <img src="img/img_back/apple-business-computer-connection-392018.jpg" alt="Norther Lights" style="width:100%"> </a>
+                         <a href="foro.php">  <img src="img/img_back/apple-business-computer-connection-392018.jpg" alt="img3" style="width:100%"> </a>
                         <div class="container">
-                             <p>Foro</p>
+                             <a href="foro.php"> <p>Foro</p></a>
                         </div>  
                 </div>
 
                 <div class="polaroid">
-                         <a href="post.php"> <img src="img/img_back/close-up-photo-of-laptop-keyboard-4065712.jpg" alt="Norther Lights" style="width:100%"> </a>
+                         <a href="post.php"> <img src="img/img_back/close-up-photo-of-laptop-keyboard-4065712.jpg" alt="img4" style="width:100%"> </a>
                         <div class="container">
-                             <p>Post</p>
+                             <a href="post.php"> <p>Post</p></a>
                         </div>
                 </div>
             </div>    
@@ -147,7 +145,7 @@
             
 
             <div id="apartado5"  class="text-center">
-                <p><mark> Actualmente la página se encuentra en construcción. </mark></p>
+                <p> (Actualmente la página se encuentra en construcción) </p>
             </div>
 
             
