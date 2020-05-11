@@ -128,27 +128,21 @@ class DAOUsuario extends DAO {
 	}
 
 	public function update_name($username, $new_name){
-		$sql = sprintf("UPDATE user SET name = '" .$new_name. "' WHERE username = $username");
-		if (!$this->ejecutarConsulta($sql))
+		$sql = sprintf("UPDATE user SET name = '" .$new_name. "' WHERE username = '" .$username. "' ");
+		$result = $this->insertarConsulta($sql);
+		if ($result == null)
 			return null;
 		else 
-		{
-			$result = $this->ejecutarConsulta($sql);
-			$user = new TOUser($result['id_user'],$result['email'],$result['password'],$result['username'],$result['premium'], $result['admin'], $result['name'], $result['aboutMe']);
-			return $user;
-		}
+			return true;
 	}
 
 	public function update_aboutMe($username, $new_aboutMe){
-		$sql = sprintf("UPDATE user SET aboutMe = '" .$new_aboutMe. "' WHERE username = $username");
-		if (!$this->ejecutarConsulta($sql))
+		$sql = sprintf("UPDATE user SET aboutMe = '" .$new_aboutMe. "' WHERE username = '" .$username. "' ");
+		$result = $this->insertarConsulta($sql);
+		if ($result == null)
 			return null;
 		else 
-		{
-			$result = $this->ejecutarConsulta($sql);
-			$user = new TOUser($result['id_user'],$result['email'],$result['password'],$result['username'],$result['premium'], $result['admin'], $result['name'], $result['aboutMe']);
-			return $user;
-		}
+			return true;
 	}
 
 }

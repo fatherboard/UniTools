@@ -18,6 +18,36 @@ $name = $userData->get_name();
 $aboutMe = $userData->get_aboutMe();
 $password = $userData->get_password();
 
+//Script actualizar email
+if (isset($_POST['email'])) {
+  if ($dao_usuario->update_email($_SESSION['username'], $_POST['email'])) {
+    header("Refresh:0");
+  } else {
+    echo "Se ha producido un error";
+  }
+}
+
+//Script actualizar nombre
+if (isset($_POST['nombre'])) {
+  if ($dao_usuario->update_name($_SESSION['username'], $_POST['nombre'])) {
+    header("Refresh:0");
+  } else {
+    echo "Se ha producido un error";
+  }
+}
+
+//Script actualizar aboutMe
+if (isset($_POST['aboutMe'])) {
+  if ($dao_usuario->update_aboutMe($_SESSION['username'], $_POST['aboutMe'])) {
+    header("Refresh:0");
+  } else {
+    echo "Se ha producido un error";
+  }
+}
+
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -99,19 +129,20 @@ $password = $userData->get_password();
 
           <li class="field">
             <p>Nombre: <?php echo $name ?></p>
+            <form action="" method="post">
+              Nuevo Nombre: <input type="text" name="nombre"><br>
+              <input type="submit">
+            </form>
           </li>
 
           <li class="field">
             <p>Sobre Mi: <?php echo $aboutMe ?></p>
+            <form action="" method="post">
+              Nuevo Sobre mi: <input type="text" name="aboutMe"><br>
+              <input type="submit">
+            </form>
           </li>
         </ul>
       </div> <!-- Fin del contenido -->
     </div> <!-- Fin del contenedor -->
 </body>
-
-
-<?php
-  if (isset($_POST['email'])){
-    $dao_usuario->update_email($_SESSION['username'], $_POST['email']);
-  }
-?>
