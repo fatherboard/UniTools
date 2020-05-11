@@ -28,16 +28,16 @@
         </div>
 
         <li class="sideop color">
-            <a href=proyectos.php>
-                <i class="fas fa-laptop-code"></i>
-                <span>Proyectos</span>
+            <a href=foro.php>
+                <i class="far fa-window-restore"></i>
+                <span>Foro</span>
             </a>
         </li>
 
         <li class="sideop color">
-            <a href=mensajes.php>
-                <i class="fas fa-comment-dots"></i>
-                <span>Mensajes</span>
+            <a href=herramientas.php>
+                <i class="fas fa-tools"></i>
+                <span>Herramientas</span>
             </a>
         </li>
 
@@ -51,32 +51,19 @@
             </a>
         </li>
 
+        <hr class="side_divH">
 
-
-        <?php
-        if ($_SESSION['login']) {
-            echo '<hr class="side_divH">
-            <div class="side_titulo">
+        <div class="side_titulo">
             Comunidad
-            </div>
-            <li class="sideop color">
+        </div>
+
+        <li class="sideop color">
             <a href=proyectos.php>
-            <i class="fas fa-laptop-code"></i>
-            <span>Proyectos</span>
+                <i class="fas fa-laptop-code"></i>
+                <span>Proyectos</span>
             </a>
-            </li>
-            <li class="sideop color">
-            <a href=mensajes.php>
-            <i class="fas fa-comment-dots"></i>
-            <span>Mensajes</span>
-            </a>
-            </li>';
-        }
-        ?>
-
-
-
-
+        </li>
+        
         <li class="sideop color">
             <a href=mensajes.php>
                 <i class="fas fa-comment-dots"></i>
