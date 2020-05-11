@@ -217,6 +217,10 @@ tr:nth-child(odd) {
   justify-content: space-around;
 }
 
+.jc_space-evenly {
+  justify-content: space-evenly;
+}
+
 .jc_center {
   justify-content: center;
 }
