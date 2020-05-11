@@ -338,13 +338,30 @@ tr:nth-child(odd) {
   color: rgb(73, 73, 73);
 }
 
-#btn_answ {
-  width: fit-content;
-  margin-right: 2%;
+.btn_agua {
+  background-color: #2556a5;
+  border: none;
+  color: #fff;
+
+  background-image: linear-gradient(
+    180deg,
+    #3e72c5 0%,
+    #396cbe 70%,
+    #1a4386 100%
+  );
+
+  margin: 0 0.8rem;
+
   float: right;
-  background-color: #b83174;
-  border: 1px solid #b32069;
-  color: white;
-  cursor: pointer;
-  margin-top: 0.2rem;
+  width: fit-content;
+}
+
+.btn_agua a,
+.btn_chorizo button {
+  color: rgb(255, 255, 255);
+}
+
+.btn_agua a:hover,
+.btn_chorizo button:hover {
+  color: rgb(73, 73, 73);
 }

@@ -12,7 +12,7 @@ class FormLogin extends Form {
 
 	protected function generaCampos(){
 		 $html  =
-		'<fieldset class="fb-col" id="contenido_log">
+		'<fieldset class="fb-col contenido_log_reg" id="contenido_log">
 			<h1>UNITOOLS</h1>
 
 			<div>

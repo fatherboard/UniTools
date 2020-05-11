@@ -45,11 +45,13 @@ require("includes/common/cabecera_OG.php");?>
                         <a href="nuevo_post.php">Nuevo Post</a>
                     </div>
         
-                    <form action="search.php" method="POST" id = "foro_barra_busqueda" class="fb-row" >
+                    <form action="search.php" method="POST" id ="foro_barra_busqueda" class="fb-row" >
                         <input type="text" name="buscar" placeholder="Buscar en posts">
 
-                        <div class="btn btn_mango">
-                            <a  type="submit" name="submit-buscar" href="search.php">Buscar </a>
+                        <div class="btn btn_agua">
+                            <a  type="submit" name="submit-buscar" href="search.php"> 
+                                <i class="fas fa-search"></i>
+                            </a>
                         </div>                        
                     </form>
                 </div>

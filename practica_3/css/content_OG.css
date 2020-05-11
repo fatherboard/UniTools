@@ -269,55 +269,32 @@ ul {
 
 #n_pr .tittle-row {
   padding-top: 0.8rem;
-  margin-left: 1rem;
+  padding-left: 0.5rem;
   width: 79%;
 }
 
+#contenido_npost {
+  width: 50rem;
+}
 /*-- FORO  foro*/
 
 #posts {
   padding-left: 0;
 }
 
-#btn_foro {
-  background-color: #6732fa;
-  border: 1px solid #7e50fb;
-  width: 10rem;
-  margin-top: 0.2rem;
-}
-
-#btn_foro a {
-  padding: 0.4rem 0.7rem 0.4rem 0.7rem;
-  margin-left: left;
-}
-
-#btn_foro a:hover {
-  color: rgb(255, 173, 118);
-}
-
-#foro_barra_busqueda button {
-  background-color: #6732fa;
-  border: 1px solid #7e50fb;
-  width: fit-content;
-  margin-top: 0.2rem;
-  margin-left: 0.2rem;
-  color: white;
-  border-radius: 5rem;
-  cursor: pointer;
-  height: 2rem;
-}
-
-#btn_for_buscar a:hover {
-  color: rgb(255, 173, 118);
+#foro_barra_busqueda {
+  margin: 0;
+  padding: 0;
 }
 
 /*-- NUEVO POST  n_p*/
 
 #n_p form {
   align-items: right;
+  justify-content: center;
 }
 #n_p {
-  width: auto;
+  width: 50rem;
 }
 #n_p textarea {
   padding: 0.5rem 0.5rem 0;
@@ -336,7 +313,7 @@ ul {
 
 #n_p .tittle-row {
   padding-top: 0.8rem;
-  margin-left: 1rem;
+  margin-left: 0;
   width: 90%;
 }
 
@@ -531,7 +508,7 @@ ul {
   width: 30rem;
   border-radius: 3px;
   overflow: hidden;
-  height: 40rem;
+  height: 37rem;
   padding: 4rem 3rem;
   background-color: #ffffff;
   color: rgb(37, 37, 37);
@@ -540,14 +517,41 @@ ul {
   text-align: center;
 }
 
-#contenido_log h1 {
-  font-weight: 900;
-  padding-bottom: 3rem;
+#contenido_reg {
+  width: 30rem;
+  border-radius: 3px;
+  overflow: hidden;
+  height: 47rem;
+  padding: 4rem 3rem;
+  background-color: #ffffff;
+  color: rgb(37, 37, 37);
+  box-shadow: inset 0 0.5rem 2rem 0 rgba(96, 98, 114, 0.178);
+  border: none;
+  text-align: center;
 }
 
-#contenido_log > div {
+.contenido_log_reg > div {
   margin-bottom: 1rem;
   word-wrap: break-word;
+}
+
+.contenido_log_reg button {
+  border-radius: 0.5rem;
+  padding: 1.5rem 1rem;
+  margin-top: 3rem;
+  width: 100%;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #cf4b8d;
+  letter-spacing: 0.1rem;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.contenido_log_reg h1 {
+  font-weight: 900;
+  padding-bottom: 3rem;
 }
 
 #contenido_log input {
@@ -561,18 +565,15 @@ ul {
   border: 1px solid #d1d3e2;
 }
 
-#contenido_log button {
+#contenido_reg input {
   border-radius: 0.5rem;
-  padding: 1.5rem 1rem;
-  margin-top: 3rem;
+  padding: 1rem 1rem;
   width: 100%;
   font-size: 1rem;
-  font-weight: bold;
-  background-color: #cf4b8d;
-  letter-spacing: 0.1rem;
-  border: none;
-  color: #ffffff;
-  cursor: pointer;
+  font-weight: 300;
+  background-color: #ececec;
+  color: #757680;
+  border: 1px solid #d1d3e2;
 }
 
 /*----------------------------------------------INCLUDES------------------------------------------------------------*/

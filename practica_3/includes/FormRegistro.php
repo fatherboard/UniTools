@@ -12,7 +12,7 @@
         protected function generaCampos(){
             
             $html = 
-            '<fieldset  class="fb-col" id="contenido_log">
+            '<fieldset  class="fb-col contenido_log_reg" id ="contenido_reg">
                 <h1>ÚNETE A NOSOTROS</h1>
                 <div>
                     <input name="username" type="text" placeholder="Nombre de usuario" />
@@ -29,6 +29,7 @@
                 <div>
                     <input  name="password2" type="password" placeholder="Reintroducir contraseña"/>
                 </div>
+
                 <div>
                     <button type="submit" name="register">REGISTRARSE</button>
                 </div>
