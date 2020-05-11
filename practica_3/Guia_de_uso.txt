@@ -1,0 +1,24 @@
+Los usuarios de la aplicacion son:
+carlos
+bruno
+fer
+hugo
+luis
+cansek
+Las contraseñas de todos estos son 1. Tambien hemos añadido un usuario "profesor" con contraseña "profesor"
+
+Para poder poner toda la aplicación a funcionar en xampp hay que importar los archivos "unitoolsdb.sql" y "usuariosbd.sql" a una base de datos llamada UnitoolsDB en phpmyadmin
+
+*************************GUÍA PARA LAS DIFERENTES FUNCIONES*************************
+
+- Para registrarse o iniciar sesión, hacer click en  los botones dedicados en la esquina superior derecha de la aplicación y rellenar los campos en los formularios
+
+- Para subir un post al foro, entrar en el apartado foro en la barra de navegación derecha y clicar en el botón "Nuevo Post" tras esto, rellenar el formulario y clicar en enviar. Importante estar logeado para poder acceder al foro
+
+- Para subir un proyecto, entrar en el apartado de proyectos y clicar en el botón "Nuevo Proyecto" y rellenar los campos del formulario. tras esto tu proyecto estará creado. Para subir archivos a tu proyecto, entra en él clicando el 
+  título en la lista de proyectos y clicar en el botón "Seleccionar archivo" en la parte inferior de la información del proyecto. Tras seleccionar el archivo clicar en el botón ¨Subir archivo¨, la página te avisará si el formato del 
+  archivo no está permitido. Si quieres borrar alguno de los archivos de un proyecto, solo tienes que clicar en el botón que aparece a la derecha de cada archivo.
+
+- En la pestaña de herramientas puedes utilizar diferentes útiles.
+
+

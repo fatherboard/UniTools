@@ -43,7 +43,6 @@ require("includes/common/cabecera_OG.php");?>
             </div>
         <div class="b1">
             <p>Aquí encontrarás información sobre nuestros miembros y compenentes.</p>
-
         </div>
 
         
