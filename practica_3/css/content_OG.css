@@ -568,7 +568,7 @@ ul {
   width: 100%;
   font-size: 1rem;
   font-weight: bold;
-  background-color: #cf4b8d;
+  background-color: #0e8a4c;
   letter-spacing: 0.1rem;
   border: none;
   color: #ffffff;
@@ -613,6 +613,10 @@ ul {
 #form_reply label {
   align-items: right;
   
+}
+
+#subcaja_reply{
+  height: 20%;
 }
 
 #form_reply button {

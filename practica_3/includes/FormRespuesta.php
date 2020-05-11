@@ -22,8 +22,8 @@ class FormRespuesta extends Form {
 					<button class="submit-center" type="submit" name="enviar">Enviar</button>
 				</div>
 
-				<div class="b2" >
-					<textarea class="field" type="text" name="contenido" placeholder = "Escribe tu respuesta"></textarea>
+				<div class="b2" id "subcaja_reply">
+					<textarea class="field" type="text" name="contenido" placeholder = "Escribe tu respuesta" row="3"></textarea>
 				</div>
 			</div>
 		</div>';
