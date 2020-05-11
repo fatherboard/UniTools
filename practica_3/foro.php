@@ -87,8 +87,15 @@ require("includes/common/cabecera_OG.php");?>
 
           echo "<tr>";
           if ($usuario != null){
-            echo '<td><img class="forumPic" alt="foto_foro" src="img/fotosPerfil/' . $username . '.jpg"></td>';
+
+            $filePath = "img/fotosPerfil/" . $username . ".jpg";
+            if (file_exists($filePath)) { ?>
+              <td><img class="forumPic" alt="foto_foro" src=" <?php echo $filePath ?>"></td>
+            <?php } else { ?>
+                <td><img class="forumPic" alt="foto_foro" src="img/Default_user_icon.jpg"></td>
+            <?php }
             }
+            
 		  echo "<td>" . "<a href=\"post.php?id=" . $post_id . "\">" . $title . "</a></td>";
           echo "<td>"  . $post_id ."</td>";
           echo '<div class=Fb-row">';

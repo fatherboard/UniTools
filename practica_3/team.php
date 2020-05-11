@@ -53,8 +53,8 @@ require("includes/common/cabecera_OG.php");?>
                     <img src="img/fotosTeam/hugo.png" alt="Team_image">
                 </div>
                 <h3>Hugo Martins</h3>
-                <p class="role">Linux Master</p>
-                <p>Soy un joven de exóticos origenes, muy ilusionado con este proyecto lleno de ideas innovadoras y mucho futuro.</p>
+                <p class="role">El Portugués</p>
+                <p>Me encanta la programación web y la seguridad informática. ¡Los shibas y los móviles son mi pasión!</p>
             </div>
             <div class="team_member">
                  <div class="team_img">

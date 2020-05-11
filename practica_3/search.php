@@ -59,7 +59,7 @@ require("includes/common/cabecera_OG.php");?>
             while (!empty($res)) {
                 $curr_post = array_shift($res);
                 $post_id = $curr_post->get_id(); // id del post
-                $usuario = $dao_user->search_userId($post_id);
+                $usuario = $dao_user->search_userId($curr_post->get_user());
                 $categoria = $curr_post->get_category();
                 $title = $curr_post->get_title();
 
