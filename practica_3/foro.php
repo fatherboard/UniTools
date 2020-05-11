@@ -33,6 +33,7 @@ require("includes/common/navegacion_OG.php");?>
 require("includes/common/cabecera_OG.php");?>
 
 <div class="contenido">
+    <?php if(isset($_SESSION['login']) && $_SESSION['login']){?>
             <div class="cotenido">
             <div class="fb-col box" id="prs_g">
 		    <div class="t1 fb-row" >
@@ -111,5 +112,12 @@ require("includes/common/cabecera_OG.php");?>
         </div>
     
     </div> <!-- Fin del contenedor -->
+    <?php 
+}else{
+    echo "No puedes entrar aqui a menos que estes logueado";
+}
+?>
+</div>
+
 
 </body>
