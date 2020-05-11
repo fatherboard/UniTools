@@ -73,14 +73,11 @@ class DAOUsuario extends DAO {
 
 	public function update_email($username,$mail){
 		$sql = sprintf("UPDATE user SET email ='" .$mail. "' WHERE username = '" .$username. "' ");
-		if (!$this->ejecutarConsulta($sql))
+		$result = $this->insertarConsulta($sql);
+		if ($result == null)
 			return null;
 		else 
-		{
-			$result = $this->ejecutarConsulta($sql);
-			$user = new TOUser($result['id_user'],$result['email'],$result['password'],$result['username'],$result['premium'], $result['admin'], $result['name'], $result['aboutMe']);
-			return $user;
-		}
+			return true;
 	}
 
 	public function update_premium($username){
@@ -119,7 +116,7 @@ class DAOUsuario extends DAO {
 
 	
 	public function update_user_name($old_username, $new_username){
-		$sql = sprintf("UPDATE user SET username = '" .$new_username. "' WHERE username = $old_username");
+		$sql = sprintf("UPDATE user SET username = '" .$new_username. "' WHERE username = '" . $old_username. "'");
 		if (!$this->ejecutarConsulta($sql))
 			return null;
 		else 
