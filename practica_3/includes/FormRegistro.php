@@ -13,7 +13,7 @@
             
             $html = 
             '<fieldset  class="fb-col" id="contenido_log">
-                <h1>UNETE A NOSOTROS</h1>
+                <h1>ÚNETE A NOSOTROS</h1>
                 <div>
                     <input name="username" type="text" placeholder="Nombre de usuario" />
                 </div>
