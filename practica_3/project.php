@@ -89,7 +89,7 @@ include_once("dao/dao_user.php");
 
 					<table>
 						<tr>
-							<th> CONTENIDO </th>
+							<th> Contenido </th>
 						</tr>
 						<tr>
 							<td> <?php echo $contenido ?> </td>
@@ -98,7 +98,7 @@ include_once("dao/dao_user.php");
 
 					<table>
 						<tr>
-							<th> ARCHIVOS SUBIDOS </th>
+							<th> Archivos Subidos</th>
 						</tr>
 						<tr>
 							<?php

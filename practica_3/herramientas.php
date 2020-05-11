@@ -29,7 +29,7 @@ require("includes/common/navegacion_OG.php");?>
 require("includes/common/cabecera_OG.php");?>
 
 <div class="contenido">
-  <div class="fb-col" id="pag-flex">
+  <div class="pag-flex fb-col">
     <div class="box">
         <div class="t1">
           <h1>Herramientas</h1>
@@ -54,7 +54,7 @@ require("includes/common/cabecera_OG.php");?>
                 <button type="button" onclick="texto();">Convertir</button>
               </div>
               
-              <canvas class="box" id="to1_canvas"></canvas>
+              <canvas class="box to1_canvas" id="myCanvas"></canvas>
           </div>
         </li>
 

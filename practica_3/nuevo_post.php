@@ -56,9 +56,10 @@ require("includes/common/cabecera_OG.php");?>
                     <p>Contenido:</p> 
                         <textarea class="field tittle-row"  name="contenido" rows="4" placeholder="Escribe un contenido"></textarea>
                     </div>
-                    <p id = "submit-center"><input type="submit" id = "btn_enviar_npost" value="Enviar" class="field v-center" /></p>
-                
-              
+                    <p id = "submit-center">
+                        <input type="submit" id = "btn_enviar_npost" value="Enviar" class="field v-center" />
+                    </p>
+            
             </form>
           </div>
 
