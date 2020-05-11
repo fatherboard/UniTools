@@ -64,6 +64,11 @@ ul {
   margin-bottom: 25px;
 }
 
+.polaroid a{
+  text-decoration: none;
+  color: black;
+}
+
 .caja .container {
   text-align: center;
   padding: 0.5rem 1rem;
@@ -95,6 +100,9 @@ ul {
   left: 50%;
   transform: transalte(-50%, -50%);
 }
+
+
+
 
 /*PERFIL*/
 #perf_info {

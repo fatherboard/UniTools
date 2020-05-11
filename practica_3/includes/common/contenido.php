@@ -13,7 +13,10 @@
         
     <style>
 
-
+        .polaroid a{
+            text-decoration: none;
+            color: black;
+        }
 
     </style>
     
@@ -51,8 +54,8 @@
                                         
                     <h3> Sube - Almacena - Descarga </em></h3> 
                     <a href = "registro.php">
-                        <h4><i><ins> Únete a nuestra comunidad y disfruta de todas sus ventajas y posibilidades </ins></i></h4>
-                    </a>
+                        <p> Únete a nuestra comunidad y disfruta de todas sus ventajas y posibilidades</p>
+                     </a>    
                 </div> 
             </div>
             
@@ -116,28 +119,28 @@
                                            
             <div class="caja">
                  <div class="polaroid">
-                    <a href="mensajes.php"> <img src="img/img_back/person-using-smartphone-1394940.jpg" alt="5 Terre" style="width:100%"> </a>
+                    <a href="mensajes.php"> <img src="img/img_back/person-using-smartphone-1394940.jpg" alt="img1" style="width:100%"> </a>
                         <div class="container">
                              <a href="mensajes.php"> <p>Mensajes</p></a>
                         </div>
                 </div>
 
                 <div class="polaroid">
-                        <a href="herramientas.php"> <img src="img/img_back/floor-plan-on-table-834892.jpg" alt="Norther Lights" style="width:100%"> </a>
+                        <a href="herramientas.php"> <img src="img/img_back/floor-plan-on-table-834892.jpg" alt="img2" style="width:100%"> </a>
                              <div class="container">
                         <a href="herramientas.php"><p>Herramientas</p></a>
                         </div>
                 </div>
 
                 <div class="polaroid">
-                         <a href="foro.php">  <img src="img/img_back/apple-business-computer-connection-392018.jpg" alt="Norther Lights" style="width:100%"> </a>
+                         <a href="foro.php">  <img src="img/img_back/apple-business-computer-connection-392018.jpg" alt="img3" style="width:100%"> </a>
                         <div class="container">
                              <a href="foro.php"> <p>Foro</p></a>
                         </div>  
                 </div>
 
                 <div class="polaroid">
-                         <a href="post.php"> <img src="img/img_back/close-up-photo-of-laptop-keyboard-4065712.jpg" alt="Norther Lights" style="width:100%"> </a>
+                         <a href="post.php"> <img src="img/img_back/close-up-photo-of-laptop-keyboard-4065712.jpg" alt="img4" style="width:100%"> </a>
                         <div class="container">
                              <a href="post.php"> <p>Post</p></a>
                         </div>
