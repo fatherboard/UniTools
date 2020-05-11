@@ -33,9 +33,9 @@ a {
   text-decoration: none;
 }
 
-/* ----------------------------------------------------------------------CLASES GENERALES---------------------------------------------------------------------- */
+/* CLASES GENERALES */
 
-/*  ---------------------------------------------------------------------Flex content (fc) ----------------------------------------------------------------------*/
+/* fc -> Flex content*/
 .fb-center {
   align-items: center;
 }
@@ -55,7 +55,7 @@ a {
   padding-left: 0;
 }
 
-/* ----------------------------------------------------------------------box content ----------------------------------------------------------------------*/
+/*box content*/
 
 .box {
   background-color: transparent;
@@ -87,6 +87,7 @@ a {
 
   color: #000;
   box-shadow: 0 0.5rem 2rem 0 rgba(96, 98, 114, 0.178);
+  /*color: #2dc8ae;*/
 }
 
 .b1 {
@@ -148,7 +149,7 @@ a {
   font-size: 120%;
 }
 
-/* ----------------------------------------------------------------------Tabla---------------------------------------------------------------------------------------------------------*/
+/*Tabla---------------------------------------------------------------------------------------------------------*/
 table {
   width: 100%;
   margin: 1rem 0 2rem 0;
@@ -191,7 +192,7 @@ tr:nth-child(odd) {
   background-color: #cec1ac;
 }
 
-/* ----------------------------------------------------------------------positioning ----------------------------------------------------------------------*/
+/*positioning*/
 .v-center {
   align-items: center;
 }
@@ -224,13 +225,13 @@ tr:nth-child(odd) {
   justify-content: center;
 }
 
-/* -------------------------------------------------------------Fondo de pantalla (para login y registro) ----------------------------------------------------------------------*/
+/*Fondo de pantalla (para login y registro)*/
 .c_background {
   background-image: linear-gradient(
     0deg,
-    #e4dac4 0%,
-    #0e8a4c 40%,
-    #01381d 100%
+    #e4a8c6 20%,
+    #cf4b8d 50%,
+    #57042e 100%
   );
 }
 
@@ -253,7 +254,7 @@ tr:nth-child(odd) {
   margin-right: auto;
 }
 
-/* ----------------------------------------------------------------------botones ----------------------------------------------------------------------*/
+/*botón*/
 
 .btn {
   border-color: #ffffff;
@@ -289,7 +290,6 @@ tr:nth-child(odd) {
 }
 
 /*---------- Botones genéricos de colores-------------*/
-
 .btn_mango {
   background-color: #e0c218;
   border: none;
@@ -303,7 +303,17 @@ tr:nth-child(odd) {
   );
 }
 
-.btn_tomate {
+.btn_mango a,
+.btn_mango button {
+  color: rgb(255, 255, 255);
+}
+
+.btn_mango a:hover,
+.btn_mango button:hover {
+  color: rgb(0, 0, 0);
+}
+
+.btn_chorizo {
   background-color: #b83174;
   border: none;
   color: #fff;
@@ -322,6 +332,16 @@ tr:nth-child(odd) {
   margin-top: 0.2rem;
 }
 
+.btn_chorizo a,
+.btn_chorizo button {
+  color: rgb(255, 255, 255);
+}
+
+.btn_chorizo a:hover,
+.btn_chorizo button:hover {
+  color: rgb(73, 73, 73);
+}
+
 .btn_agua {
   background-color: #2556a5;
   border: none;
@@ -336,31 +356,17 @@ tr:nth-child(odd) {
   );
 
   margin: 0 0.8rem;
+
   float: right;
   width: fit-content;
 }
 
-/*--- color button text ----*/
-.btn_mango a,
-.btn_mango button,
-.btn_tomate a,
-.btn_tomate button,
 .btn_agua a,
-.btn_agua button {
+.btn_chorizo button {
   color: rgb(255, 255, 255);
 }
 
-/*--- color button hovers ----*/
-.btn_mango a:hover,
-.btn_mango button:hover {
-  color: rgb(0, 0, 0);
-}
-
-.btn_tomate a:hover,
-.btn_tomate button:hover,
 .btn_agua a:hover,
-.btn_agua button:hover {
+.btn_chorizo button:hover {
   color: rgb(73, 73, 73);
 }
-
-/* ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
