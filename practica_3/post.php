@@ -135,10 +135,8 @@ require("includes/common/cabecera_OG.php");?>
 						}
 					
 					echo "<td>Usuario: " . $username . "</td>
-					      <td>" . $comentario . "</td>";
-					
-					
-					echo "</tr>";
+					      <td>" . $comentario . "</td>
+						</tr>";
 					
 					
 					//echo "<td>Categoría: " . $categoria . "</td>";
@@ -160,17 +158,20 @@ require("includes/common/cabecera_OG.php");?>
 						}
 		
 						if ($usuario != null){
-							echo '<td><img class="forumPic" alt="foto_foro" src="img/fotosPerfil/' . $username . '.jpg"></td>';
+							echo '
+							<td>
+								<img class="forumPic" alt="foto_foro" src="img/fotosPerfil/' . $username . '.jpg">
+							</td>';
 							}
 						
-						echo "<td>Usuario: " . $username . "</td>";
-						echo "<td>" . $comentario . "</td>";
-						echo "</tr>";
+							echo "
+							<td>Usuario: " . $username . "</td>
+							<td>" . $comentario . "</td>
+							</tr>";
+						}
 		
-					}
-		
-					echo "</tbody>";
-					echo "</table>";
+					echo "</tbody>
+					</table>";
 				}
 				$dao_user->disconnect();
 

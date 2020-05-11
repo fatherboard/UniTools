@@ -18,7 +18,7 @@ class FormRespuesta extends Form {
 			<div>
 				<div class="t2 fb-row jc_center">
 					<p>Respuesta:</p> 
-					<button class="submit-center btn" id="btn_form_reply" type="submit" name="enviar">Enviar</button>
+					<button class="submit-center" type="submit" name="enviar">Enviar</button>
 				</div>
 
 				<div class="b2" >

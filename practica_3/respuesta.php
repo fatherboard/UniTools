@@ -32,7 +32,7 @@ require("includes/FormRespuesta.php");?>
 
 	<div class="contenido">
             <?php
-
+            
             $form = new FormRespuesta();
             $html = $form->gestiona();
             if (!isset($_SESSION)) {

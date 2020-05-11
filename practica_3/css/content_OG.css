@@ -587,9 +587,18 @@ ul {
 
 #form_reply button {
   background-color: #6732fa;
+
+  background-image: linear-gradient(
+    180deg,
+    #6732fa 0%,
+    #6732fa 70%,
+    #4b25b4 100%
+  );
+
+  font-size: 1rem;
   border: 1px solid #7e50fb;
   width: fit-content;
-  margin: 0.8rem 0 0 0.2rem;
+  margin: 0.8rem 0 0.8rem 0.2rem;
   color: white;
   border-radius: 5rem;
   cursor: pointer;
@@ -597,7 +606,7 @@ ul {
 }
 
 #form_reply button:hover {
-  color: rgb(255, 173, 118);
+  color: rgb(230, 230, 230);
 }
 
 #form_reply textarea {
