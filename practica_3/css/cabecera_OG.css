@@ -54,15 +54,31 @@
   border-radius: 2rem;
 }
 .nav_login {
-  background-color: #aa98fa;
-  border: 1px solid #8071c2;
+  background-color: #96bc98;
+  border: 1px solid #6f9b71;
+
+  background-image: linear-gradient(
+    180deg,
+    #96bc98 0%,
+    #96bc98 60%,
+    #567758 100%
+  );
+
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
 
 .nav_reg {
-  background-color: #796afd;
-  border: 1px solid rgb(91, 69, 192);
+  background-color: #036635;
+  border: 1px solid #014121;
+
+  background-image: linear-gradient(
+    180deg,
+    #036635 0%,
+    #036635 60%,
+    #013119 100%
+  );
+
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
@@ -83,19 +99,22 @@ li.nav_reg a {
   padding: 0.4rem 2rem 0.4rem 1.5rem;
 }
 
-li.nav_login a:hover {
-  color: rgba(66, 66, 66, 0.753);
-}
-
-li.nav_reg a:hover {
-  color: rgba(36, 0, 37, 0.623);
+li a:hover {
+  color: #131313e8;
 }
 
 /* ||LOGGED IN - Nombre del usuario y botón de cerrar sesión*/
 
 .nav_logout {
-  background-color: #ff4e4e98;
-  border: 1px solid #ff877f;
+  background-color: #e01c1cd2;
+  border: 1px solid #a70c0cd2;
+
+  background-image: linear-gradient(
+    180deg,
+    #e01c1cd2 0%,
+    #e01c1cd2 60%,
+    #9e1111d2 100%
+  );
 }
 
 li.nav_logout a {
@@ -103,7 +122,7 @@ li.nav_logout a {
 }
 
 li.nav_logout a:hover {
-  color: rgba(66, 66, 66, 0.753);
+  color: #131313e8;
 }
 
 /* Clases generalizadas */

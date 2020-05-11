@@ -41,14 +41,15 @@ require("includes/common/cabecera_OG.php");?>
             <div class = "b1">
                 <div class = "fb-row jc_space-between v-center" id = "posts">
 
-                    <div class="nav_i " id="btn_foro">
-                        <a  href="nuevo_post.php">Nuevo Post</a>
+                    <div class="btn btn_mango">
+                        <a href="nuevo_post.php">Nuevo Post</a>
                     </div>
         
                     <form action="search.php" method="POST" id = "foro_barra_busqueda" class="fb-row" >
                         <input type="text" name="buscar" placeholder="Buscar en posts">
-                        <div>
-                            <button  type="submit" name="submit-buscar" href="search.php">Buscar </button>
+
+                        <div class="btn btn_mango">
+                            <a  type="submit" name="submit-buscar" href="search.php">Buscar </a>
                         </div>                        
                     </form>
                 </div>

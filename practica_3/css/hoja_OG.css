@@ -35,28 +35,6 @@ a {
 
 /* CLASES GENERALES */
 
-/*botón*/
-
-.btn {
-  color: #fff;
-  border-color: #ffffff;
-
-  display: inline-block;
-  text-align: center;
-  font-size: 1rem;
-  border-radius: 2rem;
-}
-
-.btn a,
-.btn button {
-  display: block;
-  padding: 1rem;
-  color: rgb(255, 255, 255);
-  cursor: pointer;
-  border: none;
-  transition: 0.5s;
-}
-
 /* fc -> Flex content*/
 .fb-center {
   align-items: center;
@@ -173,8 +151,12 @@ a {
 
 /*Tabla---------------------------------------------------------------------------------------------------------*/
 table {
-  width: auto;
+  width: 100%;
   margin: 1rem 0 2rem 0;
+}
+
+table tbody {
+  border-radius: 3rem;
 }
 
 table,
@@ -191,17 +173,23 @@ td {
 }
 
 th {
-  background-color: #e0d7f0;
-  color: black;
+  background-color: #3b3b3a;
+  color: whitesmoke;
+  background-image: linear-gradient(
+    180deg,
+    #4e4e4d 0%,
+    #3b3b3a 70%,
+    #242423 100%
+  );
 }
 
 tr:nth-child(even) {
-  background-color: rgb(200, 200, 200);
+  background-color: #ddd4c5;
   border-radius: 5rem;
 }
 
 tr:nth-child(odd) {
-  background-color: rgb(131, 130, 130);
+  background-color: #cec1ac;
 }
 
 /*positioning*/
@@ -260,4 +248,103 @@ tr:nth-child(odd) {
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+/*botón*/
+
+.btn {
+  border-color: #ffffff;
+  border: none;
+  color: #fff;
+
+  display: inline-block;
+  text-align: center;
+  font-size: 1rem;
+  border-radius: 2rem;
+
+  width: fit-content;
+  margin-top: 0.2rem;
+
+  color: #fff;
+
+  display: inline-block;
+  text-align: center;
+  font-size: 1rem;
+  border-radius: 2rem;
+}
+
+.btn a,
+.btn button {
+  padding: 0.4rem 0.7rem 0.4rem 0.7rem;
+  text-align: center;
+
+  display: block;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  border: none;
+  transition: 0.5s;
+}
+
+/*---------- Botones genéricos de colores-------------*/
+.btn_mango {
+  background-color: #e0c218;
+  border: none;
+  color: #fff;
+
+  background-image: linear-gradient(
+    180deg,
+    #e2a138 0%,
+    #e2a138 70%,
+    #bd790c 100%
+  );
+}
+
+.btn_mango a,
+.btn_mango button {
+  color: rgb(255, 255, 255);
+}
+
+.btn_mango a:hover,
+.btn_mango button:hover {
+  color: rgb(0, 0, 0);
+}
+
+.btn_chorizo {
+  background-color: #b83174;
+  border: none;
+  color: #fff;
+
+  background-image: linear-gradient(
+    180deg,
+    #b83174 0%,
+    #b83174 70%,
+    #92245b 100%
+  );
+
+  margin-right: 1rem;
+
+  float: right;
+  width: fit-content;
+  margin-top: 0.2rem;
+}
+
+.btn_chorizo a,
+.btn_chorizo button {
+  color: rgb(255, 255, 255);
+}
+
+.btn_chorizo a:hover,
+.btn_chorizo button:hover {
+  color: rgb(73, 73, 73);
+}
+
+#btn_answ {
+  width: fit-content;
+  margin-right: 2%;
+  float: right;
+  background-color: #b83174;
+  border: 1px solid #b32069;
+  color: white;
+  cursor: pointer;
+  margin-top: 0.2rem;
 }

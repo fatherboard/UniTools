@@ -84,8 +84,7 @@ include_once('dao/dao_user.php');
             else {
               echo " No... ¡Hazte premium hoy mismo! ";
             }
-            ?>
-            </p>
+            ?> </p>
           </li>
           
           <li class="field">
@@ -94,11 +93,11 @@ include_once('dao/dao_user.php');
           </li>
 
           <li class="field">
-            Nombre: <?php echo $name ?>
+            <p>Nombre: <?php echo $name ?></p>
           </li>
 
           <li class="field">
-            Sobre Mi: <?php echo $aboutMe ?>
+            <p>Sobre Mi: <?php echo $aboutMe ?></p>
           </li>
         </ul>
     </div> <!-- Fin del contenido -->

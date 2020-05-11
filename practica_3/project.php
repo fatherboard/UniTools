@@ -65,7 +65,7 @@ include_once("dao/dao_user.php");
 					<h1>Proyecto</h1>
 				</div>
 				<div class="b1">
-					<table id='t01' style='width:100%'>
+					<table>
 						<tr>
 							<?php //echo "<th>ID del Proyecto</th>"; 
 							?>
@@ -87,7 +87,7 @@ include_once("dao/dao_user.php");
 						</tr>
 					</table>
 
-					<table id='t01' style='width:100%'>
+					<table>
 						<tr>
 							<th> CONTENIDO </th>
 						</tr>
@@ -96,7 +96,7 @@ include_once("dao/dao_user.php");
 						</tr>
 					</table>
 
-					<table id='t01' style='width:100%'>
+					<table>
 						<tr>
 							<th> ARCHIVOS SUBIDOS </th>
 						</tr>

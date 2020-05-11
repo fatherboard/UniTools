@@ -114,7 +114,11 @@ ul {
 
 #perf_datos {
   margin-top: 5rem;
-  width: 100ch;
+  width: 80ch;
+}
+
+#perf_datos p {
+  padding-left: 1rem;
 }
 
 /*HERRAMIENTAS          to => tools*/
@@ -186,8 +190,16 @@ ul {
 }
 
 #btn_nuevo_pr {
-  background-color: #6732fa;
-  border: 1px solid #7e50fb;
+  background-color: #e0c218;
+  border: none;
+
+  background-image: linear-gradient(
+    180deg,
+    #e2a138 0%,
+    #e2a138 70%,
+    #bd790c 100%
+  );
+
   width: 10rem;
   margin-top: 0.2rem;
 }
@@ -201,16 +213,6 @@ ul {
   color: rgb(255, 173, 118);
 }
 
-table#prs {
-  color: black;
-  width: 100%;
-}
-
-#prs tbody {
-  border-radius: 3rem;
-  background-color: powderblue;
-}
-
 #prs_link {
   padding: 0;
 }
@@ -222,17 +224,13 @@ table#prs {
 }
 
 #prs_link a:hover {
-  text-decoration: underline;
-  color: rgb(0, 19, 128);
-  background-color: pink;
+  color: #fff;
+  background-color: rgba(31, 31, 31, 0.205);
   display: block;
 }
 
-#prs th {
-  background-color: #437be4;
-}
-
 /*--PROYECTO pr*/
+
 #btn_pr {
   background-color: #1cecec;
   border: 1px solid #1854f6;
@@ -505,32 +503,6 @@ table#prs {
 
 #title_answ {
   display: inline-block;
-}
-
-#btn_answ_principal {
-  margin-right: 3.5%;
-  float: right;
-  background-color: #b83174;
-  border: 1px solid #b32069;
-  color: white;
-  width: fit-content;
-  cursor: pointer;
-  margin-top: 0.2rem;
-}
-
-#btn_answ button:hover {
-  color: rgb(216, 136, 176);
-}
-
-#btn_answ {
-  width: fit-content;
-  margin-right: 2%;
-  float: right;
-  background-color: #b83174;
-  border: 1px solid #b32069;
-  color: white;
-  cursor: pointer;
-  margin-top: 0.2rem;
 }
 
 #celda_imagen {

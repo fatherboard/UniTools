@@ -37,8 +37,8 @@ require("includes/common/cabecera_OG.php");?>
 			<h1>Proyectos</h1>
 		</div>
 		<div class="b1">
-			<div class="nav_i" id="btn_nuevo_pr">
-				<a class="botonForo" href="nuevo_project.php">Nuevo Proyecto</a>
+			<div class="btn" id="btn_mango">
+				<a href="nuevo_project.php">Nuevo Proyecto</a>
 			</div>
 		<div>
 			<form action="search.php" method="POST">

@@ -64,35 +64,35 @@ require("includes/common/cabecera_OG.php");?>
         </div>
         <!-- Ahora la celda de abajo -->
         <div class="b1">
-          <table id='t01' style='width:100%'>
-            <tr>
-							
-							<div>
-								<th>Foto de perfil</th>
-							</div>
-							
-							<th>Titulo</th>
-							<th>Nombre de usuario</th>
+          <table>
+            <tr>	
+				<div>
+					<th>Foto de perfil</th>
+				</div>
+					<th>Titulo</th>
+					<th>Nombre de usuario</th>
                
-								<div id = "answ-centenido-principal">
-								<th>Contenido
-            <?php echo "<a id = 'btn_answ_principal' class='btn'  onclick=\"location.href='respuesta.php?post=" . $post_id . "'\">Responder</a>";	
-						?></div>
-          </th>
-            </tr>
+				<div>
+					<th>Contenido
+				<div class="btn btn_chorizo">
+
+					<?php echo "<a onclick=\"location.href='respuesta.php?post=" . $post_id . "'\">Responder</a>";?>
+					</th>
+				</div>
+			</tr>
+		</div>
+            
             <tr>
-              <?php
-					if ($usuario != null){
-						echo '<td><img class="forumPic" alt="foto_foro" src="img/fotosPerfil/' . $username . '.jpg"></td>';
-						}
-					?>
+                <?php if ($usuario != null){ ?>
+				<td>
+				<img class="forumPic" alt="foto_foro" src="img/fotosPerfil/<?php echo $username ?>.jpg">
+				</td>
 
+				<?php }?>
 
-
-
-              <td> <?php echo $title	   ?> </td>
-              <td> <?php echo $username  ?> </td>
-              <td> <?php echo $contenido ?> </td>
+              	<td> <?php echo $title	 ?> </td>
+              	<td> <?php echo $username  ?> </td>
+              	<td> <?php echo $contenido ?> </td>
             </tr>
           </table>
 
@@ -112,24 +112,30 @@ require("includes/common/cabecera_OG.php");?>
 						$username = $usuario->get_username();
 					}
 					
-					echo "<table  id='t01' style='width:100%'>";
-					echo"<tr>
+					echo "
+					<table>
+					<tr>
 					
-					<th id = 'celda_imagen'>Foto de perfil</th>
+						<th id='celda_imagen'>Foto de perfil</th>
+						<div>
+							<th id = 'celda_nombre'>Nombre de usuario</th>
+						</div>
+
+						<th>Contenido 
+						<div class= 'btn btn_chorizo'>
+							<a  href=respuesta.php?post=" . $post_id . "&answer=" . $resp_id . ">Responder</a></th>
+						</div>
+					</tr>
 					
-					<div>
-					<th id = 'celda_nombre'>Nombre de usuario</th>
-					</div>
-					<th>Contenido <a id = 'btn_answ' class='btn' href=respuesta.php?post=" . $post_id . "&answer=" . $resp_id . ">Responder</a></th>
-				</tr>";
-					echo "<tbody>";
-					echo "<tr>";
+					<tbody>
+					<tr>";
+
 					if ($usuario != null){
 						echo '<td><img class="forumPic" alt="foto_foro" src="img/fotosPerfil/' . $username . '.jpg"></td>';
 						}
 					
-					echo "<td>Usuario: " . $username . "</td>";
-					echo "<td>" . $comentario . "</td>";
+					echo "<td>Usuario: " . $username . "</td>
+					      <td>" . $comentario . "</td>";
 					
 					
 					echo "</tr>";
