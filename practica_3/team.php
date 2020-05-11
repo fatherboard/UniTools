@@ -101,12 +101,12 @@ require("includes/common/cabecera_OG.php");?>
     </div>
 
     <div class="social">
-        <a href="https://www.facebook.com/daniel.cansecomaldonado" class="fa fa-facebook"></a>
-        <a href="https://twitter.com/isMikeWazouski" class="fa fa-twitter"></a>
+        <a href="https://www.facebook.com" class="fa fa-facebook"></a>
+        <a href="https://twitter.com" class="fa fa-twitter"></a>
         <a href="https://www.google.es" class="fa fa-google"></a>
-        <a href="https://es.linkedin.com/" class="fa fa-linkedin"></a>
-        <a href="https://www.youtube.com/user/Cansek98" class="fa fa-youtube"></a>
-        <a href="https://www.instagram.com/cansek98/" class="fa fa-instagram"></a>
+        <a href="https://es.linkedin.com" class="fa fa-linkedin"></a>
+        <a href="https://www.youtube.com/user" class="fa fa-youtube"></a>
+        <a href="https://www.instagram.com" class="fa fa-instagram"></a>
     </div>
 	
     </div>
