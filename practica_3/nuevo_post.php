@@ -62,12 +62,6 @@ require("includes/common/cabecera_OG.php");?>
             </form>
           </div>
 
-
-
-
-       
-
-
           <?php
                     } else {
 

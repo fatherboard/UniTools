@@ -29,7 +29,7 @@ require("includes/common/navegacion_OG.php");?>
 require("includes/common/cabecera_OG.php");?>
 
 <div class="contenido">
-  <div class="pag-flex fb-col">
+  <div class="fb-col" id="pag-flex">
     <div class="box">
         <div class="t1">
           <h1>Herramientas</h1>
@@ -41,24 +41,24 @@ require("includes/common/cabecera_OG.php");?>
         </div>
     </div>
 
-    <ul class="gr-tools">
-        <li class="box to1">
+    <ul id="gr-tools">
+        <li class="box" id="to1">
           <div class= "t2">
             <h2> Introduzca su palabra para darle formato:</h2>
           </div>
           <div class="b2 fb-col fb-center">
               <p> Pega aquí tu texto para verlo con un nuevo formato! </p> 
 
-              <div class="fb-row fb-center to1_enter">
+              <div class="fb-row fb-center" id="to1_enter">
                 <input type="integer" id="valor_d4" name="valor_d4" placeholder="Ejemplo">
                 <button type="button" onclick="texto();">Convertir</button>
               </div>
               
-              <canvas class="box to1_canvas" id="myCanvas"></canvas>
+              <canvas class="box" id="to1_canvas"></canvas>
           </div>
         </li>
 
-        <li class="box to2">
+        <li class="box" id="to2">
           <div class="t2">
               <h2> Introduzca su texto para contar las palabras:</h2>
           </div>
@@ -69,7 +69,7 @@ require("includes/common/cabecera_OG.php");?>
             </div>
           </div>
         </li>
-        <li class="box to3">
+        <li class="box" id="to3">
           <div class="t2">
             <h2> Introduzca el decimal a convertir a binario:</h2>
           </div>
@@ -80,7 +80,7 @@ require("includes/common/cabecera_OG.php");?>
             </div>
           </div>
 
-        <li class="box to4">
+        <li class="box" id="to4">
           <div class="t2">
             <h2> Introduzca el decimal a convertir a hexadecimal:</h2>
           </div>
@@ -94,7 +94,7 @@ require("includes/common/cabecera_OG.php");?>
 
         
 
-        <li class="box to5 moveit">
+        <li class="box" id="to5">
           <div class="t2">
             <h2> Introduzca el binario a convertir a decimal:</h2>
           </div>

@@ -38,15 +38,7 @@ ul {
   align-content: flex-start;
 }
 
-/*GREEN
-.box .t1 .cgreen,
-.box .t2 .cgreen {
-  background-color: #2dc8ae;
-  color: #fff;
-}
-*/
-
-/*INICIO*/
+/*-----------------------------------------------INICIO-----------------------------------------------------------------------------*/
 
 .caja {
   display: flex;
@@ -127,7 +119,7 @@ ul {
   margin: 2rem 0;
 }
 
-/*PERFIL*/
+/*-------------------------------------------------------PERFIL-----------------------------------------------*/
 #perf_info {
   margin: 2rem 1.5rem 0;
 }
@@ -152,8 +144,8 @@ ul {
   padding-left: 1rem;
 }
 
-/*HERRAMIENTAS          to => tools*/
-.gr-tools {
+/*-----------------------------------------------HERRAMIENTAS (to => tools)-----------------------------------------------*/
+#gr-tools {
   display: grid;
   gap: 0.2rem;
   grid-template-columns: [to_c1] 1fr [to_c2] 1.5fr [to_c3] 1fr;
@@ -165,17 +157,17 @@ ul {
   padding-left: 0;
 }
 
-.to1 {
+#to1 {
   grid-column: to_c2;
   grid-row: to_r1/3;
   margin-bottom: 0;
   align-self: flex-start;
 }
-.to1_enter {
+#to1_enter {
   margin-top: 0;
   margin-bottom: 1rem;
 }
-.to1_canvas {
+#to1_canvas {
   margin-top: 2rem;
   width: 300px;
   height: 60px;
@@ -183,7 +175,7 @@ ul {
   border: 2px solid rgb(100, 100, 100);
 }
 
-.to2 {
+#to2 {
   grid-column: to_c1;
   grid-row: to_r1;
 
@@ -191,7 +183,7 @@ ul {
   margin-bottom: 0;
 }
 
-.to3 {
+#to3 {
   grid-column: to_c1;
   grid-row: to_r2;
 
@@ -199,7 +191,7 @@ ul {
   margin-bottom: 0;
 }
 
-.to4 {
+#to4 {
   grid-column: to_c3;
   grid-row: to_r1;
 
@@ -207,7 +199,7 @@ ul {
   margin-bottom: 0;
 }
 
-.to5 {
+#to5 {
   grid-column: to_c3;
   grid-row: to_r2;
   margin-bottom: 0;
@@ -323,7 +315,6 @@ ul {
 #n_p form {
   align-items: right;
   margin-left: 90%;
-    
 }
 #n_p {
   width: 50rem;
@@ -342,8 +333,6 @@ ul {
   text-align: center;
   margin: 0.5rem 0;
 }
-
-
 
 #n_p .tittle-row {
   padding-top: 0.8rem;
