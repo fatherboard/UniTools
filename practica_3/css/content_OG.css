@@ -590,8 +590,15 @@ ul {
 
 /*------------------------------------------------------------------------INCLUDES/FORM RESPUESTA (form_reply)------------------------------------------------------------------------*/
 
+
+#form_reply{
+  width:35%;
+  height: max-content;
+}
+
 #form_reply label {
   align-items: right;
+  
 }
 
 #form_reply button {

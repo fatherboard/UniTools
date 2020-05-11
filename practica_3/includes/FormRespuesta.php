@@ -15,15 +15,15 @@ class FormRespuesta extends Form {
 
 	protected function generaCampos(){
 		$html = 
-		'<div class="fb-col box v-center" id="form_reply">
-			<div>
+		'<div class="fb-col box v-center" >
+			<div id="form_reply">
 				<div class="t2 fb-row jc_center">
 					<p>Respuesta:</p> 
 					<button class="submit-center" type="submit" name="enviar">Enviar</button>
 				</div>
 
 				<div class="b2" >
-					<textarea class="field" type="text" name="contenido"></textarea>
+					<textarea class="field" type="text" name="contenido" placeholder = "Escribe tu respuesta"></textarea>
 				</div>
 			</div>
 		</div>';
