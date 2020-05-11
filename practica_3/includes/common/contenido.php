@@ -118,28 +118,28 @@
                  <div class="polaroid">
                     <a href="mensajes.php"> <img src="img/img_back/person-using-smartphone-1394940.jpg" alt="5 Terre" style="width:100%"> </a>
                         <div class="container">
-                            <p>Mensajes</p>
+                             <a href="mensajes.php"> <p>Mensajes</p></a>
                         </div>
                 </div>
 
                 <div class="polaroid">
                         <a href="herramientas.php"> <img src="img/img_back/floor-plan-on-table-834892.jpg" alt="Norther Lights" style="width:100%"> </a>
-                        <div class="container">
-                             <p>Herramientas</p>
+                             <div class="container">
+                        <a href="herramientas.php"><p>Herramientas</p></a>
                         </div>
                 </div>
 
                 <div class="polaroid">
                          <a href="foro.php">  <img src="img/img_back/apple-business-computer-connection-392018.jpg" alt="Norther Lights" style="width:100%"> </a>
                         <div class="container">
-                             <p>Foro</p>
+                             <a href="foro.php"> <p>Foro</p></a>
                         </div>  
                 </div>
 
                 <div class="polaroid">
                          <a href="post.php"> <img src="img/img_back/close-up-photo-of-laptop-keyboard-4065712.jpg" alt="Norther Lights" style="width:100%"> </a>
                         <div class="container">
-                             <p>Post</p>
+                             <a href="post.php"> <p>Post</p></a>
                         </div>
                 </div>
             </div>    
