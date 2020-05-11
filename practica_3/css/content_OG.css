@@ -51,9 +51,8 @@ ul {
 .caja {
   display: flex;
   width: 100%;
-  margin-top: 2rem;
+  margin: 2rem 0;
   justify-content: center;
-  align-items: center;
 }
 
 .caja .polaroid {
@@ -64,12 +63,16 @@ ul {
   margin-bottom: 25px;
 }
 
-.polaroid a{
+.interior {
+  margin-bottom: 0.7rem;
+}
+
+.polaroid a {
   text-decoration: none;
   color: black;
 }
 
-.caja .container {
+.caja .interior {
   text-align: center;
   padding: 0.5rem 1rem;
 }
@@ -101,8 +104,28 @@ ul {
   transform: transalte(-50%, -50%);
 }
 
+#cont_logo img {
+  width: 8rem;
+}
 
+#cont h2 {
+  font-weight: 700;
+}
+#cont h3 {
+  font-weight: 500;
+}
 
+#cont_unete_link p {
+  color: #036635;
+}
+
+#cont_descripcion {
+  margin: 0 2rem;
+}
+
+#iconos {
+  margin: 2rem 0;
+}
 
 /*PERFIL*/
 #perf_info {

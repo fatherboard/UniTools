@@ -62,14 +62,14 @@ require("includes/common/cabecera_OG.php");?>
                  </div>
                  <h3>Daniel Canseco</h3>
                  <p class="role">Css master</p>
-                 <p>"Aprendiendo de los errores. Nunca te rindas, como siempre me decía mi abuelita gallega."</p></div>
+                 <p>Aprendiendo de los errores. Nunca te rindas, como siempre me decía mi abuelita gallega.</p></div>
             <div class="team_member">
                  <div class="team_img">
                      <img src="img/fotosTeam/fer.png" alt="Team_image">
                     </div>
                  <h3>Fernando Ruiz</h3>
                 <p class="role">Experto en AW</p>
-                <p>Pienso que PHP es un lenguaje bellisimo, y nunca me canso de añadir signos del dolar por doquier.</p>
+                <p>Pienso que PHP es un lenguaje bellisimo, y nunca me canso de ir mejorandor y aprendiendo.</p>
             </div>
             <div class="team_member">
                  <div class="team_img">
@@ -101,12 +101,12 @@ require("includes/common/cabecera_OG.php");?>
     </div>
 
     <div class="social">
-        <a href="https://www.facebook.com/daniel.cansecomaldonado" class="fa fa-facebook"></a>
-        <a href="https://twitter.com/isMikeWazouski" class="fa fa-twitter"></a>
+        <a href="https://www.facebook.com" class="fa fa-facebook"></a>
+        <a href="https://twitter.com" class="fa fa-twitter"></a>
         <a href="https://www.google.es" class="fa fa-google"></a>
-        <a href="https://es.linkedin.com/" class="fa fa-linkedin"></a>
-        <a href="https://www.youtube.com/user/Cansek98" class="fa fa-youtube"></a>
-        <a href="https://www.instagram.com/cansek98/" class="fa fa-instagram"></a>
+        <a href="https://es.linkedin.com" class="fa fa-linkedin"></a>
+        <a href="https://www.youtube.com/user" class="fa fa-youtube"></a>
+        <a href="https://www.instagram.com" class="fa fa-instagram"></a>
     </div>
 	
     </div>
