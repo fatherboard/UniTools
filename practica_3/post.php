@@ -75,7 +75,7 @@ require("includes/common/cabecera_OG.php");?>
                
 				<div>
 					<th>Contenido
-				<div class="btn btn_chorizo">
+				<div class="btn btn_tomate">
 
 					<?php echo "<a onclick=\"location.href='respuesta.php?post=" . $post_id . "'\">Responder</a>";?>
 					</th>
@@ -123,7 +123,7 @@ require("includes/common/cabecera_OG.php");?>
 						</div>
 
 						<th>Contenido 
-						<div class= 'btn btn_chorizo'>
+						<div class= 'btn btn_tomate'>
 							<a  href=respuesta.php?post=" . $post_id . "&answer=" . $resp_id . ">Responder</a></th>
 						</div>
 					</tr>
