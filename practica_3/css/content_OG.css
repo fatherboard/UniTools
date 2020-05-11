@@ -299,7 +299,8 @@ ul {
 
 #n_p form {
   align-items: right;
-  justify-content: center;
+  margin-left: 90%;
+    
 }
 #n_p {
   width: 50rem;
@@ -310,7 +311,7 @@ ul {
   height: 50px;
 }
 #n_p p {
-  margin: 0;
+  margin-left: 0;
   text-align: left;
 }
 
@@ -319,9 +320,11 @@ ul {
   margin: 0.5rem 0;
 }
 
+
+
 #n_p .tittle-row {
   padding-top: 0.8rem;
-  margin-left: 0;
+  padding-left: 0.5rem;
   width: 90%;
 }
 

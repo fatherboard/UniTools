@@ -41,8 +41,8 @@ require("includes/common/cabecera_OG.php");?>
                     if ($_SERVER['REQUEST_METHOD'] != 'POST') {
                         ?>
 
-                <div class="fb-col box v-center" id="n_p">
-                <form action="" method="post">
+                <div class="fb-col box v-center " id="n_p">
+                <form action="" method="post" >
                     <div class="t2 text-center">
                     <h1>Nuevo Post</h1>
                     </div>
