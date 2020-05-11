@@ -12,14 +12,9 @@
         <!-- <link rel="stylesheet" type="text/css" href="css/contenidoanim.css">  -->
         
     <style>
+       
 
-        .polaroid a{
-            text-decoration: none;
-            color: black;
-        }
-
-    </style>
-    
+    </style>   
 
              
     </head>    
@@ -63,15 +58,15 @@
             <div class="caja">
 
                     <div class="carrusel">
-                        <img src ="img/img_back/background-balance-business-commerce-583846.jpg" alt="sube"width="100%">                            
+                        <img src ="img/img_back/background-balance-business-commerce-583846.jpg" alt="img_1"width="100%">                            
                     </div>
 
                     <div class="carrusel">    
-                        <img src ="img/img_back/photo-of-person-holding-mobile-phone-3183153.jpg" alt="sube"width="100%">                    
+                        <img src ="img/img_back/photo-of-person-holding-mobile-phone-3183153.jpg" alt="img_2"width="100%">                    
                     </div>
 
                     <div class="carrusel">    
-                        <img src ="img/img_back/person-touching-open-macbook-on-table-839465.jpg" alt="sube"width="100%">
+                        <img src ="img/img_back/person-touching-open-macbook-on-table-839465.jpg" alt="img_3"width="100%">
                     </div>
                  
             </div>
@@ -150,7 +145,7 @@
             
 
             <div id="apartado5"  class="text-center">
-                <p><mark> Actualmente la página se encuentra en construcción. </mark></p>
+                <p> (Actualmente la página se encuentra en construcción) </p>
             </div>
 
             
