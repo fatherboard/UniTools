@@ -167,7 +167,7 @@ require("includes/common/cabecera_OG.php");?>
 							}
 						
 							echo "
-							<td>Usuariooo: " . $_SESSION['username'] . "</td>
+							<td>Usuario: " . $_SESSION['username'] . "</td>
 							<td>" . $comentario . "</td>
 							</tr>";
 						}
