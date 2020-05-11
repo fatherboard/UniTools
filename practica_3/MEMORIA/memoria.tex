@@ -249,80 +249,103 @@ CREATE TABLE `project` (
 \end{lstlisting}
 Como se puede ver, hemos añadido campos que permiten convertir el Proyecto a privado, protegerlo de cambios en paralelo (mediante un candado), así como subir archivos de texto. Además hemos añadido entradas en el Foro y Proyectos de prueba.
 
-4. Hemos \textbf{añadido funcionalidad} al Proyecto. Hemos creado una nueva clase Proyecto, con su propio DAO. Por otro lado, en vez de crear otro formulario para añadir proyectos, hemos reestructurado los formularios, \textbf{utilizando una clase genérica Form} que hemos usado para crear también FormLogin, FormRegistro. 
+4. Hemos \textbf{añadido funcionalidad} al Proyecto. Hemos creado una nueva clase Proyecto, con su propio DAO. Por otro lado, en vez de crear otro formulario para añadir proyectos, hemos reestructurado los formularios, \textbf{utilizando una clase genérica Form} que hemos usado para crear también FormLogin, FormRegistro, FormNewProject. Ahora Proyecto permite además subir y bajar archivos.
 
-Ya se pueden crear nuevos Proyectos, proporcionando informació relativa al lenguaje, privacidad o valoración. Los proyectos cuentan con un sistema de valoración de entre cero y cinco estrellas (siendo tres por defecto) que se irá perfeccionando. También se ha añadido un \textbf{buscador para los posts}.
+Ya se pueden crear nuevos Proyectos, proporcionando informació relativa al lenguaje, privacidad o valoración. Los proyectos cuentan con un sistema de valoración de entre cero y cinco estrellas (siendo tres por defecto) que se irá perfeccionando. También se ha añadido un \textbf{buscador para los posts}. Además, los post muestran la foto de perfil.
 
 5. Hemos añadido música que se reproduce al entrar en la página web.
 
 6. Hemos añadido una sección Team con una descripción de cada uno de los miembros del equipo.
 
-7. Como funcionalidades extra, ahora el usuario \textbf{puede editar desde su perfil su estado como Premium/No Premium y su foto de perfil}.
+7. Como funcionalidades extra, ahora el usuario \textbf{puede editar desde su perfil información del usuario y su foto de perfil}.
 
 \section{Vistas del Proyecto: Tour guiado}
 Las vistas posibles de esta versión son entre las que permite navegar el Menú de la página web, y como se puede comprobar el esfuerzo en el CSS le ha dado una apariencia completamente renovada. 
 
-\begin{figure}[h]
+\begin{figure}[!h]
  \centering
-  \includegraphics[width=1.1\linewidth]{1.png}
+  \includegraphics[width=\linewidth]{1.png}
 \end{figure}
 
 El pequeño botón negro que aparece abajo a la derecha permite convertir al \textbf{modo Dark}. Se vería de la siguiente manera, que invierte los colores:
 
-\begin{figure}[h]
+\begin{figure}[!h]
  \centering
-  \includegraphics[width=0.8463\linewidth]{2.jpg}
+  \includegraphics[width=0.8\linewidth]{2.png}
 \end{figure}
 
 Revisemos la sección de equipos para poder conocer mejor a los miembros del grupo, con un nuevo CSS.
 
 \begin{figure}[h]
  \centering
-  \includegraphics[width=1.1\linewidth]{3.jpg}
+  \includegraphics[width=\linewidth]{3.jpg}
 \end{figure}
 
-Hagamos Log-in para poder ver nuestro perfil, el Foro y los proyectos creados.
+Rellenemos ahora el Registro para poder ver nuestro perfil, el Foro y los proyectos creados.
 
 \begin{figure}[h]
+ \centering
+  \includegraphics[width=0.9\linewidth]{23.png}
+\end{figure}
+
+En Proyectos, que vemos en la siguiente imagen, podemos crear nuevos proyectos subiendo archivos, dando un tipo de privacidad, un candado, un lenguaje, etc. Los proyectos tienen, por ahora, una valoración por defecto de 3 estrellas aunque esto pensamos mejorarlo en el futuro.
+\newpage
+\begin{figure}[!h]
  \centering
   \includegraphics[width=1.1\linewidth]{4.jpg}
 \end{figure}
 
-En nuestro perfil podemos poner la foto que queramos, y cambiarlo.
+Si queremos crear un nuevo Proyecto podemos pulsar en el botón de "Nuevo Proyecto", lo que nos conduce a un formulario.
 
-\begin{figure}[h]
+\begin{figure}[!h]
  \centering
-  \includegraphics[width=1.1\linewidth]{5.jpg}
+  \includegraphics[width=0.6\linewidth]{5.jpg}
 \end{figure}
 
-En Foro podemos ver los post, crearlos, responderlos o borrarlos.
+Una vez creado este nuevo proyecto, podemos \textbf{subir y bajar archivos}. En posteriores versiones incluiremos sistemas de gestión de permisos para esto. Veamos esto en la siguiente imagen.
+\newpage
 
-\begin{figure}[h]
+\begin{figure}[!h]
  \centering
   \includegraphics[width=1.1\linewidth]{6.jpg}
 \end{figure}
 
-En Proyectos podemos crear nuevos proyectos subiendo archivos, dando un tipo de privacidad, un candado, un lenguaje, etc. Los proyectos tienen, por ahora, una valoración por defecto de 3 estrellas aunque esto pensamos mejorarlo en el futuro.
+En nuestro perfil podemos poner la foto que queramos, y cambiarla más adelante. De igual manera, podemos \textbf{actualziar email, nombre y "Sobre Mi"}. Podemos verlo en la siguiente imagen.
 
-\begin{figure}[h]
+\begin{figure}[!h]
  \centering
-  \includegraphics[width=1.1\linewidth]{3.jpg}
+  \includegraphics[width=1.1\linewidth]{7.jpg}
 \end{figure}
 
-\newpage
+Por último, un nuevo avance de diseño sobre el que estamos particularmente orgullosos involucra el Foro. En él, se \textbf{muestra la foto del perfil del que inicie el post}, así de como quienes lo contesten. 
+
+Así se vería Foro con una sola entrada. Como se puede apreciar, hemos incluido un buscador a la derecha.
+
+\begin{figure}[!h]
+ \centering
+  \includegraphics[width=1.1\linewidth]{8.jpg}
+\end{figure}
+
+Ahora, entremos en este post para poder ver sus respuestas y responder a estas si queremos.
+
+\begin{figure}[!h]
+ \centering
+  \includegraphics[width=1.1\linewidth]{9.jpg}
+\end{figure}
+
 \section{Actividades}
 
-En la siguiente tabla se describe la aportación que cada miembro del equipo ha realizado para esta entrega de nuestro Proyecto.
+En la siguiente tabla se describe la aportación que cada miembro del equipo ha realizado para esta entrega de nuestro Proyecto. Consideramos que ningún miembro del equipo ha fallado a su compromiso de colaborar con la entrega.
 
 \begin{table}[h]
 \begin{tabular}{@{}|l|l|@{}}
 \toprule
 \textbf{Miembro} & \textbf{Actividades}                                                                                                                                   \\ \midrule
-Luis Cepeda      & Dirigido la mejora del CSS.                                                                                                                            \\ \midrule
-Carlos Bilbao    & \begin{tabular}[c]{@{}l@{}}Redactado la Memoria. Ha hecho todo lo relacionado con Proyectos.\\  Hizo junto a Bruno lo relativo a Forms.\end{tabular}   \\ \midrule
-Hugo Ribeiro     & Ayudado con la Base de Datos, el CSS y la funcionalidad.                                                                                               \\ \midrule
+Luis Cepeda      & Dirigido toda la mejora del CSS.                                                                                                                            \\ \midrule
+Carlos Bilbao    & \begin{tabular}[c]{@{}l@{}}Redactado la Memoria. Ha ayudado con lo relacionado con Proyectos.\\  Hizo junto a Bruno lo relativo a Forms.\end{tabular}   \\ \midrule
+Hugo Ribeiro     & Ayudado con la Base de Datos, el CSS y la funcionalidad en general.                                                                                               \\ \midrule
 Daniel Canseco   & \begin{tabular}[c]{@{}l@{}}Creado la página Team, añadido el modo Dark, \\ la música y ayudado con el CSS.\end{tabular}                                \\ \midrule
-Fernando Muñoz   & \begin{tabular}[c]{@{}l@{}}Añadido la funcionalidad de suscripción premium y \\ la barra de búsqueda.\end{tabular}                                     \\ \midrule
+Fernando Muñoz   & \begin{tabular}[c]{@{}l@{}}Añadido la funcionalidad de edición de perfil y \\ la barra de búsqueda.\end{tabular}                                     \\ \midrule
 Bruno Mayo       & \begin{tabular}[c]{@{}l@{}}Mejorado la Base de Datos. Ha ayudado a crear las \\ clases FormLogin, FormRegistro y Form y a implementarlas.\end{tabular} \\ \bottomrule
 \end{tabular}
 \end{table}
