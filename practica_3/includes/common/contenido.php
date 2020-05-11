@@ -58,7 +58,7 @@
                 <div class="polaroid">
                          <a href="post.php"> <img src="img/img_back/close-up-photo-of-laptop-keyboard-4065712.jpg" alt="img4" style="width:100%"> </a>
                         <div class="interior">
-                             <a href="post.php"> <span>Post</span></a>
+                             <a href="team.php"> <span>El Equipo</span></a>
                         </div>
                 </div>
             </div> 
