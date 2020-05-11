@@ -346,6 +346,7 @@ tr:nth-child(odd) {
   background-color: #2556a5;
   border: none;
   color: #fff;
+  height: 40px;
 
   background-image: linear-gradient(
     180deg,
