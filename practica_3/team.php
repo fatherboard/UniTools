@@ -69,7 +69,7 @@ require("includes/common/cabecera_OG.php");?>
                     </div>
                  <h3>Fernando Ruiz</h3>
                 <p class="role">Experto en AW</p>
-                <p>Pienso que PHP es un lenguaje bellisimo, y nunca me canso de añadir signos del dolar por doquier.</p>
+                <p>Pienso que PHP es un lenguaje bellisimo, y nunca me canso de ir mejorandor y aprendiendo.</p>
             </div>
             <div class="team_member">
                  <div class="team_img">

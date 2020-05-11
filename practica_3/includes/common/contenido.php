@@ -33,7 +33,7 @@
                     </a>    
             </div>
             
-            <div class="caja">
+            <div class="caja v-center">
                  <div class="polaroid">
                     <a href="mensajes.php"> <img src="img/img_back/person-using-smartphone-1394940.jpg" alt="img1" style="width:100%"> </a>
                         <div class="interior">
@@ -62,11 +62,6 @@
                         </div>
                 </div>
             </div> 
-
-
-
-
-
 
           
 

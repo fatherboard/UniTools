@@ -52,6 +52,7 @@ ul {
   display: flex;
   width: 100%;
   margin: 2rem 0;
+  justify-content: center;
 }
 
 .caja .polaroid {
