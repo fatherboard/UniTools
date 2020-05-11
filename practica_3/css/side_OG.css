@@ -43,6 +43,7 @@ hr.side_divH {
 
 ul.color {
   background-color: #1f1b29;
+  isolation: isolate;
   background-image: linear-gradient(
     0deg,
     #e4dac4 0%,
