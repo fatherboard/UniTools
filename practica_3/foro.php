@@ -49,11 +49,9 @@ require("includes/common/cabecera_OG.php");?>
                     <form action="search.php" method="POST" id ="foro_barra_busqueda" class="fb-row" >
                         <input type="text" name="buscar" placeholder="Buscar en posts">
 
-                        <div class="btn btn_agua">
-                            <a  type="submit" name="submit-buscar" href="search.php"> 
-                                <i class="fas fa-search"></i>
-                            </a>
-                        </div>                        
+                            <a class="btn btn_agua" type="submit" name="submit-buscar" href="search.php"> 
+                                <i class="btn btn_agua fas fa-search"></i>
+                            </a>               
                     </form>
                 </div>
 
