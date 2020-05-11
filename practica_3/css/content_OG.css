@@ -270,7 +270,7 @@ ul {
   text-align: left;
 }
 
-#n_pr #submit-center {
+#n_pr .submit-center {
   text-align: center;
   margin: 0.5rem 0;
 }
@@ -284,6 +284,25 @@ ul {
 #contenido_npost {
   width: 50rem;
 }
+
+#btn_enviar_npr {
+  background-color: #6732fa;
+  border: 1px solid #7e50fb;
+  background-image: linear-gradient(
+    180deg,
+    #6732fa 0%,
+    #6732fa 70%,
+    #451fac 100%
+  );
+  width: fit-content;
+  margin-top: 0.2rem;
+  margin-left: 0.2rem;
+  color: white;
+  border-radius: 5rem;
+  cursor: pointer;
+  height: 2rem;
+}
+
 /*--------------------------------------------------------------------FORO----------------------------------------------------------------------------*/
 
 #posts {
@@ -314,7 +333,7 @@ ul {
   text-align: left;
 }
 
-#n_p #submit-center {
+#n_p .submit-center {
   text-align: center;
   margin: 0.5rem 0;
 }
@@ -356,11 +375,6 @@ ul {
 
 #btn_enviar_npost :hover {
   color: rgb(255, 173, 118);
-}
-
-#n_p #submit-center {
-  text-align: center;
-  margin: 0.5rem 0;
 }
 
 /*------------------------------------------------------------------- TEAM--------------------------------------------------------------------------------------------- */

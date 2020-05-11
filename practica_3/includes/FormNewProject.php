@@ -22,7 +22,9 @@ class FormNewProject extends Form {
         $html .= '<p>Contenido:</p> <textarea class="field" name="contenido" rows="2" ></textarea>';                            
         $html .= '<p>Lenguaje:</p> <textarea class="field" name="lenguaje" rows="2"></textarea>';                        
 		$html .= '<p>Privado: <input value ="1" type="checkbox" name="privado"></span></p>';	                                                
-		$html .= '<p class="submit-center text-center"><input type="submit" value="Subir"class="field v-center"/></p>';                                
+        $html .= '<p class="submit-center text-center">
+                    <input  id = "btn_enviar_npr" type="submit" value="Subir" class="field v-center"/>
+                  </p>';                                
 		$html .= '</div>';                                
         return $html;
 	}
