@@ -41,6 +41,7 @@ require("includes/common/cabecera_OG.php");?>
 		$dao_post = new DAOpost();
 		$dao_user = new DAOUsuario();
 		$id = $_GET["id"];
+		$_SESSION['curr_post'] = $id;
 
 		$curr_post = $dao_post->search_post($id);
 		$post_id = $curr_post->get_id(); // id del post
@@ -102,14 +103,14 @@ require("includes/common/cabecera_OG.php");?>
 					$curr_resp = array_shift($res);
 					$resp_id = $curr_resp->get_id();
 					$post_id = $curr_resp->get_post(); // id del post
-					
+					$usuarioResp = $dao_user->search_userId($curr_resp->get_user());
 					$date = $curr_resp->get_date();
 					$comentario = $curr_resp->get_content();
 		
-					if ($usuario == null) {
+					if ($usuarioResp == null) {
 						$username = "Usuario borrado";
 					} else {
-						$username = $usuario->get_username();
+						$username = $usuarioResp->get_username();
 					}
 					
 					echo "
@@ -147,17 +148,18 @@ require("includes/common/cabecera_OG.php");?>
 						$nest_resp = array_shift($nested);
 						$resp_id = $nest_resp->get_id();
 						$post_id = $nest_resp->get_post(); // id del post
-						$usuario = $dao_user->search_userId($nest_resp->get_user());
+						$objUsuario = $dao_user->search_userId($nest_resp->get_user());
 						$date = $nest_resp->get_date();
 						$comentario = $nest_resp->get_content();
-		
-						if ($usuario == null) {
+						
+						if ($objUsuario == null) {
 							$username = "Usuario borrado";
 						} else {
-							$username = $usuario->get_username();
+							$username = $objUsuario->get_username();
+							
 						}
 		
-						if ($usuario != null){
+						if ($objUsuario != null){
 							echo '
 							<td>
 								<img class="forumPic" alt="foto_foro" src="img/fotosPerfil/' . $username . '.jpg">
@@ -165,7 +167,7 @@ require("includes/common/cabecera_OG.php");?>
 							}
 						
 							echo "
-							<td>Usuario: " . $username . "</td>
+							<td>Usuario: " . $_SESSION['username'] . "</td>
 							<td>" . $comentario . "</td>
 							</tr>";
 						}

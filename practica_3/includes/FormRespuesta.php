@@ -1,12 +1,13 @@
 <?php
-
+if (!isset($_SESSION)) {
+	session_start();
+}
 include_once('includes/Form.php');
 require_once('dao/dao_user.php');
 require_once('dao/dao_respuesta.php');
 
 class FormRespuesta extends Form {
 
-	private $post=null;
 	
 	public function __construct(){
 		parent::__construct('respuesta');
@@ -61,13 +62,13 @@ class FormRespuesta extends Form {
 	        }
 	        else {
 				$respuesta = new TORespuesta('', $id_post, $userid, '', $contenido, $answer);
-				echo $respuesta->get_post(); //para testeo
                 $result = $dao_respuesta->insert_respuesta($respuesta);
 
                 if (!$result) {
                     $_SESSION['error_respuesta'][] = "No se ha podido realizar la respuesta";
                     return "respuesta.php?post=" . $id_post;
-                }
+				}
+				return "post.php?id=" . $id_post; 
 	        } 
 	    }
 
