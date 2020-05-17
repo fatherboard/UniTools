@@ -1,8 +1,6 @@
 # Practica 4 The Last Of Us
 
-## TODO
-
-1. ###Acabar la práctica
+## 1.  Acabar la práctica
 
 1. Uso de JavaScript: 
 
@@ -29,13 +27,14 @@ la base de datos. Para alcanzar la máxima calificación, debe usarse un Hash co
     - Los scripts para la BBDD. Bruno
     - Herramientas: Mas funcionalidades y guardar en un objeto con un DAO. Carlos
 
-2. ### Meterla al VPS
+### 2.  Meterla al VPS
 
  1. Funcionamiento libre de errores en el servidor (VPS) Bruno 
 
-3. ### Memoria* -> Carlos.
+### 3. Memoria 
+Carlos.
 
-4. ### Mejoras opcionales*¡
+### 4. Mejoras opcionales*¡
 
     - Utilizar JSON. Ya veremos.
     
