@@ -34,7 +34,7 @@ la base de datos. Para alcanzar la máxima calificación, debe usarse un Hash co
 ### 3. Memoria 
 Carlos.
 
-### 4. Mejoras opcionales*¡
+### 4. Mejoras opcionales
 
     - Utilizar JSON. Ya veremos.
     
