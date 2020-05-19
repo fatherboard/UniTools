@@ -111,5 +111,20 @@ class DAOproject extends DAO {
         }
 
 		return $array; 
+  }
+  
+  public function show_user_projects($id){
+		$sql = sprintf("SELECT * FROM project WHERE userId = $id ORDER BY id DESC");
+		$query = $this->devolverConsulta($sql);
+        $array = [];
+        while($result = mysqli_fetch_assoc($query)){
+            $proj = new TOUproject($result['id'], 
+            $result['userId'], $result['titulo'], $result['contenido'], 
+             $result['lenguaje'], $result['privado'],$result['candado'],$result['estrellas']);			
+
+            array_push($array, $proj);
+        }
+
+		return $array; 
 	}
 }

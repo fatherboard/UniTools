@@ -5,6 +5,7 @@ if (!isset($_SESSION)) {
 }
 
 include_once('dao/dao_user.php');
+include_once('dao/dao_project.php');
 
 $user = new TOUser();
 $dao_usuario = new DAOUsuario();
@@ -13,6 +14,7 @@ $premium = $dao_usuario->search_premium($_SESSION['username']);
 
 $username = $_SESSION['username'];
 $premium = $userData->get_premium();
+$id = $userData->get_id();
 $email = $userData->get_email();
 $name = $userData->get_name();
 $aboutMe = $userData->get_aboutMe();
@@ -143,6 +145,72 @@ if (isset($_POST['aboutMe'])) {
             </form>
           </li>
         </ul>
+
+        <?php
+
+                $dao_project = new DAOproject();
+                $dao_user = new DAOUsuario();
+                $res = $dao_project->show_user_projects($id);
+        ?>
+        
+			 <table id="prs"  class="round">
+				<tr>
+					<th>Titulo</th>
+					<th>ID del Proyecto</th>
+					
+					<th>Lenguaje</th>
+					<th>Candado</th>
+					<th>Valoracion</th>
+					<th>Privacidad</th>
+				</tr> 
+		<?php
+		while (!empty($res)) 
+		{
+			$curr_proj = array_shift($res);
+			$project_id = $curr_proj->get_id(); // id del proyecto
+			$lenguaje = $curr_proj->get_lenguaje();
+			$title = $curr_proj->get_titulo();
+			$candado = $curr_proj->get_candado();
+			$estrellas = $curr_proj->get_estrellas();
+			$privado = $curr_proj->get_privado();
+
+			$priv = "Repositorio publico";
+
+			
+
+		    if ($privado == 1){
+		    	$priv = "Repositorio privado (Feature Premium)";
+
+		    }
+
+		    if ($candado == 0){
+		    	$candado = "LIBRE";
+		    }
+		    else {
+		    	$candado = "EN EDICIÓN";
+		    }?>
+				<tr>
+				<?php 
+				echo '<td id="prs_link"> <a href="project.php?id=' . $project_id . '">';
+				?>
+					
+
+						 <?php echo $title      ?> </a></td>
+					<td> <?php echo $project_id ?> </td>
+					<td> <?php echo $lenguaje 	?> </td>
+					<td> <?php echo $candado   	?> </td>
+					<td> <?php echo $estrellas 	?> /5 estrellas </td>
+					<td> <?php echo $priv 	  	?></td>
+				</tr>
+		<?php 
+		}?>
+				</tbody>
+				</table>
+				</div>
+			<?php $dao_user->disconnect();?>
+
+            </div>
+        </div>
       </div> <!-- Fin del contenido -->
     </div> <!-- Fin del contenedor -->
 </body>
