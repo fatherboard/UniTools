@@ -60,16 +60,16 @@ require("includes/common/cabecera_OG.php");?>
                 $dao_post = new DAOpost();
                 $dao_user = new DAOUsuario();
                 $res = $dao_post->show_all_data();
-
-	         echo "<table id='t01' style='width:100%'>";
-             echo "<tr>";
-             echo "<th>Foto Perfil</th>";
-	         echo "<th>Título</th>";
-		     echo "<th>ID del post</th>";
-		     echo "<th>Usuario</th>";
-		     echo "</tr>";	
+                ?>
+	         <table id='t01' style='width:100%'>
+             <tr>
+                <th>Foto Perfil</th>
+                <th>Título</th>
+                <th>ID del post</th>
+                <th>Usuario</th>
+		     </tr>	
 	
-
+                <?php
                 while (!empty($res)) {
                     $curr_post = array_shift($res);
                     $post_id = $curr_post->get_id(); // id del post
