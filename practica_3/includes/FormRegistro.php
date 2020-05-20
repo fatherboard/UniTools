@@ -1,3 +1,21 @@
+
+<html>
+    <head>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $("#register").click(function(){
+                    if($("#email").val().indexOf('@', 0) == -1 || $("#email").val().indexOf('.', 0) == -1) {
+                        alert("El correo electrónico introducido no es correcto.");
+                        return false;
+                    }
+
+                    alert("El email introducido es correcto.");
+                });
+            });
+
+        </script>
+    </head>
+</html>
 <?php
 
     include_once("includes/Form.php");
@@ -21,7 +39,7 @@
                     <input name="nombre" type="text" placeholder="Nombre propio"/>
                 </div>
                 <div>
-                    <input name="email" type="text" placeholder="Correo electrónico"/>
+                    <input name="email" type="text" id="email" placeholder="Correo electrónico"/>
                 </div>
                 <div>
                     <input name="password" type="password" placeholder="Contraseña" />
@@ -31,7 +49,7 @@
                 </div>
 
                 <div>
-                    <button type="submit" name="register">REGISTRARSE</button>
+                    <button type="submit" name="register" id="register" >REGISTRARSE</button>
                 </div>
             
             </fieldset>';
@@ -54,13 +72,13 @@
             $nombre= htmlspecialchars(trim(strip_tags($_REQUEST["nombre"])));
             $aboutMe='';
             $_SESSION['error_registro'] = [];
-
+            /*   
             if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {  //Se comprueba si el formato del email es correcto, si no, error
                 $_SESSION['error_registro'][] = "El email introducido no es válido";
 
 
             }
-
+            */
             if ($password != $password2) {  //Se comparan las contraseñas son iguales, si no, error
                 $_SESSION['error_registro'][] = "Las contraseñas introducidas no coinciden";
 
