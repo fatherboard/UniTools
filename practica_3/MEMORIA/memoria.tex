@@ -1,5 +1,3 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% DOCUMENT PREAMBLE %%%
 \documentclass[12pt]{report}
 \usepackage[spanish]{babel}
 \usepackage{float}
@@ -14,39 +12,38 @@
 \usepackage{fancyhdr}
 \usepackage{booktabs}
 \usepackage{vmargin}
-\setmarginsrb{3 cm}{2.5 cm}{3 cm}{2.5 cm}{1 cm}{1.5 cm}{1 cm}{1.5 cm}
-\usepackage{color} %use color
+\setmarginsrb{3 cm}{2.6 cm}{3 cm}{2.5 cm}{1 cm}{1.5 cm}{1 cm}{1.5 cm}
+\usepackage{color}
 \definecolor{mygreen}{rgb}{0,0.6,0}
 \definecolor{mygray}{rgb}{0.5,0.5,0.5}
 \definecolor{mymauve}{rgb}{0.58,0,0.82}
  
-%Customize a bit the look
 \lstset{ %
-backgroundcolor=\color{white}, % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
-basicstyle=\footnotesize, % the size of the fonts that are used for the code
-breakatwhitespace=false, % sets if automatic breaks should only happen at whitespace
-breaklines=true, % sets automatic line breaking
-captionpos=b, % sets the caption-position to bottom
-commentstyle=\color{mygreen}, % comment style
-deletekeywords={...}, % if you want to delete keywords from the given language
+backgroundcolor=\color{white},
+basicstyle=\footnotesize, 
+breakatwhitespace=false, 
+breaklines=true,
+captionpos=b,
+commentstyle=\color{mygreen},
+deletekeywords={...}, 
 escapeinside={\%*}{*)}, % if you want to add LaTeX within your code
-extendedchars=true, % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+extendedchars=true, 
 frame=single, % adds a frame around the code
-keepspaces=true, % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+keepspaces=true, 
 keywordstyle=\color{blue}, % keyword style
 % language=Octave, % the language of the code
-morekeywords={*,...}, % if you want to add more keywords to the set
-numbers=left, % where to put the line-numbers; possible values are (none, left, right)
-numbersep=5pt, % how far the line-numbers are from the code
-numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
-rulecolor=\color{black}, % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
-showspaces=false, % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+morekeywords={*,...}, 
+numbers=left, 
+numbersep=5pt, 
+numberstyle=\tiny\color{mygray},
+rulecolor=\color{black}, 
+showspaces=false, 
 showstringspaces=false, % underline spaces within strings only
 showtabs=false, % show tabs within strings adding particular underscores
 stepnumber=1, % the step between two line-numbers. If it's 1, each line will be numbered
 stringstyle=\color{mymauve}, % string literal style
 tabsize=2, % sets default tabsize to 2 spaces
-title=\lstname % show the filename of files included with \lstinputlisting; also try caption instead of title
+title=\lstname 
 }
 %END of listing package%
  
@@ -70,7 +67,7 @@ morestring=[b]"
 }
  
 
-\title{Práctica 3 - Diseño del proyecto y más funcionalidad}					
+\title{Nuestro Proyecto Final - UniTools}					
 \usepackage{xcolor}
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
@@ -156,186 +153,45 @@ morestring=[b]"
 
 \end{titlepage}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \tableofcontents
 \pagebreak
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \renewcommand{\thesection}{\arabic{section}}
+\section{Introducción a UniTools y Motivación}
+
+Nuestro proyecto ha consistido en el desarrollo de la aplicación Web \textit{UniTools}, una plataforma on-line de gestión de código, centrado en los alumnos de la Facultad de Informática de la UCM. Por tanto, los potenciales usuarios de nuestro producto son nuestros compañeros, estudiantes de grados que requieren el uso de código fuente.
+
+La web sirve para almacenar versiones de código de los proyectos de los estudiantes, de manera privada si así lo desean, y además ofrece una serie de herramientas que pueden ser de ayuda a la hora de programar. Para ayudar a \textbf{gestionar Software}, UniTools ofrece funcionalidades como Privacidad, subida y bajada de archivos, un sistema de valoración de los Proyectos de cero a cinco estrellas, y un sistema de mutexes Candado para evitar la edición en paralelo del código, lo que generaría conflictos, entre otras funcionalidades.
+
+Una vez un usuario crea un Proyecto, puede verlo desde su propio Perfil, donde además puede \textbf{actualizar su foto de perfil} además del resto de sus datos. Entre estos, se encuentra la contraseña que se almacena cifrada en la Base de Datos. Esta foto de pefil aparece también cuando el usuario \textbf{responde a un post del Foro}, el cual incluye además una barra de búsqueda para facilitar su uso. Este foro, que es una manera de que los estudiantes se ayuden entre ellos a resolver dudas, cuenta con el apoyo de los \textbf{administradores}, usuarios con un rol especial que les confiere mayores privilegios.
+
+Todo esto lo hemos querido desarrollar sin dejar de tener en cuenta la \textbf{experiencia de usuario}, por lo que hemos dedicado mucho tiempo a conseguir un diseño completo gracias al CSS (con \textbf{Flex y Grid}), así como en añadir detalles como la música de fondo, y la posibilidad de personalizar la experiencia por parte del usuario cambiando entre el modo Dark (colores invertidos) y el normal. Igualmente, este proyecto se ha hecho además teniendo en cuenta las guías de la asignatura para un proyecto bien organizado (estructurado) y con buenas prácticas de programación web, como es el uso del \textbf{patrón DAO/Transfer Object} y el uso de \textbf{Ajax}, migrando todo finalmente a un VPS.
+
+La primera práctica que entregamos fue solo el comienzo de la web, mientras que la siguiente supuso un importante avance ya que organizamos nuestra página web haciendo uso de un esquema que dividía en cuatro partes (cabecera, navegación ó menú, contenido y pie), siendo el contenido el único que era actualizado dinámicamente, en función de las peticiones recbidas. En esa misma práctica comenzamos a desarrollar funcionalidades de Login y Registro haciendo uso de DAO así como Herramientas. La tercera práctica supuso el cambio más drástico, ya que conseguimos terminar el Foro, comenzar funcionalidades de Proyectos y de Perfil y añadir mejoras tanto en la Base de Datos como en los script, incluidos los Form. 
+
+Finalmente, en esta entrega del Proyecto Final hemos acabado de pulir el CSS, terminado las funcionalidades de Proyectos, hemos añadido otras tecnologías como Ajax, mejorado la Base de Datos y los script e incluido otras mejoras puntuales.
+
+En conjunto, estamos muy satisfechos con el resultado final, que si bien ha requerido trabajo, ha resultado muy instructivo. Hemos hecho todo lo posible para que esta Memoria refleje nuestro esfuerzo, describiendo la arquitectura del proyecto, ofreciendo instrucciones de instalación y capturas de las vistas de la página web a modo de Manual de Uso, entre otras explicaciones. 
+
+\section{Tour: Guía de Navegación}
+
+// TODO
+
+\section{Descripción de la arquitectura, JS, PHP y vistas}
+
+// TODO
+
+\section{Descripción de la Base de Datos}
+
+// TODO
+
+\section{Instrucciones de instalación}
+
+// TODO
+
 \section{Descripción de trabajo y aportes individuales}
 
-Durante esta práctica, hemos dividido nuestros esfuerzos en dos partes:
-
-\begin{enumerate}  
-\item Corregir los errores anteriores siguiendo las recomendaciones del profesor. En concreto, hemos ido \textbf{una por una revisando las correcciones de la Práctica anterior} y hemos hecho cambios en nuestro proyecto acorde a estas. Más tarde los enumeraré.
-
-\item En segundo lugar, hemos mejorado la funcionalidad de la web y añadido un diseño más completo. Es decir, en esta parte hemos querido mejorar la apariencia del Proyecto (tanto el CSS con Flex y Grid como añadiendo contenido de ejemplo en Proyectos y Foro) así como proporcionarle un poco más de funcionalidad.
-
-\end{enumerate}
-
-Todo esto lo hemos hecho siguiendo la estructura de carpetas explicada en la teoría de la asignatura. En la siguiente sección explicaremos parte por parte qué mejoras hemos aplicado al proyecto para mejorarlo teniendo en cuenta las correcciones que recibimos. 
-
-Tras esto, discutiremos las mejoras añadidas a la práctica en la segunda mitad de su desarrollo en otra sección, explicando el segundo punto anteriormente descrito. 
-
-Después, en las sección Vistas del Proyecto: Tour guiado  mostraremos capturas de pantalla de la nueva versión de nuestra web y un ejemplo de navegación por esta con capturas de pantalla.
-
-Finalmente, mostraremos una \textbf{tabla de actividades} donde se detallará exactamente qué parte hizo cada miembro del grupo.
-
-\section{Arreglo de las correcciones}
-
-Estas fueron las partes del trabajo que en la corrección anterior se indicaron como mejorables junto con lo que hemos hecho para corregir esto.
-
-1. \textit{"Hay pocas clases".}
-
-Hemos añadido clases para el Form y sus herederos (FormLogin, FormRegistro,FormNewProject), así como una nueva clase Proyectos, con su DAO correspondiente y su TOU.
-
-2.  \textit{"Falta session\_destroy()".}
-
-Ha sido añadido. 
-
-3.  \textit{"Pocas tablas y muchas vacias. Falta contenido en las tablas..."}
-
-Hemos añadido la tabla Proyectos, con multitud de campos, así como contenido en posts, proyectos y nuevos usuarios.
-
-4.  \textit{"Deberíais haber exportado no sólo la tabla de la base de dats, sino también la base de datos y el usuario"}
-
-En una tutoría explicamos que se trataba de un malentendido, ya que en el grupo preferimos hacer una sola exportación de la Base de Datos entera cuyo .sql ya incluye todas las tablas.
-
-5.  \textit{"La página principal debe tener contenido".}
-
-Se ha añadido mucho contenido a la página principal, así como a Foro y Proyectos.
-
-6.  \textit{"Se ve el foro pero es bastante espartano".}
-
-Esto se ha corregido añadiendo CSS esta práctica.
-
-7. \textit{ "Mi perfil: Hay que mejorarlo y un botón para editar perfil".}
-
-Botón añadido.
-
-8.  \textit{"Hay poca funcionalidad".}
-
-Como se explicará mas adelante, se ha añadido funcionalidad.
-
-9. (Sobre la memoria)  \textit{"...me sobra código incrustado. Deberíais poner las pantallas con las diferentes vistas..."}
-
-Se ha omitido código en esta memoria y se ha añadido una sección Vista del Proyecto: Tour guiado con un recorrido completo por las vistas de esta nueva versión y capturas de pantalla.
-
-\section{Otras mejoras del Proyecto}
-
-Para poder acercarnos a la versión final de la web, hemos avanzado también en su funcionalidad y apariencia.
-
-1. En lo relativo al diseño, \textbf{hemos mejorado notablemente la calidad y cantidad del CSS}. Tal y como se podrá ver en la siguiente sección, la web ya tiene una apariencia mucho más profesional. Además, los usuarios ya pueden \textbf{subir foto de perfil.} Si no lo hacen, se les asignará una por defecto.
-
-En concreto, esto lo hemos conseguido mediante el uso de Flex y Grid. También hemos mejorado la apariencia de los posts del Foro, de los Proyectos, y de los formularios de Login y Registro.
-
-2. También relacionado con la apariencia, hemos añadido un \textbf{"modo Dark"} que permite invertir los colores.
-
-3. Hemos \textbf{refinado y ampliado la Base de Datos}. Hemos añadido un campo para saber si el usuario es administrador aparte de Premium, lo que incluye ciertos privilegios. Además, hemos creado una nueva tabla \textbf{proyectos} que a día de hoy incluye:
-\newline
-\begin{lstlisting}[language=SQL]
-CREATE TABLE `project` (
-  `id` int(11) NOT NULL,
-  `titulo` varchar(100) NOT NULL,
-  `candado` tinyint(1) NOT NULL,
-  `userId` int(11) NOT NULL,
-  `estrellas` int(11) NOT NULL,
-  `privado` tinyint(1) NOT NULL,
-  `lenguaje` varchar(50) NOT NULL,
-  `contenido` varchar(200) NOT NULL,
-  `file` varbinary(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-\end{lstlisting}
-Como se puede ver, hemos añadido campos que permiten convertir el Proyecto a privado, protegerlo de cambios en paralelo (mediante un candado), así como subir archivos de texto. Además hemos añadido entradas en el Foro y Proyectos de prueba.
-
-4. Hemos \textbf{añadido funcionalidad} al Proyecto. Hemos creado una nueva clase Proyecto, con su propio DAO. Por otro lado, en vez de crear otro formulario para añadir proyectos, hemos reestructurado los formularios, \textbf{utilizando una clase genérica Form} que hemos usado para crear también FormLogin, FormRegistro, FormNewProject. Ahora Proyecto permite además subir y bajar archivos.
-
-Ya se pueden crear nuevos Proyectos, proporcionando informació relativa al lenguaje, privacidad o valoración. Los proyectos cuentan con un sistema de valoración de entre cero y cinco estrellas (siendo tres por defecto) que se irá perfeccionando. También se ha añadido un \textbf{buscador para los posts}. Además, los post muestran la foto de perfil.
-
-5. Hemos añadido música que se reproduce al entrar en la página web.
-
-6. Hemos añadido una sección Team con una descripción de cada uno de los miembros del equipo.
-
-7. Como funcionalidades extra, ahora el usuario \textbf{puede editar desde su perfil información del usuario y su foto de perfil}.
-
-\section{Vistas del Proyecto: Tour guiado}
-Las vistas posibles de esta versión son entre las que permite navegar el Menú de la página web, y como se puede comprobar el esfuerzo en el CSS le ha dado una apariencia completamente renovada. 
-
-\begin{figure}[!h]
- \centering
-  \includegraphics[width=\linewidth]{1.png}
-\end{figure}
-
-El pequeño botón negro que aparece abajo a la derecha permite convertir al \textbf{modo Dark}. Se vería de la siguiente manera, que invierte los colores:
-
-\begin{figure}[!h]
- \centering
-  \includegraphics[width=0.8\linewidth]{2.png}
-\end{figure}
-
-Revisemos la sección de equipos para poder conocer mejor a los miembros del grupo, con un nuevo CSS.
-
-\begin{figure}[h]
- \centering
-  \includegraphics[width=\linewidth]{3.jpg}
-\end{figure}
-
-Rellenemos ahora el Registro para poder ver nuestro perfil, el Foro y los proyectos creados.
-
-\begin{figure}[h]
- \centering
-  \includegraphics[width=0.9\linewidth]{23.png}
-\end{figure}
-
-En Proyectos, que vemos en la siguiente imagen, podemos crear nuevos proyectos subiendo archivos, dando un tipo de privacidad, un candado, un lenguaje, etc. Los proyectos tienen, por ahora, una valoración por defecto de 3 estrellas aunque esto pensamos mejorarlo en el futuro.
-\newpage
-\begin{figure}[!h]
- \centering
-  \includegraphics[width=1.1\linewidth]{4.jpg}
-\end{figure}
-
-Si queremos crear un nuevo Proyecto podemos pulsar en el botón de "Nuevo Proyecto", lo que nos conduce a un formulario.
-
-\begin{figure}[!h]
- \centering
-  \includegraphics[width=0.6\linewidth]{5.jpg}
-\end{figure}
-
-Una vez creado este nuevo proyecto, podemos \textbf{subir y bajar archivos}. En posteriores versiones incluiremos sistemas de gestión de permisos para esto. Veamos esto en la siguiente imagen.
-\newpage
-
-\begin{figure}[!h]
- \centering
-  \includegraphics[width=1.1\linewidth]{6.jpg}
-\end{figure}
-
-En nuestro perfil podemos poner la foto que queramos, y cambiarla más adelante. De igual manera, podemos \textbf{actualizar email, nombre y "Sobre Mi"}. Podemos verlo en la siguiente imagen.
-
-\begin{figure}[!h]
- \centering
-  \includegraphics[width=1.1\linewidth]{7.jpg}
-\end{figure}
-
-Por último, un nuevo avance de diseño sobre el que estamos particularmente orgullosos involucra el Foro. En él, se \textbf{muestra la foto del perfil del que inicie el post}, así de como quienes lo contesten. 
-
-Así se vería Foro con una sola entrada. Como se puede apreciar, hemos incluido un buscador a la derecha.
-
-\begin{figure}[!h]
- \centering
-  \includegraphics[width=1.1\linewidth]{8.jpg}
-\end{figure}
-
-Ahora, entremos en este post para poder ver sus respuestas y responder a estas si queremos.
-
-\begin{figure}[!h]
- \centering
-  \includegraphics[width=1.1\linewidth]{9.jpg}
-\end{figure}
-
-\section{Actividades}
-
-En la siguiente tabla se describe la aportación que cada miembro del equipo ha realizado para esta entrega de nuestro Proyecto. Consideramos que ningún miembro del equipo ha fallado a su compromiso de colaborar con la entrega.
+// TODO
 
 \begin{table}[h]
 \begin{tabular}{@{}|l|l|@{}}
