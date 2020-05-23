@@ -1,20 +1,15 @@
-
+<!DOCTYPE html>
 <html>
+
     <head>
-        <script type="text/javascript">
-            $(document).ready(function(){
-                $("#register").click(function(){
-                    if($("#email").val().indexOf('@', 0) == -1 || $("#email").val().indexOf('.', 0) == -1) {
-                        alert("El correo electrónico introducido no es correcto.");
-                        return false;
-                    }
 
-                    alert("El email introducido es correcto.");
-                });
-            });
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="js/jquery.validate.js"></script>
+        <script src="js/signup-form.js"></script>
+        <script src="js/messages_es.js"></script>
 
-        </script>
     </head>
+
 </html>
 <?php
 
@@ -30,29 +25,34 @@
         protected function generaCampos(){
             
             $html = 
+            // <form id="signupForm" method="get" action="form-handler.html" autocomplete="off">
             '<fieldset  class="fb-col contenido_log_reg" id ="contenido_reg">
                 <h1>ÚNETE A NOSOTROS</h1>
+                
                 <div>
-                    <input name="username" type="text" placeholder="Nombre de usuario" />
+                    <input name="username" type="text" id="username" placeholder="Nombre de usuario" />
                 </div>
                 <div>
-                    <input name="nombre" type="text" placeholder="Nombre propio"/>
+                    <input name="nombre" type="text" id="nombre" placeholder="Nombre propio"/>
                 </div>
                 <div>
                     <input name="email" type="text" id="email" placeholder="Correo electrónico"/>
+                    <img id="okCorreo" src ="img/Iconos/ok.png" />
+                    <img id="noCorreo" src ="img/Iconos/no.png" />
                 </div>
                 <div>
-                    <input name="password" type="password" placeholder="Contraseña" />
+                    <input name="password" type="password" id="password" placeholder="Contraseña" />
                 </div>
                 <div>
-                    <input  name="password2" type="password" placeholder="Reintroducir contraseña"/>
+                    <input  name="password2" type="password" id="password2" placeholder="Reintroducir contraseña"/>
                 </div>
 
                 <div>
                     <button type="submit" name="register" id="register" >REGISTRARSE</button>
-                </div>
+                </div>                
             
             </fieldset>';
+            //</form>
             return $html;
         }
         
@@ -72,13 +72,13 @@
             $nombre= htmlspecialchars(trim(strip_tags($_REQUEST["nombre"])));
             $aboutMe='';
             $_SESSION['error_registro'] = [];
-            /*   
+               
             if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {  //Se comprueba si el formato del email es correcto, si no, error
                 $_SESSION['error_registro'][] = "El email introducido no es válido";
 
 
             }
-            */
+            
             if ($password != $password2) {  //Se comparan las contraseñas son iguales, si no, error
                 $_SESSION['error_registro'][] = "Las contraseñas introducidas no coinciden";
 
