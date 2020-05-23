@@ -18,7 +18,8 @@ if (!isset($_SESSION)) {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/jquery.validate.js"></script>
     <script src="js/signup-form.js"></script>
-	<script src="js/my_jquery.js"></script>
+    <script src="js/my_jquery.js"></script>
+    <script src="js/my_jquery1.js"></script>
 
 </head>
 
