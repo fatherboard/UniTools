@@ -20,6 +20,7 @@ if (!isset($_SESSION)) {
     <script src="js/signup-form.js"></script>
     <script src="js/my_jquery.js"></script>
     <script src="js/my_jquery1.js"></script>
+    <<script src="js/jquery_checkUser.js"></script>
 
 </head>
 

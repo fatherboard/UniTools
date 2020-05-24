@@ -13,7 +13,7 @@ $(document).ready(function() {
             $("#noCorreo").show();				
         
         } else {
-            alert("Corre Valido")
+           
             $("#okCorreo").show();
             $("#noCorreo").hide();					
         }	
