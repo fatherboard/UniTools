@@ -8,17 +8,9 @@ include_once('dao/dao_user.php');
 include_once('dao/dao_project.php');
 
 $user = new TOUser();
+$user_aux = new TOUser();
 $dao_usuario = new DAOUsuario();
-$userData = $dao_usuario->search_username($_SESSION['username']);
-$premium = $dao_usuario->search_premium($_SESSION['username']);
 
-$username = $_SESSION['username'];
-$premium = $userData->get_premium();
-$id = $userData->get_id();
-$email = $userData->get_email();
-$name = $userData->get_name();
-$aboutMe = $userData->get_aboutMe();
-$password = $userData->get_password();
 
 //Script actualizar email
 if (isset($_POST['email'])) {
@@ -104,14 +96,14 @@ if (isset($_POST['aboutMe'])) {
         <ul class="fb-col" id="perf_datos">
           <li class="field">
             <!-- user name -->
-            <p id="p_username">Nombre de ususario: <?php echo $username ?> </p>
+            <p id="p_username">Nombre de ususario: <?php echo  $_SESSION['username']?> </p>
           </li>
 
           <li class="field">
             <!-- premium user -->
             <p>Usuario premium:
               <?php
-              if ($premium)
+              if ($user->get_premium())
                 echo " Sí";
               else {
                 echo " No... ¡Hazte premium hoy mismo! ";
@@ -121,7 +113,10 @@ if (isset($_POST['aboutMe'])) {
 
           <li class="field">
             <!-- current email -->
-            <p>E-mail: <?php echo $email ?></p>
+            <p>E-mail: <?php 
+            
+            $user_aux = $dao_usuario->search_username($_SESSION['username']);
+            echo $user_aux->get_email() ?></p>
 
             <form action="" method="post">
               Nuevo Email: <input type="text" name="email"><br>
@@ -130,7 +125,9 @@ if (isset($_POST['aboutMe'])) {
           </li>
 
           <li class="field">
-            <p>Nombre: <?php echo $name ?></p>
+            <p>Nombre: <?php
+            $user_aux = $dao_usuario->search_username($_SESSION['username']);
+            echo $user_aux->get_name() ?></p>
             <form action="" method="post">
               Nuevo Nombre: <input type="text" name="nombre"><br>
               <input type="submit">
@@ -138,7 +135,9 @@ if (isset($_POST['aboutMe'])) {
           </li>
 
           <li class="field">
-            <p>Sobre Mi: <?php echo $aboutMe ?></p>
+            <p>Sobre Mi: <?php 
+            $user_aux = $dao_usuario->search_username($_SESSION['username']);
+            echo $user_aux->get_aboutMe() ?></p>
             <form action="" method="post">
               Nuevo Sobre mi: <input type="text" name="aboutMe"><br>
               <input type="submit">
@@ -150,7 +149,7 @@ if (isset($_POST['aboutMe'])) {
 
                 $dao_project = new DAOproject();
                 $dao_user = new DAOUsuario();
-                $res = $dao_project->show_user_projects($id);
+                $res = $dao_project->show_user_projects($user->get_username());
         ?>
         
 			 <table id="prs"  class="round">
