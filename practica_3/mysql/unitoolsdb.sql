@@ -2,10 +2,10 @@
 -- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 11-05-2020 a las 18:34:17
--- Versión del servidor: 10.4.11-MariaDB
--- Versión de PHP: 7.4.5
+-- Host: 127.0.0.1
+-- Generation Time: May 24, 2020 at 03:40 PM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `unitoolsdb`
+-- Database: `unitoolsdb`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `categories`
+-- Table structure for table `categories`
 --
 
 CREATE TABLE `categories` (
@@ -36,7 +36,7 @@ CREATE TABLE `categories` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `logs`
+-- Table structure for table `logs`
 --
 
 CREATE TABLE `logs` (
@@ -48,7 +48,27 @@ CREATE TABLE `logs` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `posts`
+-- Table structure for table `permissions`
+--
+
+CREATE TABLE `permissions` (
+  `id` int(255) NOT NULL,
+  `project` int(11) NOT NULL,
+  `user` int(11) NOT NULL,
+  `type` int(2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `permissions`
+--
+
+INSERT INTO `permissions` (`id`, `project`, `user`, `type`) VALUES
+(6, 39, 24, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `posts`
 --
 
 CREATE TABLE `posts` (
@@ -60,7 +80,7 @@ CREATE TABLE `posts` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `posts`
+-- Dumping data for table `posts`
 --
 
 INSERT INTO `posts` (`id_post`, `user`, `title`, `content`, `id_cat`) VALUES
@@ -71,7 +91,7 @@ INSERT INTO `posts` (`id_post`, `user`, `title`, `content`, `id_cat`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `project`
+-- Table structure for table `project`
 --
 
 CREATE TABLE `project` (
@@ -86,18 +106,16 @@ CREATE TABLE `project` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `project`
+-- Dumping data for table `project`
 --
 
 INSERT INTO `project` (`id`, `titulo`, `candado`, `userId`, `estrellas`, `privado`, `lenguaje`, `contenido`) VALUES
-(13, 'Hola mundo', 0, 25, 3, 0, 'c', 'El hola mundo mas raro que has visto en tu vida'),
-(14, 'calculadora en c++', 0, 23, 3, 0, 'c++', 'es una calculadora para la asignatura de fp'),
-(15, 'Programmer simulator', 0, 24, 3, 0, 'java', 'simulador de ser un programador ');
+(39, '1', 0, 24, 3, 0, 'c', '1233');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `repository`
+-- Table structure for table `repository`
 --
 
 CREATE TABLE `repository` (
@@ -111,7 +129,7 @@ CREATE TABLE `repository` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `respuesta`
+-- Table structure for table `respuesta`
 --
 
 CREATE TABLE `respuesta` (
@@ -124,7 +142,7 @@ CREATE TABLE `respuesta` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `respuesta`
+-- Dumping data for table `respuesta`
 --
 
 INSERT INTO `respuesta` (`id_respuesta`, `id_post`, `user`, `date`, `content`, `answer_to`) VALUES
@@ -140,7 +158,7 @@ INSERT INTO `respuesta` (`id_respuesta`, `id_post`, `user`, `date`, `content`, `
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -155,37 +173,44 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id_user`, `email`, `password`, `username`, `premium`, `admin`, `name`, `aboutMe`) VALUES
 (23, 'bruno@gmail.com', '$2y$10$oL8bmRuRwk2q5NJ2dx67tetNvbGO1Bs1jSSyjmlJ4xP3Y1Ys/WyK2', 'bruno', 0, 0, 'Bruno Mayo', 'Soy un niño grande'),
-(24, 'hugo@hugo.hugo', '$2y$10$7JebyLIHjunBiI5o51ZB9O3cNRYfDEhBEq1NMEFAEk.0Z4BgcC6iu', 'hugo', 0, 0, 'Hugo Ribeiro', 'Albahaca fan nº1'),
+(24, 'hugo@hugo.hugo', '$2y$10$7JebyLIHjunBiI5o51ZB9O3cNRYfDEhBEq1NMEFAEk.0Z4BgcC6iu', 'hugo', 0, 1, 'Hugo Ribeiro', 'Albahaca fan nº1'),
 (25, 'fer@fer.fer', '$2y$10$mD.jpKGUWz6TpqmDVRaN5eDZtnz47bBZ1F4S7ELyUDdQ2K.CPazti', 'fer', 0, 0, 'Fernando Ruiz', 'Me encanta apple'),
 (26, 'luis@luis.com', '$2y$10$e8v8INqnukWLmF73pOH.eOmjFs53.dcKKQr9YMTW2YjL/MlTASse.', 'luis', 0, 0, 'Luis Cepeda', 'No hay nada mejor que windows XP'),
 (27, 'carlos@carlos.com', '$2y$10$MnzNA8PqcmPNXzK13qrZ8Oytc1.aLCcQZbLwBSnDs4DobqAQ4HTWS', 'carlos', 0, 0, 'Carlos Bilbao', 'Aunque lo parezca no soy de bilbao'),
 (28, 'dani@dani.dani', '$2y$10$SYkoa.N2ibyeKv/l9Jxaz.PTTyn0gpDly6ucfC43LSTKQuOXygSf2', 'cansek', 0, 0, 'Daniel Canseco', 'Me gustan los trenes'),
-(29, 'carlosCervigon@ucm.es', '$2y$10$dxjd1HQUvpWuBGtlXnhmoO8vRrqI0nfVpW8VUtwvfjDI/9/4kgL.q', 'Profesor', 0, 0, 'Carlos Cervigon', '');
+(29, 'carlosCervigon@ucm.es', '$2y$10$dxjd1HQUvpWuBGtlXnhmoO8vRrqI0nfVpW8VUtwvfjDI/9/4kgL.q', 'Profesor', 0, 0, 'Carlos Cervigon', ''),
+(30, '1@hola.com', '$2y$10$e9KANPKrQ5cvha3KBEMYWOEBxnfiLhuidlP6C/fl1YbtQDdzPn8Nq', 'paco', 0, 0, 'paco', '');
 
 --
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `categories`
+-- Indexes for table `categories`
 --
 ALTER TABLE `categories`
   ADD PRIMARY KEY (`id_cat`);
 
 --
--- Indices de la tabla `logs`
+-- Indexes for table `logs`
 --
 ALTER TABLE `logs`
   ADD PRIMARY KEY (`id_log`),
   ADD KEY `user` (`user`);
 
 --
--- Indices de la tabla `posts`
+-- Indexes for table `permissions`
+--
+ALTER TABLE `permissions`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `posts`
 --
 ALTER TABLE `posts`
   ADD PRIMARY KEY (`id_post`),
@@ -193,21 +218,21 @@ ALTER TABLE `posts`
   ADD KEY `category` (`id_cat`) USING BTREE;
 
 --
--- Indices de la tabla `project`
+-- Indexes for table `project`
 --
 ALTER TABLE `project`
   ADD PRIMARY KEY (`id`),
   ADD KEY `userId` (`userId`);
 
 --
--- Indices de la tabla `repository`
+-- Indexes for table `repository`
 --
 ALTER TABLE `repository`
   ADD PRIMARY KEY (`id_rep`),
   ADD KEY `creator` (`creator`);
 
 --
--- Indices de la tabla `respuesta`
+-- Indexes for table `respuesta`
 --
 ALTER TABLE `respuesta`
   ADD PRIMARY KEY (`id_respuesta`),
@@ -215,75 +240,81 @@ ALTER TABLE `respuesta`
   ADD KEY `id_post` (`id_post`);
 
 --
--- Indices de la tabla `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `categories`
+-- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
   MODIFY `id_cat` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `logs`
+-- AUTO_INCREMENT for table `logs`
 --
 ALTER TABLE `logs`
   MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `posts`
+-- AUTO_INCREMENT for table `permissions`
+--
+ALTER TABLE `permissions`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
   MODIFY `id_post` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
--- AUTO_INCREMENT de la tabla `project`
+-- AUTO_INCREMENT for table `project`
 --
 ALTER TABLE `project`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
--- AUTO_INCREMENT de la tabla `repository`
+-- AUTO_INCREMENT for table `repository`
 --
 ALTER TABLE `repository`
   MODIFY `id_rep` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `respuesta`
+-- AUTO_INCREMENT for table `respuesta`
 --
 ALTER TABLE `respuesta`
   MODIFY `id_respuesta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
--- AUTO_INCREMENT de la tabla `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
--- Restricciones para tablas volcadas
+-- Constraints for dumped tables
 --
 
 --
--- Filtros para la tabla `categories`
+-- Constraints for table `categories`
 --
 ALTER TABLE `categories`
   ADD CONSTRAINT `categories_ibfk_1` FOREIGN KEY (`id_cat`) REFERENCES `posts` (`id_cat`) ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `logs`
+-- Constraints for table `logs`
 --
 ALTER TABLE `logs`
   ADD CONSTRAINT `logs_ibfk_1` FOREIGN KEY (`user`) REFERENCES `user` (`id_user`) ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `posts`
+-- Constraints for table `posts`
 --
 ALTER TABLE `posts`
   ADD CONSTRAINT `posts_ibfk_1` FOREIGN KEY (`user`) REFERENCES `user` (`id_user`) ON UPDATE CASCADE;
