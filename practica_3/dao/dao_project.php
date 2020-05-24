@@ -126,5 +126,9 @@ class DAOproject extends DAO {
         }
 
 		return $array; 
-	}
+  }
+  
+  public function get_last_id() {
+    return mysqli_insert_id($this->conn);
+  }
 }

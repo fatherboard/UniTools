@@ -3,6 +3,7 @@
 include_once('includes/Form.php');
 require_once('dao/user_class.php');
 require_once('dao/dao_user.php');
+require_once('dao/DAOpermissions.php');
 
 class FormNewProject extends Form {
 
@@ -45,7 +46,6 @@ class FormNewProject extends Form {
         $privado = $datos['privado'];
         $candado = 0;
 
-        $proj_data = new TOUproject();
         $dao_proj = new DAOproject();
         $dao_user = new DAOUsuario();
         $user_id = $dao_user->search_username($_SESSION['username'])->get_id();
@@ -55,6 +55,15 @@ class FormNewProject extends Form {
 		if (!$dao_proj->insert_Project($new_proj)) {
             echo "Error al insertar project";
         
+        }
+        else {
+            $projId = $dao_proj->get_last_id();
+            $dao_perm = new DAOpermissions();
+            $perm = new TOPermissions('', $projId, $user_id, 0);
+            if (!$dao_perm->insert_permission($perm)) {
+                echo "Error al insertar project (permisos)";
+            }
+
         }
 
 
