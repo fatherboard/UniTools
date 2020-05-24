@@ -4,6 +4,7 @@ if (!isset($_SESSION)) {
 }
 include_once("dao/dao_project.php");
 include_once("dao/dao_user.php");
+include_once("dao/DAOpermissions.php");
 
 ?>
 
@@ -97,6 +98,45 @@ include_once("dao/dao_user.php");
 					</table>
 
 					<table>
+
+						<tr>
+							<th>Usuario</th>
+							<th>Permiso</th>
+						</tr>
+						<?php
+						$dao_perm = new DAOpermissions();
+						$res = $dao_perm->show_project_perm($id);
+						while (!empty($res)) {
+							$curr_perm = array_shift($res);
+							$proj_id = $curr_perm->get_project(); // id del project
+							$usuario = $dao_user->search_userId($curr_perm->get_user());
+							$type = $curr_perm->get_type();
+
+							if ($usuario == null) {
+								$username = "Usuario borrado";
+							} else {
+								$username = $usuario->get_username();
+							}
+
+							if ($type == 0) {
+								$permiso = "Creador";
+							} else if ($type = 1) {
+								$permiso = "Lectura";
+							} else {
+								$permiso = "Escritura";
+							}
+
+
+							echo "<tr>";
+							echo "<td>" . $username . "</td>";
+							echo "<td>" . $permiso . "</td>";
+							echo "</tr>";
+						}
+						?>
+					</table>
+
+
+					<table>
 						<tr>
 							<th> Archivos Subidos</th>
 						</tr>
@@ -124,7 +164,11 @@ include_once("dao/dao_user.php");
 
 						</tr>
 					</table>
+
+
 					
+
+
 					<form action="uploadProject.php" method="POST" enctype="multipart/form-data">
 						<input type="file" name="file">
 						<button type="submit" name="submit">Subir archivo</button>

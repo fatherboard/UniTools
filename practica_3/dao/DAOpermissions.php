@@ -27,6 +27,18 @@ class DAOpermissions extends DAO {
 		return $result;
 	}
 
+	public function show_project_perm($project){
+		$sql = sprintf("SELECT * FROM permissions WHERE project = $project");
+		$query = $this->devolverConsulta($sql);
+		$array = [];
+		while($result = mysqli_fetch_assoc($query)){
+            $project = new TOPermissions($result['id'], $result['project'], $result['user'], $result['type']);
+            array_push($array, $project);
+        }
+		
+		return $array;
+	}
+
 	public function show_permissions($project, $user){
 		$sql = sprintf("SELECT * FROM permissions WHERE project = $project AND user = $user");
 		$result = $this->ejecutarConsulta($sql);
