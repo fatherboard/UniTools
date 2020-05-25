@@ -60,9 +60,9 @@ include_once("dao/DAOpermissions.php");
 			}
 
 			if ($candado == true) {
-				$candado = "ON";
+				$lock = "ON";
 			} else {
-				$candado = "OFF";
+				$lock = "OFF";
 			}
 			?>
 			<div class="fb-col box">
@@ -87,7 +87,7 @@ include_once("dao/DAOpermissions.php");
 							<td> <?php echo $title 	  ?></td>
 							<td> <?php echo $username ?></td>
 							<td> <?php echo $lenguaje ?></td>
-							<td> <?php echo $candado;
+							<td> <?php echo $lock;
 									if ($userType == 0 || $userType == 2) {
 										echo "<form action=\"\" method=\"post\">";
 										echo "<input type=\"submit\" name=\"updateCandado\" value=\"Cambiar\" />";
@@ -185,6 +185,7 @@ include_once("dao/DAOpermissions.php");
 						<button type="submit" name="submit">Subir archivo</button>
 					</form>';
 					} else echo "No puedes realizar cambios en los archivos en este momento";
+					
 					?>
 
 					<?php
