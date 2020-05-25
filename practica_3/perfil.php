@@ -106,7 +106,9 @@ if (isset($_POST['aboutMe'])) {
             <!-- premium user -->
             <p>Usuario premium:
               <?php
-              if ($dao_usuario->search_premium($_SESSION['username']) != null)
+              $user_aux = $dao_usuario->search_username($_SESSION['username']);
+              $prem = $user_aux->get_premium();
+              if ($prem  == 1)
                 echo " Sí";
               else {
                 echo " No... ¡Hazte premium hoy mismo! ";
@@ -164,20 +166,24 @@ if (isset($_POST['aboutMe'])) {
     </div>
     <div class = "modal-footer">
       <form action="" method="POST">
-        <button id = "actualizar_btn" type="submit" id="f" value = "Actualizar" name = "f">Actualizar</button>
+      <button type="submit" id="f" value = "Actualizar" name = "f">Actualizar</button>
       </form>
 
     </div>
   </div>
   <div id="overlay"></div>
 
+  <?php
+      if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['f'])) {
+        $result = $dao_usuario->update_premium($_SESSION['username']);
+        if (!$result){echo "<a href='project.php'></a>";}
+        else {
+            echo "<a href='perfil.php'></a>";
+        }
+      }
+  ?>
 
-
-        <?php
-                $dao_project = new DAOproject();
-                $dao_user = new DAOUsuario();
-                $res = $dao_project->show_user_projects($user->get_username());
-        ?>
+      
 
         <table id="prs" class="round">
           <tr>
@@ -233,7 +239,7 @@ if (isset($_POST['aboutMe'])) {
           </tbody>
         </table>
       </div>
-      <?php $dao_user->disconnect();?>
+      <?php $dao_usuario->disconnect();?>
 
     </div>
   </div>
@@ -244,15 +250,3 @@ if (isset($_POST['aboutMe'])) {
 </body>
 
 
-<?php
-if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['f'])) {
-   
-        
-        $result = $dao_usuario->update_premium($_SESSION['username']);
-        if (!$result){echo "<a href='project.php'></a>";}
-        else {
-            echo "<a href='perfil.php'></a>";
-        }
-    
-}
-?>

@@ -53,9 +53,8 @@ class DAOUsuario extends DAO {
 		if (!$this->ejecutarConsulta($sql))
 			return null;
 		else{
-			$result = $this->ejecutarConsulta($sql);
-			$premium = $result;
-			return $premium;
+			
+			return true;
 		}
 	}
 
