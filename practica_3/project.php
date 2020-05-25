@@ -209,7 +209,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['updateCandado'])) {
 	$result = $dao_proj->update_candado($id);
 	if (!$result) echo "Se ha producido un error";
 	else {
-		header("Refresh:0");
+		echo '<meta http-equiv="refresh" content="0">';
 	}
 }
 ?>
