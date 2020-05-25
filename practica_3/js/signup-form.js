@@ -1,6 +1,6 @@
 $().ready(function() {
     //Validacion de formulario
-    $("contenido_reg").validate({
+    $("formId").validate({ //id de form 
         rules:{
             username: {
                 required: true,

@@ -2,12 +2,14 @@
 <html>
 
     <head>
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="js/jquery.validate.js"></script>
-        <script src="js/signup-form.js"></script>
-        <script src="js/messages_es.js"></script>
-
+    <!--
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/jquery.validate.js"></script>
+    <script src="js/signup-form.js"></script>
+    <script src="js/my_jquery.js"></script>
+    <script src="js/my_jquery1.js"></script>
+    <script src="js/jquery_checkUser.js"></script>
+-->
     </head>
 
 </html>
@@ -25,13 +27,16 @@
         protected function generaCampos(){
             
             $html = 
-            // <form id="signupForm" method="get" action="form-handler.html" autocomplete="off">
+            //<form id="signupForm" method="get" action="form-handler.html" autocomplete="off"> //para usar jquery.validate
             '<fieldset  class="fb-col contenido_log_reg" id ="contenido_reg">
                 <h1>ÚNETE A NOSOTROS</h1>
                 
                 <div>
                     <input name="username" type="text" id="username" placeholder="Nombre de usuario" />
                 </div>
+            
+                <div id=uname_response"> </div>
+
                 <div>
                     <input name="nombre" type="text" id="nombre" placeholder="Nombre propio"/>
                 </div>
