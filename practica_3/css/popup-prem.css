@@ -43,9 +43,9 @@
   margin-top: 5px;
   outline: none;
   background: none;
-  font-size: 1.25rem;
+  font-size: 2rem;
   font-weight: bold;
-  color: red;
+  color: white;
 }
 
 .modal-body {
@@ -65,7 +65,9 @@
   border-bottom-right-radius: 5px;
 }
 
-#actualizar_btn{
+
+/* ESTE SE SUPONE QUE ES EL BOTÓN DE DENTRO DEL POPUP PERO NO LO HE METIDO*/
+#f{
   background: #000000;
   padding: 1em 2em;
   color: #fff;
