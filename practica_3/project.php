@@ -39,9 +39,14 @@ include_once("dao/DAOpermissions.php");
 			$dao_user = new DAOUsuario();
 			$id = $_GET["id"];
 			$_SESSION['project'] = $id;
+			
 			$curr_proj = $dao_proj->search_project($id);
 			$proj_id = $curr_proj->get_id(); // id del project
 			$usuario = $dao_user->search_userId($curr_proj->get_user());
+			$userId = $usuario->get_id();
+			$dao_perm = new DAOpermissions();
+			$userPerm = $dao_perm->show_permissions($proj_id, $userId);
+			$userType = $userPerm->get_type();
 			$lenguaje = $curr_proj->get_lenguaje();
 			$title = $curr_proj->get_titulo();
 			$estrellas = $curr_proj->get_estrellas();
@@ -104,8 +109,9 @@ include_once("dao/DAOpermissions.php");
 							<th>Permiso</th>
 						</tr>
 						<?php
-						$dao_perm = new DAOpermissions();
+						
 						$res = $dao_perm->show_project_perm($id);
+						
 						while (!empty($res)) {
 							$curr_perm = array_shift($res);
 							$proj_id = $curr_perm->get_project(); // id del project
@@ -120,9 +126,9 @@ include_once("dao/DAOpermissions.php");
 
 							if ($type == 0) {
 								$permiso = "Creador";
-							} else if ($type = 1) {
+							} else if ($type == 1) {
 								$permiso = "Lectura";
-							} else if ($type = 2) {
+							} else if ($type == 2) {
 								$permiso = "Escritura";
 							} else $permiso = "Sin permisos";
 
@@ -143,7 +149,7 @@ include_once("dao/DAOpermissions.php");
 
 							<?php
 
-							if ($type == 0 || $type == 1 || $type = 2) {
+							if ($userType == 0 || $userType == 1 || $userType == 2) {
 								$dir_path = "proyectos/" . $id;
 
 								if (is_dir($dir_path)) {
@@ -152,7 +158,7 @@ include_once("dao/DAOpermissions.php");
 											while (($file_name = readdir($files)) !== FALSE) {
 												if ($file_name != '.' && $file_name != '..') {
 													echo '<tr><td><a href="' . $dir_path . '/' . $file_name . '" download>' . $file_name . '</a></td>';
-													if ($type == 0 || $type == 2) 
+													if ($userType == 0 || $userType == 2) 
 													echo '<td><a href="project.php?id=' . $id . '&delete=' . $file_name . '"> Borrar archivo</a></td></tr>';
 												}
 											}
@@ -167,7 +173,7 @@ include_once("dao/DAOpermissions.php");
 					</table>
 					
 					<?php
-					if ($type == 0 || $type == 2) {
+					if ($userType == 0 || $userType == 2) {
 						echo '<form action="uploadProject.php" method="POST" enctype="multipart/form-data">
 						<input type="file" name="file">
 						<button type="submit" name="submit">Subir archivo</button>

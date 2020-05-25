@@ -59,7 +59,7 @@ class FormNewProject extends Form {
         else {
             $projId = $dao_proj->get_last_id();
             $dao_perm = new DAOpermissions();
-            $perm = new TOPermissions('', $projId, $user_id, 3);
+            $perm = new TOPermissions('', $projId, $user_id, 0);
             if (!$dao_perm->insert_permission($perm)) {
                 echo "Error al insertar project (permisos)";
             }
