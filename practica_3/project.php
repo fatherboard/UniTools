@@ -39,7 +39,7 @@ include_once("dao/DAOpermissions.php");
 			$dao_user = new DAOUsuario();
 			$id = $_GET["id"];
 			$_SESSION['project'] = $id;
-			
+
 			$curr_proj = $dao_proj->search_project($id);
 			$proj_id = $curr_proj->get_id(); // id del project
 			$usuario = $dao_user->search_userId($curr_proj->get_user());
@@ -59,7 +59,7 @@ include_once("dao/DAOpermissions.php");
 				$username = $usuario->get_username();
 			}
 
-			if ($candado === true) {
+			if ($candado == true) {
 				$candado = "ON";
 			} else {
 				$candado = "OFF";
@@ -87,7 +87,13 @@ include_once("dao/DAOpermissions.php");
 							<td> <?php echo $title 	  ?></td>
 							<td> <?php echo $username ?></td>
 							<td> <?php echo $lenguaje ?></td>
-							<td> <?php echo $candado  ?></td>
+							<td> <?php echo $candado;
+									if ($userType == 0 || $userType == 2) {
+										echo "<form action=\"\" method=\"post\">";
+										echo "<input type=\"submit\" name=\"updateCandado\" value=\"Cambiar\" />";
+										echo "</form>";
+									}
+									?> </td>
 							<td> <?php echo $estrellas ?> estrellas </td>
 							<td> <?php echo $id  ?></td>
 						</tr>
@@ -109,9 +115,9 @@ include_once("dao/DAOpermissions.php");
 							<th>Permiso</th>
 						</tr>
 						<?php
-						
+
 						$res = $dao_perm->show_project_perm($id);
-						
+
 						while (!empty($res)) {
 							$curr_perm = array_shift($res);
 							$proj_id = $curr_perm->get_project(); // id del project
@@ -158,30 +164,29 @@ include_once("dao/DAOpermissions.php");
 											while (($file_name = readdir($files)) !== FALSE) {
 												if ($file_name != '.' && $file_name != '..') {
 													echo '<tr><td><a href="' . $dir_path . '/' . $file_name . '" download>' . $file_name . '</a></td>';
-													if ($userType == 0 || $userType == 2) 
-													echo '<td><a href="project.php?id=' . $id . '&delete=' . $file_name . '"> Borrar archivo</a></td></tr>';
+													if ($userType == 0 || $userType == 2 && $candado = 0)
+														echo '<td><a href="project.php?id=' . $id . '&delete=' . $file_name . '"> Borrar archivo</a></td></tr>';
 												}
 											}
 										}
 									}
 								}
 							}
-							
+
 							?>
 
 						</tr>
 					</table>
-					
+
 					<?php
-					if ($userType == 0 || $userType == 2) {
+					if (($userType == 0 || $userType == 2) && $candado == 0) {
 						echo '<form action="uploadProject.php" method="POST" enctype="multipart/form-data">
 						<input type="file" name="file">
 						<button type="submit" name="submit">Subir archivo</button>
 					</form>';
-					}
-					else echo "No tienes permisos para hacer cambios en los archivos";
+					} else echo "No puedes realizar cambios en los archivos en este momento";
 					?>
-					
+
 					<?php
 					$dao_user->disconnect(); ?>
 
@@ -193,8 +198,17 @@ include_once("dao/DAOpermissions.php");
 </body>
 
 <?php
-if (isset($_GET['delete'])) {
+if (isset($_GET['delete']) && ($userType == 0 || $userType)) {
 	unlink("proyectos/" . $id . "/" . $_GET['delete']);
 	header('Location: project.php?id=' . $id);
+}
+
+if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['updateCandado'])) {
+
+	$result = $dao_proj->update_candado($id);
+	if (!$result) echo "Se ha producido un error";
+	else {
+		header("Refresh:0");
+	}
 }
 ?>
