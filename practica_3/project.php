@@ -122,9 +122,9 @@ include_once("dao/DAOpermissions.php");
 								$permiso = "Creador";
 							} else if ($type = 1) {
 								$permiso = "Lectura";
-							} else {
+							} else if ($type = 2) {
 								$permiso = "Escritura";
-							}
+							} else $permiso = "Sin permisos";
 
 
 							echo "<tr>";
@@ -135,45 +135,47 @@ include_once("dao/DAOpermissions.php");
 						?>
 					</table>
 
-
 					<table>
 						<tr>
 							<th> Archivos Subidos</th>
 						</tr>
 						<tr>
+
 							<?php
 
+							if ($type == 0 || $type == 1 || $type = 2) {
+								$dir_path = "proyectos/" . $id;
 
-							$dir_path = "proyectos/" . $id;
-
-							if (is_dir($dir_path)) {
-								$files = opendir($dir_path); {
-									if ($files) {
-										while (($file_name = readdir($files)) !== FALSE) {
-											if ($file_name != '.' && $file_name != '..') {
-												echo '<tr><td><a href="' . $dir_path . '/' . $file_name . '" download>' . $file_name . '</a></td>';
-												echo '<td><a href="project.php?id=' . $id . '&delete=' . $file_name . '"> Borrar archivo</a></td></tr>';
+								if (is_dir($dir_path)) {
+									$files = opendir($dir_path); {
+										if ($files) {
+											while (($file_name = readdir($files)) !== FALSE) {
+												if ($file_name != '.' && $file_name != '..') {
+													echo '<tr><td><a href="' . $dir_path . '/' . $file_name . '" download>' . $file_name . '</a></td>';
+													if ($type == 0 || $type == 2) 
+													echo '<td><a href="project.php?id=' . $id . '&delete=' . $file_name . '"> Borrar archivo</a></td></tr>';
+												}
 											}
 										}
 									}
 								}
 							}
-
+							
 							?>
-
 
 						</tr>
 					</table>
-
-
-
-
-
-					<form action="uploadProject.php" method="POST" enctype="multipart/form-data">
+					
+					<?php
+					if ($type == 0 || $type == 2) {
+						echo '<form action="uploadProject.php" method="POST" enctype="multipart/form-data">
 						<input type="file" name="file">
 						<button type="submit" name="submit">Subir archivo</button>
-					</form>
-
+					</form>';
+					}
+					else echo "No tienes permisos para hacer cambios en los archivos";
+					?>
+					
 					<?php
 					$dao_user->disconnect(); ?>
 
