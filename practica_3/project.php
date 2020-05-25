@@ -166,7 +166,7 @@ include_once("dao/DAOpermissions.php");
 					</table>
 
 
-					
+
 
 
 					<form action="uploadProject.php" method="POST" enctype="multipart/form-data">

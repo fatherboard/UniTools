@@ -5,6 +5,7 @@ if (!isset($_SESSION)) {
 
 include_once("dao/dao_user.php");
 include_once("dao/dao_project.php");
+include_once("dao/DAOpermissions.php");
 ?>
 
 <!DOCTYPE html>
@@ -49,7 +50,8 @@ require("includes/common/cabecera_OG.php");?>
                 <?php
 
                 $dao_project = new DAOproject();
-                $dao_user = new DAOUsuario();
+				$dao_user = new DAOUsuario();
+				$dao_perm = new DAOpermissions();
                 $res = $dao_project->show_all_data();
 				?>
 
@@ -59,15 +61,20 @@ require("includes/common/cabecera_OG.php");?>
 					<th>ID del Proyecto</th>
 					<th>Usuario</th>
 					<th>Lenguaje</th>
-					<th>Candado</th>
 					<th>Valoracion</th>
 					<th>Privacidad</th>
+					<th>Accesible</th>
 				</tr> 
 		<?php
+		$userId = $dao_user->search_username($_SESSION['username'])->get_id();
 		while (!empty($res)) 
 		{
 			$curr_proj = array_shift($res);
 			$project_id = $curr_proj->get_id(); // id del proyecto
+			if($dao_perm->inPermissions($project_id, $userId) || !$curr_proj->get_privado()) {
+				$accesible = 1;
+			}
+			else $accesible = 0;
 			$usuario = $dao_user->search_userId($curr_proj->get_user());
 			$lenguaje = $curr_proj->get_lenguaje();
 			$title = $curr_proj->get_titulo();
@@ -86,19 +93,17 @@ require("includes/common/cabecera_OG.php");?>
 			}
 
 		    if ($privado == 1){
-		    	$priv = "Repositorio privado (Feature Premium)";
+		    	$priv = "Repositorio privado";
 
-		    }
+			}
+			
 
-		    if ($candado == 0){
-		    	$candado = "LIBRE";
-		    }
-		    else {
-		    	$candado = "EN EDICIÓN";
-		    }?>
+		    ?>
 				<tr>
 				<?php 
+				if ($accesible)
 				echo '<td id="prs_link"> <a href="project.php?id=' . $project_id . '">';
+				else echo '<td>';
 				?>
 					
 
@@ -106,9 +111,9 @@ require("includes/common/cabecera_OG.php");?>
 					<td> <?php echo $project_id ?> </td>
 					<td> <?php echo $username 	?> </td>
 					<td> <?php echo $lenguaje 	?> </td>
-					<td> <?php echo $candado   	?> </td>
 					<td> <?php echo $estrellas 	?> /5 estrellas </td>
 					<td> <?php echo $priv 	  	?></td>
+					<td> <?php if ($accesible) echo "Sí"; else echo "No" ?> </td>
 				</tr>
 		<?php 
 		}?>
