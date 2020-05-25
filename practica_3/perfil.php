@@ -51,12 +51,15 @@ if (isset($_POST['aboutMe'])) {
   <title>INDEX</title>
   <meta charset="UTF-8">
 
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300;1,100;0,200;0,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300;1,100;0,200;0,500&display=swap"
+    rel="stylesheet">
 
   <link rel="stylesheet" type="text/css" href="css/hoja_OG.css">
   <link rel="stylesheet" type="text/css" href="css/side_OG.css">
   <link rel="stylesheet" type="text/css" href="css/cabecera_OG.css">
   <link rel="stylesheet" type="text/css" href="css/content_OG.css">
+  <link rel="stylesheet" type="text/css" href="css/popup-prem.css">
+  <script defer src="script/modal.js"></script>
 </head>
 
 <body>
@@ -79,9 +82,9 @@ if (isset($_POST['aboutMe'])) {
             <?php
             $filePath = "img/fotosPerfil/" . $_SESSION['username'] . ".jpg";
             if (file_exists($filePath)) { ?>
-              <img class="profilePic round-img" alt="foto_perfil" src=" <?php echo $filePath ?>">
+            <img class="profilePic round-img" alt="foto_perfil" src=" <?php echo $filePath ?>">
             <?php } else { ?>
-              <img class="profilePic round-img" alt="foto_perfil" src="img/Default_user_icon.jpg">
+            <img class="profilePic round-img" alt="foto_perfil" src="img/Default_user_icon.jpg">
             <?php }
             ?>
 
@@ -103,7 +106,7 @@ if (isset($_POST['aboutMe'])) {
             <!-- premium user -->
             <p>Usuario premium:
               <?php
-              if ($user->get_premium())
+              if ($dao_usuario->search_premium($_SESSION['username']) != null)
                 echo " Sí";
               else {
                 echo " No... ¡Hazte premium hoy mismo! ";
@@ -137,7 +140,7 @@ if (isset($_POST['aboutMe'])) {
           <li class="field">
             <p>Sobre Mi: <?php 
             $user_aux = $dao_usuario->search_username($_SESSION['username']);
-            echo $user_aux->get_aboutMe() ?></p>
+            echo $user_aux->get_aboutme() ?></p>
             <form action="" method="post">
               Nuevo Sobre mi: <input type="text" name="aboutMe"><br>
               <input type="submit">
@@ -145,24 +148,48 @@ if (isset($_POST['aboutMe'])) {
           </li>
         </ul>
 
-        <?php
+        <button data-modal-target="#modal" id = "btn-actualizar">Actualizar a premium</button>
+  <div class="modal" id="modal">
+    <div class="modal-header">
+      <div class="title">Se premium y disfruta de sus ventajas</div>
+      <button data-close-button class="close-button">&times;</button>
+    </div>
+    <div class="modal-body">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse quod alias ut illo doloremque eum ipsum obcaecati
+      distinctio debitis reiciendis quae quia soluta totam doloribus quos nesciunt necessitatibus, consectetur quisquam
+      accusamus ex, dolorum, dicta vel? Nostrum voluptatem totam, molestiae rem at ad autem dolor ex aperiam. Amet
+      assumenda eos architecto, dolor placeat deserunt voluptatibus tenetur sint officiis perferendis atque! Voluptatem
+      maxime eius eum dolorem dolor exercitationem quis iusto totam! Repudiandae nobis nesciunt sequi iure! Eligendi,
+      eius libero. Ex, repellat sapiente!
+    </div>
+    <div class = "modal-footer">
+      <form action="" method="POST">
+        <button id = "actualizar_btn" type="submit" id="f" value = "Actualizar" name = "f">Actualizar</button>
+      </form>
 
+    </div>
+  </div>
+  <div id="overlay"></div>
+
+
+
+        <?php
                 $dao_project = new DAOproject();
                 $dao_user = new DAOUsuario();
                 $res = $dao_project->show_user_projects($user->get_username());
         ?>
-        
-			 <table id="prs"  class="round">
-				<tr>
-					<th>Titulo</th>
-					<th>ID del Proyecto</th>
-					
-					<th>Lenguaje</th>
-					<th>Candado</th>
-					<th>Valoracion</th>
-					<th>Privacidad</th>
-				</tr> 
-		<?php
+
+        <table id="prs" class="round">
+          <tr>
+            <th>Titulo</th>
+            <th>ID del Proyecto</th>
+
+            <th>Lenguaje</th>
+            <th>Candado</th>
+            <th>Valoracion</th>
+            <th>Privacidad</th>
+          </tr>
+          <?php
 		while (!empty($res)) 
 		{
 			$curr_proj = array_shift($res);
@@ -188,28 +215,44 @@ if (isset($_POST['aboutMe'])) {
 		    else {
 		    	$candado = "EN EDICIÓN";
 		    }?>
-				<tr>
-				<?php 
+          <tr>
+            <?php 
 				echo '<td id="prs_link"> <a href="project.php?id=' . $project_id . '">';
 				?>
-					
 
-						 <?php echo $title      ?> </a></td>
-					<td> <?php echo $project_id ?> </td>
-					<td> <?php echo $lenguaje 	?> </td>
-					<td> <?php echo $candado   	?> </td>
-					<td> <?php echo $estrellas 	?> /5 estrellas </td>
-					<td> <?php echo $priv 	  	?></td>
-				</tr>
-		<?php 
+
+            <?php echo $title      ?> </a></td>
+            <td> <?php echo $project_id ?> </td>
+            <td> <?php echo $lenguaje 	?> </td>
+            <td> <?php echo $candado   	?> </td>
+            <td> <?php echo $estrellas 	?> /5 estrellas </td>
+            <td> <?php echo $priv 	  	?></td>
+          </tr>
+          <?php 
 		}?>
-				</tbody>
-				</table>
-				</div>
-			<?php $dao_user->disconnect();?>
+          </tbody>
+        </table>
+      </div>
+      <?php $dao_user->disconnect();?>
 
-            </div>
-        </div>
-      </div> <!-- Fin del contenido -->
-    </div> <!-- Fin del contenedor -->
+    </div>
+  </div>
+  </div> <!-- Fin del contenido -->
+  </div> <!-- Fin del contenedor -->
+
+
 </body>
+
+
+<?php
+if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['f'])) {
+   
+        
+        $result = $dao_usuario->update_premium($_SESSION['username']);
+        if (!$result){echo "<a href='project.php'></a>";}
+        else {
+            echo "<a href='perfil.php'></a>";
+        }
+    
+}
+?>
