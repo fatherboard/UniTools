@@ -23,7 +23,7 @@ $password = $userData->get_password();
 //Script actualizar email
 if (isset($_POST['email'])) {
   if ($dao_usuario->update_email($_SESSION['username'], $_POST['email'])) {
-    header("Refresh:0");
+    echo '<meta http-equiv="refresh" content="0">';
   } else {
     echo "Se ha producido un error";
   }
@@ -32,7 +32,7 @@ if (isset($_POST['email'])) {
 //Script actualizar nombre
 if (isset($_POST['nombre'])) {
   if ($dao_usuario->update_name($_SESSION['username'], $_POST['nombre'])) {
-    header("Refresh:0");
+    echo '<meta http-equiv="refresh" content="0">';
   } else {
     echo "Se ha producido un error";
   }
@@ -41,7 +41,7 @@ if (isset($_POST['nombre'])) {
 //Script actualizar aboutMe
 if (isset($_POST['aboutMe'])) {
   if ($dao_usuario->update_aboutMe($_SESSION['username'], $_POST['aboutMe'])) {
-    header("Refresh:0");
+    echo '<meta http-equiv="refresh" content="0">';
   } else {
     echo "Se ha producido un error";
   }
@@ -175,9 +175,9 @@ if (isset($_POST['aboutMe'])) {
         if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['f'])) {
           $result = $dao_usuario->update_premium($_SESSION['username']);
           if (!$result) {
-            echo "<a href='project.php'></a>";
+            echo "Se ha producido un error";
           } else {
-            echo "<a href='perfil.php'></a>";
+            echo '<meta http-equiv="refresh" content="0">';
           }
         }
         ?>
