@@ -164,7 +164,7 @@ include_once("dao/DAOpermissions.php");
 											while (($file_name = readdir($files)) !== FALSE) {
 												if ($file_name != '.' && $file_name != '..') {
 													echo '<tr><td><a href="' . $dir_path . '/' . $file_name . '" download>' . $file_name . '</a></td>';
-													if ($userType == 0 || $userType == 2 && $candado = 0)
+													if (($userType == 0 || $userType == 2) && $candado == 0)
 														echo '<td><a href="project.php?id=' . $id . '&delete=' . $file_name . '"> Borrar archivo</a></td></tr>';
 												}
 											}
