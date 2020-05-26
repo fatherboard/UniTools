@@ -77,6 +77,7 @@ include_once("dao/dao_user.php");
 									<div class="btn btn_tomate">
 
 										<?php echo "<a onclick=\"location.href='respuesta.php?post=" . $post_id . "'\">Responder</a>"; ?>
+									</div>
 								</th>
 							</div>
 						</tr>

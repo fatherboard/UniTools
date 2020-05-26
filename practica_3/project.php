@@ -141,10 +141,41 @@ include_once("dao/DAOpermissions.php");
 
 							echo "<tr>";
 							echo "<td>" . $username . "</td>";
-							echo "<td>" . $permiso . "</td>";
+							echo "<td>" . $permiso;
+							if ($userType == 0 && ($username != $_SESSION['username'])) {
+								echo "<form action=\"\" method=\"post\">";
+								echo "<input type=\"hidden\" name=\"user\" value=\"" . $username . "\" />";
+								echo "<input type=\"submit\" name=\"borrarPermiso\" value=\"Borrar Permiso\" />";
+								echo "</form>";
+							}
+							echo "</td>";
 							echo "</tr>";
 						}
 						?>
+					</table>
+
+					<form action="" method="POST" id="addPermiso"></form>
+
+					<table>
+						<tr>
+							<th>Añadir Permiso</th>
+							<th>Tipo</th>
+						</tr>
+						<tr>
+							<td>
+								Usuario: <input type="text" name="user" form="addPermiso" /> <br>
+								
+								
+							</td>
+							<td>
+								<input type="radio" form="addPermiso" name="type" value="1"> Lectura <br>
+								<input type="radio" form="addPermiso" name="type" value="2"> Escritura <br>
+							
+							</td>
+							<td>
+								<input type="submit" name="addPermiso" form="addPermiso" value="Añadir Permiso"/>
+							</td>
+						</tr>
 					</table>
 
 					<table>
@@ -185,7 +216,7 @@ include_once("dao/DAOpermissions.php");
 						<button type="submit" name="submit">Subir archivo</button>
 					</form>';
 					} else echo "No puedes realizar cambios en los archivos en este momento";
-					
+
 					?>
 
 					<?php
@@ -199,17 +230,54 @@ include_once("dao/DAOpermissions.php");
 </body>
 
 <?php
-if (isset($_GET['delete']) && ($userType == 0 || $userType)) {
+if (isset($_GET['delete']) && ($userType == 0 || $userType == 2)) {
 	unlink("proyectos/" . $id . "/" . $_GET['delete']);
 	header('Location: project.php?id=' . $id);
 }
 
-if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['updateCandado'])) {
+if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['borrarPermiso'])) {
 
-	$result = $dao_proj->update_candado($id);
+	if ($userType == 0) {
+		$id = $_GET["id"];
+		$user = $_POST["user"];
+		$dao_user_aux = new DAOUsuario();
+		$userId = $dao_user_aux->search_username($user)->get_id();
+		if (!$dao_perm->deletePermission($id, $userId)) {
+			echo "No se ha podido borrar el permiso";
+		} else {
+			echo "Permiso borrado";
+			echo '<meta http-equiv="refresh" content="0">';
+		}
+		$dao_user_aux->disconnect();
+	}
+}
+
+if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['updateCandado'])) {
+	$dao_proj_aux = new DAOproject();
+	$result = $dao_proj_aux->update_candado($id);
 	if (!$result) echo "Se ha producido un error";
 	else {
 		echo '<meta http-equiv="refresh" content="0">';
 	}
+	$dao_proj_aux->disconnect();
 }
+
+if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['addPermiso'])) {
+	$dao_perm_aux = new DAOpermissions();
+	$dao_user_aux = new DAOUsuario();
+	$username = $_POST["user"];
+	$userId = $dao_user_aux->search_username($username)->get_id();
+	$privilegio = $_POST["type"];
+	$permiso = new TOPermissions('', $id, $userId, $privilegio);
+	$result = $dao_perm_aux->insert_permission($permiso);
+	if (!$result) echo "Se ha producido un error";
+	else {
+		echo '<meta http-equiv="refresh" content="0">';
+	}
+	$dao_proj_aux->disconnect();
+}
+
 ?>
+
+?>
+
