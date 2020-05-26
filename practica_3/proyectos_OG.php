@@ -79,19 +79,15 @@ require("includes/common/cabecera_OG.php");?>
 
 			$priv = "Repositorio publico";
 
-			if ($usuario == null) 
-			{
+			if ($usuario == null){
 				$username = "Usuario borrado";
 			} 
 			else {
 				$username = $usuario->get_username();
 			}
-
 		    if ($privado == 1){
 		    	$priv = "Repositorio privado (Feature Premium)";
-
 		    }
-
 		    if ($candado == 0){
 		    	$candado = "LIBRE";
 		    }

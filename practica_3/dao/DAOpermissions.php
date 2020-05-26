@@ -61,11 +61,8 @@ class DAOpermissions extends DAO {
 
 	public function inPermissions($project, $user){
 		$sql = sprintf("SELECT * FROM permissions WHERE project = $project AND user = $user");
-		$result = $this->ejecutarConsulta($sql);
-		if(!$result) {
-			return false;
-		}
-		return true;
+		$result = $this->insertarConsulta($sql);
+		return $result;
 	}
 
 }
