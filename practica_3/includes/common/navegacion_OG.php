@@ -55,7 +55,7 @@
         </div>
 
         <li class="sideop color">
-            <a href=proyectos.php>
+            <a href=proyectos_OG.php>
             <i class="fas fa-laptop-code"></i>
             <span>Proyectos</span>
             </a>
