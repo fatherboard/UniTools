@@ -52,7 +52,7 @@ $(function() {
     // Nombre
 
     function check_sname() {
-        var pattern = /^[a-zA-Z]*$/;
+        var pattern = /^[a-zA-Z ]*$/ 
         var sname = $("#nombre").val()
         if (pattern.test(sname) && sname !== '') {
             $("#sname_error_message").hide();
@@ -130,7 +130,7 @@ $(function() {
         // Si no hay errores y todos los campos estan rellenos
 
         if (error_uname === false && error_sname === false && error_email === false && error_password === false && error_password2 === false && $("#username").val() != "" && $("#nombre").val() != "" && $("#email").val() != "" && $("#password").val() != "" && $("#password2").val() != "") {
-            alert("Regsitro realizado con exito");
+            alert("Registro realizado con exito");
             return true;
             
         } else {
