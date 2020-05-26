@@ -39,9 +39,14 @@ include_once("dao/DAOpermissions.php");
 			$dao_user = new DAOUsuario();
 			$id = $_GET["id"];
 			$_SESSION['project'] = $id;
+
 			$curr_proj = $dao_proj->search_project($id);
 			$proj_id = $curr_proj->get_id(); // id del project
 			$usuario = $dao_user->search_userId($curr_proj->get_user());
+			$userId = $usuario->get_id();
+			$dao_perm = new DAOpermissions();
+			$userPerm = $dao_perm->show_permissions($proj_id, $userId);
+			$userType = $userPerm->get_type();
 			$lenguaje = $curr_proj->get_lenguaje();
 			$title = $curr_proj->get_titulo();
 			$estrellas = $curr_proj->get_estrellas();
@@ -54,10 +59,10 @@ include_once("dao/DAOpermissions.php");
 				$username = $usuario->get_username();
 			}
 
-			if ($candado === true) {
-				$candado = "ON";
+			if ($candado == true) {
+				$lock = "ON";
 			} else {
-				$candado = "OFF";
+				$lock = "OFF";
 			}
 			?>
 			<div class="fb-col box">
@@ -82,7 +87,13 @@ include_once("dao/DAOpermissions.php");
 							<td> <?php echo $title 	  ?></td>
 							<td> <?php echo $username ?></td>
 							<td> <?php echo $lenguaje ?></td>
-							<td> <?php echo $candado  ?></td>
+							<td> <?php echo $lock;
+									if ($userType == 0 || $userType == 2) {
+										echo "<form action=\"\" method=\"post\">";
+										echo "<input type=\"submit\" name=\"updateCandado\" value=\"Cambiar\" />";
+										echo "</form>";
+									}
+									?> </td>
 							<td> <?php echo $estrellas ?> estrellas </td>
 							<td> <?php echo $id  ?></td>
 						</tr>
@@ -104,8 +115,9 @@ include_once("dao/DAOpermissions.php");
 							<th>Permiso</th>
 						</tr>
 						<?php
-						$dao_perm = new DAOpermissions();
+
 						$res = $dao_perm->show_project_perm($id);
+
 						while (!empty($res)) {
 							$curr_perm = array_shift($res);
 							$proj_id = $curr_perm->get_project(); // id del project
@@ -120,11 +132,11 @@ include_once("dao/DAOpermissions.php");
 
 							if ($type == 0) {
 								$permiso = "Creador";
-							} else if ($type = 1) {
+							} else if ($type == 1) {
 								$permiso = "Lectura";
-							} else {
+							} else if ($type == 2) {
 								$permiso = "Escritura";
-							}
+							} else $permiso = "Sin permisos";
 
 
 							echo "<tr>";
@@ -135,24 +147,26 @@ include_once("dao/DAOpermissions.php");
 						?>
 					</table>
 
-
 					<table>
 						<tr>
 							<th> Archivos Subidos</th>
 						</tr>
 						<tr>
+
 							<?php
 
+							if ($userType == 0 || $userType == 1 || $userType == 2) {
+								$dir_path = "proyectos/" . $id;
 
-							$dir_path = "proyectos/" . $id;
-
-							if (is_dir($dir_path)) {
-								$files = opendir($dir_path); {
-									if ($files) {
-										while (($file_name = readdir($files)) !== FALSE) {
-											if ($file_name != '.' && $file_name != '..') {
-												echo '<tr><td><a href="' . $dir_path . '/' . $file_name . '" download>' . $file_name . '</a></td>';
-												echo '<td><a href="project.php?id=' . $id . '&delete=' . $file_name . '"> Borrar archivo</a></td></tr>';
+								if (is_dir($dir_path)) {
+									$files = opendir($dir_path); {
+										if ($files) {
+											while (($file_name = readdir($files)) !== FALSE) {
+												if ($file_name != '.' && $file_name != '..') {
+													echo '<tr><td><a href="' . $dir_path . '/' . $file_name . '" download>' . $file_name . '</a></td>';
+													if (($userType == 0 || $userType == 2) && $candado == 0)
+														echo '<td><a href="project.php?id=' . $id . '&delete=' . $file_name . '"> Borrar archivo</a></td></tr>';
+												}
 											}
 										}
 									}
@@ -161,18 +175,18 @@ include_once("dao/DAOpermissions.php");
 
 							?>
 
-
 						</tr>
 					</table>
 
-
-					
-
-
-					<form action="uploadProject.php" method="POST" enctype="multipart/form-data">
+					<?php
+					if (($userType == 0 || $userType == 2) && $candado == 0) {
+						echo '<form action="uploadProject.php" method="POST" enctype="multipart/form-data">
 						<input type="file" name="file">
 						<button type="submit" name="submit">Subir archivo</button>
-					</form>
+					</form>';
+					} else echo "No puedes realizar cambios en los archivos en este momento";
+					
+					?>
 
 					<?php
 					$dao_user->disconnect(); ?>
@@ -185,8 +199,17 @@ include_once("dao/DAOpermissions.php");
 </body>
 
 <?php
-if (isset($_GET['delete'])) {
+if (isset($_GET['delete']) && ($userType == 0 || $userType)) {
 	unlink("proyectos/" . $id . "/" . $_GET['delete']);
 	header('Location: project.php?id=' . $id);
+}
+
+if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['updateCandado'])) {
+
+	$result = $dao_proj->update_candado($id);
+	if (!$result) echo "Se ha producido un error";
+	else {
+		echo '<meta http-equiv="refresh" content="0">';
+	}
 }
 ?>

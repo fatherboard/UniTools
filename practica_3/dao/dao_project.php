@@ -70,6 +70,14 @@ class DAOproject extends DAO {
             return $proj;
 		}
 		return null;
+  }
+  
+  public function update_candado($id)
+    {
+		$sql = sprintf("UPDATE project SET candado = !candado WHERE id = $id");
+		$result = $this->insertarConsulta($sql);
+		
+		return $result;
 	}
 
 	public function update_contenido($id,$contenido){	

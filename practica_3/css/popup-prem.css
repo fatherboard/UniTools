@@ -1,0 +1,123 @@
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 200ms ease-in-out;
+  border-radius: 10px;
+  z-index: 10;
+  background-color: white;
+  width: 500px;
+  max-width: 80%;
+}
+
+.modal.active {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-header {
+  background-image: linear-gradient(
+    180deg,
+    #0e8a4c 0%,
+    #01381d 100%
+  );
+  padding: 15px;
+  color: #fff;
+  justify-content: space-between;
+  display: flex;
+}
+
+.modal-header .title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.modal-header .close-button {
+  cursor: pointer;
+  border: none;
+  float: right;
+  margin-top: 5px;
+  outline: none;
+  background: none;
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+}
+
+.modal-body {
+  padding: 10px 15px;
+}
+
+.modal-footer {
+  background-image: linear-gradient(
+    180deg,
+    #0e8a4c 0%,
+    #01381d 100%
+  );
+  padding: 10px;
+  color: #fff;
+  text-align: center;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+
+/* ESTE SE SUPONE QUE ES EL BOTÓN DE DENTRO DEL POPUP PERO NO LO HE METIDO*/
+#f{
+  background: #000000;
+  padding: 1em 2em;
+  color: #fff;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+
+#overlay {
+  position: fixed;
+  opacity: 0;
+  transition: 200ms ease-in-out;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, .5);
+  pointer-events: none;
+}
+
+#overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+
+#btn-actualizar{
+  background-image: linear-gradient(
+    90deg,
+    #0e8a4c 0%,
+    #01381d 100%
+  );
+  padding: 1em 2em;
+  position: absolute;
+  bottom: 10px;
+  right: 5px;
+  color: #fff;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#btn-actualizar:hover {
+  background-image: linear-gradient(
+    180deg,
+    #e4dac4 0%,
+    #0e8a4c 40%,
+    #01381d 100%
+  );
+  
+}

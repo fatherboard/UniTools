@@ -53,9 +53,8 @@ class DAOUsuario extends DAO {
 		if (!$this->ejecutarConsulta($sql))
 			return null;
 		else{
-			$result = $this->ejecutarConsulta($sql);
-			$premium = $result;
-			return $premium;
+			
+			return true;
 		}
 	}
 
@@ -82,13 +81,11 @@ class DAOUsuario extends DAO {
 
 	public function update_premium($username){
 		$sql = sprintf("UPDATE user SET premium = 1 WHERE username = '" .$username. "'");
-		if (!$this->insertarConsulta($sql))
+		$result = $this->insertarConsulta($sql);
+		if ($result == null)
 			return null;
-		else{
-			$result = $this->insertarConsulta($sql);
-			$user = new TOUser($result['id_user'],$result['email'],$result['password'],$result['username'],$result['premium'], $result['admin'], $result['name'], $result['aboutMe']);
-			return $user;
-		}
+		else 
+			return true;
 	}
 
 	public function downgrade_premium($username){

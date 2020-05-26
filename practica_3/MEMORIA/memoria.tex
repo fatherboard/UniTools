@@ -5,6 +5,13 @@
 %\usepackage{natbib}
 \usepackage{url}
 \usepackage[utf8x]{inputenc}
+\usepackage{url}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks = true,
+    linkbordercolor = {white},
+    linkcolor = blue,
+}
 \usepackage{amsmath}
 \usepackage{graphicx}
 \graphicspath{{images/}}
@@ -174,35 +181,140 @@ Finalmente, en esta entrega del Proyecto Final hemos acabado de pulir el CSS, te
 En conjunto, estamos muy satisfechos con el resultado final, que si bien ha requerido trabajo, ha resultado muy instructivo. Hemos hecho todo lo posible para que esta Memoria refleje nuestro esfuerzo, describiendo la arquitectura del proyecto, ofreciendo instrucciones de instalación y capturas de las vistas de la página web a modo de Manual de Uso, entre otras explicaciones. 
 
 \section{Tour: Guía de Navegación}
+\subsection{Mejoras finales}
+Hemos introducido multitud de mejoras desde la última entrega de este proyecto, no solo mejorando la apariencia (CSS, Flex y Grid) sino también con nuevas funcionalidades. Antes de comenzar a mostrar capturas de pantalla de distintas partes de la web, nos gustaría enumerar las modificaciones más importantes, evitando así que pudieran pasar desapercibidas:
+\begin{enumerate}
+    \item Hemos añadido un \textbf{sistema de permisos a los Proyectos}. En concreto, los proyectos otorgan tres niveles de privilegios. El nivel 0 es el del Creador, el nivel 1 es de aquellos con permiso de lectura y el nivel 2 para aquellos con permiso de lectura y escritura.
+    
+    En general, la funcionalidad de Proyectos se ha extendido en varios sentidos.
+    
+    \item Hemos implementado validación de los valores del registro mediante \textbf{jQuery y Ajax}. Como se puede apreciar en el código, no nos hemos limitado a una validación básica.
+    
+    \item Hemos mejorado tanto la seguridad como la experiencia de usuario. Hemos añadido un \textbf{pop-up interactivo} que permite al usuario actualizar a la versión Premium (con el botón de Perfil). En el perfil el usuario puede además ver sus proyectos. Estos son ejemplos de algunas de las mejoras de esta versión.
+    
+    \item Añadir funcionalidad ha requerido mejorar la Base de Datos también. En particular, ha sido necesario añadir una nueva tabla para los permisos, aunque también se han hecho modificaciones para permitir \textbf{a los alumnos valorar los Proyectos}, mediante un sistema de estrellas.
+\end{enumerate}
+\subsection{Manual con capturas}
+El usuario comienza viendo la página de Inicio, que contiene información útil y mensajes de bienvenida. También puede leer sobre nosotros (el equipo). Existe el modo normal y el modo Dark, que invierte los colores. 
 
-// TODO
+\begin{figure}[h]
+ \centering
+  \includegraphics[width=0.8\linewidth]{1.png}
+\end{figure}
 
-\section{Descripción de la arquitectura, JS, PHP y vistas}
+Puede a continuación registrarse para empezar a disfrutar de UniTools. El registro valida simultáneamente, mediante jQuery, los campos introducidos y muestra iconos de alerta o confirmación según sea el caso.
 
-// TODO
+\begin{figure}[!h]
+ \centering
+  \includegraphics[width=0.8\linewidth]{1.png}
+\end{figure}
+
+Tras el registro, el usuario podrá plantear sus dudas a modo de post en el Foro, así como contestar las de sus compañeros y las respuestas de estos. 
+
+\begin{figure}[!h]
+ \centering
+  \includegraphics[width=0.8\linewidth]{1.png}
+\end{figure}
+
+En el foro podrá ver las fotos de perfil de sus compañeros, el también podrá subir una suya si así lo desea desde el Perfil. Desde allí podrá actualizar el restos de sus datos.
+
+\begin{figure}[!h]
+ \centering
+  \includegraphics[width=0.8\linewidth]{1.png}
+\end{figure}
+
+También desde Perfil podrá actualizar su versión a Premium, si desea disfrutar de ventajas como proyectos privados.
+
+\begin{figure}[!h]
+ \centering
+  \includegraphics[width=0.8\linewidth]{1.png}
+\end{figure}
+
+Llegada la hora, podrá crear su propio proyecto en Proyectos. Usando el formulario de creación (FormNewProject, que hereda de la clase Form, como otros) donde podrá especificar el Contenido y el lenguaje de programación entre otros.
+
+\begin{figure}[!h]
+ \centering
+  \includegraphics[width=0.8\linewidth]{1.png}
+\end{figure}
+
+Una vez creado el Proyecto, el usuario puede subir archivos, y eliminarlos más tarde si así lo desea.
+
+\newpage
+
+\section{Descripción de la arquitectura, JavaScript, PHP y vistas}
+
+Para entender la arquitectura de la página web primero hay que echar un vistazo al código de \path{/index.php}. En él se distinguen las partes de Navegación, Cabecera y Contenido. Esta estructura se repite continuamente, cambiando el contenido según cual sea la petición del usuario, gestionada en \path{includes/common/contenido.php}. Los accesos a lugares indebidos son gestionados por \path{/includes/.htaccess}, añadiendo seguridad a la web y utilizando los mensajes de error del directorio \path{/err}.
+
+En cuanto al funcionamiento de casi todo lo que ofrece lo web, ha sido realizado buscando seguir los patrones de diseño adecuados y las abstracciones más correctas. Esto en general ha supuesto \textbf{el uso del patrón DAO} para comunicarse con la Base de Datos, utilizando Transfer Objects (TOUs) como vía de intercambio de información.
+
+Por otro lado, se han usado clases que permitieran reducir el código. Por ejemplo, \textbf{todos los formularios de la web} (para el Login, para el Registro, para crear un nuevo proyecto,...) \textbf{heredan de la clase Form}, alojada en \path{/includes/Form.php}.
+
+Por citar un ejemplo de uso que englobe todo esto, cuando un usuario se registra está utilizando unos campos generados por un \textit{new FormRegistro()} invocado desde \path{/registro.php}. Si no se encuentran errores de validación, se creará un objeto \textit{new DAOUsuario()}, con el que se insertará el nuevo usuario en la Base de Datos pasándole un \textit{new TOUser()} con la información que el usuario haya introducido.
+
+El proyecto también tiene código en JavaScript. Todas las herramientas de la sección Herramientas usan de hecho ese lenguaje, así como la validación de los datos del usuario, que se consigue con \textbf{Ajax y jQuery}, desde la carpeta \path{/js}.
+
+Cuando el usuario accede a la web en Inicio, escucha la música en mp3 almacenada en \path{practica_3/music/}. Esto lo hacemos con la etiqueta \textit{embed}. Esto es solo un ejemplo de los toques que hemos añadido a la web para hacerla más personal, aunque gran parte de esto se consigue con el CSS, almacenado en el directorio \path{/css}. Se trata de una de las partes más elaboradas. Tanto es así, que algunas partes cuentan con su propia hoja de estilo, como el pop-up de premium (en \path{/css/popup-prem.css}).
+
+Este pop-up, que utiliza el script con Modal Box, se puede encontrar en \path{/script/modal.js}, también en JavaScript. Se pueden encontrar muchos otros scripts en el proyecto, como \path{/uploadPhoto.php} para actualizar la foto de perfil del usuario o \path{/search.php} para la búsqueda entre posts.
 
 \section{Descripción de la Base de Datos}
 
-// TODO
+La Base de Datos ha ido creciendo con las sucesivas versiones de la web, y actualmente cuenta con multitud de tablas y relaciones entre sus campos. Existe una tabla SQL para representar a los usuarios, otra para las entradas del Foro (\textit{posts}), para cada proyecto (\textit{project}), repositorio, respuesta, y desde esta versión también \textit{permissions} para \textbf{los permisos del Proyecto}. La tabla del usuario no contiene solo la información imprescindible, sino también otra como \textit{aboutMe}, para permitir a los usuarios personalizar su perfil.
+
+La tabla de los proyectos es una de las más importantes, de modo que sería conveniente describirla brevemente aquí.
+
+\begin{lstlisting}[language=SQL]
+CREATE TABLE `project` (
+  `id` int(11) NOT NULL,
+  `titulo` varchar(100) NOT NULL,
+  `candado` tinyint(1) NOT NULL,
+  `userId` int(11) NOT NULL,
+  `estrellas` int(11) NOT NULL,
+  `privado` tinyint(1) NOT NULL,
+  `lenguaje` varchar(50) NOT NULL,
+  `contenido` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+\end{lstlisting}
+
+El \textit{id}, es el identificador único. El \textit{título}, el que se elija para el Proyecto. El \textit{Candado} se utiliza para evitar problemas de conflictos modificando código simultáneamente (a modo de Mutex), las \textit{estrellas} se utilizan para que los usuarios puedan valorar los proyectos de sus compañeros, \textit{privado} es un booleano que puede ser modificado por los usuarios premium, \textit{lenguaje} se refiere al lenguaje de programación principal del proyecto y \textit{contenido} permite al usuario añadir una descripcción de la temática del proyecto.
+
 
 \section{Instrucciones de instalación}
 
-// TODO
+Si el alumno tiene una distribución GNU/Linux, puede acceder en local a la web clonando el repositorio y almacenándolo en \path{/var/www/html}. Esto puede hacerse con el programa \textit{git}, en cuanto hagamos público el código.
+\newline
+
+\begin{lstlisting}[language=SQL]
+$ git clone https://github.com/fatherboard/UniTools.git
+$ sudo -s && cd UniTools
+# mv * /var/www/html
+\end{lstlisting}
+Eso sí, el usuario deberá tener antes instaladas las dependencias, que son \textit{mysql}, y según cual sea la distribución, \textit{apache} y \textit{phpmyadmin}. La instalación de estos programas dependerá del gestor de paquetes que utilice el sistema. Asumiendo el de Ubuntu o Debian \textit{apt} (probablemente el más común) sería:
+\newline
+\begin{lstlisting}[language=SQL]
+$ sudo apt update
+$ sudo apt install mysql phpmyadmin php-mbstring php-gettext
+\end{lstlisting}
+Para sistemas Windows, se recomienda instalar la famosa herramienta open-source Xampp, desde la \hyperlink{https://www.apachefriends.org/download.html}{página de descarga}. Una vez se tenga el .exe, se puede instalar sin opciones de configuración diferentes de las por defecto. El proyecto deberá ponerse en la carpeta \path{.htdocs}, localizada en el disco principal del sistema. Tras eso, bastará con iniciar el Apache y el SQL.
+
+La Base de Datos cuenta con información de ejemplo, y deberá importarse a \textit{Php-MyAdmin}. El usuario puede encontrar el archivo .sql en el directorio {/sql}.
+
 
 \section{Descripción de trabajo y aportes individuales}
 
-// TODO
+Aunque a continuación se muestre la principal contribución de cada miembro del equipo a esta entrega, todos hemos colaborado un poco en todo lo que compone el proyecto: Es decir, todos hemos aprendido JavaScript, utilizado DAOs, practicado con Flex y Grid, etc... en mayor o menor medida.
 
 \begin{table}[h]
 \begin{tabular}{@{}|l|l|@{}}
 \toprule
 \textbf{Miembro} & \textbf{Actividades}                                                                                                                                   \\ \midrule
-Luis Cepeda      & Dirigido toda la mejora del CSS.                                                                                                                            \\ \midrule
-Carlos Bilbao    & \begin{tabular}[c]{@{}l@{}}Redactado la Memoria. Ha ayudado con lo relacionado con Proyectos.\\  Hizo junto a Bruno lo relativo a Forms.\end{tabular}   \\ \midrule
-Hugo Ribeiro     & Ayudado con la BBDD, el CSS y mucho con funcionalidad en general.                                                                                               \\ \midrule
-Daniel Canseco   & \begin{tabular}[c]{@{}l@{}}Creado la página Team, añadido el modo Dark, \\ la música y ayudado con el CSS.\end{tabular}                                \\ \midrule
-Fernando Ruiz   & \begin{tabular}[c]{@{}l@{}}Añadido la funcionalidad de edición de perfil y \\ la barra de búsqueda. Ayudo con el CSS.\end{tabular}                                     \\ \midrule
-Bruno Mayo       & \begin{tabular}[c]{@{}l@{}}Mejorado la Base de Datos. Ha ayudado a crear las \\ clases FormLogin, FormRegistro y Form y a implementarlas.\end{tabular} \\ \bottomrule
+Luis Cepeda      & Mejorado el CSS y los script.                                                                                                                            \\ \midrule
+Carlos Bilbao    & \begin{tabular}[c]{@{}l@{}}Redactado la Memoria. Ha ayudado con la mejora de los script.\end{tabular}   \\ \midrule
+Hugo Ribeiro     & Mejorado funcionalidad de Proyectos significativamente.                                                                                  \\ \midrule
+Daniel Canseco   & \begin{tabular}[c]{@{}l@{}}Se centró en el jQuery y el Ajax.\end{tabular}                                \\ \midrule
+Fernando Ruiz   & \begin{tabular}[c]{@{}l@{}}Añadido la funcionalidad de pop-up premium. \end{tabular}                                     \\ \midrule
+Bruno Mayo       & \begin{tabular}[c]{@{}l@{}}Mejorado la Base de Datos y el CSS.\end{tabular} \\ \bottomrule
 \end{tabular}
 \end{table}
 
