@@ -26,8 +26,7 @@
         
         protected function generaCampos(){
             
-            $html = 
-            //<form id="signupForm" method="get" action="form-handler.html" autocomplete="off"> //para usar jquery.validate
+            $html =             
             '<fieldset  class="fb-col contenido_log_reg" id ="contenido_reg">
                 <h1>ÚNETE A NOSOTROS</h1>
                 
@@ -59,7 +58,7 @@
                 </div>                
             
             </fieldset>';
-            //</form>
+            
             return $html;
         }
         

@@ -1,3 +1,17 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/jquery_login.js"></script>
+   
+
+    </head>
+
+</html>
+
+
 <?php
 
 include_once('includes/Form.php');
@@ -16,14 +30,14 @@ class FormLogin extends Form {
 			<h1>UNITOOLS</h1>
 
 			<div>
-			<input name="username" type="text"  placeholder="Nombre de usuario">
+			<input name="username" type="text" id="username" placeholder="Nombre de usuario" required="">
 			</div>
 			<div>
-			<input name="password" type="password"  placeholder="Contraseña">
+			<input name="password" type="password" id="password" placeholder="Contraseña" required="">
 			</div>
 			
 			<div>
-			<button type="submit" name="login">ENTRAR</button>
+			<button type="submit" name="login id="submit">ENTRAR</button>
 			</div>
 		 </fieldset>';
         return $html;
@@ -57,7 +71,8 @@ class FormLogin extends Form {
 	            $_SESSION['error_login'][] = "Usuario y/o contraseña no son correctos.";
 	            return "login.php";
 	        }
-	        else {
+	        else {		
+
 	            $encrypted = $userData->get_password();
 	            if (password_verify($password, $encrypted)) {
 	                $_SESSION['login'] = '1';

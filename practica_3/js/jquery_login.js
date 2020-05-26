@@ -1,10 +1,5 @@
-$(document).ready(function() {
-    $("#submit").click(function(){
-        if($("#username").val() == ""){
-            alert("El campo Usuario no puede estar vacio.");  
-        } 
-    });  
-
+$(function() {
+    
     $("#submit").click(function(){
         if(validarFormulario()){
             alert("Formulario Correcto");

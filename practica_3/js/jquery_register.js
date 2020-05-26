@@ -1,16 +1,22 @@
 $(function() {
 
+    // Esconder los mensages
+
     $("#uname_error_message").hide();
     $("#sname_error_message").hide();
     $("#email_error_message").hide();
     $("#password_error_message").hide();
     $("#password2_error_message").hide();
 
+    // Inicializar errores a false
+
     var error_uname = false;
     var error_sname = false;
     var error_email = false;
     var error_password = false;
     var error_password2 = false;
+
+    // Cuando se pose el ratón, llamar a la función
 
     $("#username").focusout(function(){
          check_uname();
@@ -28,6 +34,8 @@ $(function() {
         check_password2();
     });
 
+    // Usuario
+
     function check_uname() {
         var user_length = $("#username").val().length;
         if (user_length < 3) {
@@ -41,6 +49,8 @@ $(function() {
         }
     }
 
+    // Nombre
+
     function check_sname() {
         var pattern = /^[a-zA-Z]*$/;
         var sname = $("#nombre").val()
@@ -48,17 +58,19 @@ $(function() {
             $("#sname_error_message").hide();
             $("#nombre").css("border-bottom","2px solid #34F458");
         } else {
-            $("#sname_error_message").html("Debe incluir solo carácteres");
+            $("#sname_error_message").html("Debe incluir solo caracteres");
             $("#sname_error_message").show();
             $("#nombre").css("border-bottom","2px solid #F90A0A");
             error_fname = true;
         }
     }
 
+    // Password
+
     function check_password() {
         var password_length = $("#password").val().length;
         if (password_length < 8) {
-            $("#password_error_message").html("8 caracteres minimo");
+            $("#password_error_message").html("8 caracteres mínimo");
             $("#password_error_message").show();
             $("#password").css("border-bottom","2px solid #F90A0A");
             error_password = true;
@@ -67,6 +79,8 @@ $(function() {
             $("#password").css("border-bottom","2px solid #34F458");
         }
     }
+
+    // Password 2
 
     function check_password2() {
         var password = $("#password").val();
@@ -82,6 +96,8 @@ $(function() {
         }
     }
 
+    // Email
+
     function check_email() {
         var pattern = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
         var email = $("#email").val();
@@ -96,8 +112,10 @@ $(function() {
         }
     }
 
+
+
     $("#register").click(function() {
-        error_fname = false;
+        error_uname = false;
         error_sname = false;
         error_email = false;
         error_password = false;
@@ -109,9 +127,11 @@ $(function() {
         check_password();
         check_password2();
 
+        // Si no hay errores y todos los campos estan rellenos
+
         if (error_uname === false && error_sname === false && error_email === false && error_password === false && error_password2 === false && $("#username").val() != "" && $("#nombre").val() != "" && $("#email").val() != "" && $("#password").val() != "" && $("#password2").val() != "") {
-                alert("Regsitro realizado con exito");
-                return true;
+            alert("Regsitro realizado con exito");
+            return true;
             
         } else {
             alert("Por favor rellena todos los campos correctamente");
