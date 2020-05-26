@@ -32,24 +32,26 @@
                 <h1>ÚNETE A NOSOTROS</h1>
                 
                 <div>
-                    <input name="username" type="text" id="username" placeholder="Nombre de usuario" />
+                    <input name="username" type="text" id="username" placeholder="Nombre de usuario" required="" />
+                    <span class="error_form" id="uname_error_message"></span>
+                </div>        
+                
+                <div>
+                    <input name="nombre" type="text" id="nombre" placeholder="Nombre propio" required=""/>
+                    <span class="error_form" id="sname_error_message"></span>
                 </div>
-            
-                <div id=uname_response"> </div>
+                <div>
+                    <input name="email" type="text" id="email" placeholder="Correo electrónico" required=""/>
+                    <span class="error_form" id="email_error_message"></span>
 
-                <div>
-                    <input name="nombre" type="text" id="nombre" placeholder="Nombre propio"/>
                 </div>
                 <div>
-                    <input name="email" type="text" id="email" placeholder="Correo electrónico"/>
-                    <img id="okCorreo" src ="img/Iconos/ok.png" />
-                    <img id="noCorreo" src ="img/Iconos/no.png" />
+                    <input name="password" type="password" id="password" placeholder="Contraseña" required=""/>
+                    <span class="error_form" id="password_error_message"></span>
                 </div>
                 <div>
-                    <input name="password" type="password" id="password" placeholder="Contraseña" />
-                </div>
-                <div>
-                    <input  name="password2" type="password" id="password2" placeholder="Reintroducir contraseña"/>
+                    <input  name="password2" type="password" id="password2" placeholder="Reintroducir contraseña" required=""/>
+                    <span class="error_form" id="password2_error_message"></span>
                 </div>
 
                 <div>
@@ -64,12 +66,10 @@
         protected function procesaFormulario($datos){
             if(!isset($_SESSION)) { 
                 session_start(); 
-            } 
-
-            
+            }             
             $id_user = "";
             $username = htmlspecialchars(trim(strip_tags($_REQUEST["username"])));
-            $email = htmlspecialchars(trim(strip_tags($_REQUEST["email"])));
+            $email = htmlspecialchars(trim(strip_tags($_REQUEST["email"])));            
             $password = $_REQUEST["password"];
             $password2 = $_REQUEST["password2"];
             $premium = 0;
@@ -110,8 +110,9 @@
             if ($dao_usuario->search_username($username)) { //Verificar si el usuario ya está en la BBDD
                 $_SESSION['error_registro'][] = "El usuario insertado ya existe";
 
-            }
-
+            }           
+            
+            
             $encrypted = password_hash($password,PASSWORD_BCRYPT); //Creación del hash de la contraseña para su subida
             $user = new TOUser($id_user, $email, $encrypted, $username, $premium, $admin, $nombre);
 

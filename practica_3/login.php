@@ -15,13 +15,17 @@ if (!isset($_SESSION)) {
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300;1,100;0,200;0,500&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/hoja_OG.css">
     <link rel="stylesheet" type="text/css" href="css/content_OG.css">
-
+    <!--
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/jquery.validate.js"></script>
     <script src="js/signup-form.js"></script>
     <script src="js/my_jquery.js"></script>
     <script src="js/my_jquery1.js"></script>
     <script src="js/jquery_checkUser.js"></script>
+    -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/jquery_login.js"></script>
 
 </head>
 

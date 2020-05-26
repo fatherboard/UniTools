@@ -37,4 +37,20 @@ if (isset($_POST['submit'])){
         echo "Tipo de archivo no permitido!";
     }
 }
+
+/*       // Manejo de ficheros
+
+        // Crear imagen en blanco y ponerle texto
+        $im = imagecreatetruecolor(120, 120);
+        $color_texto = imagecolorallocate($im, 233, 14, 91);
+        imagestring($im, 1, 5, 5, 'Texto', $color_texto);
+
+        imagejpeg($im, 'textoImagen.jpg'); // Guardar la imagen como textoImagen.jpg
+
+        imagedestroy($im);  // Liberar memoria
+
+*/
+
 ?>
+
+

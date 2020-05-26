@@ -4,7 +4,7 @@ $(document).ready(function() {
     $("#email").change(function(){ 	
        // if ( correoValido($("#campoEmail").val() ) )	{	  		
  
-        var correoNoValido = ($("#email").inludes('@') == -1 || $("#email").val().indexOf('.', 0) == -1);
+        var correoNoValido = ($("#email").val().indexOf('@', 0) == -1 || $("#email").val().indexOf('.', 0) == -1);
  
        if (correoNoValido) {               	
       		
