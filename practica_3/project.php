@@ -164,16 +164,16 @@ include_once("dao/DAOpermissions.php");
 						<tr>
 							<td>
 								Usuario: <input type="text" name="user" form="addPermiso" /> <br>
-								
-								
+
+
 							</td>
 							<td>
 								<input type="radio" form="addPermiso" name="type" value="1"> Lectura <br>
 								<input type="radio" form="addPermiso" name="type" value="2"> Escritura <br>
-							
+
 							</td>
 							<td>
-								<input type="submit" name="addPermiso" form="addPermiso" value="Añadir Permiso"/>
+								<input type="submit" name="addPermiso" form="addPermiso" value="Añadir Permiso" />
 							</td>
 						</tr>
 					</table>
@@ -266,18 +266,25 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['addPermiso'])) {
 	$dao_perm_aux = new DAOpermissions();
 	$dao_user_aux = new DAOUsuario();
 	$username = $_POST["user"];
-	$userId = $dao_user_aux->search_username($username)->get_id();
-	$privilegio = $_POST["type"];
-	$permiso = new TOPermissions('', $id, $userId, $privilegio);
-	$result = $dao_perm_aux->insert_permission($permiso);
-	if (!$result) echo "Se ha producido un error";
-	else {
-		echo '<meta http-equiv="refresh" content="0">';
+	$user = $dao_user_aux->search_username($username);
+	if ($user) {
+		$userId = $dao_user_aux->search_username($username)->get_id();
+		$privilegio = $_POST["type"];
+		$permiso = new TOPermissions('', $id, $userId, $privilegio);
+		$result = $dao_perm_aux->insert_permission($permiso);
+		if (!$result) echo "Se ha producido un error";
+		else {
+			echo '<meta http-equiv="refresh" content="0">';
+		}
 	}
+	else {
+		echo "No se ha podido encontrar el usuario";
+	}
+
+
 	$dao_proj_aux->disconnect();
 }
 
 ?>
 
 ?>
-
