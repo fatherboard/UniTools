@@ -1,0 +1,44 @@
+
+.rating {
+    position: relative;
+    display: flex;
+    transform: translate(-60%, +10%) rotateY(180deg);
+    left: 0;
+}
+
+.rating label {
+    cursor: pointer;
+    width: 50px;
+}
+
+.rating input {
+    display: none;
+}
+
+.rating label:before {
+    content: '\f15c';
+    font-family: fontAwesome;
+    position: relative;
+    display: block;
+    font-size: 4ex;
+    color: black;
+}
+
+.rating label:after {
+    content: '\f15c';
+    font-family: fontAwesome;
+    position: absolute;
+    display: block;
+    font-size: 4ex;
+    color: rgb(43, 226, 83);
+    top: 0;
+    opacity: 0;
+    transition: .5s;
+    text-shadow: 0 2px 5px rgba(0,0,0,.5);
+}
+
+.rating label:hover:after,
+.rating label:hover ~ label:after,
+.rating input:checked ~ label:after {
+    opacity: 1;
+}

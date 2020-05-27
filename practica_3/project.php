@@ -21,6 +21,7 @@ include_once("dao/DAOpermissions.php");
 	<link rel="stylesheet" type="text/css" href="css/side_OG.css">
 	<link rel="stylesheet" type="text/css" href="css/cabecera_OG.css">
 	<link rel="stylesheet" type="text/css" href="css/content_OG.css">
+	<link rel="stylesheet" type="text/css" href="css/estrellas.css">
 </head>
 
 <body>
@@ -80,7 +81,7 @@ include_once("dao/DAOpermissions.php");
 							<th>Lenguaje</th>
 							<th>Candado</th>
 							<th>Valoracion</th>
-							<th>ID</th>
+
 						</tr>
 
 						<tr>
@@ -94,8 +95,16 @@ include_once("dao/DAOpermissions.php");
 										echo "</form>";
 									}
 									?> </td>
-							<td> <?php echo $estrellas ?> estrellas </td>
-							<td> <?php echo $id  ?></td>
+							<td> <?php echo '<form action="" method="post" id="valorar"></form>';
+										echo '<div class="rating">';
+										echo '<input type="radio" name="estrella" form="valorar" id="estrella1"><label for="estrella1"></label>';
+										echo '<input type="radio" name="estrella" form="valorar" id="estrella2"><label for="estrella2"></label>';
+										echo '<input type="radio" name="estrella" form="valorar" id="estrella3"><label for="estrella3"></label>';
+										echo '<input type="radio" name="estrella" form="valorar" id="estrella4"><label for="estrella4"></label>';
+										echo '<input type="radio" name="estrella" form="valorar" id="estrella5"><label for="estrella5"></label>';
+										echo '</div>';
+										echo '<input type="submit" name="votar" form="valorar" value="Votar" />'; ?> </td>
+							
 						</tr>
 					</table>
 

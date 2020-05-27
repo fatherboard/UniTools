@@ -16,11 +16,13 @@ include_once("dao/DAOpermissions.php");
 	<meta charset="UTF-8">
 
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300;1,100;0,200&display=swap" rel="stylesheet">
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
 	<link rel="stylesheet" type="text/css" href="css/hoja_OG.css">
 	<link rel="stylesheet" type="text/css" href="css/side_OG.css">
 	<link rel="stylesheet" type="text/css" href="css/cabecera_OG.css">
 	<link rel="stylesheet" type="text/css" href="css/content_OG.css">
+	<link rel="stylesheet" type="text/css" href="css/estrellas.css">
 </head>
 
 <body>
@@ -109,8 +111,11 @@ include_once("dao/DAOpermissions.php");
 									<td> <?php echo $project_id ?> </td>
 									<td> <?php echo $username 	?> </td>
 									<td> <?php echo $lenguaje 	?> </td>
-									<td> <?php echo $estrellas 	?> /5 estrellas </td>
-									<td> <?php echo $priv 	  	?></td>
+									<td>
+										estrellas
+										
+										 </td>
+									<td> <?php echo $priv ?></td>
 									<td> <?php if ($accesible) echo "Sí";
 											else echo "No" ?> </td>
 								</tr>
