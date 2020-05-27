@@ -113,8 +113,10 @@
             </div>
 
             <div  class="text-center">
-                     <embed src="music/musicafondo3.mp3" autostarty="true" loop="true" volume="60" width="0" height="0">
-            </div>  
+                <audio autoplay controls>
+                    <source src="music/musicafondo3.mp3" loop="true" volume="60">
+                </audio>
+            </div>       
 
           
             
