@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 24, 2020 at 03:40 PM
+-- Generation Time: May 27, 2020 at 07:06 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.6
 
@@ -36,6 +36,27 @@ CREATE TABLE `categories` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `estrellas`
+--
+
+CREATE TABLE `estrellas` (
+  `id` int(255) NOT NULL,
+  `project` int(11) NOT NULL,
+  `user` int(11) NOT NULL,
+  `rating` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `estrellas`
+--
+
+INSERT INTO `estrellas` (`id`, `project`, `user`, `rating`) VALUES
+(4, 39, 24, 4),
+(5, 41, 24, 2);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `logs`
 --
 
@@ -63,7 +84,12 @@ CREATE TABLE `permissions` (
 --
 
 INSERT INTO `permissions` (`id`, `project`, `user`, `type`) VALUES
-(6, 39, 24, 0);
+(6, 39, 24, 0),
+(8, 39, 25, 2),
+(9, 41, 24, 0),
+(12, 39, 26, 2),
+(13, 39, 23, 1),
+(14, 41, 23, 1);
 
 -- --------------------------------------------------------
 
@@ -110,7 +136,8 @@ CREATE TABLE `project` (
 --
 
 INSERT INTO `project` (`id`, `titulo`, `candado`, `userId`, `estrellas`, `privado`, `lenguaje`, `contenido`) VALUES
-(39, '1', 0, 24, 3, 0, 'c', '1233');
+(39, '1', 0, 24, 3, 0, 'c', '1233'),
+(41, 'Prueba', 0, 24, 3, 0, 'C', '123');
 
 -- --------------------------------------------------------
 
@@ -178,7 +205,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id_user`, `email`, `password`, `username`, `premium`, `admin`, `name`, `aboutMe`) VALUES
 (23, 'bruno@gmail.com', '$2y$10$oL8bmRuRwk2q5NJ2dx67tetNvbGO1Bs1jSSyjmlJ4xP3Y1Ys/WyK2', 'bruno', 0, 0, 'Bruno Mayo', 'Soy un niño grande'),
-(24, 'hugo@hugo.hugo', '$2y$10$7JebyLIHjunBiI5o51ZB9O3cNRYfDEhBEq1NMEFAEk.0Z4BgcC6iu', 'hugo', 0, 1, 'Hugo Ribeiro', 'Albahaca fan nº1'),
+(24, 'hugo@hugo.com', '$2y$10$7JebyLIHjunBiI5o51ZB9O3cNRYfDEhBEq1NMEFAEk.0Z4BgcC6iu', 'hugo', 1, 1, 'Hugo Ribeiro', 'Albahaca fan nº1'),
 (25, 'fer@fer.fer', '$2y$10$mD.jpKGUWz6TpqmDVRaN5eDZtnz47bBZ1F4S7ELyUDdQ2K.CPazti', 'fer', 0, 0, 'Fernando Ruiz', 'Me encanta apple'),
 (26, 'luis@luis.com', '$2y$10$e8v8INqnukWLmF73pOH.eOmjFs53.dcKKQr9YMTW2YjL/MlTASse.', 'luis', 0, 0, 'Luis Cepeda', 'No hay nada mejor que windows XP'),
 (27, 'carlos@carlos.com', '$2y$10$MnzNA8PqcmPNXzK13qrZ8Oytc1.aLCcQZbLwBSnDs4DobqAQ4HTWS', 'carlos', 0, 0, 'Carlos Bilbao', 'Aunque lo parezca no soy de bilbao'),
@@ -195,6 +222,12 @@ INSERT INTO `user` (`id_user`, `email`, `password`, `username`, `premium`, `admi
 --
 ALTER TABLE `categories`
   ADD PRIMARY KEY (`id_cat`);
+
+--
+-- Indexes for table `estrellas`
+--
+ALTER TABLE `estrellas`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `logs`
@@ -256,6 +289,12 @@ ALTER TABLE `categories`
   MODIFY `id_cat` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `estrellas`
+--
+ALTER TABLE `estrellas`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `logs`
 --
 ALTER TABLE `logs`
@@ -265,7 +304,7 @@ ALTER TABLE `logs`
 -- AUTO_INCREMENT for table `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `posts`
@@ -277,7 +316,7 @@ ALTER TABLE `posts`
 -- AUTO_INCREMENT for table `project`
 --
 ALTER TABLE `project`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `repository`
