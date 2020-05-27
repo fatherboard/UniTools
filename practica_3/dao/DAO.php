@@ -31,7 +31,7 @@ class DAO {
 	
 	public function insertarConsulta($query){
 		$result = mysqli_query($this->conn, $query) or die($this->conn->error);
-        if(!$result){
+        if($result == null){
             return false;    
         }
 		return true; 

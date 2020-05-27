@@ -6,6 +6,7 @@ if (!isset($_SESSION)) {
 include_once("dao/dao_user.php");
 include_once("dao/dao_project.php");
 include_once("dao/DAOpermissions.php");
+include_once("dao/DAOestrellas.php");
 ?>
 
 <!DOCTYPE html>
@@ -54,6 +55,7 @@ include_once("dao/DAOpermissions.php");
 					$dao_project = new DAOproject();
 					$dao_user = new DAOUsuario();
 					$dao_perm = new DAOpermissions();
+					$dao_estrellas = new DAOestrellas();
 					$res = $dao_project->show_all_data();
 					?>
 
@@ -111,10 +113,11 @@ include_once("dao/DAOpermissions.php");
 									<td> <?php echo $project_id ?> </td>
 									<td> <?php echo $username 	?> </td>
 									<td> <?php echo $lenguaje 	?> </td>
-									<td>
-										estrellas
-										
-										 </td>
+									<td> <?php $rating = $dao_estrellas->show_project_estrellas($project_id);
+											if ($rating == null) echo "0";
+											else echo $rating ?>
+
+									</td>
 									<td> <?php echo $priv ?></td>
 									<td> <?php if ($accesible) echo "Sí";
 											else echo "No" ?> </td>

@@ -5,6 +5,7 @@ if (!isset($_SESSION)) {
 include_once("dao/dao_project.php");
 include_once("dao/dao_user.php");
 include_once("dao/DAOpermissions.php");
+include_once("dao/DAOestrellas.php");
 
 ?>
 
@@ -38,6 +39,7 @@ include_once("dao/DAOpermissions.php");
 			$proj_data = new TOUproject();
 			$dao_proj = new DAOproject();
 			$dao_user = new DAOUsuario();
+			$dao_estrellas = new DAOestrellas();
 			$id = $_GET["id"];
 			$_SESSION['project'] = $id;
 
@@ -95,15 +97,24 @@ include_once("dao/DAOpermissions.php");
 										echo "</form>";
 									}
 									?> </td>
-							<td> <?php echo '<form action="" method="post" id="valorar"></form>';
-										echo '<div class="rating">';
-										echo '<input type="radio" name="estrella" form="valorar" id="estrella1"><label for="estrella1"></label>';
-										echo '<input type="radio" name="estrella" form="valorar" id="estrella2"><label for="estrella2"></label>';
-										echo '<input type="radio" name="estrella" form="valorar" id="estrella3"><label for="estrella3"></label>';
-										echo '<input type="radio" name="estrella" form="valorar" id="estrella4"><label for="estrella4"></label>';
-										echo '<input type="radio" name="estrella" form="valorar" id="estrella5"><label for="estrella5"></label>';
-										echo '</div>';
-										echo '<input type="submit" name="votar" form="valorar" value="Votar" />'; ?> </td>
+							<td> <?php 
+							
+							if (!$dao_estrellas->inEstrellas($proj_id, $userId)) {
+								echo '<form action="" method="post" id="valorar"></form>';
+								echo '<div class="rating">';
+								echo '<input type="hidden" name="user" form="valorar" value=' . $username . ' />';
+								echo '<input type="radio" name="estrella" form="valorar" id="estrella1" value="5"><label for="estrella1"></label>';
+								echo '<input type="radio" name="estrella" form="valorar" id="estrella2" value="4"><label for="estrella2"></label>';
+								echo '<input type="radio" name="estrella" form="valorar" id="estrella3" value="3"><label for="estrella3"></label>';
+								echo '<input type="radio" name="estrella" form="valorar" id="estrella4" value="2"><label for="estrella4"></label>';
+								echo '<input type="radio" name="estrella" form="valorar" id="estrella5" value="1"><label for="estrella5"></label>';
+								echo '</div>';
+								echo '<input type="submit" name="votar" form="valorar" value="Votar" />'; 
+							}
+							else {
+								echo $dao_estrellas->show_project_estrellas($proj_id);
+							}
+							?> </td>
 							
 						</tr>
 					</table>
@@ -294,6 +305,27 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['addPermiso'])) {
 	$dao_proj_aux->disconnect();
 }
 
-?>
+if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['votar'])) {
+	$dao_estrellas_aux = new DAOestrellas();
+	$dao_user_aux = new DAOUsuario();
+	$username = $_POST["user"];
+	$user = $dao_user_aux->search_username($username);
+	if ($user) {
+		$userId = $dao_user_aux->search_username($username)->get_id();
+		$rating = $_POST["estrella"];
+		$estrellas = new TOEstrellas('', $id, $userId, $rating);
+		$result = $dao_estrellas_aux->insert_estrellas($estrellas);
+		if (!$result) echo "Se ha producido un error";
+		else {
+			echo '<meta http-equiv="refresh" content="0">';
+		}
+	}
+	else {
+		echo "No se ha podido encontrar el usuario";
+	}
+
+
+	$dao_estrellas_aux->disconnect();
+}
 
 ?>
