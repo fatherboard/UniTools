@@ -87,6 +87,7 @@
                 $_SESSION['error_registro'][] = "Las contraseñas introducidas no coinciden";
 
             }
+            
             /*
             if (!preg_match('/^(?=[a-z])(?=[A-Z])[a-zA-Z]{8,}$/', $password)) //Restricciones de formato de contraseña
             {
