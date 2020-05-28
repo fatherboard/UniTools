@@ -39,12 +39,12 @@ class DAOUsuario extends DAO {
 		$sql = sprintf("SELECT * FROM user WHERE id_User = $userId");
 		if (!$this->ejecutarConsulta($sql))
 			return null;
-		else 
-		{
-			$result = $this->ejecutarConsulta($sql);
-			$user = new TOUser($result['id_user'],$result['email'],$result['password'],$result['username'],$result['premium'], $result['admin'], $result['name'], $result['aboutMe']);
-			return $user;
-		}
+		
+		
+		$result = $this->ejecutarConsulta($sql);
+		$user = new TOUser($result['id_user'],$result['email'],$result['password'],$result['username'],$result['premium'], $result['admin'], $result['name'], $result['aboutMe']);
+		return $user;
+		
 	}
 
 	public function search_premium($username){
@@ -143,5 +143,3 @@ class DAOUsuario extends DAO {
 	}
 
 }
-
-?>
