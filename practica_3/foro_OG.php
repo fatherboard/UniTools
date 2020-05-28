@@ -33,8 +33,7 @@ include_once("dao/dao_respuesta.php");
     require("includes/common/cabecera_OG.php");?>
 
         <div class="contenido">
-        <?php/* 
-    if(isset($_SESSION['login']) && $_SESSION['login']){*/?>
+        <?php if(isset($_SESSION['login']) && $_SESSION['login']){ ?>
                     <div class="contenido">
                     <div class="fb-col box" id="prs_g">
         		    <div class="t1 fb-row" >
@@ -55,21 +54,13 @@ include_once("dao/dao_respuesta.php");
                                     </a>               
                             </form>
                         </div>
-                    </div>           
+                              
                         <?php
-                        
                         $dao_post = new DAOpost();
                         $dao_user = new DAOUsuario();
                         $res = $dao_post->show_all_data();
                         ?>
-        	          <?php //<table id='t01' style='width:100%'>
-                    /*<tr>
-                        <th>Foto Perfil</th>
-                        <th>Título</th>
-                        <th>ID del post</th>
-                        <th>Usuario</th>
-        		     </tr>*/	?>
-        	
+
                         <?php
                         while (!empty($res)) {
                             $curr_post = array_shift($res);
@@ -83,44 +74,38 @@ include_once("dao/dao_respuesta.php");
                             } else {
                                 $username = $usuario->get_username();
                             }?>
+
                     <div class="box">
                         <div class="field fb-row">
                             <div class="fb-col" id="prs_foto">
                               <?php if ($usuario != null){
-
                                 $filePath = "img/fotosPerfil/" . $username . ".jpg";
                                 if (file_exists($filePath)) { ?>
                                   <img class="forumPic" alt="foto_foro" src=" <?php echo $filePath ?>">
                                 <?php } else { ?>
                                     <img class="forumPic" alt="foto_foro" src="img/Default_user_icon.jpg">
                                 <?php }
-                                }?>
+                                } ?>
                             </div>
                             <div class="fb-col" id="prs_cont">
-                        		 <?php echo "<td>" . "<a href=\"post.php?id=" . $post_id . "\">" . $title . "</a></td>";
+                        	<?php echo "<td>" . "<a href=\"post.php?id=" . $post_id . "\">" . $title . "</a></td>";
                                   echo "<td>"  . $post_id ."</td>";
                                   echo '<div class=Fb-row">';
                                   echo "<td>" . $username   . "</td>";
-                                  echo "<td>Categoría: " . $categoria . "</td>";?>
+                                  echo "<td>Categoría: " . $categoria . "</td>"; ?>
                             </div>
                         </div>
                     </div>
-                  }     
-        	      <?php// echo "</table>";
-                        $dao_user->disconnect();
-                        ?>
+                       
+        	      <?php } $dao_user->disconnect(); ?>
 
                     </div>
                 </div>    
-            </div> <!-- Fin de contenido -->
-        <?php/* 
-    }else{
-        echo "No puedes entrar aqui a menos que estes logueado";
-    }*/
-    ?>
+            </div> 
+        </div> <!-- Fin de contenido -->
+        <?php }else{
+            echo "No puedes entrar aqui a menos que estes logueado";
+            } ?>
 </div> <!-- Fin del contenedor -->
-
-
 </body>
-
 </html>
