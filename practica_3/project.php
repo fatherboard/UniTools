@@ -58,7 +58,7 @@ include_once("dao/DAOestrellas.php");
 
 			if ($usuario == null) {
 				$username = "Usuario borrado";
-			} else {
+			} else if ($usuario instanceof TOUser){
 				$username = $usuario->get_username();
 			}
 
