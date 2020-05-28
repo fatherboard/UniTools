@@ -85,10 +85,11 @@ class FormLogin extends Form
 						}
 						return "perfil.php";
 					}
-				} else {
-					$_SESSION['error_login'][] = "Usuario y/o contraseña no son correctos";
-					return "login.php";
-				}
+					else {
+						$_SESSION['error_login'][] = "Usuario y/o contraseña no son correctos";
+						return "login.php";
+					}
+				} 
 			}
 		} else {
 			return "login.php";
