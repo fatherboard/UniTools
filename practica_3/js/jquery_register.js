@@ -41,11 +41,13 @@ $(function() {
         if (user_length < 3) {
             $("#uname_error_message").html("Debe tener 3 caracteres minimo");
             $("#uname_error_message").show();
-            $("#username").css("border-bottom","2px solid #F90A0A");
+            $("#username").addClass("noValido");
+           // $("#username").css("border-bottom","2px solid #F90A0A");
             error_fname = true;               
         } else {
             $("#uname_error_message").hide();
-            $("#username").css("border-bottom","2px solid #34F458");               
+            $("#username").addClass("valido");
+           // $("#username").css("border-bottom","2px solid #34F458");               
         }
     }
 
@@ -56,10 +58,12 @@ $(function() {
         var sname = $("#nombre").val()
         if (pattern.test(sname) && sname !== '') {
             $("#sname_error_message").hide();
+            $("#nombre").addClass("valido");
             $("#nombre").css("border-bottom","2px solid #34F458");
         } else {
             $("#sname_error_message").html("Debe incluir solo caracteres");
             $("#sname_error_message").show();
+            $("#nombre").addClass("noValido");
             $("#nombre").css("border-bottom","2px solid #F90A0A");
             error_fname = true;
         }
@@ -72,10 +76,12 @@ $(function() {
         if (password_length < 8) {
             $("#password_error_message").html("8 caracteres mínimo");
             $("#password_error_message").show();
+            $("#password").addClass("noValido");
             $("#password").css("border-bottom","2px solid #F90A0A");
             error_password = true;
         } else {
             $("#password_error_message").hide();
+            $("#password").addClass("valido");
             $("#password").css("border-bottom","2px solid #34F458");
         }
     }
@@ -88,10 +94,12 @@ $(function() {
         if (password !== password2) {
             $("#password2_error_message").html("Las contraseñas no coinciden");
             $("#password2_error_message").show();
+            $("#password2").addClass("noValido");
             $("#password2").css("border-bottom","2px solid #F90A0A");
             error_password2 = true;
         } else {
             $("#password2_error_message").hide();
+            $("#password2").addClass("valido");
             $("#password2").css("border-bottom","2px solid #34F458");
         }
     }
@@ -103,10 +111,12 @@ $(function() {
         var email = $("#email").val();
         if (pattern.test(email) && email !== '') {
             $("#email_error_message").hide();
+            $("#email").addClass("valido");
             $("#email").css("border-bottom","2px solid #34F458");
         } else {
             $("#email_error_message").html("Email invalido");
             $("#email_error_message").show();
+            $("#email").addClass("noValido");
             $("#email").css("border-bottom","2px solid #F90A0A");
             error_email = true;
         }
