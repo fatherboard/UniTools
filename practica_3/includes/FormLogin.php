@@ -78,11 +78,9 @@ class FormLogin extends Form
 					if (password_verify($password, $encrypted)) {
 						$_SESSION['login'] = '1';
 						$_SESSION['username'] = $username;
-						if ($userData->isAdmin()) {
-							$_SESSION['admin'] = '1';
-						} else {
-							$_SESSION['admin'] = '0';
-						}
+						$_SESSION['admin'] = $userData->isAdmin();
+						$_SESSION['premium'] = $userData->get_premium();
+					
 						return "perfil.php";
 					}
 					else {

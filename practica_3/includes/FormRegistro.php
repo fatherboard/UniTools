@@ -109,6 +109,7 @@
                     $_SESSION['login'] = '1';
                     $_SESSION['username'] = $username;
                     $_SESSION['admin']= '0';
+                    $_SESSION['premium'] = '0';
                     return "perfil.php";
                 }
 

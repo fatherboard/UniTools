@@ -21,8 +21,11 @@ class FormNewProject extends Form {
         $html .= '<p>Título:</p> <textarea class="field tittle-row" name="titulo" rows="1"></textarea> ';                           
         $html .= '</div>';                            
         $html .= '<p>Contenido:</p> <textarea class="field" name="contenido" rows="2" ></textarea>';                            
-        $html .= '<p>Lenguaje:</p> <textarea class="field" name="lenguaje" rows="2"></textarea>';                        
-		$html .= '<p>Privado: <input value ="1" type="checkbox" name="privado"></span></p>';	                                                
+        $html .= '<p>Lenguaje:</p> <textarea class="field" name="lenguaje" rows="2"></textarea>';  
+        if (isset($_SESSION["premium"]) && $_SESSION["premium"]){
+            $html .= '<p>Privado (PREMIUM): <input value ="1" type="checkbox" name="privado"></span></p>';	
+        }
+        else    $html .= '<p>Para hacer repos privadas necesitas ser premium</p>';	                       
         $html .= '<p class="submit-center text-center">
                     <input  id = "btn_enviar_npr" type="submit" value="Subir" class="field v-center"/>
                   </p>';                                
