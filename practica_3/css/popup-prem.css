@@ -121,3 +121,22 @@
   );
   
 }
+
+#si{
+  background: #11ae00;
+  padding: 1em 2em;
+  color: #fff;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#no{
+  background: #c70000;
+  margin-right: auto;
+  padding: 1em 2em;
+  color: #fff;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+}
