@@ -98,7 +98,7 @@ if (isset($_POST['aboutMe'])) {
             <!-- upload profile picture -->
             <form action="uploadPhoto.php" method="POST" enctype="multipart/form-data">
               <input type="file" name="file">
-              <button type="submit" name="submit">Subir foto</button>
+              <button class="btn_mango" type="submit" name="submit">Subir foto</button>
             </form>
           </div>
         </div>
@@ -127,7 +127,7 @@ if (isset($_POST['aboutMe'])) {
 
             <form action="" method="post">
               Nuevo Email: <input type="text" name="email"><br>
-              <input type="submit">
+              <input type="submit" class="btn_mango">
             </form>
           </li>
 
@@ -135,7 +135,7 @@ if (isset($_POST['aboutMe'])) {
             <p>Nombre: <?php echo $name ?></p>
             <form action="" method="post">
               Nuevo Nombre: <input type="text" name="nombre"><br>
-              <input type="submit">
+              <input type="submit" class="btn_mango">
             </form>
           </li>
 
@@ -143,7 +143,7 @@ if (isset($_POST['aboutMe'])) {
             <p>Sobre Mi: <?php echo $aboutMe ?></p>
             <form action="" method="post">
               Nuevo Sobre mi: <input type="text" name="aboutMe"><br>
-              <input type="submit">
+              <input type="submit" class="btn_mango">
             </form>
           </li>
         </ul>
