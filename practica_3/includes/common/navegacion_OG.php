@@ -62,13 +62,6 @@
         </li>
 
         <li class="sideop color">
-            <a href=mensajes.php>
-            <i class="fas fa-comment-dots"></i>
-            <span>Mensajes</span>
-            </a>
-        </li>
-
-        <li class="sideop color">
             <a href=foro.php>
             <i class="far fa-window-restore"></i>
             <span>Foro</span>
