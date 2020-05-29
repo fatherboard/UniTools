@@ -90,10 +90,10 @@ include_once("dao/DAOestrellas.php");
 							<td> <?php echo $title 	  ?></td>
 							<td> <?php echo $username ?></td>
 							<td> <?php echo $lenguaje ?></td>
-							<td> <?php echo $lock;
+							<td> <?php 
 									if ($userType == 0 || $userType == 2) {
 										echo "<form action=\"\" method=\"post\">";
-										echo "<input type=\"submit\" name=\"updateCandado\" value=\"Cambiar\" />";
+										echo "<input type=\"submit\" name=\"updateCandado\" value=\"" . $lock . "\" />";
 										echo "</form>";
 									}
 									?> </td>
