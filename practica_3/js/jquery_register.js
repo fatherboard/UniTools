@@ -73,7 +73,7 @@ $(function() {
 
     function check_password() {
         var password_length = $("#password").val().length;
-        if (password_length < 8) {
+        if (password_length < 6) {
             $("#password_error_message").html("8 caracteres mínimo");
             $("#password_error_message").show();
             $("#password").addClass("noValido");
@@ -114,14 +114,13 @@ $(function() {
             $("#email").addClass("valido");
             $("#email").css("border-bottom","2px solid #34F458");
         } else {
-            $("#email_error_message").html("Email invalido");
+            $("#email_error_message").html("Email inválido");
             $("#email_error_message").show();
             $("#email").addClass("noValido");
             $("#email").css("border-bottom","2px solid #F90A0A");
             error_email = true;
         }
     }
-
 
 
     $("#register").click(function() {
@@ -140,11 +139,11 @@ $(function() {
         // Si no hay errores y todos los campos estan rellenos
 
         if (error_uname === false && error_sname === false && error_email === false && error_password === false && error_password2 === false && $("#username").val() != "" && $("#nombre").val() != "" && $("#email").val() != "" && $("#password").val() != "" && $("#password2").val() != "") {
-            alert("Registro realizado con exito");
+            alert("Registro realizado con éxito");
             return true;
             
         } else {
-            alert("Por favor rellena todos los campos correctamente");
+            alert("Por favor, rellena todos los campos correctamente");
             return false;
         }
     });
