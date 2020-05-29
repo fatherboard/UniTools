@@ -58,7 +58,7 @@ include_once("dao/DAOestrellas.php");
 
 			if ($usuario == null) {
 				$username = "Usuario borrado";
-			} else {
+			} else if ($usuario instanceof TOUser){
 				$username = $usuario->get_username();
 			}
 
@@ -90,10 +90,10 @@ include_once("dao/DAOestrellas.php");
 							<td> <?php echo $title 	  ?></td>
 							<td> <?php echo $username ?></td>
 							<td> <?php echo $lenguaje ?></td>
-							<td> <?php echo $lock;
+							<td> <?php 
 									if ($userType == 0 || $userType == 2) {
 										echo "<form action=\"\" method=\"post\">";
-										echo "<input type=\"submit\" name=\"updateCandado\" value=\"Cambiar\" />";
+										echo "<input type=\"submit\" name=\"updateCandado\" value=\"" . $lock . "\" />";
 										echo "</form>";
 									}
 									?> </td>
@@ -146,7 +146,7 @@ include_once("dao/DAOestrellas.php");
 
 							if ($usuario == null) {
 								$username = "Usuario borrado";
-							} else {
+							} else if ($usuario instanceof TOUser){
 								$username = $usuario->get_username();
 							}
 
@@ -163,7 +163,7 @@ include_once("dao/DAOestrellas.php");
 							echo "<td>" . $username . "</td>";
 							echo "<td>" . $permiso;
 							if ($userType == 0 && ($username != $_SESSION['username'])) {
-								echo "<form action=\"\" method=\"post\">";
+								echo "<form action=\"\" onsubmit=\"return confirm('¿Estás segur@ de que quieres borrar el permiso de " . $username . "?');\" method=\"post\">";
 								echo "<input type=\"hidden\" name=\"user\" value=\"" . $username . "\" />";
 								echo "<input type=\"submit\" name=\"borrarPermiso\" value=\"Borrar Permiso\" />";
 								echo "</form>";
@@ -188,7 +188,7 @@ include_once("dao/DAOestrellas.php");
 
 							</td>
 							<td>
-								<input type="radio" form="addPermiso" name="type" value="1"> Lectura <br>
+								<input type="radio" form="addPermiso" checked="checked" name="type" value="1"> Lectura <br>
 								<input type="radio" form="addPermiso" name="type" value="2"> Escritura <br>
 
 							</td>
@@ -216,7 +216,7 @@ include_once("dao/DAOestrellas.php");
 												if ($file_name != '.' && $file_name != '..') {
 													echo '<tr><td><a href="' . $dir_path . '/' . $file_name . '" download>' . $file_name . '</a></td>';
 													if (($userType == 0 || $userType == 2) && $candado == 0)
-														echo '<td><a href="project.php?id=' . $id . '&delete=' . $file_name . '"> Borrar archivo</a></td></tr>';
+														echo '<td><a href="project.php?id=' . $id . '&delete=' . $file_name . '" onClick="return confirm(\'¿Estás segur@ de que quieres borrar ' . $file_name . '?\');"> Borrar archivo</a></td></tr>';
 												}
 											}
 										}

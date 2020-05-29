@@ -1,18 +1,3 @@
-<!DOCTYPE html>
-<html>
-
-    <head>
-    <!--
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="js/jquery.validate.js"></script>
-    <script src="js/signup-form.js"></script>
-    <script src="js/my_jquery.js"></script>
-    <script src="js/my_jquery1.js"></script>
-    <script src="js/jquery_checkUser.js"></script>
--->
-    </head>
-
-</html>
 <?php
 
     include_once("includes/Form.php");
@@ -76,7 +61,8 @@
             $nombre= htmlspecialchars(trim(strip_tags($_REQUEST["nombre"])));
             $aboutMe='';
             $_SESSION['error_registro'] = [];
-               
+            
+            /*
             if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {  //Se comprueba si el formato del email es correcto, si no, error
                 $_SESSION['error_registro'][] = "El email introducido no es válido";
 
@@ -88,12 +74,12 @@
 
             }
             
-            /*
+            
             if (!preg_match('/^(?=[a-z])(?=[A-Z])[a-zA-Z]{8,}$/', $password)) //Restricciones de formato de contraseña
             {
                 $_SESSION['error_registro'][] = "La contraseñas no es válida";
             }
-            */
+           
 
             if (empty($username) ) {    //Si el campo de usuario está vacío, error
                 $_SESSION['error_registro'][] = "El usuario no puede estar vacío";
@@ -104,6 +90,7 @@
                 $_SESSION['error_registro'][] = "La contraseñas no puede estar vacía";
 
             }
+            */
 
             $dao_usuario = new DAOUsuario();
 
@@ -122,6 +109,7 @@
                     $_SESSION['login'] = '1';
                     $_SESSION['username'] = $username;
                     $_SESSION['admin']= '0';
+                    $_SESSION['premium'] = '0';
                     return "perfil.php";
                 }
 
