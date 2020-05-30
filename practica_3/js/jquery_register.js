@@ -42,7 +42,7 @@ $(function() {
             $("#uname_error_message").html("Debe tener 3 caracteres minimo");
             $("#uname_error_message").show();
             $("#username").addClass("noValido");
-           // $("#username").css("border-bottom","2px solid #F90A0A");
+            $("#username").css("border-bottom","2px solid #F90A0A");
             error_fname = true;               
         } else {
             $("#uname_error_message").hide();
