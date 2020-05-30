@@ -202,8 +202,8 @@ include_once("dao/DAOestrellas.php");
 									$permiso = "Escritura";
 								} else $permiso = "Sin permisos";
 
-								echo $username ;
-								echo $permiso;
+								echo $username . " - " ;
+								echo $permiso . "</br>";
 								if ($userType == 0 && ($username != $_SESSION['username'])) {
 									echo "<form action=\"\" onsubmit=\"return confirm('¿Estás segur@ de que quieres borrar el permiso de " . $username . "?');\" method=\"post\">";
 									echo "<input type=\"hidden\" name=\"user\" value=\"" . $username . "\" />";
