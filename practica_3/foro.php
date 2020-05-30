@@ -44,7 +44,7 @@ require("includes/common/cabecera_OG.php");?>
                     <div class="t1 fb-row" >
                     <h1>Foro</h1>
                     </div>
-                    <div class = "b1" id="fr_box">
+                    <div class="b1" id="fr_box">
                         <div class = "fb-row jc_space-between v-center" id = "posts">
 
                             <div class="btn btn_mango">

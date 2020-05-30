@@ -376,6 +376,7 @@ a#fr_link {
 .leftBorder {
   border-top-left-radius: 0.7rem;
   border-bottom-left-radius: 0.7rem;
+  flex-wrap: nowrap;
 }
 /*--------------------------------------------------------------NUEVO POST (n_p)----------------------------------------------------------------------*/
 
@@ -567,7 +568,7 @@ a#fr_link {
   margin: 0.5rem 0;
 }
 
-/*------------------------------------------------------------------------POSTS RESPUESTAS------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------POSTS (pst) ------------------------------------------------------------------------*/
 
 #title_answ {
   display: inline-block;
@@ -581,6 +582,24 @@ a#fr_link {
   width: 328px;
 }
 
+/*V5*/
+.pst_prin {
+  margin-top: 1.3rem;
+  border-left: 0.7rem solid #363636;
+  border-radius: 1rem;
+}
+.pst_first {
+  margin-top: 1.3rem;
+  border-left: 0.7rem solid #797979;
+  border-radius: 1rem;
+  margin-left: 2.5rem;
+}
+.pst_rest {
+  margin-top: 1.3rem;
+  border-left: 0.7rem solid #a3a3a3;
+  border-radius: 1rem;
+  margin-left: 4.5rem;
+}
 /*------------------------------------------------------------------------LOGIN & REGISTRO------------------------------------------------------------------------*/
 .noValido {
   border-bottom: 2px solid #f90a0a;

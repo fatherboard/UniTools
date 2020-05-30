@@ -328,7 +328,7 @@ tr:nth-child(odd) {
   color: rgb(0, 0, 0);
 }
 
-.btn_chorizo {
+.btn_tomate {
   background-color: #b83174;
   border: none;
   color: #fff;
@@ -347,13 +347,13 @@ tr:nth-child(odd) {
   margin-top: 0.2rem;
 }
 
-.btn_chorizo a,
-.btn_chorizo button {
+.btn_tomate a,
+.btn_tomate button {
   color: rgb(255, 255, 255);
 }
 
-.btn_chorizo a:hover,
-.btn_chorizo button:hover {
+.btn_tomate a:hover,
+.btn_tomate button:hover {
   color: rgb(73, 73, 73);
 }
 
