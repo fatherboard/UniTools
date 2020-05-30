@@ -121,43 +121,37 @@ $userId = $dao_user->search_username($_SESSION['username'])->get_id();
 											<i class="far fa-star"></i>
 										</div>
 									</div>
-									<div class="b1 gr_smokywhite fb-row">
+									<div class="b1 gr_smokywhite fb-row jc_space-between">
 										<div class="fb-col" id="prs_fotoYnombre">
 											<?php if ($usuario != null){
 												$filePath = "img/fotosPerfil/" . $username . ".jpg";
 												if (file_exists($filePath)) { ?>
-												<img class="forumPic" alt="foto_foro" src=" <?php echo $filePath ?>">
+												<img class="prs_pic" alt="foto_foro" src=" <?php echo $filePath ?>">
 												<?php } else { ?>
-												<img class="forumPic" alt="foto_foro" src="img/Default_user_icon.jpg">
+												<img class="prs_pic" alt="foto_foro" src="img/Default_user_icon.jpg">
 												<?php }
 											}
 											?>
 												<div class="text-center"><?php echo $username ?></div>
 										</div>
-										Descripción
+										<ul class="fb-col">
+											<li>
+												Repositorio: 
+												<?php  if ($privado == 1) echo "Privado"; 
+														else echo"Público" ?>
+											</li>
+											<li>
+												Lenguaje: <?php echo $lenguaje ?>
+											</li>
+											
+											<li>
+												Accesible: 
+												<?php  if ($accesible) echo "<i class='far fa-check-square'></i>"; 
+														else echo"<i class='far fa-times-circle'></i>" ?>
+											</li>
+										</ul>
 									</div>
 								</div>
-									<?php
-									
-									if ($accesible)
-										echo '<td id="prs_link"> <a href="project.php?id=' . $project_id . '">';
-									else echo '<td>';
-									?>
-
-									 </a></td>
-									<td> <?php echo $project_id ?> </td>
-									<td> <?php echo $username 	?> </td>
-									<td> <?php echo $lenguaje 	?> </td>
-									<td> <?php $rating = $dao_estrellas->show_project_estrellas($project_id);
-											if ($rating == null) echo "0";
-											else echo $rating ?>
-
-									</td>
-									<td> <?php echo $priv ?></td>
-									<td> <?php if ($accesible) echo "Sí";
-											else echo "No" ?> </td>
-
-									?>
 						<?php
 						} /*end while*/?>
 						</div>
