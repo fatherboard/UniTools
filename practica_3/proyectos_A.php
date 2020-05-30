@@ -58,18 +58,6 @@ $userId = $dao_user->search_username($_SESSION['username'])->get_id();
 							<!-- <button type="submit" name="submit-buscar" href="search.php">Buscar </button> -->
 						</form>
 					</div>
-					<?php
-					/*
-							<th>Titulo</th>
-							<th>ID del Proyecto</th>
-							<th>Usuario</th>
-							<th>Lenguaje</th>
-							<th>Valoracion</th>
-							<th>Privacidad</th>
-							<th>Accesible</th>
-					*/
-					?>
-
 
 						<div class="fb-row jc_space-evenly" id=prs_bloque>
 
@@ -156,6 +144,7 @@ $userId = $dao_user->search_username($_SESSION['username'])->get_id();
 										</ul>
 									</div>
 								</div>
+										</a>
 						<?php
 						} /*end while*/?>
 						</div>

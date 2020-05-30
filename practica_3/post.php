@@ -5,6 +5,29 @@ if (!isset($_SESSION)) {
 include_once("dao/dao_post.php");
 include_once("dao/dao_respuesta.php");
 include_once("dao/dao_user.php");
+
+$dao_resp = new DAOrespuesta();
+			$foro_data = new TOUpost();
+			$dao_post = new DAOpost();
+			$dao_user = new DAOUsuario();
+			$id = $_GET["id"];
+			$_SESSION['curr_post'] = $id;
+
+			$curr_post = $dao_post->search_post($id);
+			$post_id = $curr_post->get_id(); // id del post
+			$usuario = $dao_user->search_userId($curr_post->get_user());
+			$categoria = $curr_post->get_category();
+			$title = $curr_post->get_title();
+			$contenido = $curr_post->get_content();
+
+			$post = $dao_post->search_post($id); //id viene del get de contenido
+
+
+			if ($usuario == null) {
+				$username = "Usuario borrado";
+			} else {
+				$username = $usuario->get_username();
+			} 
 ?>
 
 <!DOCTYPE html>
@@ -33,29 +56,7 @@ include_once("dao/dao_user.php");
 
 		<div class="contenido">
 			<?php
-			//echo $id;
-
-			$dao_resp = new DAOrespuesta();
-			$foro_data = new TOUpost();
-			$dao_post = new DAOpost();
-			$dao_user = new DAOUsuario();
-			$id = $_GET["id"];
-			$_SESSION['curr_post'] = $id;
-
-			$curr_post = $dao_post->search_post($id);
-			$post_id = $curr_post->get_id(); // id del post
-			$usuario = $dao_user->search_userId($curr_post->get_user());
-			$categoria = $curr_post->get_category();
-			$title = $curr_post->get_title();
-			$contenido = $curr_post->get_content();
-
-			$post = $dao_post->search_post($id); //id viene del get de contenido
-
-			if ($usuario == null) {
-				$username = "Usuario borrado";
-			} else {
-				$username = $usuario->get_username();
-			} ?>
+			?>
 
 			<div class="fb-col box">
 				<div class="t1 fb-row" id="title_answ">
@@ -85,7 +86,7 @@ include_once("dao/dao_user.php");
 				<tr>
 					<?php if ($usuario != null) { ?>
 						<td>
-							<img class="forumPic" alt="foto_foro" src="img/fotosPerfil/<?php echo $username ?>.jpg">
+							<img class="pst_pic" alt="foto_foro" src="img/fotosPerfil/<?php echo $username ?>.jpg">
 						</td>
 
 					<?php } ?>
@@ -133,9 +134,9 @@ include_once("dao/dao_user.php");
 					if ($usuario != null) {
 						$filePath = "img/fotosPerfil/" . $username . ".jpg";
 						if (file_exists($filePath)) { ?>
-							<td><img class="forumPic" alt="foto_foro" src=" <?php echo $filePath ?>"></td>
+							<td><img class="pst_pic" alt="foto_foro" src=" <?php echo $filePath ?>"></td>
 						<?php } else { ?>
-							<td><img class="forumPic" alt="foto_foro" src="img/Default_user_icon.jpg"></td>
+							<td><img class="pst_pic" alt="foto_foro" src="img/Default_user_icon.jpg"></td>
 						<?php }
 					}
 
@@ -165,9 +166,9 @@ include_once("dao/dao_user.php");
 						if ($objUsuario != null) {
 							$filePath = "img/fotosPerfil/" . $username . ".jpg";
 							if (file_exists($filePath)) { ?>
-								<td><img class="forumPic" alt="foto_foro" src=" <?php echo $filePath ?>"></td>
+								<td><img class="pst_pic" alt="foto_foro" src=" <?php echo $filePath ?>"></td>
 							<?php } else { ?>
-								<td><img class="forumPic" alt="foto_foro" src="img/Default_user_icon.jpg"></td>
+								<td><img class="pst_pic" alt="foto_foro" src="img/Default_user_icon.jpg"></td>
 							<?php }
 						}
 
