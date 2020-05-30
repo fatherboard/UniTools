@@ -48,7 +48,7 @@ $userId = $dao_user->search_username($_SESSION['username'])->get_id();
 				<div class="t1 fb-row">
 					<h1>Proyectos</h1>
 				</div>
-				<div class="b1">
+				<div class="b1" id="prs_main">
 					<div class="btn btn_mango">
 						<a href="nuevo_project.php">Nuevo Proyecto</a>
 					</div>
@@ -71,7 +71,7 @@ $userId = $dao_user->search_username($_SESSION['username'])->get_id();
 					?>
 
 
-						<div class="fb-row jc_space-between" id=prs_bloque>
+						<div class="fb-row jc_space-evenly" id=prs_bloque>
 
 						<?php /*while para cada proyecto*/
 						while (!empty($res)) {
@@ -121,8 +121,8 @@ $userId = $dao_user->search_username($_SESSION['username'])->get_id();
 											<i class="far fa-star"></i>
 										</div>
 									</div>
-									<div class="b1 gr_smokywhite fb-row jc_space-between">
-										<div class="fb-col" id="prs_fotoYnombre">
+									<div class="b1 gr_smokywhite fb-row">
+										<div class="fb-col" id="prs_l">
 											<?php if ($usuario != null){
 												$filePath = "img/fotosPerfil/" . $username . ".jpg";
 												if (file_exists($filePath)) { ?>
@@ -134,7 +134,7 @@ $userId = $dao_user->search_username($_SESSION['username'])->get_id();
 											?>
 												<div class="text-center"><?php echo $username ?></div>
 										</div>
-										<ul class="fb-col">
+										<ul class="fb-col" id="prs_r">
 											<li>
 												Repositorio: 
 												<?php  if ($privado == 1) echo "Privado"; 

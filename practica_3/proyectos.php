@@ -40,7 +40,7 @@ include_once("dao/DAOestrellas.php");
 				<div class="t1 fb-row">
 					<h1>Proyectos</h1>
 				</div>
-				<div class="b1">
+				<div class="b1" id="prs_main">
 					<div class="btn btn_mango">
 						<a href="nuevo_project.php">Nuevo Proyecto</a>
 					</div>
