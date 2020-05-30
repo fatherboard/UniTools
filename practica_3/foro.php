@@ -67,6 +67,7 @@ require("includes/common/cabecera_OG.php");?>
                 <th>Título</th>
                 <th>ID del post</th>
                 <th>Usuario</th>
+                <th>Categoría</th>
 		     </tr>	
 	
                 <?php
@@ -98,15 +99,11 @@ require("includes/common/cabecera_OG.php");?>
           echo "<td>"  . $post_id ."</td>";
           echo '<div class=Fb-row">';
           echo "<td>" . $username   . "</td>";
-          
+           echo "<td>" . $categoria . "</td>";
             
-          }
-              
-		  echo "</div></tr>";
-  
-                    //echo "<td>Categoría: " . $categoria . "</td>";
-                
-	       echo "</table>";
+          }   
+		  echo "</div></tr>"; 
+            echo "</table>";
                 $dao_user->disconnect();
                 ?>
 

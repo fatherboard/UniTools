@@ -78,6 +78,7 @@ include_once("dao/dao_user.php");
 										<?php echo "<a onclick=\"location.href='respuesta.php?post=" . $post_id . "'\">Responder</a>"; ?>
 									</div>
 								</th>
+								<th>Categoría</th>
 							</div>
 						</tr>
 				</div>
@@ -93,6 +94,7 @@ include_once("dao/dao_user.php");
 					<td> <?php echo $title	 ?> </td>
 					<td> <?php echo $username  ?> </td>
 					<td> <?php echo $contenido ?> </td>
+					<td> <?php echo $categoria ?> </td>
 				</tr>
 				</table>
 
