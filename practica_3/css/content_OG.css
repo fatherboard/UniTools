@@ -212,30 +212,6 @@ ul {
   margin: 2rem 1.5rem 0;
 }
 
-#btn_nuevo_pr {
-  background-color: #e0c218;
-  border: none;
-
-  background-image: linear-gradient(
-    180deg,
-    #e2a138 0%,
-    #e2a138 70%,
-    #bd790c 100%
-  );
-
-  width: 10rem;
-  margin-top: 0.2rem;
-}
-
-#btn_nuevo_pr a {
-  padding: 0.4rem 0.7rem 0.4rem 0.7rem;
-  margin-left: left;
-}
-
-#btn_nuevo_pr a:hover {
-  color: rgb(255, 173, 118);
-}
-
 #prs_link {
   padding: 0;
 }
@@ -252,19 +228,26 @@ ul {
   display: block;
 }
 
-
-
-#prs_foto{
+#prs_foto {
   margin: 2rem 0 2rem 2rem;
 }
-#prs_cont{
+#prs_cont {
   margin: 2rem 0 2rem 2rem;
 }
-#prs_lock{
+#prs_lock {
   margin: 2rem 0 2rem 2rem;
 }
-
-
+/*V5*/
+#prs_bloque {
+  flex-wrap: wrap;
+}
+#prs_elem {
+  width: 100%;
+  margin: 1rem 0 0 0;
+}
+#prs_bloque > #prs_elem {
+  flex: 0 49.5%;
+}
 /*-------------------------------------------------------------------PROYECTO (pr)------------------------------------------------------------------------*/
 
 /*--------------------------------------------------------------NUEVOS PROYECTOS (n_pr)-------------------------------------------------------------------*/
@@ -532,12 +515,12 @@ ul {
 }
 
 /*------------------------------------------------------------------------LOGIN & REGISTRO------------------------------------------------------------------------*/
-.noValido{
-  border-bottom: 2px solid #F90A0A;
+.noValido {
+  border-bottom: 2px solid #f90a0a;
 }
 
-.valido{
-  border-bottom: 2px solid #34F458;
+.valido {
+  border-bottom: 2px solid #34f458;
 }
 
 .contenedor_log_reg {
@@ -623,22 +606,18 @@ ul {
   border: 1px solid #d1d3e2;
 }
 
-
-
 /*------------------------------------------------------------------------INCLUDES/FORM RESPUESTA (form_reply)------------------------------------------------------------------------*/
 
-
-#form_reply{
-  width:35%;
+#form_reply {
+  width: 35%;
   height: max-content;
 }
 
 #form_reply label {
   align-items: right;
-  
 }
 
-#subcaja_reply{
+#subcaja_reply {
   height: 20%;
 }
 

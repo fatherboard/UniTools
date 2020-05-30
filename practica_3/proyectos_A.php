@@ -7,8 +7,16 @@ include_once("dao/dao_user.php");
 include_once("dao/dao_project.php");
 include_once("dao/DAOpermissions.php");
 include_once("dao/DAOestrellas.php");
-?>
 
+
+$dao_project = new DAOproject();
+$dao_user = new DAOUsuario();
+$dao_perm = new DAOpermissions();
+$dao_estrellas = new DAOestrellas();
+$res = $dao_project->show_all_data();
+$userId = $dao_user->search_username($_SESSION['username'])->get_id();
+
+?>
 <!DOCTYPE html>
 <html>
 
@@ -51,16 +59,7 @@ include_once("dao/DAOestrellas.php");
 						</form>
 					</div>
 					<?php
-
-					$dao_project = new DAOproject();
-					$dao_user = new DAOUsuario();
-					$dao_perm = new DAOpermissions();
-					$dao_estrellas = new DAOestrellas();
-					$res = $dao_project->show_all_data();
-					?>
-
-					<table id="prs" class="round">
-						<tr>
+					/*
 							<th>Titulo</th>
 							<th>ID del Proyecto</th>
 							<th>Usuario</th>
@@ -68,9 +67,13 @@ include_once("dao/DAOestrellas.php");
 							<th>Valoracion</th>
 							<th>Privacidad</th>
 							<th>Accesible</th>
-						</tr>
-						<?php
-						$userId = $dao_user->search_username($_SESSION['username'])->get_id();
+					*/
+					?>
+
+
+						<div class="fb-row jc_space-between" id=prs_bloque>
+
+						<?php /*while para cada proyecto*/
 						while (!empty($res)) {
 							$curr_proj = array_shift($res);
 
@@ -86,8 +89,9 @@ include_once("dao/DAOestrellas.php");
 								$candado = $curr_proj->get_candado();
 								$estrellas = $curr_proj->get_estrellas();
 								$privado = $curr_proj->get_privado();
-
-								$priv = "Repositorio publico";
+								
+								/*público*/
+								$priv = "<i class='fas fa-user-friends'></i>";
 
 								if ($usuario == null) {
 									$username = "Usuario borrado";
@@ -96,20 +100,51 @@ include_once("dao/DAOestrellas.php");
 								}
 
 								if ($privado == 1) {
-									$priv = "Repositorio privado";
+									/*privado*/
+									$priv = "<i class='fas fa-user-lock'></i>";
 								}
-
-
-						?>
-								<tr>
+							}
+																													?>
+								<div class="fb-col " id=prs_elem>
+									<div class="t1 gr_black fb-row jc_space-between">
+										<div>
+											<?php echo $priv?>
+											<?php echo $title?>
+										</div>
+										<div id="prs_rat">
+											<?php $rating = $dao_estrellas->show_project_estrellas($project_id);
+											
+											if ($rating == null) echo "0";
+											else echo $rating;
+											echo "/5";
+											?>
+											<i class="far fa-star"></i>
+										</div>
+									</div>
+									<div class="b1 gr_smokywhite fb-row">
+										<div class="fb-col" id="prs_fotoYnombre">
+											<?php if ($usuario != null){
+												$filePath = "img/fotosPerfil/" . $username . ".jpg";
+												if (file_exists($filePath)) { ?>
+												<img class="forumPic" alt="foto_foro" src=" <?php echo $filePath ?>">
+												<?php } else { ?>
+												<img class="forumPic" alt="foto_foro" src="img/Default_user_icon.jpg">
+												<?php }
+											}
+											?>
+												<div class="text-center"><?php echo $username ?></div>
+										</div>
+										Descripción
+									</div>
+								</div>
 									<?php
+									
 									if ($accesible)
 										echo '<td id="prs_link"> <a href="project.php?id=' . $project_id . '">';
 									else echo '<td>';
 									?>
 
-
-									<?php echo $title      ?> </a></td>
+									 </a></td>
 									<td> <?php echo $project_id ?> </td>
 									<td> <?php echo $username 	?> </td>
 									<td> <?php echo $lenguaje 	?> </td>
@@ -121,14 +156,11 @@ include_once("dao/DAOestrellas.php");
 									<td> <?php echo $priv ?></td>
 									<td> <?php if ($accesible) echo "Sí";
 											else echo "No" ?> </td>
-								</tr>
+
+									?>
 						<?php
-
-
-							}
-						} ?>
-						</tbody>
-					</table>
+						} /*end while*/?>
+						</div>
 				</div>
 				<?php $dao_user->disconnect(); ?>
 
