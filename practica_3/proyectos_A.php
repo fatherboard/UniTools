@@ -106,6 +106,10 @@ $userId = $dao_user->search_username($_SESSION['username'])->get_id();
 							}
 																													?>
 								<div class="fb-col " id=prs_elem>
+									<?php
+									if ($accesible)
+										echo '<a id="prs_link" href="project.php?id=' . $project_id . '">';
+									?>
 									<div class="t1 gr_black fb-row jc_space-between">
 										<div>
 											<?php echo $priv . $title?>
