@@ -129,7 +129,7 @@ $res = $dao_resp->show_all_answers($id);
 								<?php echo $username;?>
 							</div>
 
-							<div class ="fb-col" id="fr_txt">
+							<div class ="fb-col pst_txt">
 								<?php echo $comentario ?>
 								<div class="btn btn_tomate">
 									<?php echo "<a  href=respuesta.php?post=" . $post_id . "&answer=" . $resp_id . ">Responder</a>"; ?>
@@ -157,7 +157,7 @@ $res = $dao_resp->show_all_answers($id);
 							
 							<div class="pad_0 pst_rest">
 								<div class="fb-row field gr_smokywhite leftBorder">
-									<div class="fb-col justify-content-center text-center" id="fr_nombre_foto">
+									<div class="fb-col justify-content-center text-center align-items-center" id="fr_nombre_foto">
 										<?php 
 										/*foto perfil*/
 										if ($objUsuario != null){
@@ -172,7 +172,7 @@ $res = $dao_resp->show_all_answers($id);
 										<?php echo $_SESSION['username'];?>
 									</div>
 
-								<div class ="fb-col" id="fr_txt">
+								<div class ="fb-col pst_txt">
 									<?php echo $comentario ?>
 								</div>
 									</div>

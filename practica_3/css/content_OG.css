@@ -600,6 +600,10 @@ a#fr_link {
   border-radius: 1rem;
   margin-left: 4.5rem;
 }
+
+.pst_txt {
+  margin-top: 5rem;
+}
 /*------------------------------------------------------------------------LOGIN & REGISTRO------------------------------------------------------------------------*/
 .noValido {
   border-bottom: 2px solid #f90a0a;
