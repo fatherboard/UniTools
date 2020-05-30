@@ -91,7 +91,7 @@ $userId = $dao_user->search_username($_SESSION['username'])->get_id();
 								$privado = $curr_proj->get_privado();
 								
 								/*público*/
-								$priv = "<i class='fas fa-user-friends'></i>";
+								$priv = "<i class='fas fa-user-friends prs_priv'></i>";
 
 								if ($usuario == null) {
 									$username = "Usuario borrado";
@@ -101,15 +101,15 @@ $userId = $dao_user->search_username($_SESSION['username'])->get_id();
 
 								if ($privado == 1) {
 									/*privado*/
-									$priv = "<i class='fas fa-user-lock'></i>";
+									$priv = "<i class='fas fa-user-lock prs_priv'></i>";
 								}
 							}
 																													?>
 								<div class="fb-col " id=prs_elem>
 									<div class="t1 gr_black fb-row jc_space-between">
 										<div>
-											<?php echo $priv?>
-											<?php echo $title?>
+											<?php echo $priv . $title?>
+											
 										</div>
 										<div id="prs_rat">
 											<?php $rating = $dao_estrellas->show_project_estrellas($project_id);
