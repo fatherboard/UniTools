@@ -56,10 +56,20 @@ require("includes/common/cabecera_OG.php");?>
                     <p>Contenido:</p> 
                         <textarea class="field tittle-row"  name="contenido" rows="4" placeholder="Escribe un contenido"></textarea>
                     </div>
+
+                    <div id="categoria_post">
+                        <p>Categoria</p>
+                        <select name="categoría">
+                           <option value="General">General</option> 
+                           <option value="Programación">Programación</option> 
+                           <option value="Estudio">Estudio</option>
+                           <option value="Apuntes">Apuntes</option> 
+                        </select>
+                    </div>
+
                     <p class = "submit-center">
                         <input type="submit" id = "btn_enviar_npost" value="Enviar" class="field v-center" />
                     </p>
-            
             </form>
           </div>
 
@@ -70,9 +80,7 @@ require("includes/common/cabecera_OG.php");?>
 
                         $titulo = $_POST['titulo'];
                         $contenido = $_POST['contenido'];
-                        //$categoria = $_POST['categoría'];
-                        $categoria = 0; //de momento así poruqe todos los posts van a general
-
+                        $categoria = $_POST['categoría'];
 
                         $foro_data = new TOUpost();
                         $dao_post = new DAOpost();

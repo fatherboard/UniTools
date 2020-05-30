@@ -79,6 +79,7 @@ $dao_resp = new DAOrespuesta();
 										<?php echo "<a onclick=\"location.href='respuesta.php?post=" . $post_id . "'\">Responder</a>"; ?>
 									</div>
 								</th>
+								<th>Categoría</th>
 							</div>
 						</tr>
 				</div>
@@ -94,6 +95,7 @@ $dao_resp = new DAOrespuesta();
 					<td> <?php echo $title	 ?> </td>
 					<td> <?php echo $username  ?> </td>
 					<td> <?php echo $contenido ?> </td>
+					<td> <?php echo $categoria ?> </td>
 				</tr>
 				</table>
 
