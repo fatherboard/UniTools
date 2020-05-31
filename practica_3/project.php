@@ -107,7 +107,7 @@ if ($candado == true) {
 											echo '</div>';
 											echo '<input type="submit" name="votar" form="valorar" value="Votar" />';
 										} else {
-											echo $dao_estrellas->show_project_estrellas($proj_id);
+											echo $dao_estrellas->show_project_estrellas($proj_id) . "/5";
 										} ?>
 									</li>
 								</ul>
@@ -151,7 +151,7 @@ if ($candado == true) {
 														if ($file_name != '.' && $file_name != '..') {
 															echo '<tr><td><a href="' . $dir_path . '/' . $file_name . '" download>' . $file_name . '</a></td>';
 															if (($userType == 0 || $userType == 2) && $candado == 0)
-																echo '<td><a href="project.php?id=' . $id . '&delete=' . $file_name . '" onClick="return confirm(\'¿Estás segur@ de que quieres borrar ' . $file_name . '?\');"> Borrar archivo</a></td></tr>';
+																echo '<td><a class="btn btn_mango" href="project.php?id=' . $id . '&delete=' . $file_name . '" onClick="return confirm(\'¿Estás segur@ de que quieres borrar ' . $file_name . '?\');"> Borrar archivo</a></td></tr>';
 														}
 													}
 												}
