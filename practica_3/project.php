@@ -55,8 +55,13 @@ include_once("dao/DAOestrellas.php");
 
 				$userView = $dao_user->search_username($_SESSION['username']);
 				$userViewId = $userView->get_id();
-				$userPerm = $dao_perm->show_permissions($proj_id, $userViewId);
-				$userType = $userPerm->get_type();
+				if ($dao_perm->inPermissions($_GET['id'], $dao_user->search_username($_SESSION['username'])->get_id())) {
+					$userPerm = $dao_perm->show_permissions($proj_id, $userViewId);
+					$userType = $userPerm->get_type();
+				} else {
+					$userType = -1;
+				}
+				
 				$lenguaje = $curr_proj->get_lenguaje();
 				$title = $curr_proj->get_titulo();
 				$contenido = $curr_proj->get_contenido();
@@ -330,7 +335,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['votar'])) {
 
 	$user = $dao_user_aux->search_username($username);
 	if ($user) {
-		
+
 		$rating = $_POST["estrella"];
 		$estrellas = new TOEstrellas('', $id, $userViewId, $rating);
 		$result = $dao_estrellas_aux->insert_estrellas($estrellas);
