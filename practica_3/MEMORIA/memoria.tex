@@ -180,6 +180,25 @@ Finalmente, en esta entrega del Proyecto Final hemos acabado de pulir el CSS, te
 
 En conjunto, estamos muy satisfechos con el resultado final, que si bien ha requerido trabajo, ha resultado muy instructivo. Hemos hecho todo lo posible para que esta Memoria refleje nuestro esfuerzo, describiendo la arquitectura del proyecto, ofreciendo instrucciones de instalación y capturas de las vistas de la página web a modo de Manual de Uso, entre otras explicaciones. 
 
+
+\subsection{Posible Future Work}
+
+Uno de los objetivos de esta memoria era ofrecer un documento tal y como "se lo venderíamos a una empresa". Por tanto, nos pareció buena idea añadir una sección dedicada a ideas de futuro con las que nos gustaría continuar mejorando el Proyecto, en el caso de que esta no hubiera sido la última práctica. Esto habría sido buena idea para una empresa ya que nos habría servido para demostrar la calidad de nuestras ideas.
+
+Siendo sinceros, nos apena un poco que esta sea la última entrega, en el sentido de que ha sido la primera en la que hemos podido empezar a implementar funcionalidades que eran verdaderamente parecidas a la manera en que queríamos que acabar esta web: Como una manera de gestionar proyectos entre compañeros. Es decir, hemos podido empezar a ver resultados más allá de una web básica.
+
+Si bien es cierto que hemos podido añadir las funcionalidades principales, tales como la valoración de los Proyectos, su política de privacidad, o la subida o bajada de archivos, aún podríamos añadir muchas más en el futuro. Estas podrían por ejemplo ser:
+
+\begin{itemize}
+    \item Un editor de texto en línea para el código subido por los estudiantes.
+    \item Un detector automático del lenguaje de programación del Proyecto en función de la extensión mayoritaria de sus archivos.
+    \item Un nuevo rol, de Profesor, desde el que se hubiera podido calificar las entregas de los estudiantes, sus Proyectos.
+    \item Un sistema de "fork" de Proyectos por el cual un alumno pudiera copiar todo el repositorio de otros para seguir desarrollándolo en otra dirección.
+    \item Estadísticas dentro del Proyecto para poder comprobar qué alumno ha contribuido más (por ejemplo, mostrando la cantidad de archivos subidos por cada uno de los componentes del grupo).
+\end{itemize}
+
+Al mismo tiempo se podrían en el futuro añadir otras funcionalidades menos relevantes, pero que mejorarían la experiencia de usuario, como una sección de Mensajes Privados, un Calendario con tareas pendientes y estadísticas en el Perfil del usuario (archivos subidos, media de las valoraciones en estrellas de sus Proyectos...). Otra funcionalidad extra que nos habría gustado añadir en el futuro es la posibilidad de conectarse mediante terminal directamente con UniTools (es decir, un binario de Linux que estableciera conexión con el servidor, intercambiara credenciales y permitiera al usuario actualizar sus Proyectos, al estilo de \path{git}).
+
 \section{Tour: Guía de Navegación}
 \subsection{Mejoras finales}
 Hemos introducido multitud de mejoras desde la última entrega de este proyecto, no solo mejorando la apariencia (CSS, Flex y Grid) sino también con nuevas funcionalidades. Antes de comenzar a mostrar capturas de pantalla de distintas partes de la web, nos gustaría enumerar las modificaciones más importantes, evitando así que pudieran pasar desapercibidas:
@@ -195,51 +214,81 @@ Hemos introducido multitud de mejoras desde la última entrega de este proyecto,
     \item Añadir funcionalidad ha requerido mejorar la Base de Datos también. En particular, ha sido necesario añadir una nueva tabla para los permisos, aunque también se han hecho modificaciones para permitir \textbf{a los alumnos valorar los Proyectos}, mediante un sistema de estrellas.
 \end{enumerate}
 \subsection{Manual con capturas}
-El usuario comienza viendo la página de Inicio, que contiene información útil y mensajes de bienvenida. También puede leer sobre nosotros (el equipo). Existe el modo normal y el modo Dark, que invierte los colores. 
+El usuario comienza viendo la página de Inicio. Existe el modo normal y el modo Dark, que invierte los colores. Puede a continuación registrarse. 
 
 \begin{figure}[h]
  \centering
-  \includegraphics[width=0.8\linewidth]{1.png}
+  \includegraphics[width=0.95\linewidth]{2.jpg}
 \end{figure}
-
-Puede a continuación registrarse para empezar a disfrutar de UniTools. El registro valida simultáneamente, mediante jQuery, los campos introducidos y muestra iconos de alerta o confirmación según sea el caso.
 
 \begin{figure}[!h]
  \centering
-  \includegraphics[width=0.8\linewidth]{1.png}
+  \includegraphics[width=0.4144\linewidth]{3.jpeg}
 \end{figure}
 
-Tras el registro, el usuario podrá plantear sus dudas a modo de post en el Foro, así como contestar las de sus compañeros y las respuestas de estos. 
+El registro valida simultáneamente, mediante jQuery, los campos introducidos y muestra iconos de alerta o confirmación según sea el caso, con mensajes explicativos. Tras el registro, el usuario podrá plantear sus dudas a modo de post en el Foro, así como contestar las de sus compañeros y las respuestas de estos. 
 
 \begin{figure}[!h]
  \centering
-  \includegraphics[width=0.8\linewidth]{1.png}
+  \includegraphics[width=1.01\linewidth]{6.jpg}
 \end{figure}
 
-En el foro podrá ver las fotos de perfil de sus compañeros, el también podrá subir una suya si así lo desea desde el Perfil. Desde allí podrá actualizar el restos de sus datos.
+Como se puede ver, \textbf{el Foro cuenta con un buscador}. Entremos en un Post para leer las respuestas, anidadas cuando se responden entre ellas.
 
 \begin{figure}[!h]
  \centering
-  \includegraphics[width=0.8\linewidth]{1.png}
+  \includegraphics[width=0.9\linewidth]{7.jpg}
+\end{figure}
+
+En el foro podrá ver las fotos de perfil de sus compañeros, el también podrá subir una suya si así lo desea desde el Perfil. Desde allí podrá actualizar el restos de sus datos. \textbf{Abajo a la derecha aparece el botón de pasar a Premium.} En el perfil el usuario puede gestionar sus proyectos.
+
+\begin{figure}[!h]
+ \centering
+  \includegraphics[width=\linewidth]{4.jpg}
 \end{figure}
 
 También desde Perfil podrá actualizar su versión a Premium, si desea disfrutar de ventajas como proyectos privados.
 
 \begin{figure}[!h]
  \centering
-  \includegraphics[width=0.8\linewidth]{1.png}
+  \includegraphics[width=0.65\linewidth]{13.jpg}
 \end{figure}
 
 Llegada la hora, podrá crear su propio proyecto en Proyectos. Usando el formulario de creación (FormNewProject, que hereda de la clase Form, como otros) donde podrá especificar el Contenido y el lenguaje de programación entre otros.
 
 \begin{figure}[!h]
  \centering
-  \includegraphics[width=0.8\linewidth]{1.png}
+  \includegraphics[width=0.4\linewidth]{9.jpeg}
 \end{figure}
 
-Una vez creado el Proyecto, el usuario puede subir archivos, y eliminarlos más tarde si así lo desea.
+Una vez creado el Proyecto, el usuario puede subir archivos, y eliminarlos más tarde si así lo desea tras confirmar. 
 
-\newpage
+\begin{figure}[!h]
+ \centering
+  \includegraphics[width=1.1\linewidth]{10.jpg}
+\end{figure}
+
+Los Proyectos además se pueden valorar.
+
+\begin{figure}[!h]
+ \centering
+  \includegraphics[width=0.6\linewidth]{12.jpg}
+\end{figure}
+
+Entremos en un Proyecto. En ellos, existen multitud de acciones posibles como añadir permisos de lectura y/o escritura a otros usuarios.
+
+\begin{figure}[!h]
+ \centering
+  \includegraphics[width=1.15\linewidth]{20.jpeg}
+\end{figure}
+
+Un último detalle que merece la pena mencionar es que hemos añadido un reproductor de audio por si el usuario quisiera pausar la música que se reproduce al Inicio.
+
+\begin{figure}[!h]
+ \centering
+  \includegraphics[width=0.6\linewidth]{21.jpeg}
+\end{figure}
+
 
 \section{Descripción de la arquitectura, JavaScript, PHP y vistas}
 
@@ -259,7 +308,16 @@ Este pop-up, que utiliza el script con Modal Box, se puede encontrar en \path{/s
 
 \section{Descripción de la Base de Datos}
 
-La Base de Datos ha ido creciendo con las sucesivas versiones de la web, y actualmente cuenta con multitud de tablas y relaciones entre sus campos. Existe una tabla SQL para representar a los usuarios, otra para las entradas del Foro (\textit{posts}), para cada proyecto (\textit{project}), repositorio, respuesta, y desde esta versión también \textit{permissions} para \textbf{los permisos del Proyecto}. La tabla del usuario no contiene solo la información imprescindible, sino también otra como \textit{aboutMe}, para permitir a los usuarios personalizar su perfil.
+La Base de Datos ha ido creciendo con las sucesivas versiones de la web, y actualmente cuenta con multitud de tablas y relaciones entre sus campos. Existe una tabla SQL para representar a los usuarios, otra para las entradas del Foro (\textit{posts}), para cada proyecto (\textit{project}), repositorio, respuesta, y desde esta versión también \textit{permissions} para \textbf{los permisos del Proyecto}. Se ha creado además otra tabla \textbf{estrellas} para las valoraciones de los usuarios de los Proyectos.
+
+La tabla del usuario no contiene solo la información imprescindible, sino también otra como \textit{aboutMe}, para permitir a los usuarios personalizar su perfil.
+
+Para poder dar una imagen global de las tablas, mostramos a continuación todas las tablas con sus atributos y sin sus relaciones.
+
+\begin{figure}[!h]
+ \centering
+  \includegraphics[width=1.2\linewidth]{bbdd.jpg}
+\end{figure}
 
 La tabla de los proyectos es una de las más importantes, de modo que sería conveniente describirla brevemente aquí.
 
@@ -298,8 +356,12 @@ $ sudo apt install mysql phpmyadmin php-mbstring php-gettext
 \end{lstlisting}
 Para sistemas Windows, se recomienda instalar la famosa herramienta open-source Xampp, desde la \hyperlink{https://www.apachefriends.org/download.html}{página de descarga}. Una vez se tenga el .exe, se puede instalar sin opciones de configuración diferentes de las por defecto. El proyecto deberá ponerse en la carpeta \path{.htdocs}, localizada en el disco principal del sistema. Tras eso, bastará con iniciar el Apache y el SQL.
 
-La Base de Datos cuenta con información de ejemplo, y deberá importarse a \textit{Php-MyAdmin}. El usuario puede encontrar el archivo .sql en el directorio {/sql}.
+La Base de Datos cuenta con información de ejemplo, y deberá importarse a \textit{Php-MyAdmin}. El usuario puede encontrar el archivo .sql en el directorio \path{/mysql}.
 
+Es decir, para hacer funcionar la web con Xampp es imprescindible importar los archivos \path{/mysql/unitoolsdb.sql} y \path{/mysql/usuariosbd.sql} a una base de datos llamada UnitoolsDB en Phpmyadmin.
+
+Existe un \textbf{usuario de prueba con nombre \textit{bruno} con contraseña 1}.
+\newpage
 
 \section{Descripción de trabajo y aportes individuales}
 
