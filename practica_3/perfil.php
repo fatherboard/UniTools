@@ -6,6 +6,7 @@ if (!isset($_SESSION)) {
 
 include_once('dao/dao_user.php');
 include_once('dao/dao_project.php');
+include_once('dao/DAOestrellas.php');
 
 $user = new TOUser();
 $dao_usuario = new DAOUsuario();
@@ -186,6 +187,7 @@ if (isset($_POST['aboutMe'])) {
         <?php
 
         $dao_project = new DAOproject();
+        $dao_estrellas = new DAOestrellas();
         $dao_user = new DAOUsuario();
         $res = $dao_project->show_user_projects($id);
         ?>
@@ -233,7 +235,8 @@ if (isset($_POST['aboutMe'])) {
               <td> <?php echo $project_id ?> </td>
               <td> <?php echo $lenguaje   ?> </td>
               <td> <?php echo $candado     ?> </td>
-              <td> <?php echo $estrellas   ?> /5 estrellas </td>
+              
+              <td> <?php echo $dao_estrellas->show_project_estrellas($project_id); ?> </td>
               <td> <?php echo $priv       ?></td>
             </tr>
           <?php
