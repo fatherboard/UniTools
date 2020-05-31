@@ -72,6 +72,7 @@ $userId = $dao_user->search_username($_SESSION['username'])->get_id();
 								$project_id = $curr_proj->get_id(); // id del proyecto
 								if ($dao_perm->inPermissions($project_id, $userId) || !$curr_proj->get_privado()) {
 									$accesible = 1;
+				
 								} else $accesible = 0;
 								$usuario = $dao_user->search_userId($curr_proj->get_user());
 								$lenguaje = $curr_proj->get_lenguaje();

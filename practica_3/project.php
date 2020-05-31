@@ -41,7 +41,10 @@ include_once("dao/DAOestrellas.php");
 			$proj_data = new TOUproject();
 			$dao_proj = new DAOproject();
 			$dao_user = new DAOUsuario();
+			$dao_perm = new DAOpermissions();
 			$dao_estrellas = new DAOestrellas();
+
+			if ($dao_perm->inPermissions($_GET['id'], $dao_user->search_username($_SESSION['username'])->get_id()) || !$dao_proj->search_project($_GET['id'])->get_privado()) {
 			$id = $_GET["id"];
 			$_SESSION['project'] = $id;
 
@@ -49,7 +52,7 @@ include_once("dao/DAOestrellas.php");
 			$proj_id = $curr_proj->get_id(); // id del project
 			$usuario = $dao_user->search_userId($curr_proj->get_user());
 			$userId = $usuario->get_id();
-			$dao_perm = new DAOpermissions();
+			
 			$userView = $dao_user->search_username($_SESSION['username']);
 			$userViewId = $userView->get_id();
 			$userPerm = $dao_perm->show_permissions($proj_id, $userViewId);
@@ -260,7 +263,13 @@ include_once("dao/DAOestrellas.php");
 				</div>
 			</div>
 		</div>
+
+				<?php } 
+				
+				
+				else echo "No tienes permisos para visualizar este proyecto"?>
 	</div> <!-- Fin del contenedor -->
+
 
 </body>
 
