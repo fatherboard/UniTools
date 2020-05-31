@@ -9,7 +9,7 @@ Las contraseñas de todos estos son 1. Tambien hemos añadido un usuario "profes
 
 Para poder poner toda la aplicación a funcionar en xampp hay que importar los archivos "unitoolsdb.sql" y "usuariosbd.sql" a una base de datos llamada UnitoolsDB en phpmyadmin.
 
-A pesar de los errores que nos ha producido el VPS, nustro proyecto está volcado en la plataforma siguiendo las instrucciones publicadas en el campus virutal.
+A pesar de los errores que nos ha producido el VPS, nuestro proyecto está volcado en la plataforma siguiendo las instrucciones publicadas en el campus virtual.
 
 *************************GUÍA PARA LAS DIFERENTES FUNCIONES*************************
 
