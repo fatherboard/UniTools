@@ -605,13 +605,6 @@ a#fr_link {
   margin-top: 5rem;
 }
 /*------------------------------------------------------------------------LOGIN & REGISTRO------------------------------------------------------------------------*/
-.noValido {
-  border-bottom: 2px solid #f90a0a;
-}
-
-.valido {
-  border-bottom: 2px solid #34f458;
-}
 
 .contenedor_log_reg {
   width: 100%;
@@ -693,8 +686,9 @@ a#fr_link {
   font-weight: 300;
   background-color: #ececec;
   color: #757680;
-  border: 1px solid #d1d3e2;
+  border: 1px solid #d1d3e2;  
 }
+
 
 /*------------------------------------------------------------------------INCLUDES/FORM RESPUESTA (form_reply)------------------------------------------------------------------------*/
 

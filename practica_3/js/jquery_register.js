@@ -40,14 +40,12 @@ $(function() {
         var user_length = $("#username").val().length;
         if (user_length < 3) {
             $("#uname_error_message").html("Debe tener 3 caracteres minimo");
-            $("#uname_error_message").show();
-            $("#username").addClass("noValido");
+            $("#uname_error_message").show();            
             $("#username").css("border-bottom","2px solid #F90A0A");
             error_fname = true;               
         } else {
-            $("#uname_error_message").hide();
-            $("#username").addClass("valido");
-           // $("#username").css("border-bottom","2px solid #34F458");               
+            $("#uname_error_message").hide();            
+            $("#username").css("border-bottom","2px solid #34F458");               
         }
     }
 
@@ -57,13 +55,11 @@ $(function() {
         var pattern = /^[a-zA-Z ]*$/ 
         var sname = $("#nombre").val()
         if (pattern.test(sname) && sname !== '') {
-            $("#sname_error_message").hide();
-            $("#nombre").addClass("valido");
+            $("#sname_error_message").hide();           
             $("#nombre").css("border-bottom","2px solid #34F458");
         } else {
             $("#sname_error_message").html("Debe incluir solo caracteres");
-            $("#sname_error_message").show();
-            $("#nombre").addClass("noValido");
+            $("#sname_error_message").show();            
             $("#nombre").css("border-bottom","2px solid #F90A0A");
             error_fname = true;
         }
@@ -75,13 +71,11 @@ $(function() {
         var password_length = $("#password").val().length;
         if (password_length < 6) {
             $("#password_error_message").html("8 caracteres mínimo");
-            $("#password_error_message").show();
-            $("#password").addClass("noValido");
+            $("#password_error_message").show();            
             $("#password").css("border-bottom","2px solid #F90A0A");
             error_password = true;
         } else {
-            $("#password_error_message").hide();
-            $("#password").addClass("valido");
+            $("#password_error_message").hide();            
             $("#password").css("border-bottom","2px solid #34F458");
         }
     }
@@ -93,13 +87,11 @@ $(function() {
         var password2 = $("#password2").val();
         if (password !== password2) {
             $("#password2_error_message").html("Las contraseñas no coinciden");
-            $("#password2_error_message").show();
-            $("#password2").addClass("noValido");
+            $("#password2_error_message").show();          
             $("#password2").css("border-bottom","2px solid #F90A0A");
             error_password2 = true;
         } else {
-            $("#password2_error_message").hide();
-            $("#password2").addClass("valido");
+            $("#password2_error_message").hide();           
             $("#password2").css("border-bottom","2px solid #34F458");
         }
     }
@@ -110,13 +102,11 @@ $(function() {
         var pattern = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
         var email = $("#email").val();
         if (pattern.test(email) && email !== '') {
-            $("#email_error_message").hide();
-            $("#email").addClass("valido");
+            $("#email_error_message").hide();          
             $("#email").css("border-bottom","2px solid #34F458");
         } else {
             $("#email_error_message").html("Email inválido");
-            $("#email_error_message").show();
-            $("#email").addClass("noValido");
+            $("#email_error_message").show();           
             $("#email").css("border-bottom","2px solid #F90A0A");
             error_email = true;
         }
