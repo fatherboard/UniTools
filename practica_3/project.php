@@ -88,7 +88,7 @@ include_once("dao/DAOestrellas.php");
 								<li> 
 								<?php if ($userType == 0 || $userType == 2) {
 										echo "<form action=\"\" method=\"post\">";
-										echo "<input type=\"submit\" name=\"updateCandado\" value=\"" . $lock . "\" />";
+										echo "Candado: <input class=\"btn btn_mango\" type=\"submit\" name=\"updateCandado\" value=\"" . $lock . "\" />";
 										echo "</form>"; } ?>
 								</li>
 								<li>
@@ -132,8 +132,8 @@ include_once("dao/DAOestrellas.php");
 									<?php
 										if (($userType == 0 || $userType == 2) && $candado == 0) {
 											echo '<form action="uploadProject.php" method="POST" enctype="multipart/form-data">
-											<input type="file" name="file">
-											<button type="submit" name="submit">Subir archivo</button>
+											<input class="boton_subir_archivo" type="file" name="file">
+											<button class="btn btn_mango" type="submit" name="submit">Subir archivo</button>
 										</form>';
 										} else echo "No puedes realizar cambios en los archivos en este momento";?>
 								</div>
@@ -171,7 +171,7 @@ include_once("dao/DAOestrellas.php");
 									<input type="radio" form="addPermiso" checked="checked" name="type" value="1"> Lectura <br>
 									<input type="radio" form="addPermiso" name="type" value="2"> Escritura <br>
 								</div>
-								<input type="submit" name="addPermiso" form="addPermiso" value="Añadir Permiso" />
+								<input class="btn btn_mango" type="submit" name="addPermiso" form="addPermiso" value="Añadir Permiso" />
 							</div>
 						</div>
 
@@ -209,7 +209,7 @@ include_once("dao/DAOestrellas.php");
 								if ($userType == 0 && ($username != $_SESSION['username'])) {
 									echo "<form action=\"\" onsubmit=\"return confirm('¿Estás segur@ de que quieres borrar el permiso de " . $username . "?');\" method=\"post\">";
 									echo "<input type=\"hidden\" name=\"user\" value=\"" . $username . "\" />";
-									echo "<input type=\"submit\" name=\"borrarPermiso\" value=\"Borrar Permiso\" />";
+									echo "<input class=\"btn btn_mango\" type=\"submit\" name=\"borrarPermiso\" value=\"Borrar Permiso\" />";
 									echo "</form>";
 								}
 							}
