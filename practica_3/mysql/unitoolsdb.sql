@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 27, 2020 at 07:06 PM
+-- Generation Time: May 31, 2020 at 06:54 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.6
 
@@ -28,10 +28,19 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `categories` (
-  `id_cat` int(11) NOT NULL,
   `cat_name` varchar(25) NOT NULL,
   `desc` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `categories`
+--
+
+INSERT INTO `categories` (`cat_name`, `desc`) VALUES
+('Apuntes', 'Para recibir apuntes si has faltado a clase'),
+('Estudio', 'Preguntas y consejo sobre técnicas de estudio'),
+('General', 'Categoría comodín para cuando no sabes que poner'),
+('Programación', 'Dudas o explicaciones sobre programación independientemente del lenguaje');
 
 -- --------------------------------------------------------
 
@@ -51,20 +60,17 @@ CREATE TABLE `estrellas` (
 --
 
 INSERT INTO `estrellas` (`id`, `project`, `user`, `rating`) VALUES
-(4, 39, 24, 4),
-(5, 41, 24, 2);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `logs`
---
-
-CREATE TABLE `logs` (
-  `id_log` int(11) NOT NULL,
-  `user` int(11) NOT NULL,
-  `date` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+(6, 42, 24, 4),
+(7, 43, 24, 5),
+(8, 45, 26, 4),
+(9, 44, 23, 4),
+(10, 43, 24, 4),
+(11, 43, 24, 4),
+(12, 43, 26, 4),
+(13, 42, 26, 2),
+(14, 45, 25, 5),
+(15, 42, 25, 1),
+(16, 46, 25, 3);
 
 -- --------------------------------------------------------
 
@@ -84,12 +90,22 @@ CREATE TABLE `permissions` (
 --
 
 INSERT INTO `permissions` (`id`, `project`, `user`, `type`) VALUES
-(6, 39, 24, 0),
-(8, 39, 25, 2),
-(9, 41, 24, 0),
-(12, 39, 26, 2),
-(13, 39, 23, 1),
-(14, 41, 23, 1);
+(17, 42, 24, 0),
+(18, 42, 23, 2),
+(19, 42, 26, 1),
+(20, 42, 27, 1),
+(21, 43, 24, 0),
+(22, 44, 23, 0),
+(23, 44, 26, 2),
+(24, 44, 24, 1),
+(25, 44, 25, 2),
+(26, 44, 27, 2),
+(27, 43, 26, 1),
+(28, 45, 26, 0),
+(29, 45, 27, 2),
+(30, 45, 25, 2),
+(31, 46, 25, 0),
+(32, 46, 27, 2);
 
 -- --------------------------------------------------------
 
@@ -102,7 +118,7 @@ CREATE TABLE `posts` (
   `user` int(11) NOT NULL,
   `title` text CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
   `content` text CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
-  `id_cat` int(11) NOT NULL
+  `id_cat` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -110,9 +126,9 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`id_post`, `user`, `title`, `content`, `id_cat`) VALUES
-(18, 23, 'Bienvenidos al foro', 'Os doy la bienvenida al foro de unitools!', 0),
-(19, 25, 'Duda sobre css', 'Como puedo organizar de forma correcta el css para que la pagina quede ordenada?', 0),
-(20, 27, 'Como hacer una memoria en condiciones', 'Usa LaTeX', 0);
+(18, 23, 'Bienvenidos al foro', 'Os doy la bienvenida al foro de unitools!', '0'),
+(19, 25, 'Duda sobre css', 'Como puedo organizar de forma correcta el css para que la pagina quede ordenada?', '0'),
+(20, 27, 'Como hacer una memoria en condiciones', 'Usa LaTeX', '0');
 
 -- --------------------------------------------------------
 
@@ -125,7 +141,6 @@ CREATE TABLE `project` (
   `titulo` varchar(100) NOT NULL,
   `candado` tinyint(1) NOT NULL,
   `userId` int(11) NOT NULL,
-  `estrellas` int(11) NOT NULL,
   `privado` tinyint(1) NOT NULL,
   `lenguaje` varchar(50) NOT NULL,
   `contenido` varchar(200) NOT NULL
@@ -135,23 +150,12 @@ CREATE TABLE `project` (
 -- Dumping data for table `project`
 --
 
-INSERT INTO `project` (`id`, `titulo`, `candado`, `userId`, `estrellas`, `privado`, `lenguaje`, `contenido`) VALUES
-(39, '1', 0, 24, 3, 0, 'c', '1233'),
-(41, 'Prueba', 0, 24, 3, 0, 'C', '123');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `repository`
---
-
-CREATE TABLE `repository` (
-  `id_rep` int(11) NOT NULL,
-  `description` text NOT NULL,
-  `creator` int(11) NOT NULL,
-  `private` tinyint(1) NOT NULL,
-  `repURL` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+INSERT INTO `project` (`id`, `titulo`, `candado`, `userId`, `privado`, `lenguaje`, `contenido`) VALUES
+(42, 'Calculadora ', 0, 24, 0, 'C++', 'Una calculadora que he hecho en c++, espero que os guste!'),
+(43, 'Un hola mundo muy peculiar.', 0, 24, 1, 'C', 'Me he encontrado con este hola mundo muy peculiar, a ver qué os parece.'),
+(44, 'Un css para vuestra página.', 0, 23, 0, 'css', 'Elaboré esta lista muy chula de tags ya hechos en css.'),
+(45, 'aaa', 1, 26, 0, 'c', 'aaaa'),
+(46, 'Top contraseñas más usadas.', 0, 25, 0, 'txt', 'He encontrado este top contraseñas más usadas. Mirad a ver si la vuestra está ahí :P');
 
 -- --------------------------------------------------------
 
@@ -205,13 +209,12 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id_user`, `email`, `password`, `username`, `premium`, `admin`, `name`, `aboutMe`) VALUES
 (23, 'bruno@gmail.com', '$2y$10$oL8bmRuRwk2q5NJ2dx67tetNvbGO1Bs1jSSyjmlJ4xP3Y1Ys/WyK2', 'bruno', 0, 0, 'Bruno Mayo', 'Soy un niño grande'),
-(24, 'hugo@hugo.com', '$2y$10$7JebyLIHjunBiI5o51ZB9O3cNRYfDEhBEq1NMEFAEk.0Z4BgcC6iu', 'hugo', 1, 1, 'Hugo Ribeiro', 'Albahaca fan nº1'),
+(24, 'hugo@hugo.com', '$2y$10$7JebyLIHjunBiI5o51ZB9O3cNRYfDEhBEq1NMEFAEk.0Z4BgcC6iu', 'hugo', 1, 1, 'Hugo Ribeiro', 'Soy el mayor fan de la albahaca'),
 (25, 'fer@fer.fer', '$2y$10$mD.jpKGUWz6TpqmDVRaN5eDZtnz47bBZ1F4S7ELyUDdQ2K.CPazti', 'fer', 0, 0, 'Fernando Ruiz', 'Me encanta apple'),
 (26, 'luis@luis.com', '$2y$10$e8v8INqnukWLmF73pOH.eOmjFs53.dcKKQr9YMTW2YjL/MlTASse.', 'luis', 0, 0, 'Luis Cepeda', 'No hay nada mejor que windows XP'),
 (27, 'carlos@carlos.com', '$2y$10$MnzNA8PqcmPNXzK13qrZ8Oytc1.aLCcQZbLwBSnDs4DobqAQ4HTWS', 'carlos', 0, 0, 'Carlos Bilbao', 'Aunque lo parezca no soy de bilbao'),
 (28, 'dani@dani.dani', '$2y$10$SYkoa.N2ibyeKv/l9Jxaz.PTTyn0gpDly6ucfC43LSTKQuOXygSf2', 'cansek', 0, 0, 'Daniel Canseco', 'Me gustan los trenes'),
-(29, 'carlosCervigon@ucm.es', '$2y$10$dxjd1HQUvpWuBGtlXnhmoO8vRrqI0nfVpW8VUtwvfjDI/9/4kgL.q', 'Profesor', 0, 0, 'Carlos Cervigon', ''),
-(30, '1@hola.com', '$2y$10$e9KANPKrQ5cvha3KBEMYWOEBxnfiLhuidlP6C/fl1YbtQDdzPn8Nq', 'paco', 0, 0, 'paco', '');
+(29, 'carlosCervigon@ucm.es', '$2y$10$dxjd1HQUvpWuBGtlXnhmoO8vRrqI0nfVpW8VUtwvfjDI/9/4kgL.q', 'Profesor', 0, 0, 'Carlos Cervigon', '');
 
 --
 -- Indexes for dumped tables
@@ -221,20 +224,13 @@ INSERT INTO `user` (`id_user`, `email`, `password`, `username`, `premium`, `admi
 -- Indexes for table `categories`
 --
 ALTER TABLE `categories`
-  ADD PRIMARY KEY (`id_cat`);
+  ADD PRIMARY KEY (`cat_name`);
 
 --
 -- Indexes for table `estrellas`
 --
 ALTER TABLE `estrellas`
   ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `logs`
---
-ALTER TABLE `logs`
-  ADD PRIMARY KEY (`id_log`),
-  ADD KEY `user` (`user`);
 
 --
 -- Indexes for table `permissions`
@@ -258,13 +254,6 @@ ALTER TABLE `project`
   ADD KEY `userId` (`userId`);
 
 --
--- Indexes for table `repository`
---
-ALTER TABLE `repository`
-  ADD PRIMARY KEY (`id_rep`),
-  ADD KEY `creator` (`creator`);
-
---
 -- Indexes for table `respuesta`
 --
 ALTER TABLE `respuesta`
@@ -283,28 +272,16 @@ ALTER TABLE `user`
 --
 
 --
--- AUTO_INCREMENT for table `categories`
---
-ALTER TABLE `categories`
-  MODIFY `id_cat` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `estrellas`
 --
 ALTER TABLE `estrellas`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT for table `logs`
---
-ALTER TABLE `logs`
-  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `posts`
@@ -316,13 +293,7 @@ ALTER TABLE `posts`
 -- AUTO_INCREMENT for table `project`
 --
 ALTER TABLE `project`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
-
---
--- AUTO_INCREMENT for table `repository`
---
-ALTER TABLE `repository`
-  MODIFY `id_rep` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `respuesta`
@@ -341,22 +312,16 @@ ALTER TABLE `user`
 --
 
 --
--- Constraints for table `categories`
---
-ALTER TABLE `categories`
-  ADD CONSTRAINT `categories_ibfk_1` FOREIGN KEY (`id_cat`) REFERENCES `posts` (`id_cat`) ON UPDATE CASCADE;
-
---
--- Constraints for table `logs`
---
-ALTER TABLE `logs`
-  ADD CONSTRAINT `logs_ibfk_1` FOREIGN KEY (`user`) REFERENCES `user` (`id_user`) ON UPDATE CASCADE;
-
---
 -- Constraints for table `posts`
 --
 ALTER TABLE `posts`
   ADD CONSTRAINT `posts_ibfk_1` FOREIGN KEY (`user`) REFERENCES `user` (`id_user`) ON UPDATE CASCADE;
+
+--
+-- Constraints for table `project`
+--
+ALTER TABLE `project`
+  ADD CONSTRAINT `project_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
