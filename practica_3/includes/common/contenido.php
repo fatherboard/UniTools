@@ -34,13 +34,7 @@
             </div>
             
             <div class="caja v-center">
-                 <div class="polaroid">
-                    <a href="mensajes.php"> <img src="img/img_back/person-using-smartphone-1394940.jpg" alt="img1" style="width:100%"> </a>
-                        <div class="interior">
-                             <a href="mensajes.php"> <span>Mensajes</span></a>
-                        </div>
-                </div>
-
+              
                 <div class="polaroid">
                         <a href="herramientas.php"> <img src="img/img_back/floor-plan-on-table-834892.jpg" alt="img2" style="width:100%"> </a>
                              <div class="interior">
@@ -56,7 +50,7 @@
                 </div>
 
                 <div class="polaroid">
-                         <a href="team.php"> <img src="img/img_back/close-up-photo-of-laptop-keyboard-4065712.jpg" alt="img4" style="width:100%"> </a>
+                        <a href="mensajes.php"> <img src="img/img_back/person-using-smartphone-1394940.jpg" alt="img1" style="width:100%"> </a>
                         <div class="interior">
                              <a href="team.php"> <span>El Equipo</span></a>
                         </div>
