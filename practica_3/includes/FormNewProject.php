@@ -52,7 +52,7 @@ class FormNewProject extends Form {
         $dao_proj = new DAOproject();
         $dao_user = new DAOUsuario();
         $user_id = $dao_user->search_username($_SESSION['username'])->get_id();
-        $new_proj = new TOUproject('',$user_id, $titulo, $contenido, $lenguaje, $privado,$candado,3);
+        $new_proj = new TOUproject('',$user_id, $titulo, $contenido, $lenguaje, $privado,$candado);
 		
 
 		if (!$dao_proj->insert_Project($new_proj)) {

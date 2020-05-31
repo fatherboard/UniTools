@@ -105,7 +105,7 @@ include_once("dao/DAOestrellas.php");
 										?> </td>
 								<td> <?php
 
-										if (!$dao_estrellas->inEstrellas($proj_id, $userId)) {
+										if (!$dao_estrellas->inEstrellas($proj_id, $userViewId)) {
 											echo '<form action="" method="post" id="valorar"></form>';
 											echo '<div class="rating">';
 											echo '<input type="hidden" name="user" form="valorar" value=' . $username . ' />';
@@ -327,12 +327,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['addPermiso'])) {
 if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['votar'])) {
 	$dao_estrellas_aux = new DAOestrellas();
 	$dao_user_aux = new DAOUsuario();
-	$username = $_POST["user"];
+
 	$user = $dao_user_aux->search_username($username);
 	if ($user) {
-		$userId = $dao_user_aux->search_username($username)->get_id();
+		
 		$rating = $_POST["estrella"];
-		$estrellas = new TOEstrellas('', $id, $userId, $rating);
+		$estrellas = new TOEstrellas('', $id, $userViewId, $rating);
 		$result = $dao_estrellas_aux->insert_estrellas($estrellas);
 		if (!$result) echo "Se ha producido un error";
 		else {

@@ -19,7 +19,7 @@ class DAOproject extends DAO {
     $candado = $TOUproject->get_candado();
     $privado = $TOUproject->get_privado();
     $sql = sprintf("INSERT INTO project(userId,titulo,contenido,lenguaje,privado,candado) 
-		 VALUES ('$userId', '$titulo', '$contenido', '$lenguaje', '$privado','$candado'");
+		 VALUES ('$userId', '$titulo', '$contenido', '$lenguaje', '$privado','$candado')");
 		$result = $this->insertarConsulta($sql);
 
     if ($result) {
