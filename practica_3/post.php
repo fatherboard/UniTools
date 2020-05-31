@@ -25,7 +25,7 @@ $post = $dao_post->search_post($id); //id viene del get de contenido
 
 if ($usuario == null) {
 	$username = "Usuario borrado";
-} else {
+} else if ($usuario instanceof TOUser){
 	$username = $usuario->get_username();
 } 
 $res = $dao_resp->show_all_answers($id);
@@ -39,6 +39,8 @@ $res = $dao_resp->show_all_answers($id);
 	<meta charset="UTF-8">
 
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300;1,100;0,200&display=swap" rel="stylesheet">
+	<link rel="icon" type="image/png" href="img/icon/unitools16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="img/icon/unitools32.png" sizes="32x32">
 
 	<link rel="stylesheet" type="text/css" href="css/hoja_OG.css">
 	<link rel="stylesheet" type="text/css" href="css/side_OG.css">
@@ -107,7 +109,7 @@ $res = $dao_resp->show_all_answers($id);
 
 					if ($usuarioResp == null) {
 						$username = "Usuario borrado";
-					} else {
+					} else if ($usuarioResp instanceof TOUser){
 						$username = $usuarioResp->get_username();
 				 }?>
 				
@@ -151,7 +153,7 @@ $res = $dao_resp->show_all_answers($id);
 
 							if ($objUsuario == null) {
 								$username = "Usuario borrado";
-							} else {
+							} else if ($objUsuario instanceof TOUser){
 								$username = $objUsuario->get_username();
 							} ?>
 							

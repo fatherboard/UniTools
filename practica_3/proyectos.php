@@ -18,6 +18,8 @@ include_once("dao/DAOestrellas.php");
 
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300;1,100;0,200&display=swap" rel="stylesheet">
 	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="icon" type="image/png" href="img/icon/unitools16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="img/icon/unitools32.png" sizes="32x32">
 
 	<link rel="stylesheet" type="text/css" href="css/hoja_OG.css">
 	<link rel="stylesheet" type="text/css" href="css/side_OG.css">

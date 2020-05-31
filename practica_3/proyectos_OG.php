@@ -14,7 +14,9 @@ include_once("dao/dao_project.php");
         <title>INDEX</title>
     <meta charset="UTF-8">
 
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300;1,100;0,200&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300;1,100;0,200&display=swap" rel="stylesheet">
+	<link rel="icon" type="image/png" href="img/icon/unitools16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="img/icon/unitools32.png" sizes="32x32">
 
     <link rel="stylesheet" type="text/css" href="css/hoja_OG.css">
     <link rel="stylesheet" type="text/css" href="css/side_OG.css">
@@ -82,7 +84,7 @@ require("includes/common/cabecera_OG.php");?>
 			if ($usuario == null){
 				$username = "Usuario borrado";
 			} 
-			else {
+			else if ($usuario instanceof TOUser){
 				$username = $usuario->get_username();
 			}
 		    if ($privado == 1){
