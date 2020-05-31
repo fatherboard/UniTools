@@ -158,12 +158,9 @@ if (isset($_POST['aboutMe'])) {
             <button data-close-button class="close-button">&times;</button>
           </div>
           <div class="modal-body">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse quod alias ut illo doloremque eum ipsum obcaecati
-            distinctio debitis reiciendis quae quia soluta totam doloribus quos nesciunt necessitatibus, consectetur quisquam
-            accusamus ex, dolorum, dicta vel? Nostrum voluptatem totam, molestiae rem at ad autem dolor ex aperiam. Amet
-            assumenda eos architecto, dolor placeat deserunt voluptatibus tenetur sint officiis perferendis atque! Voluptatem
-            maxime eius eum dolorem dolor exercitationem quis iusto totam! Repudiandae nobis nesciunt sequi iure! Eligendi,
-            eius libero. Ex, repellat sapiente!
+            1.Siendo premium, tendrás la posibilidad de tener tus repositorios privados. <br><br> 2.Mantener tus proyectos al día, sin ocupar espacio en tu ordenador y de la forma más limpia y ordenada posible.
+            <br><br>
+            3.Disponible para gran multitud de lenguajes de programación.
           </div>
           <div class="modal-footer">
             <form action="" method="POST">
