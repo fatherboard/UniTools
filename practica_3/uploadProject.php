@@ -38,4 +38,3 @@ if (!isset($_SESSION)) {
     }
 
 }
-?>

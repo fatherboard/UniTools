@@ -27,7 +27,7 @@ $userId = $dao_user->search_username($_SESSION['username'])->get_id();
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300;1,100;0,200&display=swap" rel="stylesheet">
 	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 	<link rel="icon" type="image/png" href="img/icon/unitools16.png" sizes="16x16">
-    <link rel="icon" type="image/png" href="img/icon/unitools32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="img/icon/unitools32.png" sizes="32x32">
 
 	<link rel="stylesheet" type="text/css" href="css/hoja_OG.css">
 	<link rel="stylesheet" type="text/css" href="css/side_OG.css">
@@ -61,7 +61,7 @@ $userId = $dao_user->search_username($_SESSION['username'])->get_id();
 						</form>
 					</div>
 
-						<div class="fb-row jc_space-evenly" id=prs_bloque>
+					<div class="fb-row jc_space-evenly" id=prs_bloque>
 
 						<?php /*while para cada proyecto*/
 						while (!empty($res)) {
@@ -72,15 +72,13 @@ $userId = $dao_user->search_username($_SESSION['username'])->get_id();
 								$project_id = $curr_proj->get_id(); // id del proyecto
 								if ($dao_perm->inPermissions($project_id, $userId) || !$curr_proj->get_privado()) {
 									$accesible = 1;
-				
 								} else $accesible = 0;
 								$usuario = $dao_user->search_userId($curr_proj->get_user());
 								$lenguaje = $curr_proj->get_lenguaje();
 								$title = $curr_proj->get_titulo();
 								$candado = $curr_proj->get_candado();
-								$estrellas = $curr_proj->get_estrellas();
 								$privado = $curr_proj->get_privado();
-								
+
 								/*público*/
 								$priv = "<i class='fas fa-user-friends prs_priv'></i>";
 
@@ -95,62 +93,62 @@ $userId = $dao_user->search_username($_SESSION['username'])->get_id();
 									$priv = "<i class='fas fa-user-lock prs_priv'></i>";
 								}
 							}
-																													?>
-								<div class="fb-col " id=prs_elem>
-									<?php
-									if ($accesible)
-										echo '<a id="prs_link" href="project.php?id=' . $project_id . '">';
-									?>
-									<div class="t1 gr_black fb-row jc_space-between">
-										<div>
-											<?php echo $priv . $title?>
-											
-										</div>
-										<div id="prs_rat">
-											<?php $rating = $dao_estrellas->show_project_estrellas($project_id);
-											
-											if ($rating == null) echo "0";
-											else echo $rating;
-											echo "/5";
-											?>
-											<i class="far fa-star"></i>
-										</div>
+						?>
+							<div class="fb-col " id=prs_elem>
+								<?php
+								if ($accesible)
+									echo '<a id="prs_link" href="project.php?id=' . $project_id . '">';
+								?>
+								<div class="t1 gr_black fb-row jc_space-between">
+									<div>
+										<?php echo $priv . $title ?>
+
 									</div>
-									<div class="b1 gr_smokywhite fb-row">
-										<div class="fb-col" id="prs_l">
-											<?php if ($usuario != null){
-												$filePath = "img/fotosPerfil/" . $username . ".jpg";
-												if (file_exists($filePath)) { ?>
-												<img class="prs_pic" alt="foto_foro" src=" <?php echo $filePath ?>">
-												<?php } else { ?>
-												<img class="prs_pic" alt="foto_foro" src="img/Default_user_icon.jpg">
-												<?php }
-											}
-											?>
-												<div class="text-center"><?php echo $username ?></div>
-										</div>
-										<ul class="fb-col" id="prs_r">
-											<li>
-												Repositorio: 
-												<?php  if ($privado == 1) echo "Privado"; 
-														else echo"Público" ?>
-											</li>
-											<li>
-												Lenguaje: <?php echo $lenguaje ?>
-											</li>
-											
-											<li>
-												Accesible: 
-												<?php  if ($accesible) echo "<i class='far fa-check-square'></i>"; 
-														else echo"<i class='far fa-times-circle'></i>" ?>
-											</li>
-										</ul>
+									<div id="prs_rat">
+										<?php $rating = $dao_estrellas->show_project_estrellas($project_id);
+
+										if ($rating == null) echo "0";
+										else echo $rating;
+										echo "/5";
+										?>
+										<i class="far fa-star"></i>
 									</div>
 								</div>
-										</a>
+								<div class="b1 gr_smokywhite fb-row">
+									<div class="fb-col" id="prs_l">
+										<?php if ($usuario != null) {
+											$filePath = "img/fotosPerfil/" . $username . ".jpg";
+											if (file_exists($filePath)) { ?>
+												<img class="prs_pic" alt="foto_foro" src=" <?php echo $filePath ?>">
+											<?php } else { ?>
+												<img class="prs_pic" alt="foto_foro" src="img/Default_user_icon.jpg">
+										<?php }
+										}
+										?>
+										<div class="text-center"><?php echo $username ?></div>
+									</div>
+									<ul class="fb-col" id="prs_r">
+										<li>
+											Repositorio:
+											<?php if ($privado == 1) echo "Privado";
+											else echo "Público" ?>
+										</li>
+										<li>
+											Lenguaje: <?php echo $lenguaje ?>
+										</li>
+
+										<li>
+											Accesible:
+											<?php if ($accesible) echo "<i class='far fa-check-square'></i>";
+											else echo "<i class='far fa-times-circle'></i>" ?>
+										</li>
+									</ul>
+								</div>
+							</div>
+							</a>
 						<?php
-						} /*end while*/?>
-						</div>
+						} /*end while*/ ?>
+					</div>
 				</div>
 				<?php $dao_user->disconnect(); ?>
 

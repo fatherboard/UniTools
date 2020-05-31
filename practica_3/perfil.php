@@ -211,7 +211,6 @@ if (isset($_POST['aboutMe'])) {
             $lenguaje = $curr_proj->get_lenguaje();
             $title = $curr_proj->get_titulo();
             $candado = $curr_proj->get_candado();
-            $estrellas = $curr_proj->get_estrellas();
             $privado = $curr_proj->get_privado();
 
             $priv = "Repositorio publico";
@@ -219,7 +218,7 @@ if (isset($_POST['aboutMe'])) {
 
 
             if ($privado == 1) {
-              $priv = "Repositorio privado (Feature Premium)";
+              $priv = "Repositorio privado (Premium)";
             }
 
             if ($candado == 0) {
@@ -237,7 +236,7 @@ if (isset($_POST['aboutMe'])) {
               <td> <?php echo $project_id ?> </td>
               <td> <?php echo $lenguaje   ?> </td>
               <td> <?php echo $candado     ?> </td>
-              
+
               <td> <?php echo $dao_estrellas->show_project_estrellas($project_id); ?> </td>
               <td> <?php echo $priv       ?></td>
             </tr>

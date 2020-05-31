@@ -36,9 +36,4 @@ if (isset($_POST['submit'])){
     else {
         echo "Tipo de archivo no permitido!";
     }
-}    
-
-
-?>
-
-
+}

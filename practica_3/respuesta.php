@@ -8,7 +8,7 @@ if (!isset($_SESSION)) {
 <html>
 
 <head>
-        <title>RESPONDER</title>
+    <title>RESPONDER</title>
     <meta charset="UTF-8">
 
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300;1,100;0,200&display=swap" rel="stylesheet">
@@ -22,19 +22,19 @@ if (!isset($_SESSION)) {
 </head>
 
 <body>
- <div class="contenedor">
+    <div class="contenedor">
 
-<?php //class="side_menu"
-require("includes/common/navegacion_OG.php");?>
+        <?php //class="side_menu"
+        require("includes/common/navegacion_OG.php"); ?>
 
-<?php //class="cabecera"
-require("includes/common/cabecera_OG.php");?>
-<?php
-require("includes/FormRespuesta.php");?>
+        <?php //class="cabecera"
+        require("includes/common/cabecera_OG.php"); ?>
+        <?php
+        require("includes/FormRespuesta.php"); ?>
 
-	<div class="contenido">
+        <div class="contenido">
             <?php
-            
+
             $form = new FormRespuesta();
             $html = $form->gestiona();
             if (!isset($_SESSION)) {
@@ -54,8 +54,8 @@ require("includes/FormRespuesta.php");?>
                     echo '</ul>';
                 }
                 unset($_SESSION['error_respuesta']);
-            }?>
+            } ?>
 
-    </div> <!-- Fin del contenedor -->
+        </div> <!-- Fin del contenedor -->
 
 </body>

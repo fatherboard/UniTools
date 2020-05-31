@@ -1,8 +1,7 @@
 <?php
-    if(!isset($_SESSION)) 
-    { 
-        session_start(); 
-    } 
+if (!isset($_SESSION)) {
+    session_start();
+}
 ?>
 
 <!DOCTYPE html>
@@ -23,19 +22,19 @@
 </head>
 
 <body>
- <div class="contenedor">
+    <div class="contenedor">
 
-<?php //class="side_menu"
-require("includes/common/navegacion_OG.php");?>
+        <?php //class="side_menu"
+        require("includes/common/navegacion_OG.php"); ?>
 
-<?php //class="cabecera"
-require("includes/common/cabecera_OG.php");?>
-<?php
-require("includes/FormRespuesta.php");?>
+        <?php //class="cabecera"
+        require("includes/common/cabecera_OG.php"); ?>
+        <?php
+        require("includes/FormRespuesta.php"); ?>
 
-	<div class="contenido">
+        <div class="contenido">
 
-	    <?php require("includes/common/contenido.php");?>
+            <?php require("includes/common/contenido.php"); ?>
         </div>
 
     </div> <!-- Fin del contenedor -->

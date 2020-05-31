@@ -18,9 +18,8 @@ class DAOproject extends DAO {
     $lenguaje =  $TOUproject->get_lenguaje();
     $candado = $TOUproject->get_candado();
     $privado = $TOUproject->get_privado();
-    $estrellas = $TOUproject->get_estrellas();
-    $sql = sprintf("INSERT INTO project(userId,titulo,contenido,lenguaje,privado,candado,estrellas) 
-		 VALUES ('$userId', '$titulo', '$contenido', '$lenguaje', '$privado','$candado', '$estrellas')");
+    $sql = sprintf("INSERT INTO project(userId,titulo,contenido,lenguaje,privado,candado) 
+		 VALUES ('$userId', '$titulo', '$contenido', '$lenguaje', '$privado','$candado'");
 		$result = $this->insertarConsulta($sql);
 
     if ($result) {
@@ -37,7 +36,7 @@ class DAOproject extends DAO {
 		if (count($result) > 0) {
 			$proj = new TOUproject($result['id'], 
             $result['userId'], $result['titulo'], $result['contenido'], 
-             $result['lenguaje'], $result['privado'],$result['candado'],$result['estrellas']);			
+             $result['lenguaje'], $result['privado'],$result['candado']);			
             return $proj;
 		}else{
             return null;
@@ -52,7 +51,7 @@ class DAOproject extends DAO {
 		while($result = mysqli_fetch_assoc($query)){
             $proj = new TOUproject($result['id'], 
             $result['userId'], $result['titulo'], $result['contenido'], 
-             $result['lenguaje'],$result['privado'], $result['candado'],$result['estrellas']);			
+             $result['lenguaje'],$result['privado'], $result['candado']);			
             array_push($array, $proj);
 		}
 		return $array;
@@ -66,7 +65,7 @@ class DAOproject extends DAO {
 		if (count($result) > 0) {
 			$proj = new TOUproject($result['id'], 
             $result['userId'], $result['titulo'], $result['contenido'], 
-             $result['lenguaje'], $result['privado'],$result['candado'],$result['estrellas']);			
+             $result['lenguaje'], $result['privado'],$result['candado']);			
             return $proj;
 		}
 		return null;
@@ -87,7 +86,7 @@ class DAOproject extends DAO {
 		if (count($result) > 0) {
 			$proj = new TOUproject($result['id'], 
             $result['userId'], $result['titulo'], $result['contenido'], 
-             $result['lenguaje'],$result['privado'], $result['candado'],$result['estrellas']);			
+             $result['lenguaje'],$result['privado'], $result['candado']);			
             return $proj;
 		}
 		return null;
@@ -100,7 +99,7 @@ class DAOproject extends DAO {
 		if (count($result) > 0) {
 			$proj = new TOUproject($result['id'], 
             $result['userId'], $result['titulo'], $result['contenido'], 
-             $result['lenguaje'], $result['privado'],$result['candado'],$result['estrellas']);			
+             $result['lenguaje'], $result['privado'],$result['candado']);			
             return $proj;
 		}
 		return null;
@@ -113,7 +112,7 @@ class DAOproject extends DAO {
         while($result = mysqli_fetch_assoc($query)){
             $proj = new TOUproject($result['id'], 
             $result['userId'], $result['titulo'], $result['contenido'], 
-             $result['lenguaje'], $result['privado'],$result['candado'],$result['estrellas']);			
+             $result['lenguaje'], $result['privado'],$result['candado']);			
 
             array_push($array, $proj);
         }
@@ -128,7 +127,7 @@ class DAOproject extends DAO {
         while($result = mysqli_fetch_assoc($query)){
             $proj = new TOUproject($result['id'], 
             $result['userId'], $result['titulo'], $result['contenido'], 
-             $result['lenguaje'], $result['privado'],$result['candado'],$result['estrellas']);			
+             $result['lenguaje'], $result['privado'],$result['candado']);			
 
             array_push($array, $proj);
         }

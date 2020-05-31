@@ -25,9 +25,9 @@ $post = $dao_post->search_post($id); //id viene del get de contenido
 
 if ($usuario == null) {
 	$username = "Usuario borrado";
-} else if ($usuario instanceof TOUser){
+} else if ($usuario instanceof TOUser) {
 	$username = $usuario->get_username();
-} 
+}
 $res = $dao_resp->show_all_answers($id);
 ?>
 
@@ -40,7 +40,7 @@ $res = $dao_resp->show_all_answers($id);
 
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300;1,100;0,200&display=swap" rel="stylesheet">
 	<link rel="icon" type="image/png" href="img/icon/unitools16.png" sizes="16x16">
-    <link rel="icon" type="image/png" href="img/icon/unitools32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="img/icon/unitools32.png" sizes="32x32">
 
 	<link rel="stylesheet" type="text/css" href="css/hoja_OG.css">
 	<link rel="stylesheet" type="text/css" href="css/side_OG.css">
@@ -69,78 +69,78 @@ $res = $dao_resp->show_all_answers($id);
 
 					<div class="pad_0 pst_prin">
 						<div class="fb-row field gr_smokywhite leftBorder">
-						
+
 							<div class="fb-col justify-content-center text-center" id="fr_nombre_foto">
-								<?php 
+								<?php
 								/*foto perfil*/
-								if ($usuario != null){
+								if ($usuario != null) {
 
 									$filePath = "img/fotosPerfil/" . $username . ".jpg";
 									if (file_exists($filePath)) { ?>
-									<td><img class="fr_pic" alt="foto_foro" src=" <?php echo $filePath ?>"></td>
+										<td><img class="fr_pic" alt="foto_foro" src=" <?php echo $filePath ?>"></td>
 									<?php } else { ?>
 										<td><img class="fr_pic" alt="foto_foro" src="img/Default_user_icon.jpg"></td>
-									<?php }
+								<?php }
 								} ?>
-							
-								<?php echo $username;?>
-							<div>
-						</div>
-					</div>
-					<div class ="fb-col" id="fr_txt">
-						<h1><?php echo $title; ?></h1>
-						<h2><?php echo $contenido; ?></h2>
-						<div class="btn btn_tomate">
-							<?php echo "<a onclick=\"location.href='respuesta.php?post=" . $post_id . "'\">Responder</a>"; ?>
-						</div>
-					</div>
-				</div>
-			</div>
-					
 
-				<?php
-				while (!empty($res)) {
-					$curr_resp = array_shift($res);
-					$resp_id = $curr_resp->get_id();
-					$post_id = $curr_resp->get_post(); // id del post
-					$usuarioResp = $dao_user->search_userId($curr_resp->get_user());
-					$date = $curr_resp->get_date();
-					$comentario = $curr_resp->get_content();
-
-					if ($usuarioResp == null) {
-						$username = "Usuario borrado";
-					} else if ($usuarioResp instanceof TOUser){
-						$username = $usuarioResp->get_username();
-				 }?>
-				
-					<div class="pad_0 pst_first">
-						<div class="fb-row field gr_smokywhite leftBorder">
-							<div class="fb-col justify-content-center text-center" id="fr_nombre_foto">
-								<?php 
-								/*foto perfil*/
-								if ($usuario != null){
-
-									$filePath = "img/fotosPerfil/" . $username . ".jpg";
-									if (file_exists($filePath)) { ?>
-									<td><img class="fr_pic" alt="foto_foro" src=" <?php echo $filePath ?>"></td>
-									<?php } else { ?>
-										<td><img class="fr_pic" alt="foto_foro" src="img/Default_user_icon.jpg"></td>
-									<?php }
-								} ?>
-							
-								<?php echo $username;?>
+								<?php echo $username; ?>
+								<div>
+								</div>
 							</div>
-
-							<div class ="fb-col pst_txt">
-								<?php echo $comentario ?>
+							<div class="fb-col" id="fr_txt">
+								<h1><?php echo $title; ?></h1>
+								<h2><?php echo $contenido; ?></h2>
 								<div class="btn btn_tomate">
-									<?php echo "<a  href=respuesta.php?post=" . $post_id . "&answer=" . $resp_id . ">Responder</a>"; ?>
+									<?php echo "<a onclick=\"location.href='respuesta.php?post=" . $post_id . "'\">Responder</a>"; ?>
 								</div>
 							</div>
 						</div>
 					</div>
-					
-					<?php 
+
+
+					<?php
+					while (!empty($res)) {
+						$curr_resp = array_shift($res);
+						$resp_id = $curr_resp->get_id();
+						$post_id = $curr_resp->get_post(); // id del post
+						$usuarioResp = $dao_user->search_userId($curr_resp->get_user());
+						$date = $curr_resp->get_date();
+						$comentario = $curr_resp->get_content();
+
+						if ($usuarioResp == null) {
+							$username = "Usuario borrado";
+						} else if ($usuarioResp instanceof TOUser) {
+							$username = $usuarioResp->get_username();
+						} ?>
+
+						<div class="pad_0 pst_first">
+							<div class="fb-row field gr_smokywhite leftBorder">
+								<div class="fb-col justify-content-center text-center" id="fr_nombre_foto">
+									<?php
+									/*foto perfil*/
+									if ($usuario != null) {
+
+										$filePath = "img/fotosPerfil/" . $username . ".jpg";
+										if (file_exists($filePath)) { ?>
+											<td><img class="fr_pic" alt="foto_foro" src=" <?php echo $filePath ?>"></td>
+										<?php } else { ?>
+											<td><img class="fr_pic" alt="foto_foro" src="img/Default_user_icon.jpg"></td>
+									<?php }
+									} ?>
+
+									<?php echo $username; ?>
+								</div>
+
+								<div class="fb-col pst_txt">
+									<?php echo $comentario ?>
+									<div class="btn btn_tomate">
+										<?php echo "<a  href=respuesta.php?post=" . $post_id . "&answer=" . $resp_id . ">Responder</a>"; ?>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<?php
 						$nested = $dao_resp->show_nested_answers($id, $resp_id);
 
 						while (!empty($nested)) {
@@ -153,51 +153,52 @@ $res = $dao_resp->show_all_answers($id);
 
 							if ($objUsuario == null) {
 								$username = "Usuario borrado";
-							} else if ($objUsuario instanceof TOUser){
+							} else if ($objUsuario instanceof TOUser) {
 								$username = $objUsuario->get_username();
 							} ?>
-							
+
 							<div class="pad_0 pst_rest">
 								<div class="fb-row field gr_smokywhite leftBorder">
 									<div class="fb-col justify-content-center text-center align-items-center" id="fr_nombre_foto">
-										<?php 
+										<?php
 										/*foto perfil*/
-										if ($objUsuario != null){
+										if ($objUsuario != null) {
 
 											$filePath = "img/fotosPerfil/" . $username . ".jpg";
 											if (file_exists($filePath)) { ?>
-											<td><img class="fr_pic" alt="foto_foro" src=" <?php echo $filePath ?>"></td>
+												<td><img class="fr_pic" alt="foto_foro" src=" <?php echo $filePath ?>"></td>
 											<?php } else { ?>
 												<td><img class="fr_pic" alt="foto_foro" src="img/Default_user_icon.jpg"></td>
-											<?php }
+										<?php }
 										} ?>
-										<?php echo $_SESSION['username'];?>
+										<?php echo $_SESSION['username']; ?>
 									</div>
 
-								<div class ="fb-col pst_txt">
-									<?php echo $comentario ?>
-								</div>
+									<div class="fb-col pst_txt">
+										<?php echo $comentario ?>
 									</div>
+								</div>
 							</div>
-						    <?php
+					<?php
 						}
-				}
-				?>
+					}
+					?>
+				</div>
+
 			</div>
 
-		</div>
+			<?php
+			//Botón de borrar visible para admins
+			if (isset($_SESSION['admin']) && $_SESSION['admin']) {
+				echo "<form action=\"post.php?id=" . $id . "\" method=\"post\">";
+				echo "<input type=\"submit\" name=\"borrarPost\" value=\"Borrar Post\" />";
+				echo "</form>";
+			}
+			$dao_user->disconnect();
+			?>
 
-		<?php
-		//Botón de borrar visible para admins
-		if (isset($_SESSION['admin']) && $_SESSION['admin']) {
-			echo "<form action=\"post.php?id=" . $id . "\" method=\"post\">";
-			echo "<input type=\"submit\" name=\"borrarPost\" value=\"Borrar Post\" />";
-			echo "</form>";
-		} $dao_user->disconnect();
-		?>
-		
-	</div>
-</div> <!-- Fin del contenedor -->
+		</div>
+	</div> <!-- Fin del contenedor -->
 
 </body>
 

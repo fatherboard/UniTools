@@ -26,30 +26,30 @@ include_once("includes/FormNewProject.php");
 </head>
 
 <body>
- <div class="contenedor">
+    <div class="contenedor">
 
-<?php //class="side_menu"
-require("includes/common/navegacion_OG.php");?>
+        <?php //class="side_menu"
+        require("includes/common/navegacion_OG.php"); ?>
 
-<?php //class="cabecera"
-require("includes/common/cabecera_OG.php");?>
+        <?php //class="cabecera"
+        require("includes/common/cabecera_OG.php"); ?>
 
-<div class="contenido">
+        <div class="contenido">
             <?php
             if (isset($_SESSION['login'])) {
-                if ($_SESSION['login']){ ?>
-                        <div class='fb-col box v-center' id='n_pr'>    
-                          <?php
-                            $newProject = new FormNewProject();
-                            $newProject->gestiona();
-            }
-                            ?>
-                        </div>                      
-            <?php 
-                }else{
-                    echo "Necesitas estar loggeado para hacer eso";
+                if ($_SESSION['login']) { ?>
+                    <div class='fb-col box v-center' id='n_pr'>
+                    <?php
+                    $newProject = new FormNewProject();
+                    $newProject->gestiona();
                 }
-            ?>
+                    ?>
+                    </div>
+                <?php
+            } else {
+                echo "Necesitas estar loggeado para hacer eso";
+            }
+                ?>
         </div>
 
     </div> <!-- Fin del contenedor -->

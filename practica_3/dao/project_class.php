@@ -9,11 +9,11 @@ class TOUproject {
 	private $contenido;
 	private $lenguaje;
   	private $candado;
-	private $estrellas;
+
 	private $privado;
 
 
-  function __construct($id='',$user='',$titulo='',$contenido='',$lenguaje='',$privado='',$candado='',$estrellas='')
+  function __construct($id='',$user='',$titulo='',$contenido='',$lenguaje='',$privado='',$candado='')
   {
     $this->id = $id;
     $this->user = $user;
@@ -22,7 +22,6 @@ class TOUproject {
     $this->lenguaje = $lenguaje;
     $this->privado = $privado;
     $this->candado = $candado;
-    $this->estrellas = $estrellas;
 
   }
    
@@ -33,7 +32,6 @@ class TOUproject {
 	$this->contenido = $columna['contenido'];
 	$this->lenguaje = $columna['lenguaje'];
     $this->candado = $columna['candado'];
-    $this->estrellas = $columna['estrellas'];
     $this->privado = $columna['privado'];
   }
   
@@ -61,9 +59,6 @@ public function set_lenguaje($lenguaje){
 		$this->candado = $candado;
 	}
   
-  public function set_estrellas($estrellas){
-		$this->estrellas = $estrellas;
-	}
   
   public function get_project(){
 	$columna = [
@@ -73,7 +68,6 @@ public function set_lenguaje($lenguaje){
 		"contenido" => $this->contenido,
 		"lenguaje" => $this->lenguaje,
         "candado" => $this->candado,
-        "estrellas" => $this->estrellas,
         "privado" => $this->privado
 		];
 
@@ -107,9 +101,4 @@ public function set_lenguaje($lenguaje){
   public function get_candado(){
 		return $this->candado;
 	}
-  
-  public function get_estrellas(){
-		return $this->estrellas;
-	}
-
  }
