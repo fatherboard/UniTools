@@ -327,7 +327,6 @@ CREATE TABLE `project` (
   `titulo` varchar(100) NOT NULL,
   `candado` tinyint(1) NOT NULL,
   `userId` int(11) NOT NULL,
-  `estrellas` int(11) NOT NULL,
   `privado` tinyint(1) NOT NULL,
   `lenguaje` varchar(50) NOT NULL,
   `contenido` varchar(200) NOT NULL
@@ -335,7 +334,7 @@ CREATE TABLE `project` (
 
 \end{lstlisting}
 
-El \textit{id}, es el identificador único. El \textit{título}, el que se elija para el Proyecto. El \textit{Candado} se utiliza para evitar problemas de conflictos modificando código simultáneamente (a modo de Mutex), las \textit{estrellas} se utilizan para que los usuarios puedan valorar los proyectos de sus compañeros, \textit{privado} es un booleano que puede ser modificado por los usuarios premium, \textit{lenguaje} se refiere al lenguaje de programación principal del proyecto y \textit{contenido} permite al usuario añadir una descripción de la temática del proyecto.
+El \textit{id}, es el identificador único. El \textit{título}, el que se elija para el Proyecto. El \textit{Candado} se utiliza para evitar problemas de conflictos modificando código simultáneamente (a modo de Mutex), las \textit{estrellas} se utilizan para que los usuarios puedan valorar los proyectos de sus compañeros, \textit{privado} es un booleano que puede ser modificado por los usuarios premium, \textit{lenguaje} se refiere al lenguaje de programación principal del proyecto y \textit{contenido} permite al usuario añadir una descripción de la temática del proyecto. Cabe resaltar que \textbf{esta tabla ya no tiene un campo estrellas, ya que eso se gestiona con la nueva tabla \textit{estrellas}.}
 
 
 \section{Instrucciones de instalación}
