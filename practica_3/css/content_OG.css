@@ -266,10 +266,57 @@ ul {
 
 /*V5*/
 
-#pr_data {
+#pr_1row {
+  margin: 2rem 0 0 0;
 }
 
 #pr_data {
+  flex-grow: 1;
+  margin: 0 2rem 0 2rem;
+}
+
+#pr_data > .b2 {
+  min-height: 12rem;
+}
+
+#pr_cont {
+  flex-grow: 3;
+  margin: 0 2rem 0 2rem;
+}
+
+#pr_cont > .b2 {
+  min-height: 12rem;
+}
+
+#pr_2row {
+  margin: 2rem 0 0 0;
+}
+
+#pr_upload {
+  flex-grow: 1;
+  margin: 0 2rem 0 2rem;
+}
+
+#pr_upload > .b2 {
+  min-height: 12rem;
+}
+
+#pr_perm {
+  flex-grow: 2;
+  margin: 0 2rem 0 2rem;
+}
+
+#pr_perm > .b2 {
+  min-height: 12rem;
+}
+
+#pr_newperm {
+  flex-grow: 2;
+  margin: 0 2rem 0 2rem;
+}
+
+#pr_newperm > .b2 {
+  min-height: 12rem;
 }
 /*--------------------------------------------------------------NUEVOS PROYECTOS (n_pr)-------------------------------------------------------------------*/
 #n_pr form {
@@ -686,9 +733,8 @@ a#fr_link {
   font-weight: 300;
   background-color: #ececec;
   color: #757680;
-  border: 1px solid #d1d3e2;  
+  border: 1px solid #d1d3e2;
 }
-
 
 /*------------------------------------------------------------------------INCLUDES/FORM RESPUESTA (form_reply)------------------------------------------------------------------------*/
 

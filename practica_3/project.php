@@ -76,7 +76,7 @@ include_once("dao/DAOestrellas.php");
 				</div>
 				<div class="fb-col b1">
 
-					<div class="fb-row sbs_b">
+					<div class="fb-row sbs_b jc_space-between" id="pr_1row">
 						<div class="fb-col sbs_e" id="pr_data">
 							<div class="t2 gr_black">
 							Información
@@ -121,7 +121,7 @@ include_once("dao/DAOestrellas.php");
 						</div>
 					</div> <?php /*end sbs_b*/ ?>
 						
-					<div class="fb-row">
+					<div class="fb-row jc_space-between" id="pr_2row">
 						
 						<div class="fb-col" id="pr_upload">
 							<div class="t2 gr_black">
