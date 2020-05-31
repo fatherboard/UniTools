@@ -174,7 +174,7 @@ Una vez un usuario crea un Proyecto, puede verlo desde su propio Perfil, donde a
 
 Todo esto lo hemos querido desarrollar sin dejar de tener en cuenta la \textbf{experiencia de usuario}, por lo que hemos dedicado mucho tiempo a conseguir un diseño completo gracias al CSS (con \textbf{Flex y Grid}), así como en añadir detalles como la música de fondo, y la posibilidad de personalizar la experiencia por parte del usuario cambiando entre el modo Dark (colores invertidos) y el normal. Igualmente, este proyecto se ha hecho además teniendo en cuenta las guías de la asignatura para un proyecto bien organizado (estructurado) y con buenas prácticas de programación web, como es el uso del \textbf{patrón DAO/Transfer Object} y el uso de \textbf{Ajax}, migrando todo finalmente a un VPS.
 
-La primera práctica que entregamos fue solo el comienzo de la web, mientras que la siguiente supuso un importante avance ya que organizamos nuestra página web haciendo uso de un esquema que dividía en cuatro partes (cabecera, navegación ó menú, contenido y pie), siendo el contenido el único que era actualizado dinámicamente, en función de las peticiones recbidas. En esa misma práctica comenzamos a desarrollar funcionalidades de Login y Registro haciendo uso de DAO así como Herramientas. La tercera práctica supuso el cambio más drástico, ya que conseguimos terminar el Foro, comenzar funcionalidades de Proyectos y de Perfil y añadir mejoras tanto en la Base de Datos como en los script, incluidos los Form. 
+La primera práctica que entregamos fue solo el comienzo de la web, mientras que la siguiente supuso un importante avance ya que organizamos nuestra página web haciendo uso de un esquema que dividía en cuatro partes (cabecera, navegación ó menú, contenido y pie), siendo el contenido el único que era actualizado dinámicamente, en función de las peticiones recibidas. En esa misma práctica comenzamos a desarrollar funcionalidades de Login y Registro haciendo uso de DAO así como Herramientas. La tercera práctica supuso el cambio más drástico, ya que conseguimos terminar el Foro, comenzar funcionalidades de Proyectos y de Perfil y añadir mejoras tanto en la Base de Datos como en los script, incluidos los Form. 
 
 Finalmente, en esta entrega del Proyecto Final hemos acabado de pulir el CSS, terminado las funcionalidades de Proyectos, hemos añadido otras tecnologías como Ajax, mejorado la Base de Datos y los script e incluido otras mejoras puntuales.
 
@@ -308,7 +308,7 @@ Este pop-up, que utiliza el script con Modal Box, se puede encontrar en \path{/s
 
 \section{Descripción de la Base de Datos}
 
-La Base de Datos ha ido creciendo con las sucesivas versiones de la web, y actualmente cuenta con multitud de tablas y relaciones entre sus campos. Existe una tabla SQL para representar a los usuarios, otra para las entradas del Foro (\textit{posts}), para cada proyecto (\textit{project}), repositorio, respuesta, y desde esta versión también \textit{permissions} para \textbf{los permisos del Proyecto}. Se ha creado además otra tabla \textbf{estrellas} para las valoraciones de los usuarios de los Proyectos.
+La Base de Datos ha ido creciendo con las sucesivas versiones de la web, y actualmente cuenta con multitud de tablas y relaciones entre sus campos. Existe una tabla SQL para representar a los usuarios, otra para las entradas del Foro (\textit{posts}), para cada proyecto (\textit{project}),  respuesta, y desde esta versión también \textit{permissions} para \textbf{los permisos del Proyecto}. Se ha creado además otra tabla \textbf{estrellas} para las valoraciones de los usuarios de los Proyectos.
 
 La tabla del usuario no contiene solo la información imprescindible, sino también otra como \textit{aboutMe}, para permitir a los usuarios personalizar su perfil.
 
@@ -316,7 +316,7 @@ Para poder dar una imagen global de las tablas, mostramos a continuación todas 
 
 \begin{figure}[!h]
  \centering
-  \includegraphics[width=1.2\linewidth]{bbdd.jpg}
+  \includegraphics[width=\linewidth]{30.jpg}
 \end{figure}
 
 La tabla de los proyectos es una de las más importantes, de modo que sería conveniente describirla brevemente aquí.
@@ -335,7 +335,7 @@ CREATE TABLE `project` (
 
 \end{lstlisting}
 
-El \textit{id}, es el identificador único. El \textit{título}, el que se elija para el Proyecto. El \textit{Candado} se utiliza para evitar problemas de conflictos modificando código simultáneamente (a modo de Mutex), las \textit{estrellas} se utilizan para que los usuarios puedan valorar los proyectos de sus compañeros, \textit{privado} es un booleano que puede ser modificado por los usuarios premium, \textit{lenguaje} se refiere al lenguaje de programación principal del proyecto y \textit{contenido} permite al usuario añadir una descripcción de la temática del proyecto.
+El \textit{id}, es el identificador único. El \textit{título}, el que se elija para el Proyecto. El \textit{Candado} se utiliza para evitar problemas de conflictos modificando código simultáneamente (a modo de Mutex), las \textit{estrellas} se utilizan para que los usuarios puedan valorar los proyectos de sus compañeros, \textit{privado} es un booleano que puede ser modificado por los usuarios premium, \textit{lenguaje} se refiere al lenguaje de programación principal del proyecto y \textit{contenido} permite al usuario añadir una descripción de la temática del proyecto.
 
 
 \section{Instrucciones de instalación}
@@ -360,7 +360,8 @@ La Base de Datos cuenta con información de ejemplo, y deberá importarse a \tex
 
 Es decir, para hacer funcionar la web con Xampp es imprescindible importar los archivos \path{/mysql/unitoolsdb.sql} y \path{/mysql/usuariosbd.sql} a una base de datos llamada UnitoolsDB en Phpmyadmin.
 
-Existe un \textbf{usuario de prueba con nombre \textit{bruno} con contraseña 1}.
+Existe un \textbf{usuario de prueba con nombre \textit{bruno} con contraseña 1}. También se puede adicionalmente entrar desde los usuarios \textit{carlos, fer, luis, hugo} y \textit{cansek} con la misma contraseña.
+
 \newpage
 
 \section{Descripción de trabajo y aportes individuales}
