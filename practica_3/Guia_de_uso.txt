@@ -7,13 +7,32 @@ luis
 cansek
 Las contraseñas de todos estos son 1. Tambien hemos añadido un usuario "profesor" con contraseña "profesor"
 
-Para poder poner toda la aplicación a funcionar en xampp hay que importar los archivos "unitoolsdb.sql" y "usuariosbd.sql" a una base de datos llamada UnitoolsDB en phpmyadmin
+Para poder poner toda la aplicación a funcionar en xampp hay que importar los archivos "unitoolsdb.sql" y "usuariosbd.sql" a una base de datos llamada UnitoolsDB en phpmyadmin.
+
+A pesar de los errores que nos ha producido el VPS, nustro proyecto está volcado en la plataforma siguiendo las instrucciones publicadas en el campus virutal.
 
 *************************GUÍA PARA LAS DIFERENTES FUNCIONES*************************
 
 - Para registrarse o iniciar sesión, hacer click en  los botones dedicados en la esquina superior derecha de la aplicación y rellenar los campos en los formularios
 
+- Para editar los diferentes campos del perfil hay que entrar en perfil, cambiar el dato que se quiera cambiar y clicar en enviar.
+
 - Para subir un post al foro, entrar en el apartado foro en la barra de navegación derecha y clicar en el botón "Nuevo Post" tras esto, rellenar el formulario y clicar en enviar. Importante estar logeado para poder acceder al foro
+
+- Para responder a un post, clicar en el boton "responder" en la caja del post o respuesta a la que se desea contestar. Tras esto, rellenar el formulario enviarlo.
+
+- Para entrar en un post y ver su contenido y las respuestas al mismo, clicar en cualquier parte de la caja del post deseado.
+
+- Para ver cualquier proyecto hacer click en cualquier parte de la caja del proyecto deseado. 
+
+- Para valorar un proyecto, al entrar dentro del proyecto en la parte superior hay varios iconos de "archivo" que son nuestras "estrellas" para valorar un proyecto. Una vez has valorado el proyecto aparecerá un número que es la media de
+  todas las valoraciones que se han hecho a ese proyecto. El usuario "profesor" no ha valorado ningún proyecto, es recomendable usar este si se quiere probar.
+
+- En el perfil de cada usuario se pueden ver los proyectos que ha subido dicho usuario y se puede acceder directamente a la información de los proyectos clicando en el título de cada uno.
+
+- En la parte final de la página de inicio se ha añadido un reproductor con el que puedes parar, ajustar el volumen o descargar la canción que se reproduce en la página.
+
+- Para añadir o quitar permisos a otros usuarios utilizar los botones dedicados en la pagina del proyecto que se quiere cambiar. Cada usuario puede modificar solo los permisos de sus proyectos.
 
 - Para subir un proyecto, entrar en el apartado de proyectos y clicar en el botón "Nuevo Proyecto" y rellenar los campos del formulario. tras esto tu proyecto estará creado. Para subir archivos a tu proyecto, entra en él clicando el 
   título en la lista de proyectos y clicar en el botón "Seleccionar archivo" en la parte inferior de la información del proyecto. Tras seleccionar el archivo clicar en el botón ¨Subir archivo¨, la página te avisará si el formato del 
