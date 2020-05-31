@@ -97,7 +97,7 @@ include_once("dao/DAOestrellas.php");
 							<td> <?php
 									if ($userType == 0 || $userType == 2) {
 										echo "<form action=\"\" method=\"post\">";
-										echo "<input type=\"submit\" name=\"updateCandado\" value=\"" . $lock . "\" />";
+										echo "<input class='btn btn_mango' type=\"submit\" name=\"updateCandado\" value=\"" . $lock . "\" />";
 										echo "</form>";
 									}
 									?> </td>
@@ -168,7 +168,7 @@ include_once("dao/DAOestrellas.php");
 							if ($userType == 0 && ($username != $_SESSION['username'])) {
 								echo "<form action=\"\" onsubmit=\"return confirm('¿Estás segur@ de que quieres borrar el permiso de " . $username . "?');\" method=\"post\">";
 								echo "<input type=\"hidden\" name=\"user\" value=\"" . $username . "\" />";
-								echo "<input type=\"submit\" name=\"borrarPermiso\" value=\"Borrar Permiso\" />";
+								echo "<input class='btn btn_mango' type=\"submit\" name=\"borrarPermiso\" value=\"Borrar Permiso\" />";
 								echo "</form>";
 							}
 							echo "</td>";
@@ -201,7 +201,7 @@ include_once("dao/DAOestrellas.php");
 
 								</td>
 								<td>
-									<input type="submit" name="addPermiso" form="addPermiso" value="Añadir Permiso" />
+									<input class="btn btn_mango" type="submit" name="addPermiso" form="addPermiso" value="Añadir Permiso" />
 								</td>
 							</tr>
 						</table>
@@ -231,7 +231,7 @@ include_once("dao/DAOestrellas.php");
 												if ($file_name != '.' && $file_name != '..') {
 													echo '<tr><td><a href="' . $dir_path . '/' . $file_name . '" download>' . $file_name . '</a></td>';
 													if (($userType == 0 || $userType == 2) && $candado == 0)
-														echo '<td><a href="project.php?id=' . $id . '&delete=' . $file_name . '" onClick="return confirm(\'¿Estás segur@ de que quieres borrar ' . $file_name . '?\');"> Borrar archivo</a></td></tr>';
+														echo '<td><a class="btn btn_mango" href="project.php?id=' . $id . '&delete=' . $file_name . '" onClick="return confirm(\'¿Estás segur@ de que quieres borrar ' . $file_name . '?\');"> Borrar archivo</a></td></tr>';
 												}
 											}
 										}
@@ -247,8 +247,8 @@ include_once("dao/DAOestrellas.php");
 					<?php
 					if (($userType == 0 || $userType == 2) && $candado == 0) {
 						echo '<form action="uploadProject.php" method="POST" enctype="multipart/form-data">
-						<input type="file" name="file">
-						<button type="submit" name="submit">Subir archivo</button>
+						<input class="boton_subir_archivo" type="file" name="file">
+						<button class="btn btn_mango" type="submit" name="submit">Subir archivo</button>
 					</form>';
 					} else echo "No puedes realizar cambios en los archivos en este momento";
 
