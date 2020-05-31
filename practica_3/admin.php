@@ -9,7 +9,7 @@ if (!isset($_SESSION)) {
 
 <head>
     <link rel="stylesheet" type="text/css" href="css/hoja.css">
-    <title>INDEX</title>
+    <title>ADMIN</title>
     <meta charset="UTF-8">
 </head>
 

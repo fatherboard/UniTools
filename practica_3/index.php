@@ -9,7 +9,7 @@
 <html>
 
 <head>
-    <title>INDEX</title>
+    <title>INICIO</title>
     <meta charset="UTF-8">
 
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300;1,100;0,200&display=swap" rel="stylesheet">

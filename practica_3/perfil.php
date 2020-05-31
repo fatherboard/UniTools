@@ -57,7 +57,7 @@ if (isset($_POST['aboutMe'])) {
 <html>
 
 <head>
-  <title>INDEX</title>
+  <title>PERFIL</title>
   <meta charset="UTF-8">
 
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300;1,100;0,200;0,500&display=swap" rel="stylesheet">
