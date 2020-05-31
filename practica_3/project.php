@@ -7,37 +7,6 @@ include_once("dao/dao_user.php");
 include_once("dao/DAOpermissions.php");
 include_once("dao/DAOestrellas.php");
 
-	$proj_data = new TOUproject();
-	$dao_proj = new DAOproject();
-	$dao_user = new DAOUsuario();
-	$dao_estrellas = new DAOestrellas();
-	$id = $_GET["id"];
-	$_SESSION['project'] = $id;
-
-	$curr_proj = $dao_proj->search_project($id);
-	$proj_id = $curr_proj->get_id(); // id del project
-	$usuario = $dao_user->search_userId($curr_proj->get_user());
-	$userId = $usuario->get_id();
-	$dao_perm = new DAOpermissions();
-	$userPerm = $dao_perm->show_permissions($proj_id, $userId);
-	$userType = $userPerm->get_type();
-	$lenguaje = $curr_proj->get_lenguaje();
-	$title = $curr_proj->get_titulo();
-	$estrellas = $curr_proj->get_estrellas();
-	$contenido = $curr_proj->get_contenido();
-	$candado = $curr_proj->get_candado();
-
-	if ($usuario == null) {
-		$username = "Usuario borrado";
-	} else if ($usuario instanceof TOUser){
-		$username = $usuario->get_username();
-	}
-
-	if ($candado == true) {
-		$lock = "ON";
-	} else {
-		$lock = "OFF";
-	}
 ?>
 
 <!DOCTYPE html>
@@ -49,7 +18,7 @@ include_once("dao/DAOestrellas.php");
 
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300;1,100;0,200&display=swap" rel="stylesheet">
 	<link rel="icon" type="image/png" href="img/icon/unitools16.png" sizes="16x16">
-    <link rel="icon" type="image/png" href="img/icon/unitools32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="img/icon/unitools32.png" sizes="32x32">
 
 	<link rel="stylesheet" type="text/css" href="css/hoja_OG.css">
 	<link rel="stylesheet" type="text/css" href="css/side_OG.css">
@@ -68,11 +37,45 @@ include_once("dao/DAOestrellas.php");
 		require("includes/common/cabecera_OG.php"); ?>
 
 		<div class="contenido">
-			
+			<?php
+			$proj_data = new TOUproject();
+			$dao_proj = new DAOproject();
+			$dao_user = new DAOUsuario();
+			$dao_estrellas = new DAOestrellas();
+			$id = $_GET["id"];
+			$_SESSION['project'] = $id;
+
+			$curr_proj = $dao_proj->search_project($id);
+			$proj_id = $curr_proj->get_id(); // id del project
+			$usuario = $dao_user->search_userId($curr_proj->get_user());
+			$userId = $usuario->get_id();
+			$dao_perm = new DAOpermissions();
+			$userView = $dao_user->search_username($_SESSION['username']);
+			$userViewId = $userView->get_id();
+			$userPerm = $dao_perm->show_permissions($proj_id, $userViewId);
+			$userType = $userPerm->get_type();
+			$lenguaje = $curr_proj->get_lenguaje();
+			$title = $curr_proj->get_titulo();
+			$estrellas = $curr_proj->get_estrellas();
+			$contenido = $curr_proj->get_contenido();
+			$candado = $curr_proj->get_candado();
+
+			if ($usuario == null) {
+				$username = "Usuario borrado";
+			} else if ($usuario instanceof TOUser) {
+				$username = $usuario->get_username();
+			}
+
+			if ($candado == true) {
+				$lock = "ON";
+			} else {
+				$lock = "OFF";
+			}
+			?>
 			<div class="fb-col box">
 
-				<div class="t1">
-					<h1><?php echo "Proyecto: " . $title ?></h1>
+				<div class="t1 fb-row">
+					<h1>Proyecto</h1>
 				</div>
 				<div class="fb-col b1">
 
@@ -88,11 +91,13 @@ include_once("dao/DAOestrellas.php");
 								<li> 
 								<?php if ($userType == 0 || $userType == 2) {
 										echo "<form action=\"\" method=\"post\">";
-										echo "Candado: <input class=\"btn btn_mango\" type=\"submit\" name=\"updateCandado\" value=\"" . $lock . "\" />";
-										echo "</form>"; } ?>
-								</li>
-								<li>
-									<?php if (!$dao_estrellas->inEstrellas($proj_id, $userId)) {
+										echo "<input type=\"submit\" name=\"updateCandado\" value=\"" . $lock . "\" />";
+										echo "</form>";
+									}
+									?> </td>
+							<td> <?php
+
+									if (!$dao_estrellas->inEstrellas($proj_id, $userId)) {
 										echo '<form action="" method="post" id="valorar"></form>';
 										echo '<div class="rating">';
 										echo '<input type="hidden" name="user" form="valorar" value=' . $username . ' />';
@@ -102,9 +107,8 @@ include_once("dao/DAOestrellas.php");
 										echo '<input type="radio" name="estrella" form="valorar" id="estrella4" value="2"><label for="estrella4"></label>';
 										echo '<input type="radio" name="estrella" form="valorar" id="estrella5" value="1"><label for="estrella5"></label>';
 										echo '</div>';
-										echo '<input type="submit" name="votar" form="valorar" value="Votar" />'; 
-									}
-									else {
+										echo '<input type="submit" name="votar" form="valorar" value="Votar" />';
+									} else {
 										echo $dao_estrellas->show_project_estrellas($proj_id);
 									} ?>
 								</li>
@@ -170,59 +174,66 @@ include_once("dao/DAOestrellas.php");
 								<div id="pr_tipo">
 									<input type="radio" form="addPermiso" checked="checked" name="type" value="1"> Lectura <br>
 									<input type="radio" form="addPermiso" name="type" value="2"> Escritura <br>
-								</div>
-								<input class="btn btn_mango" type="submit" name="addPermiso" form="addPermiso" value="Añadir Permiso" />
-							</div>
-						</div>
 
-						<div class="fb-col" id="pr_perm">
-							<div class="t2 gr_black">
-							Permisos
-							</div>
-							<div class="b2 fb-col">
+								</td>
+								<td>
+									<input type="submit" name="addPermiso" form="addPermiso" value="Añadir Permiso" />
+								</td>
+							</tr>
+						</table>
+					<?php
+
+					}
+
+					?>
+
+
+
+					<table>
+						<tr>
+							<th> Archivos Subidos</th>
+						</tr>
+						<tr>
+
 							<?php
 
-							$res = $dao_perm->show_project_perm($id);
+							if ($userType == 0 || $userType == 1 || $userType == 2) {
+								$dir_path = "proyectos/" . $id;
 
-							while (!empty($res)) {
-								$curr_perm = array_shift($res);
-								$proj_id = $curr_perm->get_project(); // id del project
-								$usuario = $dao_user->search_userId($curr_perm->get_user());
-								$type = $curr_perm->get_type();
-
-								if ($usuario == null) {
-									$username = "Usuario borrado";
-								} else if ($usuario instanceof TOUser){
-									$username = $usuario->get_username();
-								}
-
-								if ($type == 0) {
-									$permiso = "Creador";
-								} else if ($type == 1) {
-									$permiso = "Lectura";
-								} else if ($type == 2) {
-									$permiso = "Escritura";
-								} else $permiso = "Sin permisos";
-
-								echo $username . " - " ;
-								echo $permiso . "</br>";
-								if ($userType == 0 && ($username != $_SESSION['username'] && $type != 0)) {
-									echo "<form action=\"\" onsubmit=\"return confirm('¿Estás segur@ de que quieres borrar el permiso de " . $username . "?');\" method=\"post\">";
-									echo "<input type=\"hidden\" name=\"user\" value=\"" . $username . "\" />";
-									echo "<input class=\"btn btn_mango\" type=\"submit\" name=\"borrarPermiso\" value=\"Borrar Permiso\" />";
-									echo "</form>";
+								if (is_dir($dir_path)) {
+									$files = opendir($dir_path); {
+										if ($files) {
+											while (($file_name = readdir($files)) !== FALSE) {
+												if ($file_name != '.' && $file_name != '..') {
+													echo '<tr><td><a href="' . $dir_path . '/' . $file_name . '" download>' . $file_name . '</a></td>';
+													if (($userType == 0 || $userType == 2) && $candado == 0)
+														echo '<td><a href="project.php?id=' . $id . '&delete=' . $file_name . '" onClick="return confirm(\'¿Estás segur@ de que quieres borrar ' . $file_name . '?\');"> Borrar archivo</a></td></tr>';
+												}
+											}
+										}
+									}
 								}
 							}
-							?>
-							</div>
-						</div>
 
-					</div> <?php /*end sbs_b*/ ?>
-				</div> <?php /*cierra b1*/ ?>
+							?>
+
+						</tr>
+					</table>
+
+					<?php
+					if (($userType == 0 || $userType == 2) && $candado == 0) {
+						echo '<form action="uploadProject.php" method="POST" enctype="multipart/form-data">
+						<input type="file" name="file">
+						<button type="submit" name="submit">Subir archivo</button>
+					</form>';
+					} else echo "No puedes realizar cambios en los archivos en este momento";
+
+					?>
 
 					<?php
 					$dao_user->disconnect(); ?>
-				
+
+				</div>
 			</div>
 		</div>
 	</div> <!-- Fin del contenedor -->
@@ -276,8 +287,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['addPermiso'])) {
 		else {
 			echo '<meta http-equiv="refresh" content="0">';
 		}
-	}
-	else {
+	} else {
 		echo "No se ha podido encontrar el usuario";
 	}
 
@@ -299,8 +309,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['votar'])) {
 		else {
 			echo '<meta http-equiv="refresh" content="0">';
 		}
-	}
-	else {
+	} else {
 		echo "No se ha podido encontrar el usuario";
 	}
 
